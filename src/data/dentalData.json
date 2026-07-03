@@ -1,0 +1,16 @@
+[
+  {
+    "courseCode": "D001",
+    "collegeName": "Government Dental College, Bengaluru",
+    "type": "Government",
+    "fees": 55000,
+    "cutoffs": {
+      "R1": {
+        "GM": 35000
+      },
+      "R2": {
+        "GM": 41000
+      }
+    }
+  }
+]

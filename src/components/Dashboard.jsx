@@ -371,7 +371,7 @@ export default function Dashboard() {
                 <div className="predictor-teaser-action">
                   <input
                     type="number"
-                    placeholder="Enter rank"
+                    placeholder="Enter your rank"
                     value={userRank}
                     onChange={(e) => setUserRank(e.target.value)}
                   />

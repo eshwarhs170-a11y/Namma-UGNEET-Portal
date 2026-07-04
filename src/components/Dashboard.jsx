@@ -3,11 +3,48 @@ import logo from '../assets/namma-ugneet-logo.png';
 import './Dashboard.css';
 
 const SAVED_KEY = 'namma_saved_colleges';
+const PROFILES_KEY = 'namma_saved_profiles';
 const makeId = (item) => `${item.year}-${item.stream}-${item.round}-${item.serialNo}-${item.category}`;
+
+// Plain-language explanations for common KEA reservation category codes.
+// Codes not listed here still work in the app — they just show a generic fallback in the glossary.
+const CATEGORY_GLOSSARY = {
+  GM: 'General Merit — open to all candidates regardless of category.',
+  '1G': 'Category I (Karnataka) — reserved for a specific backward class group.',
+  '1K': 'Category I, Kannada-medium background.',
+  '1R': 'Category I, rural background.',
+  '2AG': 'Category IIA — general.',
+  '2AK': 'Category IIA, Kannada-medium background.',
+  '2AR': 'Category IIA, rural background.',
+  '2BG': 'Category IIB (mainly Muslim community reservation) — general.',
+  '2BK': 'Category IIB, Kannada-medium background.',
+  '2BR': 'Category IIB, rural background.',
+  '3AG': 'Category IIIA — general.',
+  '3AK': 'Category IIIA, Kannada-medium background.',
+  '3AR': 'Category IIIA, rural background.',
+  '3BG': 'Category IIIB — general.',
+  '3BK': 'Category IIIB, Kannada-medium background.',
+  '3BR': 'Category IIIB, rural background.',
+  SC: 'Scheduled Caste reservation.',
+  ST: 'Scheduled Tribe reservation.',
+  GMP: 'General Merit, Physically Challenged (PWD) reservation.',
+  NRI: 'Non-Resident Indian quota — separate, higher fee structure.',
+  MNG: 'Management quota seat (private college discretion).',
+  OPN: 'Open/unreserved seat within a private or deemed college quota.',
+  OTH: 'Other/general category, typically used for private college quotas.',
+  KM: 'Kannada Medium candidate reservation.',
+  EWS: 'Economically Weaker Section reservation.',
+};
+
+const getCategoryMeaning = (code) =>
+  CATEGORY_GLOSSARY[code] || 'Karnataka counselling reservation/quota code — refer to the official KEA notification for exact eligibility rules.';
+
+const OPTIONS_KEY = 'namma_option_entries';
+const makeOptionId = (item) => `${item.year}-${item.stream}-${item.round}-${item.serialNo}-${item.category}`;
 
 export default function Dashboard() {
   // Navigation & View State
-  const [activeTab, setActiveTab] = useState('explore');
+  const [activeTab, setActiveTab] = useState('home');
 
   // Dataset is now fetched at runtime from public/data/ instead of bundled directly into the JS —
   // a ~74,000-record JSON was making the app itself slow to load when imported statically.
@@ -41,9 +78,11 @@ export default function Dashboard() {
   const TOUR_KEY = 'namma_tour_seen';
   const tourSteps = [
     { title: '🎯 Quick Predict', body: 'Enter your NEET rank right on this page to jump straight into the Smart College Predictor.' },
-    { title: '🎚️ Quick Filters', body: 'Search by name, filter by stream, category, round, and budget — all update the table live.' },
-    { title: '☆ Save Colleges', body: 'Tap the star on any row or predictor card to bookmark it. Saved colleges show up in the sidebar.' },
-    { title: '☰ Sidebar', body: 'Use the edge handle (top-left) to open the sidebar anytime for live stats and your saved list.' },
+    { title: '🎚️ Quick Filters', body: 'Search by name, filter by stream, category, round, and year — all update the table live.' },
+    { title: '☆ Save Colleges', body: 'Tap the star on any row or predictor card to bookmark it. Saved colleges show up in the sidebar — save 2+ to unlock the Compare button.' },
+    { title: '🏫 College Details', body: 'Tap any college name to see every category, round, and year cutoff for that college, plus a private notes box just for you.' },
+    { title: '👤 Save Rank Profiles', body: 'Checking ranks for a sibling or friend too? Save each search as a named profile in the sidebar for one-click reloading.' },
+    { title: '☰ Sidebar', body: 'Use the edge handle (top-left) to open the sidebar anytime for live stats, filters, and your saved lists.' },
   ];
   const [tourOpen, setTourOpen] = useState(false);
   const [tourStep, setTourStep] = useState(0);
@@ -144,6 +183,123 @@ export default function Dashboard() {
 
   const removeSaved = (id) => setSavedColleges((prev) => prev.filter((s) => s.id !== id));
 
+  // --- Category glossary modal ---
+  const [glossaryOpen, setGlossaryOpen] = useState(false);
+
+  // --- Compare saved colleges ---
+  const [compareOpen, setCompareOpen] = useState(false);
+
+  // --- Copy/share predictor results ---
+  const [copyFeedback, setCopyFeedback] = useState(false);
+
+  // --- College detail modal + personal notes ---
+  const [selectedCollege, setSelectedCollege] = useState(null); // { collegeCode, stream, collegeName }
+  const NOTES_KEY = 'namma_college_notes';
+  const [collegeNotes, setCollegeNotes] = useState(() => {
+    try {
+      const raw = localStorage.getItem(NOTES_KEY);
+      return raw ? JSON.parse(raw) : {};
+    } catch {
+      return {};
+    }
+  });
+  useEffect(() => {
+    try { localStorage.setItem(NOTES_KEY, JSON.stringify(collegeNotes)); } catch { /* ignore */ }
+  }, [collegeNotes]);
+
+  // --- Saved rank profiles (e.g. "Me", "Cousin's rank") ---
+  const [profiles, setProfiles] = useState(() => {
+    try {
+      const raw = localStorage.getItem(PROFILES_KEY);
+      return raw ? JSON.parse(raw) : [];
+    } catch {
+      return [];
+    }
+  });
+  const [newProfileName, setNewProfileName] = useState('');
+
+  useEffect(() => {
+    try { localStorage.setItem(PROFILES_KEY, JSON.stringify(profiles)); } catch { /* ignore */ }
+  }, [profiles]);
+
+  const saveCurrentAsProfile = () => {
+    if (!newProfileName.trim() || !userRank) return;
+    const profile = {
+      id: Date.now().toString(),
+      name: newProfileName.trim(),
+      rank: userRank,
+      category: predictorCategory,
+      stream: predictorStream,
+      round: predictorRound,
+      year: predictorYear,
+    };
+    setProfiles((prev) => [...prev, profile]);
+    setNewProfileName('');
+  };
+
+  const loadProfile = (p) => {
+    setUserRank(p.rank);
+    setPredictorCategory(p.category);
+    setPredictorStream(p.stream);
+    setPredictorRound(p.round);
+    setPredictorYear(p.year);
+    setActiveTab('predictor');
+  };
+
+  const deleteProfile = (id) => setProfiles((prev) => prev.filter((p) => p.id !== id));
+
+  // --- Option Entry Generator: build a ranked preference list, mirroring KEA's real "Option Entry" step ---
+  const [optionEntries, setOptionEntries] = useState(() => {
+    try {
+      const raw = localStorage.getItem(OPTIONS_KEY);
+      return raw ? JSON.parse(raw) : [];
+    } catch {
+      return [];
+    }
+  });
+
+  useEffect(() => {
+    try { localStorage.setItem(OPTIONS_KEY, JSON.stringify(optionEntries)); } catch { /* ignore */ }
+  }, [optionEntries]);
+
+  const isInOptionList = (item) => optionEntries.some((o) => o.id === makeOptionId(item));
+
+  const addToOptionList = (item) => {
+    const id = makeOptionId(item);
+    if (optionEntries.some((o) => o.id === id)) return;
+    setOptionEntries((prev) => [...prev, { id, ...item }]);
+  };
+
+  const removeFromOptionList = (id) => setOptionEntries((prev) => prev.filter((o) => o.id !== id));
+
+  const moveOption = (index, direction) => {
+    setOptionEntries((prev) => {
+      const next = [...prev];
+      const target = index + direction;
+      if (target < 0 || target >= next.length) return prev;
+      [next[index], next[target]] = [next[target], next[index]];
+      return next;
+    });
+  };
+
+  const clearOptionList = () => {
+    if (window.confirm('Clear your entire option entry list? This cannot be undone.')) {
+      setOptionEntries([]);
+    }
+  };
+
+  const [optionCopyFeedback, setOptionCopyFeedback] = useState(false);
+  const copyOptionList = () => {
+    const lines = optionEntries.map((o, i) =>
+      `Option ${i + 1}: ${o.collegeName} (${o.collegeCode}) — ${o.courseDetails}, ${o.category} [${o.round} ${o.year}]`
+    );
+    const text = `NammaUGNEET — My Option Entry Preference List\n\n${lines.join('\n')}\n\nGenerated for reference only. Always submit your actual option entry on the official KEA portal.`;
+    navigator.clipboard.writeText(text).then(() => {
+      setOptionCopyFeedback(true);
+      setTimeout(() => setOptionCopyFeedback(false), 2000);
+    });
+  };
+
   // --- UNIQUE DROPDOWN OPTIONS LIST GENERATORS ---
   const dynamicCategories = useMemo(() => {
     const categoriesSet = new Set(medicalData.map((item) => item.category));
@@ -204,6 +360,51 @@ export default function Dashboard() {
     return Math.round(total / list.length);
   }, [filteredDashboardData, predictedColleges, activeTab]);
 
+  // Index: stream|category|collegeCode -> [{round, year, rank}] — powers the round/year trend
+  // display on predictor cards without re-scanning the full 74k-record dataset per card.
+  const trendIndex = useMemo(() => {
+    const map = {};
+    medicalData.forEach((item) => {
+      const key = `${item.stream}|${item.category}|${item.collegeCode}`;
+      if (!map[key]) map[key] = [];
+      map[key].push({ round: item.round, year: item.year, rank: item.rank });
+    });
+    return map;
+  }, [medicalData]);
+
+  const getTrends = (item) => {
+    const key = `${item.stream}|${item.category}|${item.collegeCode}`;
+    const entries = trendIndex[key] || [];
+    const roundsThisYear = entries.filter((e) => e.year === item.year);
+    const otherYearSameRound = entries.filter((e) => e.round === item.round && e.year !== item.year);
+    return { roundsThisYear, otherYearSameRound };
+  };
+
+  // Index: stream|collegeCode -> [full records] — powers the college detail modal
+  const collegeCodeIndex = useMemo(() => {
+    const map = {};
+    medicalData.forEach((item) => {
+      const key = `${item.stream}|${item.collegeCode}`;
+      if (!map[key]) map[key] = [];
+      map[key].push(item);
+    });
+    return map;
+  }, [medicalData]);
+
+  const getCollegeRecords = (stream, collegeCode) => collegeCodeIndex[`${stream}|${collegeCode}`] || [];
+
+  const copyPredictedResults = () => {
+    const lines = predictedColleges.slice(0, 15).map((item, i) =>
+      `${i + 1}. ${item.collegeName} (${item.collegeCode}) — ${item.courseDetails}, ${item.category}, ₹${item.fees.toLocaleString('en-IN')}, Cutoff ${item.rank.toLocaleString('en-IN')} [${item.round} ${item.year}]`
+    );
+    const header = `NammaUGNEET — Predicted colleges for Rank ${userRank} (${predictorCategory}, ${predictorStream}):\n\n`;
+    const text = header + lines.join('\n');
+    navigator.clipboard.writeText(text).then(() => {
+      setCopyFeedback(true);
+      setTimeout(() => setCopyFeedback(false), 2000);
+    });
+  };
+
   if (dataLoading) {
     return (
       <div className="loading-screen">
@@ -224,6 +425,143 @@ export default function Dashboard() {
 
   return (
     <div className="app-shell">
+
+      {/* CATEGORY GLOSSARY MODAL */}
+      {glossaryOpen && (
+        <div className="tour-backdrop" onClick={() => setGlossaryOpen(false)}>
+          <div className="glossary-card" onClick={(e) => e.stopPropagation()}>
+            <div className="glossary-header">
+              <h3>📖 Category Guide</h3>
+              <button className="modal-close-btn" onClick={() => setGlossaryOpen(false)} aria-label="Close">✕</button>
+            </div>
+            <p className="glossary-intro">What KEA reservation/quota category codes mean:</p>
+            <div className="glossary-list">
+              {dynamicCategories.map((cat) => (
+                <div key={cat} className="glossary-row">
+                  <span className="glossary-code">{cat}</span>
+                  <span className="glossary-meaning">{getCategoryMeaning(cat)}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* COMPARE COLLEGES MODAL */}
+      {compareOpen && (
+        <div className="tour-backdrop" onClick={() => setCompareOpen(false)}>
+          <div className="compare-card" onClick={(e) => e.stopPropagation()}>
+            <div className="glossary-header">
+              <h3>⚖️ Compare Saved Colleges</h3>
+              <button className="modal-close-btn" onClick={() => setCompareOpen(false)} aria-label="Close">✕</button>
+            </div>
+            <div className="compare-table-wrap">
+              <table className="compare-table">
+                <thead>
+                  <tr>
+                    <th>College</th>
+                    <th>Category</th>
+                    <th>Round</th>
+                    <th>Year</th>
+                    <th>Fees</th>
+                    <th>Cutoff</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {savedColleges.map((s) => (
+                    <tr key={s.id}>
+                      <td>
+                        <strong className="code-cell">{s.collegeCode}</strong>
+                        <div className="compare-college-name">{s.collegeName}</div>
+                      </td>
+                      <td>{s.category}</td>
+                      <td>{s.round}</td>
+                      <td>{s.year}</td>
+                      <td className="fees-cell">₹{s.fees.toLocaleString('en-IN')}</td>
+                      <td><span className="rank-pill">{s.rank.toLocaleString('en-IN')}</span></td>
+                      <td><button className="modal-close-btn" onClick={() => removeSaved(s.id)} aria-label="Remove">✕</button></td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* COLLEGE DETAIL MODAL */}
+      {selectedCollege && (
+        <div className="tour-backdrop" onClick={() => setSelectedCollege(null)}>
+          <div className="college-detail-card" onClick={(e) => e.stopPropagation()}>
+            <div className="glossary-header">
+              <h3>{selectedCollege.collegeName}</h3>
+              <button className="modal-close-btn" onClick={() => setSelectedCollege(null)} aria-label="Close">✕</button>
+            </div>
+            <p className="glossary-intro">KEA Code: <strong>{selectedCollege.collegeCode}</strong></p>
+
+            {(() => {
+              const records = getCollegeRecords(selectedCollege.stream, selectedCollege.collegeCode);
+              const courses = Array.from(new Set(records.map((r) => r.courseDetails))).sort();
+              const fees = records.map((r) => r.fees);
+              const minFee = fees.length ? Math.min(...fees) : 0;
+              const maxFee = fees.length ? Math.max(...fees) : 0;
+
+              return (
+                <>
+                  <div className="college-stat-row">
+                    <div><span className="stat-label">Courses Offered</span><br /><strong>{courses.join(', ') || '—'}</strong></div>
+                    <div><span className="stat-label">Fee Range</span><br /><strong>₹{minFee.toLocaleString('en-IN')} – ₹{maxFee.toLocaleString('en-IN')}</strong></div>
+                    <div><span className="stat-label">Total Records</span><br /><strong>{records.length}</strong></div>
+                  </div>
+
+                  <h4 className="college-subheading">Cutoffs across categories, rounds &amp; years</h4>
+                  <div className="compare-table-wrap" style={{ maxHeight: '260px' }}>
+                    <table className="compare-table">
+                      <thead>
+                        <tr>
+                          <th>Category</th>
+                          <th>Round</th>
+                          <th>Year</th>
+                          <th>Cutoff Rank</th>
+                          <th>Fees</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {records
+                          .slice()
+                          .sort((a, b) => a.year.localeCompare(b.year) || a.round.localeCompare(b.round) || a.rank - b.rank)
+                          .map((r, i) => (
+                            <tr key={i}>
+                              <td>{r.category}</td>
+                              <td><span className="pill">{r.round}</span></td>
+                              <td><span className="pill">{r.year}</span></td>
+                              <td><span className="rank-pill">{r.rank.toLocaleString('en-IN')}</span></td>
+                              <td className="fees-cell">₹{r.fees.toLocaleString('en-IN')}</td>
+                            </tr>
+                          ))}
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <h4 className="college-subheading">📝 My Notes</h4>
+                  <p className="glossary-intro" style={{ marginBottom: '8px' }}>
+                    Personal notes only — saved on this device, not shared with anyone.
+                  </p>
+                  <textarea
+                    className="notes-textarea"
+                    placeholder="e.g. Ask about hostel availability, check placement record..."
+                    value={collegeNotes[selectedCollege.collegeCode] || ''}
+                    onChange={(e) =>
+                      setCollegeNotes((prev) => ({ ...prev, [selectedCollege.collegeCode]: e.target.value }))
+                    }
+                  />
+                </>
+              );
+            })()}
+          </div>
+        </div>
+      )}
 
       {/* FEATURE TOUR OVERLAY */}
       {tourOpen && (
@@ -258,6 +596,13 @@ export default function Dashboard() {
         ✨ Tour
       </button>
 
+      {/* FLOATING COMPARE BUTTON — only shows once there's something worth comparing */}
+      {savedColleges.length >= 2 && (
+        <button className="compare-fab" onClick={() => setCompareOpen(true)}>
+          ⚖️ Compare ({savedColleges.length})
+        </button>
+      )}
+
       {/* BACKDROP (mobile only, dims content behind the open sidebar) */}
       {sidebarOpen && <div className="sidebar-backdrop" onClick={() => { userToggledRef.current = true; setSidebarOpen(false); }} />}
 
@@ -289,6 +634,15 @@ export default function Dashboard() {
 
         <nav className="sidebar-nav">
           <button
+            className={activeTab === 'home' ? 'active' : ''}
+            onClick={() => {
+              setActiveTab('home');
+              if (window.matchMedia('(max-width: 880px)').matches) setSidebarOpen(false);
+            }}
+          >
+            🏠 Home
+          </button>
+          <button
             className={activeTab === 'explore' ? 'active' : ''}
             onClick={() => {
               setActiveTab('explore');
@@ -305,6 +659,24 @@ export default function Dashboard() {
             }}
           >
             🎯 Smart College Predictor
+          </button>
+          <button
+            className={activeTab === 'options' ? 'active' : ''}
+            onClick={() => {
+              setActiveTab('options');
+              if (window.matchMedia('(max-width: 880px)').matches) setSidebarOpen(false);
+            }}
+          >
+            📝 Option Entry List {optionEntries.length > 0 && `(${optionEntries.length})`}
+          </button>
+          <button
+            className={activeTab === 'contact' ? 'active' : ''}
+            onClick={() => {
+              setActiveTab('contact');
+              if (window.matchMedia('(max-width: 880px)').matches) setSidebarOpen(false);
+            }}
+          >
+            ✉️ Contact &amp; About
           </button>
         </nav>
 
@@ -343,7 +715,7 @@ export default function Dashboard() {
             </div>
 
             <div className="field">
-              <label>KEA Quota Category</label>
+              <label>KEA Quota Category <button type="button" className="glossary-btn" onClick={() => setGlossaryOpen(true)} aria-label="What do these mean?">ⓘ</button></label>
               <select value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)}>
                 {dynamicCategories.map((cat) => (
                   <option key={cat} value={cat}>{cat}</option>
@@ -385,6 +757,34 @@ export default function Dashboard() {
           </div>
         )}
 
+        <div className="sidebar-section">
+          <h4>👤 Saved Profiles</h4>
+          <div className="profile-save-row">
+            <input
+              type="text"
+              placeholder="Name (e.g. Me, Cousin)"
+              value={newProfileName}
+              onChange={(e) => setNewProfileName(e.target.value)}
+            />
+            <button onClick={saveCurrentAsProfile} disabled={!newProfileName.trim() || !userRank} title="Save current predictor rank/category/round as a profile">Save</button>
+          </div>
+          {profiles.length === 0 ? (
+            <p className="empty-hint">Enter a rank on the Predictor tab, then save it here as a named profile for quick reloading later.</p>
+          ) : (
+            <ul className="profile-list">
+              {profiles.map((p) => (
+                <li key={p.id}>
+                  <button className="profile-load-btn" onClick={() => loadProfile(p)}>
+                    <strong>{p.name}</strong>
+                    <span>Rank {p.rank} · {p.category} · {p.stream}</span>
+                  </button>
+                  <button className="modal-close-btn" onClick={() => deleteProfile(p.id)} aria-label="Delete profile">×</button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+
         <div className="sidebar-section saved-section">
           <h4>⭐ Saved Colleges ({savedColleges.length})</h4>
           {savedColleges.length === 0 ? (
@@ -414,18 +814,95 @@ export default function Dashboard() {
             <div>
               <span className="dash-eyebrow">KEA Counselling · Live Dataset</span>
               <h1 className="dash-title">
-                {activeTab === 'explore' ? 'Explore Cutoffs & Fees' : 'Smart College Predictor'}
+                {{
+                  home: 'Welcome to NammaUGNEET',
+                  explore: 'Explore Cutoffs & Fees',
+                  predictor: 'Smart College Predictor',
+                  options: 'My Option Entry List',
+                  contact: 'Contact & About',
+                }[activeTab]}
               </h1>
             </div>
           </div>
           <p className="dash-subtitle">
-            {activeTab === 'explore'
-              ? 'Cutoff ranks, fees and seat allotments across Medical, Dental & AYUSH streams.'
-              : 'Enter your rank to see which colleges you realistically qualify for.'}
+            {{
+              home: 'Your independent guide to Karnataka NEET UG counselling — predict, plan, and prioritize.',
+              explore: 'Cutoff ranks, fees and seat allotments across Medical, Dental & AYUSH streams.',
+              predictor: 'Enter your rank to see which colleges you realistically qualify for.',
+              options: 'Rank your preferred colleges in order, just like the real KEA option entry form.',
+              contact: 'Who built this, where the data comes from, and how to reach out.',
+            }[activeTab]}
           </p>
         </header>
 
         <div className="dash-panel">
+
+          {/* --- FEATURE 0: HOME --- */}
+          {activeTab === 'home' && (
+            <div className="home-view">
+              <div className="home-hero">
+                <img src={logo} alt="Namma-UGNEET" className="home-hero-logo" />
+                <h2>Predict. Plan. Prioritize.</h2>
+                <p>
+                  NammaUGNEET helps Karnataka NEET UG aspirants make sense of {medicalData.length.toLocaleString('en-IN')}+
+                  real KEA counselling records across Medical, Dental &amp; AYUSH seats — spanning {dynamicYears.join(' & ')}.
+                </p>
+                <div className="home-hero-actions">
+                  <button className="home-cta primary" onClick={() => setActiveTab('predictor')}>🎯 Predict My Colleges</button>
+                  <button className="home-cta" onClick={() => setActiveTab('explore')}>🔍 Explore All Cutoffs</button>
+                </div>
+              </div>
+
+              <div className="home-stats-grid">
+                <div className="home-stat-card">
+                  <span className="home-stat-value">{medicalData.length.toLocaleString('en-IN')}</span>
+                  <span className="home-stat-label">Allotment Records</span>
+                </div>
+                <div className="home-stat-card">
+                  <span className="home-stat-value">{dynamicYears.length}</span>
+                  <span className="home-stat-label">Years Covered</span>
+                </div>
+                <div className="home-stat-card">
+                  <span className="home-stat-value">{dynamicRounds.length}</span>
+                  <span className="home-stat-label">Rounds Tracked</span>
+                </div>
+                <div className="home-stat-card">
+                  <span className="home-stat-value">3</span>
+                  <span className="home-stat-label">Streams: MBBS/BDS/AYUSH</span>
+                </div>
+              </div>
+
+              <h3 className="home-section-heading">What you can do here</h3>
+              <div className="home-feature-grid">
+                <button className="home-feature-card" onClick={() => setActiveTab('explore')}>
+                  <span className="home-feature-icon">🔍</span>
+                  <strong>Explore Cutoffs &amp; Fees</strong>
+                  <p>Search and filter every seat allotment by stream, category, round, year, and budget.</p>
+                </button>
+                <button className="home-feature-card" onClick={() => setActiveTab('predictor')}>
+                  <span className="home-feature-icon">🎯</span>
+                  <strong>Smart Predictor</strong>
+                  <p>Enter your rank to see which colleges you realistically qualify for, with round &amp; year trends.</p>
+                </button>
+                <button className="home-feature-card" onClick={() => setActiveTab('options')}>
+                  <span className="home-feature-icon">📝</span>
+                  <strong>Option Entry Generator</strong>
+                  <p>Build and reorder your college preference list, just like the real KEA option entry form.</p>
+                </button>
+                <button className="home-feature-card" onClick={() => { setActiveTab('explore'); }}>
+                  <span className="home-feature-icon">☆</span>
+                  <strong>Save &amp; Compare</strong>
+                  <p>Bookmark colleges as you browse, then compare them side-by-side once you've shortlisted a few.</p>
+                </button>
+              </div>
+
+              <div className="home-disclaimer">
+                ⚠️ This is an independent, unofficial tool. Always cross-verify with the official{' '}
+                <a href="https://kea.kar.nic.in" target="_blank" rel="noopener noreferrer">KEA website</a> before making decisions.
+                See the <button className="inline-link-btn" onClick={() => setActiveTab('contact')}>Contact &amp; About</button> page for details.
+              </div>
+            </div>
+          )}
 
           {/* --- FEATURE 1: EXPLORE --- */}
           {activeTab === 'explore' && (
@@ -468,7 +945,7 @@ export default function Dashboard() {
                       </select>
                     </div>
                     <div className="field">
-                      <label>KEA Quota Category</label>
+                      <label>KEA Quota Category <button type="button" className="glossary-btn" onClick={() => setGlossaryOpen(true)} aria-label="What do these mean?">ⓘ</button></label>
                       <select value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)}>
                         {dynamicCategories.map((cat) => (
                           <option key={cat} value={cat}>{cat}</option>
@@ -517,6 +994,7 @@ export default function Dashboard() {
                   <thead>
                     <tr>
                       <th></th>
+                      <th></th>
                       <th>KEA Code</th>
                       <th>College Name</th>
                       <th>Course</th>
@@ -530,7 +1008,7 @@ export default function Dashboard() {
                   <tbody>
                     {filteredDashboardData.length === 0 ? (
                       <tr className="empty-row">
-                        <td colSpan="9">No allotment matching your criteria found. Adjust filters.</td>
+                        <td colSpan="10">No allotment matching your criteria found. Adjust filters.</td>
                       </tr>
                     ) : (
                       filteredDashboardData.slice(0, 100).map((item, i) => (
@@ -544,8 +1022,26 @@ export default function Dashboard() {
                               {isSaved(item) ? '★' : '☆'}
                             </button>
                           </td>
+                          <td>
+                            <button
+                              className={`add-option-btn${isInOptionList(item) ? ' added' : ''}`}
+                              onClick={() => addToOptionList(item)}
+                              disabled={isInOptionList(item)}
+                              aria-label="Add to option entry list"
+                              title="Add to Option Entry List"
+                            >
+                              {isInOptionList(item) ? '✓' : '+'}
+                            </button>
+                          </td>
                           <td className="code-cell">{item.collegeCode}</td>
-                          <td style={{ maxWidth: '380px' }}>{item.collegeName}</td>
+                          <td style={{ maxWidth: '380px' }}>
+                            <button
+                              className="college-name-link"
+                              onClick={() => setSelectedCollege({ collegeCode: item.collegeCode, stream: item.stream, collegeName: item.collegeName })}
+                            >
+                              {item.collegeName}
+                            </button>
+                          </td>
                           <td><span className="pill">{item.courseDetails}</span></td>
                           <td>{item.category}</td>
                           <td className="fees-cell">₹{item.fees.toLocaleString('en-IN')}</td>
@@ -596,7 +1092,7 @@ export default function Dashboard() {
                   </div>
 
                   <div className="field">
-                    <label>Reservation Category</label>
+                    <label>Reservation Category <button type="button" className="glossary-btn" onClick={() => setGlossaryOpen(true)} aria-label="What do these mean?">ⓘ</button></label>
                     <select value={predictorCategory} onChange={(e) => setPredictorCategory(e.target.value)}>
                       {dynamicCategories.map((cat) => (
                         <option key={cat} value={cat}>{cat}</option>
@@ -627,7 +1123,14 @@ export default function Dashboard() {
               </div>
 
               <div>
-                <h3 className="predicted-heading">💡 Predicted Eligible Target Opportunities</h3>
+                <div className="predicted-heading-row">
+                  <h3 className="predicted-heading">💡 Predicted Eligible Target Opportunities</h3>
+                  {predictedColleges.length > 0 && (
+                    <button className="copy-results-btn" onClick={copyPredictedResults}>
+                      {copyFeedback ? '✓ Copied!' : '📋 Copy Results'}
+                    </button>
+                  )}
+                </div>
                 <p className="predicted-sub">
                   Colleges where <strong>{predictorYear === 'ALL' ? 'any year\'s' : predictorYear}</strong> <strong>{predictorRound === 'ALL' ? 'any round\'s' : predictorRound}</strong> closing cutoff scores matched higher than or equal to Rank <strong>{userRank || '0'}</strong>:
                 </p>
@@ -664,12 +1167,54 @@ export default function Dashboard() {
                               >
                                 {isSaved(item) ? '★' : '☆'}
                               </button>
+                              <button
+                                className={`add-option-btn${isInOptionList(item) ? ' added' : ''}`}
+                                onClick={() => addToOptionList(item)}
+                                disabled={isInOptionList(item)}
+                                title="Add to Option Entry List"
+                              >
+                                {isInOptionList(item) ? '✓ Added' : '+ Add'}
+                              </button>
                             </div>
                           </div>
-                          <h4 className="result-name">{item.collegeName}</h4>
+                          <h4
+                            className="result-name college-name-link"
+                            onClick={() => setSelectedCollege({ collegeCode: item.collegeCode, stream: item.stream, collegeName: item.collegeName })}
+                          >
+                            {item.collegeName}
+                          </h4>
                           <p className="result-meta">Course: <strong>{item.courseDetails}</strong></p>
                           <p className="result-meta">Round: <strong>{item.round}</strong> · Year: <strong>{item.year}</strong></p>
                           <p className="result-meta">Annual Cost: <strong>₹{item.fees.toLocaleString('en-IN')}</strong></p>
+
+                          {(() => {
+                            const { roundsThisYear, otherYearSameRound } = getTrends(item);
+                            const uniqueRounds = Array.from(new Map(roundsThisYear.map((r) => [r.round, r])).values());
+                            const otherYear = otherYearSameRound[0];
+                            if (uniqueRounds.length <= 1 && !otherYear) return null;
+                            return (
+                              <div className="trend-box">
+                                {uniqueRounds.length > 1 && (
+                                  <div className="trend-line">
+                                    <span className="trend-label">This year:</span>
+                                    {uniqueRounds.map((r) => (
+                                      <span key={r.round} className="trend-chip">{r.round} {r.rank.toLocaleString('en-IN')}</span>
+                                    ))}
+                                  </div>
+                                )}
+                                {otherYear && (
+                                  <div className="trend-line">
+                                    <span className="trend-label">vs {otherYear.year}:</span>
+                                    <span className="trend-chip">
+                                      {otherYear.rank.toLocaleString('en-IN')}
+                                      {otherYear.rank > item.rank ? ' (tighter now)' : otherYear.rank < item.rank ? ' (looser now)' : ' (same)'}
+                                    </span>
+                                  </div>
+                                )}
+                              </div>
+                            );
+                          })()}
+
                           <div className="result-footer">
                             <span>Last Cutoff</span>
                             <span className="val">{item.rank.toLocaleString('en-IN')}</span>
@@ -679,6 +1224,113 @@ export default function Dashboard() {
                     })
                   )}
                 </div>
+              </div>
+            </div>
+          )}
+
+          {/* --- FEATURE 3: OPTION ENTRY GENERATOR --- */}
+          {activeTab === 'options' && (
+            <div>
+              <div className="option-intro">
+                <h3>📝 Build Your Option Entry List</h3>
+                <p>
+                  During real KEA counselling, you rank your preferred colleges in order — this is your practice space.
+                  Add colleges from the <button className="inline-link-btn" onClick={() => setActiveTab('explore')}>Explore</button> or{' '}
+                  <button className="inline-link-btn" onClick={() => setActiveTab('predictor')}>Predictor</button> tabs using the
+                  "+ Add" button, then reorder them here by priority.
+                </p>
+              </div>
+
+              {optionEntries.length === 0 ? (
+                <div className="empty-predict">
+                  Your option list is empty. Go to Explore or Predictor and tap "+ Add" on any college to start building your list.
+                </div>
+              ) : (
+                <>
+                  <div className="option-toolbar">
+                    <span>{optionEntries.length} college{optionEntries.length !== 1 ? 's' : ''} in your list</span>
+                    <div style={{ display: 'flex', gap: '8px' }}>
+                      <button className="copy-results-btn" onClick={copyOptionList}>
+                        {optionCopyFeedback ? '✓ Copied!' : '📋 Copy List'}
+                      </button>
+                      <button className="clear-options-btn" onClick={clearOptionList}>🗑 Clear All</button>
+                    </div>
+                  </div>
+
+                  <ul className="option-entry-list">
+                    {optionEntries.map((o, i) => (
+                      <li key={o.id} className="option-entry-row">
+                        <span className="option-number">{i + 1}</span>
+                        <div className="option-entry-info">
+                          <button
+                            className="college-name-link"
+                            onClick={() => setSelectedCollege({ collegeCode: o.collegeCode, stream: o.stream, collegeName: o.collegeName })}
+                          >
+                            {o.collegeName}
+                          </button>
+                          <span className="option-entry-meta">
+                            {o.collegeCode} · {o.courseDetails} · {o.category} · {o.round} {o.year} · ₹{o.fees.toLocaleString('en-IN')} · Cutoff {o.rank.toLocaleString('en-IN')}
+                          </span>
+                        </div>
+                        <div className="option-entry-actions">
+                          <button onClick={() => moveOption(i, -1)} disabled={i === 0} aria-label="Move up">↑</button>
+                          <button onClick={() => moveOption(i, 1)} disabled={i === optionEntries.length - 1} aria-label="Move down">↓</button>
+                          <button onClick={() => removeFromOptionList(o.id)} className="remove-option-btn" aria-label="Remove">✕</button>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <p className="option-disclaimer">
+                    ⚠️ This list is for your own planning only. It is not submitted anywhere — you must still enter your
+                    official options on the KEA counselling portal.
+                  </p>
+                </>
+              )}
+            </div>
+          )}
+
+          {/* --- FEATURE 4: CONTACT & ABOUT --- */}
+          {activeTab === 'contact' && (
+            <div className="contact-view">
+              <div className="contact-section">
+                <h3>ℹ️ About NammaUGNEET</h3>
+                <p>
+                  NammaUGNEET is an independent, student-built tool to help Karnataka NEET UG aspirants explore past
+                  counselling cutoffs and estimate their college options. It is <strong>not affiliated with, endorsed by,
+                  or connected to</strong> the Karnataka Examinations Authority (KEA) or any government body.
+                </p>
+              </div>
+
+              <div className="contact-section">
+                <h3>📊 Where the data comes from</h3>
+                <p>
+                  All cutoff, fee, and allotment data is manually compiled from official KEA seat allotment PDFs published
+                  on the KEA website for each round of counselling ({dynamicYears.join(' & ')}). Every effort is made to
+                  extract this data accurately, but small errors are possible during parsing. Always cross-check important
+                  decisions against the original PDF or the{' '}
+                  <a href="https://kea.kar.nic.in" target="_blank" rel="noopener noreferrer">official KEA website</a>.
+                </p>
+              </div>
+
+              <div className="contact-section">
+                <h3>⚠️ Disclaimer</h3>
+                <p>
+                  This tool provides estimates based on historical data. Actual cutoffs change every year based on the
+                  number of applicants, seat availability, and policy changes. Predictions here are <strong>not guarantees</strong>{' '}
+                  of admission. Use this as a planning aid alongside official KEA notifications, not as a replacement for them.
+                </p>
+              </div>
+
+              <div className="contact-section">
+                <h3>✉️ Get in touch</h3>
+                <p>
+                  Found an error in the data, or have a feature suggestion? Reach out:
+                </p>
+                <p className="contact-placeholder">
+                  📧 eshwarhs170@gmail.com &nbsp;·&nbsp; 💬 Add your GitHub/Instagram/WhatsApp link here
+                </p>
+                <p className="contact-note">(Replace this placeholder with your actual contact details before publishing.)</p>
               </div>
             </div>
           )}

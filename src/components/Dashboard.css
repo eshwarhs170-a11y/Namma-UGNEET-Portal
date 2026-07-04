@@ -27,13 +27,42 @@
 
 * { box-sizing: border-box; }
 
-.dash {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 32px 24px 64px;
-  font-family: var(--font-body);
-  color: var(--ink);
+.loading-screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
   background: var(--paper);
+  font-family: var(--font-body);
+  color: var(--slate);
+  text-align: center;
+  padding: 24px;
+}
+
+.loading-logo {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  animation: loading-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes loading-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.94); }
+}
+
+.loading-screen p {
+  font-size: 0.95rem;
+  max-width: 340px;
+}
+.loading-screen code {
+  background: var(--paper-alt);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
 }
 
 /* ---------- App shell / sidebar layout ---------- */
@@ -601,21 +630,21 @@
 .dash-header-row {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
   margin-bottom: 4px;
 }
 
 .header-logo {
-  width: 62px;
-  height: 62px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
   flex-shrink: 0;
   object-fit: cover;
-  margin-top: 40px;
+  align-self: center;
 }
 
 @media (max-width: 560px) {
-  .header-logo { width: 40px; height: 40px; }
+  .header-logo { width: 46px; height: 46px; }
 }
 
 .dash-eyebrow {

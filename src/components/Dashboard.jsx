@@ -1,14 +1,35 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
-import medicalData from '../../dataprocessing/output/compiled_allotments.json';
 import logo from '../assets/namma-ugneet-logo.png';
 import './Dashboard.css';
 
 const SAVED_KEY = 'namma_saved_colleges';
-const makeId = (item) => `${item.stream}-${item.round}-${item.serialNo}-${item.category}`;
+const makeId = (item) => `${item.year}-${item.stream}-${item.round}-${item.serialNo}-${item.category}`;
 
 export default function Dashboard() {
   // Navigation & View State
   const [activeTab, setActiveTab] = useState('explore');
+
+  // Dataset is now fetched at runtime from public/data/ instead of bundled directly into the JS —
+  // a ~74,000-record JSON was making the app itself slow to load when imported statically.
+  const [medicalData, setMedicalData] = useState([]);
+  const [dataLoading, setDataLoading] = useState(true);
+  const [dataError, setDataError] = useState(false);
+
+  useEffect(() => {
+    fetch('/data/compiled_allotments.json')
+      .then((res) => {
+        if (!res.ok) throw new Error('Failed to fetch dataset');
+        return res.json();
+      })
+      .then((data) => {
+        setMedicalData(data);
+        setDataLoading(false);
+      })
+      .catch(() => {
+        setDataError(true);
+        setDataLoading(false);
+      });
+  }, []);
   const [showEdgeHint, setShowEdgeHint] = useState(true);
 
   useEffect(() => {
@@ -74,12 +95,23 @@ export default function Dashboard() {
   const [categoryFilter, setCategoryFilter] = useState('GM');
   const [maxBudget, setMaxBudget] = useState(1500000);
   const [roundFilter, setRoundFilter] = useState('ALL');
+  const [yearFilter, setYearFilter] = useState('ALL');
 
   // Rank Predictor Input State variables
   const [userRank, setUserRank] = useState('');
   const [predictorCategory, setPredictorCategory] = useState('GM');
   const [predictorStream, setPredictorStream] = useState('MEDICAL');
   const [predictorRound, setPredictorRound] = useState('R1');
+  const [predictorYear, setPredictorYear] = useState('ALL');
+  const yearDefaultSetRef = useRef(false);
+
+  useEffect(() => {
+    if (!dataLoading && medicalData.length > 0 && !yearDefaultSetRef.current) {
+      yearDefaultSetRef.current = true;
+      const years = Array.from(new Set(medicalData.map((item) => item.year).filter(Boolean))).sort();
+      if (years.length > 0) setPredictorYear(years.slice(-1)[0]); // default to most recent year
+    }
+  }, [dataLoading, medicalData]);
 
   // Saved / bookmarked colleges — persisted across sessions
   const [savedColleges, setSavedColleges] = useState(() => {
@@ -116,12 +148,17 @@ export default function Dashboard() {
   const dynamicCategories = useMemo(() => {
     const categoriesSet = new Set(medicalData.map((item) => item.category));
     return Array.from(categoriesSet).sort();
-  }, []);
+  }, [medicalData]);
 
   const dynamicRounds = useMemo(() => {
     const roundsSet = new Set(medicalData.map((item) => item.round));
     return Array.from(roundsSet).sort();
-  }, []);
+  }, [medicalData]);
+
+  const dynamicYears = useMemo(() => {
+    const yearsSet = new Set(medicalData.map((item) => item.year).filter(Boolean));
+    return Array.from(yearsSet).sort();
+  }, [medicalData]);
 
   // --- ENGINE 1: MAIN SEARCH & FILTER DATAVIEW PIPELINE ---
   const filteredDashboardData = useMemo(() => {
@@ -134,11 +171,12 @@ export default function Dashboard() {
         const matchCategory = item.category === categoryFilter;
         const matchBudget = item.fees <= maxBudget;
         const matchRound = roundFilter === 'ALL' || item.round === roundFilter;
+        const matchYear = yearFilter === 'ALL' || item.year === yearFilter;
 
-        return matchSearch && matchStream && matchCategory && matchBudget && matchRound;
+        return matchSearch && matchStream && matchCategory && matchBudget && matchRound && matchYear;
       })
       .sort((a, b) => a.rank - b.rank);
-  }, [searchQuery, streamFilter, categoryFilter, maxBudget, roundFilter]);
+  }, [medicalData, searchQuery, streamFilter, categoryFilter, maxBudget, roundFilter, yearFilter]);
 
   // --- ENGINE 2: SMART NEET SEAT PREDICTOR ALGORITHM ---
   const predictedColleges = useMemo(() => {
@@ -150,12 +188,13 @@ export default function Dashboard() {
         const matchStream = item.stream === predictorStream;
         const matchCategory = item.category === predictorCategory;
         const matchRound = predictorRound === 'ALL' || item.round === predictorRound;
+        const matchYear = predictorYear === 'ALL' || item.year === predictorYear;
         const matchRankScope = item.rank >= targetRank;
 
-        return matchStream && matchCategory && matchRound && matchRankScope;
+        return matchStream && matchCategory && matchRound && matchYear && matchRankScope;
       })
       .sort((a, b) => a.rank - b.rank);
-  }, [userRank, predictorCategory, predictorStream, predictorRound]);
+  }, [medicalData, userRank, predictorCategory, predictorStream, predictorRound, predictorYear]);
 
   // --- Quick stats for sidebar ---
   const avgFeesShown = useMemo(() => {
@@ -164,6 +203,24 @@ export default function Dashboard() {
     const total = list.reduce((sum, item) => sum + item.fees, 0);
     return Math.round(total / list.length);
   }, [filteredDashboardData, predictedColleges, activeTab]);
+
+  if (dataLoading) {
+    return (
+      <div className="loading-screen">
+        <img src={logo} alt="Namma-UGNEET" className="loading-logo" />
+        <p>Loading counselling data…</p>
+      </div>
+    );
+  }
+
+  if (dataError) {
+    return (
+      <div className="loading-screen">
+        <img src={logo} alt="Namma-UGNEET" className="loading-logo" />
+        <p>Couldn't load the dataset. Make sure <code>compiled_allotments.json</code> exists in <code>public/data/</code>, then refresh.</p>
+      </div>
+    );
+  }
 
   return (
     <div className="app-shell">
@@ -305,6 +362,16 @@ export default function Dashboard() {
             </div>
 
             <div className="field">
+              <label>Allotment Year</label>
+              <select value={yearFilter} onChange={(e) => setYearFilter(e.target.value)}>
+                <option value="ALL">All Years</option>
+                {dynamicYears.map((y) => (
+                  <option key={y} value={y}>{y}</option>
+                ))}
+              </select>
+            </div>
+
+            <div className="field">
               <label>Max Fees: ₹{maxBudget.toLocaleString('en-IN')}</label>
               <input
                 type="range"
@@ -328,7 +395,7 @@ export default function Dashboard() {
                 <li key={s.id}>
                   <div>
                     <strong>{s.collegeCode}</strong>
-                    <span>{s.round} · {s.category} · ₹{s.fees.toLocaleString('en-IN')}</span>
+                    <span>{s.year} · {s.round} · {s.category} · ₹{s.fees.toLocaleString('en-IN')}</span>
                   </div>
                   <button onClick={() => removeSaved(s.id)} aria-label="Remove saved college">×</button>
                 </li>
@@ -371,7 +438,7 @@ export default function Dashboard() {
                 <div className="predictor-teaser-action">
                   <input
                     type="number"
-                    placeholder="Enter your rank"
+                    placeholder="Enter rank"
                     value={userRank}
                     onChange={(e) => setUserRank(e.target.value)}
                   />
@@ -418,6 +485,15 @@ export default function Dashboard() {
                       </select>
                     </div>
                     <div className="field">
+                      <label>Allotment Year</label>
+                      <select value={yearFilter} onChange={(e) => setYearFilter(e.target.value)}>
+                        <option value="ALL">All Years</option>
+                        {dynamicYears.map((y) => (
+                          <option key={y} value={y}>{y}</option>
+                        ))}
+                      </select>
+                    </div>
+                    <div className="field">
                       <label>Max Fees: ₹{maxBudget.toLocaleString('en-IN')}</label>
                       <input
                         type="range"
@@ -448,12 +524,13 @@ export default function Dashboard() {
                       <th>Annual Fees</th>
                       <th>Cutoff Rank</th>
                       <th>Round</th>
+                      <th>Year</th>
                     </tr>
                   </thead>
                   <tbody>
                     {filteredDashboardData.length === 0 ? (
                       <tr className="empty-row">
-                        <td colSpan="8">No allotment matching your criteria found. Adjust filters.</td>
+                        <td colSpan="9">No allotment matching your criteria found. Adjust filters.</td>
                       </tr>
                     ) : (
                       filteredDashboardData.slice(0, 100).map((item, i) => (
@@ -474,6 +551,7 @@ export default function Dashboard() {
                           <td className="fees-cell">₹{item.fees.toLocaleString('en-IN')}</td>
                           <td><span className="rank-pill">{item.rank.toLocaleString('en-IN')}</span></td>
                           <td><span className="pill">{item.round}</span></td>
+                          <td><span className="pill">{item.year}</span></td>
                         </tr>
                       ))
                     )}
@@ -535,13 +613,23 @@ export default function Dashboard() {
                       ))}
                     </select>
                   </div>
+
+                  <div className="field">
+                    <label>Allotment Year</label>
+                    <select value={predictorYear} onChange={(e) => setPredictorYear(e.target.value)}>
+                      <option value="ALL">All Years</option>
+                      {dynamicYears.map((y) => (
+                        <option key={y} value={y}>{y}</option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
               </div>
 
               <div>
                 <h3 className="predicted-heading">💡 Predicted Eligible Target Opportunities</h3>
                 <p className="predicted-sub">
-                  Colleges where <strong>{predictorRound === 'ALL' ? 'any round\'s' : predictorRound}</strong> closing cutoff scores matched higher than or equal to Rank <strong>{userRank || '0'}</strong>:
+                  Colleges where <strong>{predictorYear === 'ALL' ? 'any year\'s' : predictorYear}</strong> <strong>{predictorRound === 'ALL' ? 'any round\'s' : predictorRound}</strong> closing cutoff scores matched higher than or equal to Rank <strong>{userRank || '0'}</strong>:
                 </p>
 
                 <div className="predicted-grid">
@@ -580,7 +668,7 @@ export default function Dashboard() {
                           </div>
                           <h4 className="result-name">{item.collegeName}</h4>
                           <p className="result-meta">Course: <strong>{item.courseDetails}</strong></p>
-                          <p className="result-meta">Round: <strong>{item.round}</strong></p>
+                          <p className="result-meta">Round: <strong>{item.round}</strong> · Year: <strong>{item.year}</strong></p>
                           <p className="result-meta">Annual Cost: <strong>₹{item.fees.toLocaleString('en-IN')}</strong></p>
                           <div className="result-footer">
                             <span>Last Cutoff</span>

@@ -46,6 +46,29 @@ export default function Dashboard() {
   // Navigation & View State
   const [activeTab, setActiveTab] = useState('home');
 
+  // Wire up browser back/forward support: each tab switch pushes a history entry
+  // (using the URL hash, so it works on static hosting with no server routing config),
+  // and popstate (back/forward button) syncs activeTab back to match.
+  const navigateTo = (tab) => {
+    if (tab === activeTab) return;
+    window.history.pushState({ tab }, '', `#${tab}`);
+    setActiveTab(tab);
+  };
+
+  useEffect(() => {
+    // Set up the very first history entry so the first "back" press has somewhere valid to land
+    const initialTab = window.location.hash.replace('#', '') || 'home';
+    setActiveTab(initialTab);
+    window.history.replaceState({ tab: initialTab }, '', `#${initialTab}`);
+
+    const onPopState = (e) => {
+      const tab = (e.state && e.state.tab) || window.location.hash.replace('#', '') || 'home';
+      setActiveTab(tab);
+    };
+    window.addEventListener('popstate', onPopState);
+    return () => window.removeEventListener('popstate', onPopState);
+  }, []);
+
   // Dataset is now fetched at runtime from public/data/ instead of bundled directly into the JS —
   // a ~74,000-record JSON was making the app itself slow to load when imported statically.
   const [medicalData, setMedicalData] = useState([]);
@@ -102,6 +125,18 @@ export default function Dashboard() {
     setTourStep(0);
     try { localStorage.setItem(TOUR_KEY, 'true'); } catch { /* ignore */ }
   };
+  const [darkMode, setDarkMode] = useState(() => {
+    try {
+      const saved = localStorage.getItem('namma_dark_mode');
+      if (saved !== null) return saved === 'true';
+    } catch { /* ignore */ }
+    return false; // default to light mode regardless of system preference
+  });
+
+  useEffect(() => {
+    try { localStorage.setItem('namma_dark_mode', String(darkMode)); } catch { /* ignore */ }
+  }, [darkMode]);
+
   const [sidebarOpen, setSidebarOpen] = useState(() => {
     if (typeof window === 'undefined') return true;
     return window.matchMedia('(min-width: 881px)').matches; // open by default on desktop, closed on mobile
@@ -140,7 +175,7 @@ export default function Dashboard() {
   const [userRank, setUserRank] = useState('');
   const [predictorCategory, setPredictorCategory] = useState('GM');
   const [predictorStream, setPredictorStream] = useState('MEDICAL');
-  const [predictorRound, setPredictorRound] = useState('R1');
+  const [predictorRound, setPredictorRound] = useState('ALL');
   const [predictorYear, setPredictorYear] = useState('ALL');
   const yearDefaultSetRef = useRef(false);
 
@@ -243,7 +278,7 @@ export default function Dashboard() {
     setPredictorStream(p.stream);
     setPredictorRound(p.round);
     setPredictorYear(p.year);
-    setActiveTab('predictor');
+    navigateTo('predictor');
   };
 
   const deleteProfile = (id) => setProfiles((prev) => prev.filter((p) => p.id !== id));
@@ -407,7 +442,7 @@ export default function Dashboard() {
 
   if (dataLoading) {
     return (
-      <div className="loading-screen">
+      <div className={`loading-screen${darkMode ? " dark" : ""}`}>
         <img src={logo} alt="Namma-UGNEET" className="loading-logo" />
         <p>Loading counselling data…</p>
       </div>
@@ -416,7 +451,7 @@ export default function Dashboard() {
 
   if (dataError) {
     return (
-      <div className="loading-screen">
+      <div className={`loading-screen${darkMode ? " dark" : ""}`}>
         <img src={logo} alt="Namma-UGNEET" className="loading-logo" />
         <p>Couldn't load the dataset. Make sure <code>compiled_allotments.json</code> exists in <code>public/data/</code>, then refresh.</p>
       </div>
@@ -424,7 +459,7 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="app-shell">
+    <div className={`app-shell${darkMode ? " dark" : ""}`}>
 
       {/* CATEGORY GLOSSARY MODAL */}
       {glossaryOpen && (
@@ -629,14 +664,24 @@ export default function Dashboard() {
               <div className="brand-tag">KEA Allotment Portal</div>
             </div>
           </div>
-          <button className="sidebar-close" onClick={() => { userToggledRef.current = true; setSidebarOpen(false); }} aria-label="Close sidebar">✕</button>
+          <div className="sidebar-top-actions">
+            <button
+              className="dark-toggle-btn"
+              onClick={() => setDarkMode((prev) => !prev)}
+              aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+              title={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+            >
+              {darkMode ? '☀️' : '🌙'}
+            </button>
+            <button className="sidebar-close" onClick={() => { userToggledRef.current = true; setSidebarOpen(false); }} aria-label="Close sidebar">✕</button>
+          </div>
         </div>
 
         <nav className="sidebar-nav">
           <button
             className={activeTab === 'home' ? 'active' : ''}
             onClick={() => {
-              setActiveTab('home');
+              navigateTo('home');
               if (window.matchMedia('(max-width: 880px)').matches) setSidebarOpen(false);
             }}
           >
@@ -645,7 +690,7 @@ export default function Dashboard() {
           <button
             className={activeTab === 'explore' ? 'active' : ''}
             onClick={() => {
-              setActiveTab('explore');
+              navigateTo('explore');
               if (window.matchMedia('(max-width: 880px)').matches) setSidebarOpen(false);
             }}
           >
@@ -654,7 +699,7 @@ export default function Dashboard() {
           <button
             className={`predictor${activeTab === 'predictor' ? ' active' : ''}`}
             onClick={() => {
-              setActiveTab('predictor');
+              navigateTo('predictor');
               if (window.matchMedia('(max-width: 880px)').matches) setSidebarOpen(false);
             }}
           >
@@ -663,7 +708,7 @@ export default function Dashboard() {
           <button
             className={activeTab === 'options' ? 'active' : ''}
             onClick={() => {
-              setActiveTab('options');
+              navigateTo('options');
               if (window.matchMedia('(max-width: 880px)').matches) setSidebarOpen(false);
             }}
           >
@@ -672,7 +717,7 @@ export default function Dashboard() {
           <button
             className={activeTab === 'contact' ? 'active' : ''}
             onClick={() => {
-              setActiveTab('contact');
+              navigateTo('contact');
               if (window.matchMedia('(max-width: 880px)').matches) setSidebarOpen(false);
             }}
           >
@@ -841,55 +886,34 @@ export default function Dashboard() {
           {activeTab === 'home' && (
             <div className="home-view">
               <div className="home-hero">
-                <img src={logo} alt="Namma-UGNEET" className="home-hero-logo" />
-                <h2>Predict. Plan. Prioritize.</h2>
-                <p>
-                  NammaUGNEET helps Karnataka NEET UG aspirants make sense of {medicalData.length.toLocaleString('en-IN')}+
-                  real KEA counselling records across Medical, Dental &amp; AYUSH seats — spanning {dynamicYears.join(' & ')}.
-                </p>
+                <div className="home-hero-text">
+                  <h2>Predict. Plan. Prioritize.</h2>
+                  <p>Your guide to Karnataka NEET UG counselling — Medical, Dental &amp; AYUSH, {dynamicYears.join('–')}.</p>
+                </div>
                 <div className="home-hero-actions">
-                  <button className="home-cta primary" onClick={() => setActiveTab('predictor')}>🎯 Predict My Colleges</button>
-                  <button className="home-cta" onClick={() => setActiveTab('explore')}>🔍 Explore All Cutoffs</button>
-                </div>
-              </div>
-
-              <div className="home-stats-grid">
-                <div className="home-stat-card">
-                  <span className="home-stat-value">{medicalData.length.toLocaleString('en-IN')}</span>
-                  <span className="home-stat-label">Allotment Records</span>
-                </div>
-                <div className="home-stat-card">
-                  <span className="home-stat-value">{dynamicYears.length}</span>
-                  <span className="home-stat-label">Years Covered</span>
-                </div>
-                <div className="home-stat-card">
-                  <span className="home-stat-value">{dynamicRounds.length}</span>
-                  <span className="home-stat-label">Rounds Tracked</span>
-                </div>
-                <div className="home-stat-card">
-                  <span className="home-stat-value">3</span>
-                  <span className="home-stat-label">Streams: MBBS/BDS/AYUSH</span>
+                  <button className="home-cta primary" onClick={() => navigateTo('predictor')}>🎯 Predict</button>
+                  <button className="home-cta" onClick={() => navigateTo('explore')}>🔍 Explore</button>
                 </div>
               </div>
 
               <h3 className="home-section-heading">What you can do here</h3>
               <div className="home-feature-grid">
-                <button className="home-feature-card" onClick={() => setActiveTab('explore')}>
+                <button className="home-feature-card" onClick={() => navigateTo('explore')}>
                   <span className="home-feature-icon">🔍</span>
                   <strong>Explore Cutoffs &amp; Fees</strong>
                   <p>Search and filter every seat allotment by stream, category, round, year, and budget.</p>
                 </button>
-                <button className="home-feature-card" onClick={() => setActiveTab('predictor')}>
+                <button className="home-feature-card" onClick={() => navigateTo('predictor')}>
                   <span className="home-feature-icon">🎯</span>
                   <strong>Smart Predictor</strong>
                   <p>Enter your rank to see which colleges you realistically qualify for, with round &amp; year trends.</p>
                 </button>
-                <button className="home-feature-card" onClick={() => setActiveTab('options')}>
+                <button className="home-feature-card" onClick={() => navigateTo('options')}>
                   <span className="home-feature-icon">📝</span>
                   <strong>Option Entry Generator</strong>
                   <p>Build and reorder your college preference list, just like the real KEA option entry form.</p>
                 </button>
-                <button className="home-feature-card" onClick={() => { setActiveTab('explore'); }}>
+                <button className="home-feature-card" onClick={() => { navigateTo('explore'); }}>
                   <span className="home-feature-icon">☆</span>
                   <strong>Save &amp; Compare</strong>
                   <p>Bookmark colleges as you browse, then compare them side-by-side once you've shortlisted a few.</p>
@@ -899,7 +923,7 @@ export default function Dashboard() {
               <div className="home-disclaimer">
                 ⚠️ This is an independent, unofficial tool. Always cross-verify with the official{' '}
                 <a href="https://kea.kar.nic.in" target="_blank" rel="noopener noreferrer">KEA website</a> before making decisions.
-                See the <button className="inline-link-btn" onClick={() => setActiveTab('contact')}>Contact &amp; About</button> page for details.
+                See the <button className="inline-link-btn" onClick={() => navigateTo('contact')}>Contact &amp; About</button> page for details.
               </div>
             </div>
           )}
@@ -919,7 +943,7 @@ export default function Dashboard() {
                     value={userRank}
                     onChange={(e) => setUserRank(e.target.value)}
                   />
-                  <button onClick={() => setActiveTab('predictor')}>Predict My Colleges →</button>
+                  <button onClick={() => navigateTo('predictor')}>Predict My Colleges →</button>
                 </div>
               </div>
 
@@ -1063,7 +1087,7 @@ export default function Dashboard() {
           {/* --- FEATURE 2: PREDICTOR --- */}
           {activeTab === 'predictor' && (
             <div>
-              <button className="back-home-btn" onClick={() => setActiveTab('explore')}>
+              <button className="back-home-btn" onClick={() => navigateTo('explore')}>
                 ← Back to Explore
               </button>
 
@@ -1235,8 +1259,8 @@ export default function Dashboard() {
                 <h3>📝 Build Your Option Entry List</h3>
                 <p>
                   During real KEA counselling, you rank your preferred colleges in order — this is your practice space.
-                  Add colleges from the <button className="inline-link-btn" onClick={() => setActiveTab('explore')}>Explore</button> or{' '}
-                  <button className="inline-link-btn" onClick={() => setActiveTab('predictor')}>Predictor</button> tabs using the
+                  Add colleges from the <button className="inline-link-btn" onClick={() => navigateTo('explore')}>Explore</button> or{' '}
+                  <button className="inline-link-btn" onClick={() => navigateTo('predictor')}>Predictor</button> tabs using the
                   "+ Add" button, then reorder them here by priority.
                 </p>
               </div>
@@ -1327,10 +1351,44 @@ export default function Dashboard() {
                 <p>
                   Found an error in the data, or have a feature suggestion? Reach out:
                 </p>
-                <p className="contact-placeholder">
-                  📧 eshwarhs170@gmail.com &nbsp;·&nbsp; 💬 Add your GitHub/Instagram/WhatsApp link here
-                </p>
-                <p className="contact-note">(Replace this placeholder with your actual contact details before publishing.)</p>
+                <div className="contact-links">
+                  <a
+                    className="contact-link-btn"
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=eshwarhs170@gmail.com&su=NammaUGNEET%20Feedback"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <svg className="contact-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="2" y="4" width="20" height="16" rx="2.5" fill="#fff" stroke="#e0e0e0" strokeWidth="1"/>
+                      <path d="M3 6.5 12 13l9-6.5" fill="none" stroke="#EA4335" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M3 6.5v11a1 1 0 0 0 1 1h2V9.2z" fill="#FBBC05"/>
+                      <path d="M21 6.5v11a1 1 0 0 1-1 1h-2V9.2z" fill="#34A853"/>
+                      <path d="M3 6.5 12 13l9-6.5" fill="none" stroke="#4285F4" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                    <span>eshwarhs170@gmail.com</span>
+                  </a>
+                  <a
+                    className="contact-link-btn"
+                    href="https://instagram.com/_eshwar__hs_"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <svg className="contact-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <defs>
+                        <linearGradient id="igGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                          <stop offset="0%" stopColor="#FFDD55" />
+                          <stop offset="50%" stopColor="#E1306C" />
+                          <stop offset="100%" stopColor="#5851DB" />
+                        </linearGradient>
+                      </defs>
+                      <rect x="2" y="2" width="20" height="20" rx="6" fill="url(#igGrad)" />
+                      <rect x="6.5" y="6.5" width="11" height="11" rx="4" fill="none" stroke="#fff" strokeWidth="1.6" />
+                      <circle cx="12" cy="12" r="3.1" fill="none" stroke="#fff" strokeWidth="1.6" />
+                      <circle cx="17" cy="7" r="1.1" fill="#fff" />
+                    </svg>
+                    <span>@_eshwar__hs_</span>
+                  </a>
+                </div>
               </div>
             </div>
           )}

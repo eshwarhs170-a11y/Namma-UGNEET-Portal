@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://namma-ugneet-portal.vercel.app/sitemap.xml

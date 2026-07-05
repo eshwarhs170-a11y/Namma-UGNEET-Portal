@@ -89,6 +89,7 @@
   top: 0;
   height: 100vh;
   overflow-y: auto;
+  overflow-x: hidden;
   transition: width 0.22s ease, padding 0.22s ease;
 }
 
@@ -104,6 +105,7 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: 8px;
+  flex-wrap: wrap;
 }
 
 .sidebar-close {
@@ -399,6 +401,13 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  min-width: 0;
+  flex: 1;
+}
+
+.sidebar-brand > div {
+  min-width: 0;
+  overflow: hidden;
 }
 
 .brand-mark {
@@ -416,11 +425,17 @@
   color: var(--ink);
   font-size: 1.05rem;
   line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .brand-tag {
   font-size: 0.7rem;
   color: var(--slate);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
@@ -635,23 +650,21 @@
 .dash-header-row {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
   margin-bottom: 4px;
+  flex-wrap: wrap;
 }
 
 .header-logo {
-  width: 64px;
-  height: 64px;
+  width: clamp(40px, 8vw, 56px);
+  height: clamp(40px, 8vw, 56px);
   border-radius: 50%;
   flex-shrink: 0;
-  margin-top: 35px;
-  margin-left: 10px;
   object-fit: cover;
-  align-self: center;
 }
 
 @media (max-width: 560px) {
-  .header-logo { width: 46px; height: 46px; }
+  .header-logo { width: 38px; height: 38px; }
 }
 
 .dash-eyebrow {
@@ -1761,17 +1774,17 @@
    theme, since every component already consumes these via var()
    ============================================================ */
 .dark {
-  --ink: #eef0f4;
-  --ink-soft: #b9c0cc;
-  --paper: #1a2029;
-  --paper-alt: #242c38;
+  --ink: #e8eaed;
+  --ink-soft: #adb5c4;
+  --paper: #0f131a;
+  --paper-alt: #1a212c;
   --marigold: #e8a33d;
-  --marigold-dark: #f2b25c;
-  --seal-red: #e2707a;
-  --sage: #7cc2a0;
-  --slate: #8b93a3;
-  --border: #38424f;
-  --shadow: rgba(0, 0, 0, 0.5);
+  --marigold-dark: #f5b85c;
+  --seal-red: #f0707d;
+  --sage: #6fcf9c;
+  --slate: #7d8798;
+  --border: #2a3341;
+  --shadow: rgba(0, 0, 0, 0.6);
 }
 
 /* Dark-mode toggle button */
@@ -1845,4 +1858,64 @@
 
 @media (max-width: 480px) {
   .contact-link-btn { font-size: 0.8rem; width: 100%; }
+}
+
+/* ============================================================
+   Quick-Predict stream select, and the Predictor's
+   specific-college search feature
+   ============================================================ */
+
+.teaser-stream-select {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  background: var(--paper);
+  color: var(--ink);
+  min-width: 150px;
+}
+.teaser-stream-select:focus {
+  outline: none;
+  border-color: var(--sage);
+  box-shadow: 0 0 0 3px rgba(76, 122, 99, 0.15);
+}
+
+.desired-college-box {
+  margin: -4px 0 20px;
+  border-radius: 10px;
+  padding: 16px 18px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.desired-college-box p { margin: 0; }
+.desired-college-box strong { font-weight: 700; }
+
+.desired-college-box.need_rank,
+.desired-college-box.notfound,
+.desired-college-box.notfound_for_filters {
+  background: var(--paper-alt);
+  border: 1px dashed var(--border);
+  color: var(--slate);
+}
+
+.desired-college-box.not_attainable {
+  background: rgba(178, 58, 72, 0.08);
+  border: 1px solid rgba(178, 58, 72, 0.3);
+  color: var(--ink-soft);
+}
+
+.desired-college-box.attainable {
+  background: rgba(76, 122, 99, 0.08);
+  border: 1px solid rgba(76, 122, 99, 0.3);
+  padding: 4px;
+}
+
+.result-card.searched-result {
+  border: 2px solid var(--sage);
+  box-shadow: 0 6px 18px rgba(76, 122, 99, 0.18);
+}
+
+@media (max-width: 480px) {
+  .teaser-stream-select { min-width: 0; width: 100%; }
+  .desired-college-box { font-size: 0.85rem; padding: 12px 14px; }
 }

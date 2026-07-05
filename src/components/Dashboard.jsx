@@ -387,6 +387,45 @@ export default function Dashboard() {
       .sort((a, b) => a.rank - b.rank);
   }, [medicalData, userRank, predictorCategory, predictorStream, predictorRound, predictorYear]);
 
+  // --- Search for a specific desired college on the Predictor tab ---
+  const [desiredCollegeName, setDesiredCollegeName] = useState('');
+
+  const predictorStreamCollegeNames = useMemo(() => {
+    const names = new Set(
+      medicalData.filter((item) => item.stream === predictorStream).map((item) => item.collegeName)
+    );
+    return Array.from(names).sort();
+  }, [medicalData, predictorStream]);
+
+  const desiredCollegeCheck = useMemo(() => {
+    const query = desiredCollegeName.trim().toLowerCase();
+    if (!query) return null;
+
+    const candidates = medicalData.filter(
+      (item) => item.stream === predictorStream && item.collegeName.toLowerCase().includes(query)
+    );
+    if (candidates.length === 0) return { status: 'notfound' };
+
+    const scoped = candidates.filter(
+      (item) =>
+        item.category === predictorCategory &&
+        (predictorRound === 'ALL' || item.round === predictorRound) &&
+        (predictorYear === 'ALL' || item.year === predictorYear)
+    );
+    if (scoped.length === 0) return { status: 'notfound_for_filters' };
+
+    if (!userRank || isNaN(userRank)) return { status: 'need_rank' };
+    const targetRank = parseInt(userRank, 10);
+
+    // Easiest (highest cutoff rank number) entry among the scoped matches
+    const easiest = [...scoped].sort((a, b) => b.rank - a.rank)[0];
+
+    if (easiest.rank >= targetRank) {
+      return { status: 'attainable', record: easiest };
+    }
+    return { status: 'not_attainable', record: easiest };
+  }, [desiredCollegeName, medicalData, predictorStream, predictorCategory, predictorRound, predictorYear, userRank]);
+
   // --- Quick stats for sidebar ---
   const avgFeesShown = useMemo(() => {
     const list = activeTab === 'predictor' ? predictedColleges : filteredDashboardData;
@@ -854,20 +893,18 @@ export default function Dashboard() {
       <main className="main-content">
 
         <header className="dash-header">
+          <span className="dash-eyebrow">KEA Counselling · Live Dataset</span>
           <div className="dash-header-row">
             <img src={logo} alt="Namma-UGNEET" className="header-logo" />
-            <div>
-              <span className="dash-eyebrow">KEA Counselling · Live Dataset</span>
-              <h1 className="dash-title">
-                {{
-                  home: 'Welcome to NammaUGNEET',
-                  explore: 'Explore Cutoffs & Fees',
-                  predictor: 'Smart College Predictor',
-                  options: 'My Option Entry List',
-                  contact: 'Contact & About',
-                }[activeTab]}
-              </h1>
-            </div>
+            <h1 className="dash-title">
+              {{
+                home: 'Welcome to NammaUGNEET',
+                explore: 'Explore Cutoffs & Fees',
+                predictor: 'Smart College Predictor',
+                options: 'My Option Entry List',
+                contact: 'Contact & About',
+              }[activeTab]}
+            </h1>
           </div>
           <p className="dash-subtitle">
             {{
@@ -943,6 +980,15 @@ export default function Dashboard() {
                     value={userRank}
                     onChange={(e) => setUserRank(e.target.value)}
                   />
+                  <select
+                    className="teaser-stream-select"
+                    value={predictorStream}
+                    onChange={(e) => setPredictorStream(e.target.value)}
+                  >
+                    <option value="MEDICAL">MBBS (Medical)</option>
+                    <option value="DENTAL">BDS (Dental)</option>
+                    <option value="AYUSH">AYUSH</option>
+                  </select>
                   <button onClick={() => navigateTo('predictor')}>Predict My Colleges →</button>
                 </div>
               </div>
@@ -1143,8 +1189,84 @@ export default function Dashboard() {
                       ))}
                     </select>
                   </div>
+
+                  <div className="field">
+                    <label>🔍 Search a Specific College</label>
+                    <input
+                      type="text"
+                      list="predictor-college-options"
+                      placeholder="Start typing a college name..."
+                      value={desiredCollegeName}
+                      onChange={(e) => setDesiredCollegeName(e.target.value)}
+                    />
+                    <datalist id="predictor-college-options">
+                      {predictorStreamCollegeNames.map((name) => (
+                        <option key={name} value={name} />
+                      ))}
+                    </datalist>
+                  </div>
                 </div>
               </div>
+
+              {desiredCollegeCheck && (
+                <div className={`desired-college-box ${desiredCollegeCheck.status}`}>
+                  {desiredCollegeCheck.status === 'need_rank' && (
+                    <p>ℹ️ Enter your NEET rank above to check if <strong>{desiredCollegeName}</strong> is within your reach.</p>
+                  )}
+                  {desiredCollegeCheck.status === 'notfound' && (
+                    <p>🔍 No college matching "<strong>{desiredCollegeName}</strong>" found in the {predictorStream} stream. Check the spelling or try a shorter search term.</p>
+                  )}
+                  {desiredCollegeCheck.status === 'notfound_for_filters' && (
+                    <p>🔍 <strong>{desiredCollegeName}</strong> exists in our data, but not under <strong>{predictorCategory}</strong> category for the selected round/year. Try "All Rounds" / "All Years", or a different category.</p>
+                  )}
+                  {desiredCollegeCheck.status === 'not_attainable' && (
+                    <p>
+                      😕 Sorry, <strong>{desiredCollegeCheck.record.collegeName}</strong> was not available for Rank {userRank} under these filters.
+                      Its closest cutoff was <strong>{desiredCollegeCheck.record.rank.toLocaleString('en-IN')}</strong> ({desiredCollegeCheck.record.round} {desiredCollegeCheck.record.year}, {desiredCollegeCheck.record.category}) — you'd need a rank at or better than that.
+                    </p>
+                  )}
+                  {desiredCollegeCheck.status === 'attainable' && (() => {
+                    const item = desiredCollegeCheck.record;
+                    return (
+                      <div className="result-card searched-result">
+                        <div className="result-top">
+                          <span className="result-code">✓ YOUR SEARCH · CODE: {item.collegeCode}</span>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                            <button
+                              className={`star-btn${isSaved(item) ? ' saved' : ''}`}
+                              onClick={() => toggleSave(item)}
+                              aria-label="Save college"
+                            >
+                              {isSaved(item) ? '★' : '☆'}
+                            </button>
+                            <button
+                              className={`add-option-btn${isInOptionList(item) ? ' added' : ''}`}
+                              onClick={() => addToOptionList(item)}
+                              disabled={isInOptionList(item)}
+                              title="Add to Option Entry List"
+                            >
+                              {isInOptionList(item) ? '✓ Added' : '+ Add'}
+                            </button>
+                          </div>
+                        </div>
+                        <h4
+                          className="result-name college-name-link"
+                          onClick={() => setSelectedCollege({ collegeCode: item.collegeCode, stream: item.stream, collegeName: item.collegeName })}
+                        >
+                          {item.collegeName}
+                        </h4>
+                        <p className="result-meta">Course: <strong>{item.courseDetails}</strong></p>
+                        <p className="result-meta">Round: <strong>{item.round}</strong> · Year: <strong>{item.year}</strong></p>
+                        <p className="result-meta">Annual Cost: <strong>₹{item.fees.toLocaleString('en-IN')}</strong></p>
+                        <div className="result-footer">
+                          <span>Cutoff Rank</span>
+                          <span className="val">{item.rank.toLocaleString('en-IN')}</span>
+                        </div>
+                      </div>
+                    );
+                  })()}
+                </div>
+              )}
 
               <div>
                 <div className="predicted-heading-row">

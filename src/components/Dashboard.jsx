@@ -1476,7 +1476,7 @@ export default function Dashboard() {
                 <div className="contact-links">
                   <a
                     className="contact-link-btn"
-                    href="https://mail.google.com/mail/?view=cm&fs=1&to=eshwarhs170@gmail.com&su=NammaUGNEET%20Feedback"
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=nammaugneet@gmail.com&su=NammaUGNEET%20Feedback"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -1487,11 +1487,11 @@ export default function Dashboard() {
                       <path d="M21 6.5v11a1 1 0 0 1-1 1h-2V9.2z" fill="#34A853"/>
                       <path d="M3 6.5 12 13l9-6.5" fill="none" stroke="#4285F4" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
-                    <span>eshwarhs170@gmail.com</span>
+                    <span>nammaugneet@gmail.com</span>
                   </a>
                   <a
                     className="contact-link-btn"
-                    href="https://instagram.com/_eshwar__hs_"
+                    href="https://instagram.com/namma_ugneet"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -1508,7 +1508,7 @@ export default function Dashboard() {
                       <circle cx="12" cy="12" r="3.1" fill="none" stroke="#fff" strokeWidth="1.6" />
                       <circle cx="17" cy="7" r="1.1" fill="#fff" />
                     </svg>
-                    <span>@_eshwar__hs_</span>
+                    <span>namma_ugneet</span>
                   </a>
                 </div>
               </div>

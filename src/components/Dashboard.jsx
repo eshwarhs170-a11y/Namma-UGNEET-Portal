@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect, useRef } from 'react';
+import React, { useState, useMemo, useEffect, useRef, useCallback } from 'react';
 import logo from '../assets/namma-ugneet-logo.png';
 import './Dashboard.css';
 
@@ -41,6 +41,112 @@ const getCategoryMeaning = (code) =>
 
 const OPTIONS_KEY = 'namma_option_entries';
 const makeOptionId = (item) => `${item.year}-${item.stream}-${item.round}-${item.serialNo}-${item.category}`;
+
+const PredictedGrid = React.memo(function PredictedGrid({
+  predictedColleges,
+  userRank,
+  isSaved,
+  toggleSave,
+  isInOptionList,
+  addToOptionList,
+  getTrends,
+  onSelectCollege,
+}) {
+  if (predictedColleges.length === 0) {
+    return (
+      <div className="predicted-grid">
+        <div className="empty-predict">
+          Enter your exact NEET Rank above to populate your custom eligible target mapping list.
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="predicted-grid">
+      {predictedColleges.map((item, idx) => {
+        const safetyMargin = item.rank - parseInt(userRank, 10);
+        let stampClass = 'safe';
+        let badgeText = 'Safe Match';
+
+        if (safetyMargin < 2000) {
+          stampClass = 'borderline';
+          badgeText = 'Borderline Chance';
+        } else if (safetyMargin < 8000) {
+          stampClass = 'moderate';
+          badgeText = 'Moderate Chance';
+        }
+
+        return (
+          <div key={idx} className="result-card">
+            <div className="result-top">
+              <span className="result-code">CODE: {item.collegeCode}</span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <span className={`stamp ${stampClass}`}>{badgeText}</span>
+                <button
+                  className={`star-btn${isSaved(item) ? ' saved' : ''}`}
+                  onClick={() => toggleSave(item)}
+                  aria-label="Save college"
+                >
+                  {isSaved(item) ? '★' : '☆'}
+                </button>
+                <button
+                  className={`add-option-btn${isInOptionList(item) ? ' added' : ''}`}
+                  onClick={() => addToOptionList(item)}
+                  title="Add to Option Entry List"
+                >
+                  {isInOptionList(item) ? '✓ Added' : '+ Add'}
+                </button>
+              </div>
+            </div>
+            <h4
+              className="result-name college-name-link"
+              onClick={() => onSelectCollege({ collegeCode: item.collegeCode, stream: item.stream, collegeName: item.collegeName })}
+            >
+              {item.collegeName}
+            </h4>
+            <p className="result-meta">Course: <strong>{item.courseDetails}</strong></p>
+            <p className="result-meta">Round: <strong>{item.round}</strong> · Year: <strong>{item.year}</strong></p>
+            <p className="result-meta">Annual Cost: <strong>₹{item.fees.toLocaleString('en-IN')}</strong></p>
+
+            {(() => {
+              const { roundsThisYear, otherYearSameRound } = getTrends(item);
+              const uniqueRounds = Array.from(new Map(roundsThisYear.map((r) => [r.round, r])).values());
+              const otherYear = otherYearSameRound[0];
+              if (uniqueRounds.length <= 1 && !otherYear) return null;
+              return (
+                <div className="trend-box">
+                  {uniqueRounds.length > 1 && (
+                    <div className="trend-line">
+                      <span className="trend-label">This year:</span>
+                      {uniqueRounds.map((r) => (
+                        <span key={r.round} className="trend-chip">{r.round} {r.rank.toLocaleString('en-IN')}</span>
+                      ))}
+                    </div>
+                  )}
+                  {otherYear && (
+                    <div className="trend-line">
+                      <span className="trend-label">vs {otherYear.year}:</span>
+                      <span className="trend-chip">
+                        {otherYear.rank.toLocaleString('en-IN')}
+                        {otherYear.rank > item.rank ? ' (tighter now)' : otherYear.rank < item.rank ? ' (looser now)' : ' (same)'}
+                      </span>
+                    </div>
+                  )}
+                </div>
+              );
+            })()}
+
+            <div className="result-footer">
+              <span>Last Cutoff</span>
+              <span className="val">{item.rank.toLocaleString('en-IN')}</span>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+});
 
 export default function Dashboard() {
   // Navigation & View State
@@ -178,6 +284,14 @@ export default function Dashboard() {
   const [predictorRound, setPredictorRound] = useState('ALL');
   const [predictorYear, setPredictorYear] = useState('ALL');
   const yearDefaultSetRef = useRef(false);
+  // The input itself is bound to userRank directly (so typing feels instant).
+  // Only the heavy 74k-record filtering below uses this debounced copy, updated
+  // ~250ms after the user stops typing, so keystrokes never wait on the filter/sort.
+  const [debouncedUserRank, setDebouncedUserRank] = useState(userRank);
+  useEffect(() => {
+    const timer = setTimeout(() => setDebouncedUserRank(userRank), 250);
+    return () => clearTimeout(timer);
+  }, [userRank]);
 
   useEffect(() => {
     if (!dataLoading && medicalData.length > 0 && !yearDefaultSetRef.current) {
@@ -205,16 +319,16 @@ export default function Dashboard() {
     }
   }, [savedColleges]);
 
-  const isSaved = (item) => savedColleges.some((s) => s.id === makeId(item));
+  const isSaved = useCallback((item) => savedColleges.some((s) => s.id === makeId(item)), [savedColleges]);
 
-  const toggleSave = (item) => {
+  const toggleSave = useCallback((item) => {
     const id = makeId(item);
     setSavedColleges((prev) =>
       prev.some((s) => s.id === id)
         ? prev.filter((s) => s.id !== id)
         : [...prev, { id, ...item }]
     );
-  };
+  }, []);
 
   const removeSaved = (id) => setSavedColleges((prev) => prev.filter((s) => s.id !== id));
 
@@ -297,13 +411,16 @@ export default function Dashboard() {
     try { localStorage.setItem(OPTIONS_KEY, JSON.stringify(optionEntries)); } catch { /* ignore */ }
   }, [optionEntries]);
 
-  const isInOptionList = (item) => optionEntries.some((o) => o.id === makeOptionId(item));
+  const isInOptionList = useCallback((item) => optionEntries.some((o) => o.id === makeOptionId(item)), [optionEntries]);
 
-  const addToOptionList = (item) => {
+  const addToOptionList = useCallback((item) => {
     const id = makeOptionId(item);
-    if (optionEntries.some((o) => o.id === id)) return;
-    setOptionEntries((prev) => [...prev, { id, ...item }]);
-  };
+    setOptionEntries((prev) =>
+      prev.some((o) => o.id === id)
+        ? prev.filter((o) => o.id !== id)
+        : [...prev, { id, ...item }]
+    );
+  }, []);
 
   const removeFromOptionList = (id) => setOptionEntries((prev) => prev.filter((o) => o.id !== id));
 
@@ -371,8 +488,8 @@ export default function Dashboard() {
 
   // --- ENGINE 2: SMART NEET SEAT PREDICTOR ALGORITHM ---
   const predictedColleges = useMemo(() => {
-    if (!userRank || isNaN(userRank)) return [];
-    const targetRank = parseInt(userRank, 10);
+    if (!debouncedUserRank || isNaN(debouncedUserRank)) return [];
+    const targetRank = parseInt(debouncedUserRank, 10);
 
     return medicalData
       .filter((item) => {
@@ -385,7 +502,7 @@ export default function Dashboard() {
         return matchStream && matchCategory && matchRound && matchYear && matchRankScope;
       })
       .sort((a, b) => a.rank - b.rank);
-  }, [medicalData, userRank, predictorCategory, predictorStream, predictorRound, predictorYear]);
+  }, [medicalData, debouncedUserRank, predictorCategory, predictorStream, predictorRound, predictorYear]);
 
   // --- Search for a specific desired college on the Predictor tab ---
   const [desiredCollegeName, setDesiredCollegeName] = useState('');
@@ -414,8 +531,8 @@ export default function Dashboard() {
     );
     if (scoped.length === 0) return { status: 'notfound_for_filters' };
 
-    if (!userRank || isNaN(userRank)) return { status: 'need_rank' };
-    const targetRank = parseInt(userRank, 10);
+    if (!debouncedUserRank || isNaN(debouncedUserRank)) return { status: 'need_rank' };
+    const targetRank = parseInt(debouncedUserRank, 10);
 
     // Easiest (highest cutoff rank number) entry among the scoped matches
     const easiest = [...scoped].sort((a, b) => b.rank - a.rank)[0];
@@ -424,7 +541,7 @@ export default function Dashboard() {
       return { status: 'attainable', record: easiest };
     }
     return { status: 'not_attainable', record: easiest };
-  }, [desiredCollegeName, medicalData, predictorStream, predictorCategory, predictorRound, predictorYear, userRank]);
+  }, [desiredCollegeName, medicalData, predictorStream, predictorCategory, predictorRound, predictorYear, debouncedUserRank]);
 
   // --- Quick stats for sidebar ---
   const avgFeesShown = useMemo(() => {
@@ -446,13 +563,13 @@ export default function Dashboard() {
     return map;
   }, [medicalData]);
 
-  const getTrends = (item) => {
+  const getTrends = useCallback((item) => {
     const key = `${item.stream}|${item.category}|${item.collegeCode}`;
     const entries = trendIndex[key] || [];
     const roundsThisYear = entries.filter((e) => e.year === item.year);
     const otherYearSameRound = entries.filter((e) => e.round === item.round && e.year !== item.year);
     return { roundsThisYear, otherYearSameRound };
-  };
+  }, [trendIndex]);
 
   // Index: stream|collegeCode -> [full records] — powers the college detail modal
   const collegeCodeIndex = useMemo(() => {
@@ -1096,7 +1213,6 @@ export default function Dashboard() {
                             <button
                               className={`add-option-btn${isInOptionList(item) ? ' added' : ''}`}
                               onClick={() => addToOptionList(item)}
-                              disabled={isInOptionList(item)}
                               aria-label="Add to option entry list"
                               title="Add to Option Entry List"
                             >
@@ -1242,7 +1358,6 @@ export default function Dashboard() {
                             <button
                               className={`add-option-btn${isInOptionList(item) ? ' added' : ''}`}
                               onClick={() => addToOptionList(item)}
-                              disabled={isInOptionList(item)}
                               title="Add to Option Entry List"
                             >
                               {isInOptionList(item) ? '✓ Added' : '+ Add'}
@@ -1281,95 +1396,16 @@ export default function Dashboard() {
                   Colleges where <strong>{predictorYear === 'ALL' ? 'any year\'s' : predictorYear}</strong> <strong>{predictorRound === 'ALL' ? 'any round\'s' : predictorRound}</strong> closing cutoff scores matched higher than or equal to Rank <strong>{userRank || '0'}</strong>:
                 </p>
 
-                <div className="predicted-grid">
-                  {predictedColleges.length === 0 ? (
-                    <div className="empty-predict">
-                      Enter your exact NEET Rank above to populate your custom eligible target mapping list.
-                    </div>
-                  ) : (
-                    predictedColleges.map((item, idx) => {
-                      const safetyMargin = item.rank - parseInt(userRank, 10);
-                      let stampClass = 'safe';
-                      let badgeText = 'Safe Match';
-
-                      if (safetyMargin < 2000) {
-                        stampClass = 'borderline';
-                        badgeText = 'Borderline Chance';
-                      } else if (safetyMargin < 8000) {
-                        stampClass = 'moderate';
-                        badgeText = 'Moderate Chance';
-                      }
-
-                      return (
-                        <div key={idx} className="result-card">
-                          <div className="result-top">
-                            <span className="result-code">CODE: {item.collegeCode}</span>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                              <span className={`stamp ${stampClass}`}>{badgeText}</span>
-                              <button
-                                className={`star-btn${isSaved(item) ? ' saved' : ''}`}
-                                onClick={() => toggleSave(item)}
-                                aria-label="Save college"
-                              >
-                                {isSaved(item) ? '★' : '☆'}
-                              </button>
-                              <button
-                                className={`add-option-btn${isInOptionList(item) ? ' added' : ''}`}
-                                onClick={() => addToOptionList(item)}
-                                disabled={isInOptionList(item)}
-                                title="Add to Option Entry List"
-                              >
-                                {isInOptionList(item) ? '✓ Added' : '+ Add'}
-                              </button>
-                            </div>
-                          </div>
-                          <h4
-                            className="result-name college-name-link"
-                            onClick={() => setSelectedCollege({ collegeCode: item.collegeCode, stream: item.stream, collegeName: item.collegeName })}
-                          >
-                            {item.collegeName}
-                          </h4>
-                          <p className="result-meta">Course: <strong>{item.courseDetails}</strong></p>
-                          <p className="result-meta">Round: <strong>{item.round}</strong> · Year: <strong>{item.year}</strong></p>
-                          <p className="result-meta">Annual Cost: <strong>₹{item.fees.toLocaleString('en-IN')}</strong></p>
-
-                          {(() => {
-                            const { roundsThisYear, otherYearSameRound } = getTrends(item);
-                            const uniqueRounds = Array.from(new Map(roundsThisYear.map((r) => [r.round, r])).values());
-                            const otherYear = otherYearSameRound[0];
-                            if (uniqueRounds.length <= 1 && !otherYear) return null;
-                            return (
-                              <div className="trend-box">
-                                {uniqueRounds.length > 1 && (
-                                  <div className="trend-line">
-                                    <span className="trend-label">This year:</span>
-                                    {uniqueRounds.map((r) => (
-                                      <span key={r.round} className="trend-chip">{r.round} {r.rank.toLocaleString('en-IN')}</span>
-                                    ))}
-                                  </div>
-                                )}
-                                {otherYear && (
-                                  <div className="trend-line">
-                                    <span className="trend-label">vs {otherYear.year}:</span>
-                                    <span className="trend-chip">
-                                      {otherYear.rank.toLocaleString('en-IN')}
-                                      {otherYear.rank > item.rank ? ' (tighter now)' : otherYear.rank < item.rank ? ' (looser now)' : ' (same)'}
-                                    </span>
-                                  </div>
-                                )}
-                              </div>
-                            );
-                          })()}
-
-                          <div className="result-footer">
-                            <span>Last Cutoff</span>
-                            <span className="val">{item.rank.toLocaleString('en-IN')}</span>
-                          </div>
-                        </div>
-                      );
-                    })
-                  )}
-                </div>
+                <PredictedGrid
+                  predictedColleges={predictedColleges}
+                  userRank={debouncedUserRank}
+                  isSaved={isSaved}
+                  toggleSave={toggleSave}
+                  isInOptionList={isInOptionList}
+                  addToOptionList={addToOptionList}
+                  getTrends={getTrends}
+                  onSelectCollege={setSelectedCollege}
+                />
               </div>
             </div>
           )}

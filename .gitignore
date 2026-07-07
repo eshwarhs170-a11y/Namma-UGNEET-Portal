@@ -28,3 +28,4 @@ dist-ssr
 .env.*.local
 # Exclude raw source documents
 *.pdf
+dataprocessing/AIQ-2025/*.txt

@@ -862,6 +862,14 @@
   z-index: 1;
 }
 
+.ledger thead th.sortable-th {
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  transition: background 0.15s ease;
+}
+.ledger thead th.sortable-th:hover { background: var(--ink-soft); }
+
 .ledger tbody td {
   padding: 12px 14px;
   border-bottom: 1px solid var(--border);
@@ -1379,6 +1387,22 @@
   transition: background 0.15s ease;
 }
 .copy-results-btn:hover { background: var(--paper); }
+
+/* ---------- WhatsApp share button ---------- */
+.whatsapp-share-btn {
+  background: #25D366;
+  border: 1px solid #25D366;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.82rem;
+  padding: 7px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: filter 0.15s ease, transform 0.15s ease;
+}
+.whatsapp-share-btn:hover { filter: brightness(1.05); transform: translateY(-1px); }
+.whatsapp-share-btn:focus-visible { outline: 2px solid var(--marigold); outline-offset: 2px; }
 
 /* ---------- Saved rank profiles ---------- */
 .profile-save-row {

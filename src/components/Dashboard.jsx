@@ -310,6 +310,15 @@ export default function Dashboard() {
   const [maxBudget, setMaxBudget] = useState(1500000);
   const [roundFilter, setRoundFilter] = useState('ALL');
   const [yearFilter, setYearFilter] = useState('ALL');
+  const [sortConfig, setSortConfig] = useState({ key: 'rank', direction: 'asc' });
+
+  const handleSort = (key) => {
+    setSortConfig((prev) =>
+      prev.key === key
+        ? { key, direction: prev.direction === 'asc' ? 'desc' : 'asc' }
+        : { key, direction: 'asc' }
+    );
+  };
 
   // Rank Predictor Input State variables
   const [userRank, setUserRank] = useState('');
@@ -486,6 +495,14 @@ export default function Dashboard() {
     });
   };
 
+  const shareOptionListOnWhatsApp = () => {
+    const lines = optionEntries.map((o, i) =>
+      `Option ${i + 1}: ${o.collegeName} (${o.collegeCode}) — ${o.courseDetails}, ${o.category} [${o.round} ${o.year}]`
+    );
+    const text = `📝 NammaUGNEET — My Option Entry Preference List\n\n${lines.join('\n')}\n\nBuild your own list: https://namma-ugneet-portal.vercel.app/`;
+    window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+  };
+
   // --- UNIQUE DROPDOWN OPTIONS LIST GENERATORS ---
   const dynamicCategories = useMemo(() => {
     const categoriesSet = new Set(medicalData.map((item) => item.category));
@@ -517,8 +534,18 @@ export default function Dashboard() {
 
         return matchSearch && matchStream && matchCategory && matchBudget && matchRound && matchYear;
       })
-      .sort((a, b) => a.rank - b.rank);
-  }, [medicalData, searchQuery, streamFilter, categoryFilter, maxBudget, roundFilter, yearFilter]);
+      .sort((a, b) => {
+        let av = a[sortConfig.key];
+        let bv = b[sortConfig.key];
+        if (typeof av === 'string') {
+          av = av.toLowerCase();
+          bv = bv.toLowerCase();
+        }
+        if (av < bv) return sortConfig.direction === 'asc' ? -1 : 1;
+        if (av > bv) return sortConfig.direction === 'asc' ? 1 : -1;
+        return 0;
+      });
+  }, [medicalData, searchQuery, streamFilter, categoryFilter, maxBudget, roundFilter, yearFilter, sortConfig]);
 
   // --- ENGINE 2: SMART NEET SEAT PREDICTOR ALGORITHM ---
   const predictedColleges = useMemo(() => {
@@ -628,6 +655,20 @@ export default function Dashboard() {
       setCopyFeedback(true);
       setTimeout(() => setCopyFeedback(false), 2000);
     });
+  };
+
+  const shareOnWhatsApp = (text) => {
+    const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
+  const sharePredictedResultsOnWhatsApp = () => {
+    const lines = predictedColleges.slice(0, 15).map((item, i) =>
+      `${i + 1}. ${item.collegeName} (${item.collegeCode}) — ${item.courseDetails}, ${item.category}, ₹${item.fees.toLocaleString('en-IN')}, Cutoff ${item.rank.toLocaleString('en-IN')} [${item.round} ${item.year}]`
+    );
+    const header = `🎯 NammaUGNEET — Predicted colleges for Rank ${userRank} (${predictorCategory}, ${predictorStream}):\n\n`;
+    const footer = `\n\nCheck your own rank: https://namma-ugneet-portal.vercel.app/`;
+    shareOnWhatsApp(header + lines.join('\n') + footer);
   };
 
   if (dataLoading) {
@@ -1230,11 +1271,26 @@ export default function Dashboard() {
                       <th></th>
                       <th></th>
                       <th>KEA Code</th>
-                      <th>College Name</th>
+                      <th
+                        className="sortable-th"
+                        onClick={() => handleSort('collegeName')}
+                      >
+                        College Name{sortConfig.key === 'collegeName' && (sortConfig.direction === 'asc' ? ' ▲' : ' ▼')}
+                      </th>
                       <th>Course</th>
                       <th>Category</th>
-                      <th>Annual Fees</th>
-                      <th>Cutoff Rank</th>
+                      <th
+                        className="sortable-th"
+                        onClick={() => handleSort('fees')}
+                      >
+                        Annual Fees{sortConfig.key === 'fees' && (sortConfig.direction === 'asc' ? ' ▲' : ' ▼')}
+                      </th>
+                      <th
+                        className="sortable-th"
+                        onClick={() => handleSort('rank')}
+                      >
+                        Cutoff Rank{sortConfig.key === 'rank' && (sortConfig.direction === 'asc' ? ' ▲' : ' ▼')}
+                      </th>
                       <th>Round</th>
                       <th>Year</th>
                     </tr>
@@ -1434,9 +1490,14 @@ export default function Dashboard() {
                 <div className="predicted-heading-row">
                   <h3 className="predicted-heading">💡 Predicted Eligible Target Opportunities</h3>
                   {predictedColleges.length > 0 && (
-                    <button className="copy-results-btn" onClick={copyPredictedResults}>
-                      {copyFeedback ? '✓ Copied!' : '📋 Copy Results'}
-                    </button>
+                    <div style={{ display: 'flex', gap: '8px' }}>
+                      <button className="whatsapp-share-btn" onClick={sharePredictedResultsOnWhatsApp}>
+                        💬 Share on WhatsApp
+                      </button>
+                      <button className="copy-results-btn" onClick={copyPredictedResults}>
+                        {copyFeedback ? '✓ Copied!' : '📋 Copy Results'}
+                      </button>
+                    </div>
                   )}
                 </div>
                 <p className="predicted-sub">
@@ -1479,6 +1540,9 @@ export default function Dashboard() {
                   <div className="option-toolbar">
                     <span>{optionEntries.length} college{optionEntries.length !== 1 ? 's' : ''} in your list</span>
                     <div style={{ display: 'flex', gap: '8px' }}>
+                      <button className="whatsapp-share-btn" onClick={shareOptionListOnWhatsApp}>
+                        💬 Share on WhatsApp
+                      </button>
                       <button className="copy-results-btn" onClick={copyOptionList}>
                         {optionCopyFeedback ? '✓ Copied!' : '📋 Copy List'}
                       </button>

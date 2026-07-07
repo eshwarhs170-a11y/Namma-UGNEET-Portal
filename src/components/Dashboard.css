@@ -1251,6 +1251,26 @@
 }
 .compare-fab:hover { transform: translateY(-2px); }
 
+/* ---------- Floating install app button ---------- */
+.install-fab {
+  position: fixed;
+  top: 70px;
+  right: 22px;
+  z-index: 70;
+  background: var(--marigold-dark);
+  color: var(--accent-text);
+  border: none;
+  border-radius: 24px;
+  padding: 10px 18px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(27, 42, 74, 0.25);
+  transition: transform 0.15s ease;
+}
+.install-fab:hover { transform: translateY(-2px); }
+.install-fab.stacked { top: 122px; }
+
 /* ---------- College detail modal ---------- */
 .college-name-link {
   background: none;
@@ -1435,6 +1455,8 @@
 /* ---------- Responsive: new features on smaller screens ---------- */
 @media (max-width: 880px) {
   .compare-fab { top: 68px; right: 14px; padding: 9px 14px; font-size: 0.78rem; }
+  .install-fab { top: 68px; right: 14px; padding: 9px 14px; font-size: 0.78rem; }
+  .install-fab.stacked { top: 118px; }
   .glossary-card, .compare-card, .college-detail-card { padding: 18px; max-height: 88vh; }
   .glossary-row { grid-template-columns: 60px 1fr; }
   .predicted-heading-row { flex-direction: column; align-items: flex-start; }
@@ -1442,6 +1464,8 @@
 
 @media (max-width: 480px) {
   .compare-fab { top: 64px; right: 10px; }
+  .install-fab { top: 64px; right: 10px; }
+  .install-fab.stacked { top: 112px; }
   .glossary-row { grid-template-columns: 1fr; gap: 4px; }
   .glossary-code { font-size: 0.9rem; }
   .college-stat-row { grid-template-columns: 1fr; }
@@ -1503,6 +1527,11 @@
   background: var(--marigold-dark);
   color: var(--accent-text);
   border-color: var(--marigold-dark);
+}
+.home-cta.install-cta {
+  background: var(--sage);
+  color: var(--accent-text);
+  border-color: var(--sage);
 }
 .home-cta:hover { filter: brightness(1.08); }
 

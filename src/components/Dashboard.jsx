@@ -203,6 +203,40 @@ export default function Dashboard() {
     return () => clearTimeout(timer);
   }, []);
 
+  // --- PWA "Install App" support ---
+  // Chrome/Edge fire this event when the site is installable; we stash it and
+  // trigger it ourselves from a visible button instead of relying on the
+  // easy-to-miss address-bar icon.
+  const [installPromptEvent, setInstallPromptEvent] = useState(null);
+  const [isAppInstalled, setIsAppInstalled] = useState(false);
+
+  useEffect(() => {
+    const onBeforeInstallPrompt = (e) => {
+      e.preventDefault();
+      setInstallPromptEvent(e);
+    };
+    const onAppInstalled = () => {
+      setInstallPromptEvent(null);
+      setIsAppInstalled(true);
+    };
+    window.addEventListener('beforeinstallprompt', onBeforeInstallPrompt);
+    window.addEventListener('appinstalled', onAppInstalled);
+    return () => {
+      window.removeEventListener('beforeinstallprompt', onBeforeInstallPrompt);
+      window.removeEventListener('appinstalled', onAppInstalled);
+    };
+  }, []);
+
+  const handleInstallClick = async () => {
+    if (!installPromptEvent) return;
+    installPromptEvent.prompt();
+    const { outcome } = await installPromptEvent.userChoice;
+    if (outcome === 'accepted') {
+      setIsAppInstalled(true);
+    }
+    setInstallPromptEvent(null);
+  };
+
   // --- Feature tour: a quick guided walkthrough of what's on the page ---
   const TOUR_KEY = 'namma_tour_seen';
   const tourSteps = [
@@ -794,6 +828,16 @@ export default function Dashboard() {
         </button>
       )}
 
+      {/* FLOATING INSTALL APP BUTTON — only shows when the browser says it's installable */}
+      {installPromptEvent && !isAppInstalled && (
+        <button
+          className={`install-fab${savedColleges.length >= 2 ? ' stacked' : ''}`}
+          onClick={handleInstallClick}
+        >
+          ⬇️ Install App
+        </button>
+      )}
+
       {/* BACKDROP (mobile only, dims content behind the open sidebar) */}
       {sidebarOpen && <div className="sidebar-backdrop" onClick={() => { userToggledRef.current = true; setSidebarOpen(false); }} />}
 
@@ -1047,6 +1091,9 @@ export default function Dashboard() {
                 <div className="home-hero-actions">
                   <button className="home-cta primary" onClick={() => navigateTo('predictor')}>🎯 Predict</button>
                   <button className="home-cta" onClick={() => navigateTo('explore')}>🔍 Explore</button>
+                  {installPromptEvent && !isAppInstalled && (
+                    <button className="home-cta install-cta" onClick={handleInstallClick}>⬇️ Install App</button>
+                  )}
                 </div>
               </div>
 

@@ -916,6 +916,28 @@
   margin-top: 14px;
 }
 
+.show-more-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+}
+.show-more-wrap .truncate-note { margin-top: 0; }
+.show-more-btn {
+  background: var(--solid-accent-bg);
+  color: var(--accent-text);
+  border: none;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: filter 0.15s ease, transform 0.15s ease;
+}
+.show-more-btn:hover { filter: brightness(1.15); transform: translateY(-1px); }
+.show-more-btn:focus-visible { outline: 2px solid var(--marigold); outline-offset: 2px; }
+
 /* ---------- Predictor hero (hall-ticket card) ---------- */
 .ticket-hero {
   position: relative;

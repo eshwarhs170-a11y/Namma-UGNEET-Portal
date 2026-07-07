@@ -96,6 +96,15 @@ const PredictedGrid = React.memo(function PredictedGrid({
   getTrends,
   onSelectCollege,
 }) {
+  const CARD_RENDER_LIMIT = 150;
+  const [visibleCount, setVisibleCount] = useState(CARD_RENDER_LIMIT);
+
+  // Reset back to the initial page size whenever the underlying match list changes
+  // (new rank, filters, etc.) so "Show More" clicks from a previous search don't linger.
+  useEffect(() => {
+    setVisibleCount(CARD_RENDER_LIMIT);
+  }, [predictedColleges]);
+
   if (predictedColleges.length === 0) {
     return (
       <div className="predicted-grid">
@@ -106,9 +115,12 @@ const PredictedGrid = React.memo(function PredictedGrid({
     );
   }
 
+  const visibleColleges = predictedColleges.slice(0, visibleCount);
+
   return (
-    <div className="predicted-grid">
-      {predictedColleges.map((item, idx) => {
+    <div className="predicted-grid-wrap">
+      <div className="predicted-grid">
+        {visibleColleges.map((item, idx) => {
         const safetyMargin = item.rank - parseInt(userRank, 10);
         let stampClass = 'safe';
         let badgeText = 'Safe Match';
@@ -190,7 +202,21 @@ const PredictedGrid = React.memo(function PredictedGrid({
             </div>
           </div>
         );
-      })}
+        })}
+      </div>
+      {predictedColleges.length > visibleCount && (
+        <div className="show-more-wrap">
+          <p className="truncate-note">
+            Showing top {visibleCount.toLocaleString('en-IN')} of {predictedColleges.length.toLocaleString('en-IN')} matches (closest cutoffs first).
+          </p>
+          <button
+            className="show-more-btn"
+            onClick={() => setVisibleCount((prev) => prev + CARD_RENDER_LIMIT)}
+          >
+            Show {Math.min(CARD_RENDER_LIMIT, predictedColleges.length - visibleCount).toLocaleString('en-IN')} More
+          </button>
+        </div>
+      )}
     </div>
   );
 });

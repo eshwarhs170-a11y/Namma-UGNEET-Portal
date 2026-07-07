@@ -4,7 +4,20 @@ const path = require('path');
 const AIQ_INPUT_DIR = path.join(__dirname, 'aiq_source');
 const OUTPUT_FILE = path.join(__dirname, 'aiq_staging_output', 'aiq_mbbs_bds_compiled.json');
 
-const REMARK_PATTERN = /^(Reported|Not Reported|Seat Surrendered|Fresh Allotted in \d+\w{2} Round(?:\([^)]*\))?|Did not opt for Upgradation\.|Did not fill up fresh choices\.)/;
+// Added "Upgraded" — a real remark phrase we hadn't seen until testing against real data
+const REMARK_PATTERN = /^(Reported|Not Reported|Seat Surrendered|Upgraded|Fresh Allotted in \d+\w{2} Round(?:\([^)]*\))?|Did not opt for Upgradation\.|Did not fill up fresh choices\.)/;
+
+// Known irregular quota phrases that don't end in "Quota"/"Indian"/"India" —
+// checked FIRST, before falling back to the generic ending-word heuristic.
+// \s+ between words tolerates line-breaks and extra spaces from PDF extraction.
+const KNOWN_QUOTA_PATTERNS = [
+  /^(Employee['\s]*s\s+State\s+Insurance\s+Scheme\(?\s*ESI\s*\))/i,
+  /^(Deemed\s*\/?\s*Paid\s+Seats\s+Quota)/i,
+];
+
+function normalizeWhitespace(str) {
+  return str ? str.replace(/\s+/g, ' ').trim() : str;
+}
 
 function detectYearFolders() {
   if (!fs.existsSync(AIQ_INPUT_DIR)) return [];
@@ -15,7 +28,7 @@ function detectYearFolders() {
 }
 
 function splitIntoRows(text) {
-  const rowStartPattern = /(\d+)\s+(?=(-\s|[A-Z][a-zA-Z\/\s]*?(?:Quota|Institutions?|Indian|India)\b))/g;
+  const rowStartPattern = /(\d+)\s+(?=(-\s|(?=[A-Za-z])[a-zA-Z\/\s]{0,40}?(?:Quota|Institutions?|Indian|India|Employee)\b))/g;
   const starts = [];
   let m;
   while ((m = rowStartPattern.exec(text)) !== null) {
@@ -39,15 +52,34 @@ function tryConsumeDashBlock(text, fieldCount) {
 }
 
 function parseRealBlock(text, isFinalBlock) {
-  const courseMatch = text.match(/\b(MBBS|BDS)\b/);
+  const courseMatch = text.match(/\b(MBBS|BDS)\b/s);
   if (!courseMatch) return null;
 
   const beforeCourse = text.slice(0, courseMatch.index).trim();
   let afterCourse = text.slice(courseMatch.index + courseMatch[0].length).trim();
 
-  const quotaSplit = beforeCourse.match(/^([A-Za-z()\/\s]*?(?:Quota|Institutions?|Indian|India(?!\s+Institute)))\s+(.*)$/);
-  const quota = quotaSplit ? quotaSplit[1].trim() : null;
-  const institute = quotaSplit ? quotaSplit[2].trim() : beforeCourse;
+  let quota = null;
+  let institute = beforeCourse;
+
+  for (const pattern of KNOWN_QUOTA_PATTERNS) {
+    const m = beforeCourse.match(pattern);
+    if (m) {
+      quota = m[1];
+      institute = beforeCourse.slice(m[0].length).trim();
+      break;
+    }
+  }
+
+  if (quota === null) {
+    const quotaSplit = beforeCourse.match(/^([A-Za-z()\/\s]*?(?:Quota|Institutions?|Indian|India(?!\s+Institute)))\s+([\s\S]*)$/);
+    if (quotaSplit) {
+      quota = quotaSplit[1];
+      institute = quotaSplit[2];
+    }
+  }
+
+  quota = normalizeWhitespace(quota);
+  institute = normalizeWhitespace(institute);
 
   let allottedCategory = null;
   let candidateCategory = null;
@@ -57,19 +89,18 @@ function parseRealBlock(text, isFinalBlock) {
     const tokens = afterCourse.split(/\s+/);
     allottedCategory = tokens[0] || null;
     candidateCategory = tokens[1] || null;
-    optionNo = tokens[2] || null;
-    afterCourse = tokens.slice(3).join(' ');
+    let remainderStart = 2;
+    if (tokens[2] && /^\d+$/.test(tokens[2])) {
+      optionNo = tokens[2];
+      remainderStart = 3;
+    }
+    afterCourse = tokens.slice(remainderStart).join(' ');
   }
 
   const remarkMatch = afterCourse.match(REMARK_PATTERN);
-  const remark = remarkMatch ? remarkMatch[0] : afterCourse || null;
-  const consumedLength = courseMatch.index + courseMatch[0].length +
-    (isFinalBlock ? (allottedCategory ? allottedCategory.length + 1 : 0) +
-                    (candidateCategory ? candidateCategory.length + 1 : 0) +
-                    (optionNo ? optionNo.length + 1 : 0) : 0) +
-    (remarkMatch ? remarkMatch[0].length : afterCourse.length);
+  const remark = remarkMatch ? remarkMatch[0] : (afterCourse || null);
 
-  return { quota, institute, course: courseMatch[0], allottedCategory, candidateCategory, remark, consumedLength };
+  return { quota, institute, course: courseMatch[0], allottedCategory, candidateCategory, remark };
 }
 
 function parseRow(rowText, rank) {
@@ -125,9 +156,11 @@ function compileMbbsBds() {
 
       let count = 0;
       let skipped = 0;
+      let quotaNullCount = 0;
       rows.forEach(({ rank, text }) => {
         const parsed = parseRow(text, rank);
         if (parsed) {
+          if (parsed.quota === null) quotaNullCount++;
           masterData.push({ ...parsed, year, dataset: 'AIQ', stream: 'MEDICAL_DENTAL' });
           count++;
         } else {
@@ -135,6 +168,9 @@ function compileMbbsBds() {
         }
       });
       console.log(`✅ Extracted ${count} records, skipped ${skipped} (dash-only/unmatched) from ${fileName}`);
+      if (quotaNullCount > 0) {
+        console.log(`⚠️  ${quotaNullCount} records have quota:null — review these, likely an unrecognized quota phrase`);
+      }
     });
   });
 

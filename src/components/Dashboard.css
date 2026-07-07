@@ -1366,6 +1366,26 @@
   color: var(--ink-soft);
 }
 
+/* ---------- Rank trend sparkline ---------- */
+.trend-line-with-spark {
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 10px;
+}
+.sparkline-svg {
+  flex-shrink: 0;
+  display: block;
+}
+.sparkline-bar {
+  fill: var(--slate);
+  opacity: 0.55;
+}
+.sparkline-bar-best {
+  fill: var(--sage);
+  opacity: 1;
+}
+
 /* ---------- Copy results button ---------- */
 .predicted-heading-row {
   display: flex;
@@ -1403,6 +1423,89 @@
 }
 .whatsapp-share-btn:hover { filter: brightness(1.05); transform: translateY(-1px); }
 .whatsapp-share-btn:focus-visible { outline: 2px solid var(--marigold); outline-offset: 2px; }
+
+/* ---------- PDF download button ---------- */
+.pdf-download-btn {
+  background: var(--seal-red);
+  border: 1px solid var(--seal-red);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.82rem;
+  padding: 7px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: filter 0.15s ease, transform 0.15s ease;
+}
+.pdf-download-btn:hover { filter: brightness(1.1); transform: translateY(-1px); }
+.pdf-download-btn:focus-visible { outline: 2px solid var(--marigold); outline-offset: 2px; }
+
+/* ---------- Similar colleges fallback ---------- */
+.similar-colleges-box {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--border);
+}
+.similar-colleges-heading {
+  margin: 0 0 8px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--ink);
+}
+.similar-colleges-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.similar-colleges-list li {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 10px;
+}
+.similar-colleges-list .college-name-link {
+  font-weight: 600;
+  font-size: 0.88rem;
+}
+.similar-colleges-meta {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--slate);
+  font-family: var(--font-mono);
+  margin-top: 2px;
+}
+
+/* ---------- Category comparison ---------- */
+.category-compare-section {
+  margin-bottom: 22px;
+}
+.category-compare-toggle {
+  background: var(--paper-alt);
+  border: 1px solid var(--border);
+  color: var(--ink-soft);
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 9px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.category-compare-toggle:hover { background: var(--paper); }
+.category-compare-toggle:focus-visible { outline: 2px solid var(--marigold); outline-offset: 2px; }
+
+.category-compare-table-wrap {
+  margin-top: 10px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+  background: var(--paper-alt);
+}
+.category-compare-table-wrap .compare-table-wrap { max-height: none; }
+.current-category-row { background: rgba(232, 163, 61, 0.1); }
+.current-category-row td { font-weight: 600; }
 
 /* ---------- Saved rank profiles ---------- */
 .profile-save-row {
@@ -1971,4 +2074,7 @@
 @media (max-width: 480px) {
   .teaser-stream-select { min-width: 0; width: 100%; }
   .desired-college-box { font-size: 0.85rem; padding: 12px 14px; }
+  .trend-line-with-spark { flex-wrap: wrap; }
+  .sparkline-svg { width: 100px; height: 26px; }
+  .pdf-download-btn, .whatsapp-share-btn { font-size: 0.78rem; padding: 6px 11px; }
 }

@@ -1187,14 +1187,21 @@ export default function Dashboard() {
                   />
                   <select
                     className="teaser-stream-select"
-                    value={predictorStream}
-                    onChange={(e) => setPredictorStream(e.target.value)}
+                    value={streamFilter}
+                    onChange={(e) => setStreamFilter(e.target.value)}
                   >
                     <option value="MEDICAL">MBBS (Medical)</option>
                     <option value="DENTAL">BDS (Dental)</option>
                     <option value="AYUSH">AYUSH</option>
                   </select>
-                  <button onClick={() => navigateTo('predictor')}>Predict My Colleges →</button>
+                  <button
+                    onClick={() => {
+                      setPredictorStream(streamFilter);
+                      navigateTo('predictor');
+                    }}
+                  >
+                    Predict My Colleges →
+                  </button>
                 </div>
               </div>
 

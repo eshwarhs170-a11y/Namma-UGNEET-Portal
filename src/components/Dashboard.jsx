@@ -43,43 +43,45 @@ const getCategoryMeaning = (code) =>
 const OPTIONS_KEY = 'namma_option_entries';
 const makeOptionId = (item) => `${item.year}-${item.stream}-${item.round}-${item.serialNo}-${item.category}`;
 
-// Tiny inline SVG bar-sparkline for round-over-round rank trends within a year.
-// Lower cutoff rank is "better" so bars are inverted: a taller/greener bar means
-// a more favorable (lower) cutoff rank for that round.
+// Tiny inline SVG line-sparkline for round-over-round rank trends within a year.
+// Lower cutoff rank is "better" so the line is inverted: a higher point means
+// a more favorable (lower) cutoff rank for that round. Deliberately minimal —
+// a thin line + dots, not a solid block — so it reads as a trend, not a bar chart.
 function RankSparkline({ points }) {
   if (!points || points.length < 2) return null;
 
-  const width = 140;
-  const height = 34;
-  const barGap = 4;
-  const barWidth = (width - barGap * (points.length - 1)) / points.length;
+  const width = 100;
+  const height = 28;
+  const padX = 8;
+  const padY = 6;
 
   const ranks = points.map((p) => p.rank);
   const maxRank = Math.max(...ranks);
   const minRank = Math.min(...ranks);
   const range = maxRank - minRank || 1;
 
+  const coords = points.map((p, i) => {
+    const x = padX + (i * (width - padX * 2)) / (points.length - 1);
+    // Invert: lower rank -> higher point (smaller y)
+    const normalized = (p.rank - minRank) / range;
+    const y = padY + normalized * (height - padY * 2);
+    return { x, y, rank: p.rank };
+  });
+
+  const pathD = coords.map((c, i) => `${i === 0 ? 'M' : 'L'} ${c.x.toFixed(1)} ${c.y.toFixed(1)}`).join(' ');
+
   return (
-    <svg viewBox={`0 0 ${width} ${height}`} width={width} height={height} className="sparkline-svg">
-      {points.map((p, i) => {
-        // Invert: lower rank -> taller bar
-        const normalized = (maxRank - p.rank) / range;
-        const barHeight = 6 + normalized * (height - 10);
-        const x = i * (barWidth + barGap);
-        const y = height - barHeight;
-        const isBest = p.rank === minRank;
-        return (
-          <rect
-            key={i}
-            x={x}
-            y={y}
-            width={barWidth}
-            height={barHeight}
-            rx="2"
-            className={isBest ? 'sparkline-bar sparkline-bar-best' : 'sparkline-bar'}
-          />
-        );
-      })}
+    <svg viewBox={`0 0 ${width} ${height}`} className="sparkline-svg" preserveAspectRatio="xMidYMid meet">
+      <path d={pathD} className="sparkline-line" fill="none" />
+      {coords.map((c, i) => (
+        <circle
+          key={i}
+          cx={c.x}
+          cy={c.y}
+          r={c.rank === minRank ? 3 : 2}
+          className={c.rank === minRank ? 'sparkline-dot sparkline-dot-best' : 'sparkline-dot'}
+        />
+      ))}
     </svg>
   );
 }
@@ -642,8 +644,11 @@ export default function Dashboard() {
   }, [medicalData, debouncedUserRank, predictorCategory, predictorStream, predictorRound, predictorYear]);
 
   // --- Compare eligibility across every reservation category, for the same rank/stream/round/year ---
+  // Gated behind categoryCompareOpen since this scans every category against the full dataset —
+  // no reason to pay that cost unless the user actually opens this panel.
   const [categoryCompareOpen, setCategoryCompareOpen] = useState(false);
   const categoryComparison = useMemo(() => {
+    if (!categoryCompareOpen) return [];
     if (!debouncedUserRank || isNaN(debouncedUserRank)) return [];
     const targetRank = parseInt(debouncedUserRank, 10);
 
@@ -662,7 +667,7 @@ export default function Dashboard() {
         return { category: cat, count: matches.length, best: matches[0] || null };
       })
       .sort((a, b) => b.count - a.count);
-  }, [medicalData, debouncedUserRank, predictorStream, predictorRound, predictorYear, dynamicCategories]);
+  }, [categoryCompareOpen, medicalData, debouncedUserRank, predictorStream, predictorRound, predictorYear, dynamicCategories]);
 
   // --- Search for a specific desired college on the Predictor tab ---
   const [desiredCollegeName, setDesiredCollegeName] = useState('');

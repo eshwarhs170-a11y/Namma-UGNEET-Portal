@@ -1370,20 +1370,30 @@
 .trend-line-with-spark {
   justify-content: space-between;
   align-items: center;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   gap: 10px;
 }
 .sparkline-svg {
   flex-shrink: 0;
   display: block;
+  width: 72px;
+  height: 22px;
 }
-.sparkline-bar {
-  fill: var(--slate);
-  opacity: 0.55;
+.sparkline-line {
+  stroke: var(--slate);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.6;
 }
-.sparkline-bar-best {
+.sparkline-dot {
+  fill: var(--paper);
+  stroke: var(--slate);
+  stroke-width: 1.4;
+}
+.sparkline-dot-best {
   fill: var(--sage);
-  opacity: 1;
+  stroke: var(--sage);
 }
 
 /* ---------- Copy results button ---------- */
@@ -2075,6 +2085,6 @@
   .teaser-stream-select { min-width: 0; width: 100%; }
   .desired-college-box { font-size: 0.85rem; padding: 12px 14px; }
   .trend-line-with-spark { flex-wrap: wrap; }
-  .sparkline-svg { width: 100px; height: 26px; }
+  .sparkline-svg { width: 60px; height: 18px; }
   .pdf-download-btn, .whatsapp-share-btn { font-size: 0.78rem; padding: 6px 11px; }
 }

@@ -4,15 +4,44 @@ const path = require('path');
 const AIQ_INPUT_DIR = path.join(__dirname, 'aiq_source');
 const OUTPUT_FILE = path.join(__dirname, 'aiq_staging_output', 'aiq_mbbs_bds_compiled.json');
 
-// Added "Upgraded" — a real remark phrase we hadn't seen until testing against real data
-const REMARK_PATTERN = /^(Reported|Not Reported|Seat Surrendered|Upgraded|Fresh Allotted in \d+\w{2} Round(?:\([^)]*\))?|Did not opt for Upgradation\.|Did not fill up fresh choices\.)/;
+// FIXED: literal single-space characters replaced with \s+ (matches any run of
+// whitespace, including newlines). The raw source text has hard line-wraps
+// baked in from the original PDF extraction, so a multi-word remark phrase
+// like "Did not fill up fresh choices." can appear in the text as
+// "Did not fill up\nfresh choices." — a literal space in the old pattern
+// never matched that embedded newline, which silently broke row-boundary
+// detection and caused entire rows to glue together.
+const REMARK_PATTERN = /^(Reported|Not\s+Reported|Seat\s+Surrendered|Upgraded|No\s+Upgradation|Fresh\s+Allotted\s+in\s+\d+\w{2}\s+Round(?:\([^)]*\))?|Did\s+not\s+opt\s+for\s+Upgradation\.|Did\s+not\s+fill\s+up\s+fresh\s+choices\.)/;
 
-// Known irregular quota phrases that don't end in "Quota"/"Indian"/"India" —
-// checked FIRST, before falling back to the generic ending-word heuristic.
-// \s+ between words tolerates line-breaks and extra spaces from PDF extraction.
 const KNOWN_QUOTA_PATTERNS = [
-  /^(Employee['\s]*s\s+State\s+Insurance\s+Scheme\(?\s*ESI\s*\))/i,
+  /^(Non-?Resident\s+Indian\s*\(\s*AMU\s*\)\s*Quota)/i,
+  /^(Non-?Resident\s+Indian\s*\(\s*Jamia\s*\)\s*Quota)/i,
+  /^(Delhi\s*NCR\s*Children\s*\/?\s*Widows\s*of\s*Personnel\s*of\s*the\s*Armed\s*Forces\s*\(\s*CW\s*\)\s*DU\s*Quota)/i,
+  /^(Delhi\s*NCR\s*Children\s*\/?\s*Widows\s*of\s*Personnel\s*of\s*the\s*Armed\s*Forces\s*\(\s*CW\s*\)\s*IP\s*Quota)/i,
+  /^(Employee['’\s]*s\s+State\s+Insurance\s+Scheme\s+Nursing\s+Quota\s*\(\s*ESI-?IP\s*Quota\s*Nursing\s*\))/i,
+  /^(Employee['’\s]*s\s+State\s+Insurance\s+Scheme\s*\(\s*ESI\s*\))/i,
+  /^(Aligarh\s+Muslim\s+University\s*\(\s*AMU\s*\)\s*Quota)/i,
+  /^(B\.?\s*Sc\.?\s+Nursing\s+Delhi\s*NCR\s*CW\s*Quota)/i,
+  /^(B\.?\s*Sc\.?\s+Nursing\s+IP\s*CW\s*Quota)/i,
+  /^(B\.?\s*Sc\.?\s+Nursing\s+Delhi\s*NCR)/i,
+  /^(B\.?\s*Sc\.?\s+Nursing\s+All\s+India)/i,
   /^(Deemed\s*\/?\s*Paid\s+Seats\s+Quota)/i,
+  /^(Internal\s*-?\s*Puducherry\s+UT\s+Domicile)/i,
+  /^(IP\s+University\s+Quota)/i,
+  /^(Jain\s+Minority\s+Quota)/i,
+  /^(Jamia\s+Internal\s+Quota)/i,
+  /^(Muslim\s+Minority\s+Quota)/i,
+  /^(Muslim\s+OBC\s+Quota)/i,
+  /^(Muslim\s+ST\s+Quota)/i,
+  /^(Muslim\s+Women\s+Quota)/i,
+  /^(Muslim\s+Quota)/i,
+  /^(Delhi\s+University\s+Quota)/i,
+  /^(Foreign\s+Country\s+Quota)/i,
+  /^(Open\s+Seat\s+Quota)/i,
+  /^(Non-?Resident\s+Indian)/i,
+  /^(\(\s*AMU\s*\)\s*Self\s*finance\s+All\s+India)/i,
+  /^(\(\s*AMU\s*\)\s*Self\s*finance\s+internal)/i,
+  /^(All\s+India)/i,
 ];
 
 function normalizeWhitespace(str) {
@@ -28,17 +57,34 @@ function detectYearFolders() {
 }
 
 function splitIntoRows(text) {
-  const rowStartPattern = /(\d+)\s+(?=(-\s|(?=[A-Za-z])[a-zA-Z\/\s]{0,40}?(?:Quota|Institutions?|Indian|India|Employee)\b))/g;
-  const starts = [];
+  const firstRowPattern = /(\d+)\s+(?=(-\s|(?=[A-Za-z])[a-zA-Z\/\s]{0,40}?(?:Quota|Institutions?|Indian|India|Employee)\b))/;
+  const firstMatch = text.match(firstRowPattern);
+  if (!firstMatch) return [];
+  const startIdx = firstMatch.index;
+
+  const remarkScan = new RegExp(REMARK_PATTERN.source.replace(/^\^/, ''), 'g');
+  remarkScan.lastIndex = startIdx;
+
+  const boundaries = [startIdx];
   let m;
-  while ((m = rowStartPattern.exec(text)) !== null) {
-    starts.push({ index: m.index, rank: m[1], matchLen: m[0].length });
+  while ((m = remarkScan.exec(text)) !== null) {
+    const afterRemarkIdx = remarkScan.lastIndex;
+    const peek = text.slice(afterRemarkIdx, afterRemarkIdx + 80);
+    const footerMatch = peek.match(/^\s*(?:Page No\.\s*\d+\s+[\d-]+\s+[\d:]+\s*(?:AM|PM)?)?\s*/i);
+    const afterFooterIdx = afterRemarkIdx + (footerMatch ? footerMatch[0].length : 0);
+    const digitMatch = text.slice(afterFooterIdx, afterFooterIdx + 10).match(/^(\d+)\s/);
+    if (digitMatch) {
+      boundaries.push(afterFooterIdx);
+    }
   }
+
   const rows = [];
-  for (let i = 0; i < starts.length; i++) {
-    const contentStart = starts[i].index + starts[i].matchLen;
-    const end = i + 1 < starts.length ? starts[i + 1].index : text.length;
-    rows.push({ rank: starts[i].rank, text: text.slice(contentStart, end).trim() });
+  for (let i = 0; i < boundaries.length; i++) {
+    const rankMatch = text.slice(boundaries[i]).match(/^(\d+)\s+/);
+    if (!rankMatch) continue;
+    const contentStart = boundaries[i] + rankMatch[0].length;
+    const end = i + 1 < boundaries.length ? boundaries[i + 1] : text.length;
+    rows.push({ rank: rankMatch[1], text: text.slice(contentStart, end).trim() });
   }
   return rows;
 }
@@ -98,7 +144,7 @@ function parseRealBlock(text, isFinalBlock) {
   }
 
   const remarkMatch = afterCourse.match(REMARK_PATTERN);
-  const remark = remarkMatch ? remarkMatch[0] : (afterCourse || null);
+  const remark = remarkMatch ? normalizeWhitespace(remarkMatch[0]) : (normalizeWhitespace(afterCourse) || null);
 
   return { quota, institute, course: courseMatch[0], allottedCategory, candidateCategory, remark };
 }

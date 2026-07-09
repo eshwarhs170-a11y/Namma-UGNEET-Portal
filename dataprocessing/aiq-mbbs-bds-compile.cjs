@@ -4,29 +4,22 @@ const path = require('path');
 const AIQ_INPUT_DIR = path.join(__dirname, 'aiq_source');
 const OUTPUT_FILE = path.join(__dirname, 'aiq_staging_output', 'aiq_mbbs_bds_compiled.json');
 
-// FIXED: literal single-space characters replaced with \s+ (matches any run of
-// whitespace, including newlines). The raw source text has hard line-wraps
-// baked in from the original PDF extraction, so a multi-word remark phrase
-// like "Did not fill up fresh choices." can appear in the text as
-// "Did not fill up\nfresh choices." — a literal space in the old pattern
-// never matched that embedded newline, which silently broke row-boundary
-// detection and caused entire rows to glue together.
-const REMARK_PATTERN = /^(Reported|Not\s+Reported|Seat\s+Surrendered|Upgraded|No\s+Upgradation|Fresh\s+Allotted\s+in\s+\d+\w{2}\s+Round(?:\([^)]*\))?|Did\s+not\s+opt\s+for\s+Upgradation\.|Did\s+not\s+fill\s+up\s+fresh\s+choices\.)/;
+const REMARK_PATTERN = /^(Reported|Not\s+Reported|Not\s+Allotted\.|Seat\s+Surrendered|Upgraded|No\s+Upgradation|Fresh\s+Allotted\s+in\s+\d+\w{2}\s+Round(?:\([^)]*\))?|Did\s+not\s+opt\s+for\s+Upgradation\.|Did\s+not\s+fill\s+up\s+fresh\s+choices\.)/;
 
 const KNOWN_QUOTA_PATTERNS = [
-  /^(Non-?Resident\s+Indian\s*\(\s*AMU\s*\)\s*Quota)/i,
-  /^(Non-?Resident\s+Indian\s*\(\s*Jamia\s*\)\s*Quota)/i,
+  /^(Non\s*-?\s*Resident\s+Indian\s*\(\s*A\s*M\s*U\s*\)\s*Quota)/i,
+  /^(Non\s*-?\s*Resident\s+Indian\s*\(\s*Jamia\s*\)\s*Quota)/i,
   /^(Delhi\s*NCR\s*Children\s*\/?\s*Widows\s*of\s*Personnel\s*of\s*the\s*Armed\s*Forces\s*\(\s*CW\s*\)\s*DU\s*Quota)/i,
   /^(Delhi\s*NCR\s*Children\s*\/?\s*Widows\s*of\s*Personnel\s*of\s*the\s*Armed\s*Forces\s*\(\s*CW\s*\)\s*IP\s*Quota)/i,
   /^(Employee['’\s]*s\s+State\s+Insurance\s+Scheme\s+Nursing\s+Quota\s*\(\s*ESI-?IP\s*Quota\s*Nursing\s*\))/i,
   /^(Employee['’\s]*s\s+State\s+Insurance\s+Scheme\s*\(\s*ESI\s*\))/i,
-  /^(Aligarh\s+Muslim\s+University\s*\(\s*AMU\s*\)\s*Quota)/i,
+  /^(Aligarh\s+Muslim\s+University\s*\(\s*A\s*M\s*U\s*\)\s*Quota)/i,
   /^(B\.?\s*Sc\.?\s+Nursing\s+Delhi\s*NCR\s*CW\s*Quota)/i,
   /^(B\.?\s*Sc\.?\s+Nursing\s+IP\s*CW\s*Quota)/i,
   /^(B\.?\s*Sc\.?\s+Nursing\s+Delhi\s*NCR)/i,
   /^(B\.?\s*Sc\.?\s+Nursing\s+All\s+India)/i,
   /^(Deemed\s*\/?\s*Paid\s+Seats\s+Quota)/i,
-  /^(Internal\s*-?\s*Puducherry\s+UT\s+Domicile)/i,
+  /^(Internal\s*-?\s*Puduche\s*r\s*r\s*y\s+UT\s+Domicile)/i,
   /^(IP\s+University\s+Quota)/i,
   /^(Jain\s+Minority\s+Quota)/i,
   /^(Jamia\s+Internal\s+Quota)/i,
@@ -38,9 +31,9 @@ const KNOWN_QUOTA_PATTERNS = [
   /^(Delhi\s+University\s+Quota)/i,
   /^(Foreign\s+Country\s+Quota)/i,
   /^(Open\s+Seat\s+Quota)/i,
-  /^(Non-?Resident\s+Indian)/i,
-  /^(\(\s*AMU\s*\)\s*Self\s*finance\s+All\s+India)/i,
-  /^(\(\s*AMU\s*\)\s*Self\s*finance\s+internal)/i,
+  /^(Non\s*-?\s*Resident\s+Indian)/i,
+  /^(\(\s*A\s*M\s*U\s*\)\s*Self\s*finance\s+All\s+India)/i,
+  /^(\(\s*A\s*M\s*U\s*\)\s*Self\s*finance\s+internal)/i,
   /^(All\s+India)/i,
 ];
 
@@ -57,10 +50,21 @@ function detectYearFolders() {
 }
 
 function splitIntoRows(text) {
+  // Anchor past the document's abbreviation legend / notes / column-header text first —
+  // without this, a stray digit-followed-by-"Quota" pattern inside that header content
+  // (e.g. "Page No. 1 ... Quota ...") can be mistaken for the true first data row,
+  // gluing the entire header block onto whatever rank happens to match.
+  // "option No. Remarks" is the literal end of the column-header row and appears
+  // exactly once, immediately before real data begins.
+  const HEADER_ANCHOR = /option\s*No\.\s*Remarks/i;
+  const anchorMatch = text.match(HEADER_ANCHOR);
+  const searchFrom = anchorMatch ? anchorMatch.index + anchorMatch[0].length : 0;
+
   const firstRowPattern = /(\d+)\s+(?=(-\s|(?=[A-Za-z])[a-zA-Z\/\s]{0,40}?(?:Quota|Institutions?|Indian|India|Employee)\b))/;
-  const firstMatch = text.match(firstRowPattern);
+  const remainder = text.slice(searchFrom);
+  const firstMatch = remainder.match(firstRowPattern);
   if (!firstMatch) return [];
-  const startIdx = firstMatch.index;
+  const startIdx = searchFrom + firstMatch.index;
 
   const remarkScan = new RegExp(REMARK_PATTERN.source.replace(/^\^/, ''), 'g');
   remarkScan.lastIndex = startIdx;

@@ -430,6 +430,18 @@
   text-overflow: ellipsis;
 }
 
+.brand-name-only {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 1.15rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+}
+
 .brand-tag {
   font-size: 0.7rem;
   color: var(--slate);
@@ -595,11 +607,15 @@
     z-index: 40;
   }
 
-  .main-content { padding: 18px 14px 44px; max-width: none; }
+  .main-content { padding: 64px 14px 44px; max-width: none; }
 
   .dash-title { font-size: 1.4rem; }
   .dash-subtitle { font-size: 0.85rem; }
-  .dash-eyebrow { font-size: 0.66rem; }
+  .dash-eyebrow { font-size: 0.62rem; padding: 3px 8px; }
+
+  /* Hide the inline header logo on mobile — the sidebar edge-handle already
+     shows the brand mark, and having both created visual overlap/clutter */
+  .header-logo { display: none; }
 
   .dash-panel { padding: 14px; }
 
@@ -862,14 +878,6 @@
   z-index: 1;
 }
 
-.ledger thead th.sortable-th {
-  cursor: pointer;
-  user-select: none;
-  white-space: nowrap;
-  transition: background 0.15s ease;
-}
-.ledger thead th.sortable-th:hover { background: var(--ink-soft); }
-
 .ledger tbody td {
   padding: 12px 14px;
   border-bottom: 1px solid var(--border);
@@ -915,28 +923,6 @@
   font-size: 0.85rem;
   margin-top: 14px;
 }
-
-.show-more-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  margin-top: 14px;
-}
-.show-more-wrap .truncate-note { margin-top: 0; }
-.show-more-btn {
-  background: var(--solid-accent-bg);
-  color: var(--accent-text);
-  border: none;
-  padding: 10px 22px;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 0.88rem;
-  cursor: pointer;
-  transition: filter 0.15s ease, transform 0.15s ease;
-}
-.show-more-btn:hover { filter: brightness(1.15); transform: translateY(-1px); }
-.show-more-btn:focus-visible { outline: 2px solid var(--marigold); outline-offset: 2px; }
 
 /* ---------- Predictor hero (hall-ticket card) ---------- */
 .ticket-hero {
@@ -1281,26 +1267,6 @@
 }
 .compare-fab:hover { transform: translateY(-2px); }
 
-/* ---------- Floating install app button ---------- */
-.install-fab {
-  position: fixed;
-  top: 70px;
-  right: 22px;
-  z-index: 70;
-  background: var(--marigold-dark);
-  color: var(--accent-text);
-  border: none;
-  border-radius: 24px;
-  padding: 10px 18px;
-  font-weight: 600;
-  font-size: 0.85rem;
-  cursor: pointer;
-  box-shadow: 0 6px 18px rgba(27, 42, 74, 0.25);
-  transition: transform 0.15s ease;
-}
-.install-fab:hover { transform: translateY(-2px); }
-.install-fab.stacked { top: 122px; }
-
 /* ---------- College detail modal ---------- */
 .college-name-link {
   background: none;
@@ -1388,36 +1354,6 @@
   color: var(--ink-soft);
 }
 
-/* ---------- Rank trend sparkline ---------- */
-.trend-line-with-spark {
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-.sparkline-svg {
-  flex-shrink: 0;
-  display: block;
-  width: 72px;
-  height: 22px;
-}
-.sparkline-line {
-  stroke: var(--slate);
-  stroke-width: 1.6;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  opacity: 0.6;
-}
-.sparkline-dot {
-  fill: var(--paper);
-  stroke: var(--slate);
-  stroke-width: 1.4;
-}
-.sparkline-dot-best {
-  fill: var(--sage);
-  stroke: var(--sage);
-}
-
 /* ---------- Copy results button ---------- */
 .predicted-heading-row {
   display: flex;
@@ -1439,105 +1375,6 @@
   transition: background 0.15s ease;
 }
 .copy-results-btn:hover { background: var(--paper); }
-
-/* ---------- WhatsApp share button ---------- */
-.whatsapp-share-btn {
-  background: #25D366;
-  border: 1px solid #25D366;
-  color: #ffffff;
-  font-weight: 600;
-  font-size: 0.82rem;
-  padding: 7px 14px;
-  border-radius: 6px;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: filter 0.15s ease, transform 0.15s ease;
-}
-.whatsapp-share-btn:hover { filter: brightness(1.05); transform: translateY(-1px); }
-.whatsapp-share-btn:focus-visible { outline: 2px solid var(--marigold); outline-offset: 2px; }
-
-/* ---------- PDF download button ---------- */
-.pdf-download-btn {
-  background: var(--seal-red);
-  border: 1px solid var(--seal-red);
-  color: #ffffff;
-  font-weight: 600;
-  font-size: 0.82rem;
-  padding: 7px 14px;
-  border-radius: 6px;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: filter 0.15s ease, transform 0.15s ease;
-}
-.pdf-download-btn:hover { filter: brightness(1.1); transform: translateY(-1px); }
-.pdf-download-btn:focus-visible { outline: 2px solid var(--marigold); outline-offset: 2px; }
-
-/* ---------- Similar colleges fallback ---------- */
-.similar-colleges-box {
-  margin-top: 12px;
-  padding-top: 12px;
-  border-top: 1px dashed var(--border);
-}
-.similar-colleges-heading {
-  margin: 0 0 8px;
-  font-weight: 600;
-  font-size: 0.85rem;
-  color: var(--ink);
-}
-.similar-colleges-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.similar-colleges-list li {
-  background: var(--paper);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 8px 10px;
-}
-.similar-colleges-list .college-name-link {
-  font-weight: 600;
-  font-size: 0.88rem;
-}
-.similar-colleges-meta {
-  display: block;
-  font-size: 0.75rem;
-  color: var(--slate);
-  font-family: var(--font-mono);
-  margin-top: 2px;
-}
-
-/* ---------- Category comparison ---------- */
-.category-compare-section {
-  margin-bottom: 22px;
-}
-.category-compare-toggle {
-  background: var(--paper-alt);
-  border: 1px solid var(--border);
-  color: var(--ink-soft);
-  font-weight: 600;
-  font-size: 0.85rem;
-  padding: 9px 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.15s ease;
-}
-.category-compare-toggle:hover { background: var(--paper); }
-.category-compare-toggle:focus-visible { outline: 2px solid var(--marigold); outline-offset: 2px; }
-
-.category-compare-table-wrap {
-  margin-top: 10px;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 14px;
-  background: var(--paper-alt);
-}
-.category-compare-table-wrap .compare-table-wrap { max-height: none; }
-.current-category-row { background: rgba(232, 163, 61, 0.1); }
-.current-category-row td { font-weight: 600; }
 
 /* ---------- Saved rank profiles ---------- */
 .profile-save-row {
@@ -1614,8 +1451,6 @@
 /* ---------- Responsive: new features on smaller screens ---------- */
 @media (max-width: 880px) {
   .compare-fab { top: 68px; right: 14px; padding: 9px 14px; font-size: 0.78rem; }
-  .install-fab { top: 68px; right: 14px; padding: 9px 14px; font-size: 0.78rem; }
-  .install-fab.stacked { top: 118px; }
   .glossary-card, .compare-card, .college-detail-card { padding: 18px; max-height: 88vh; }
   .glossary-row { grid-template-columns: 60px 1fr; }
   .predicted-heading-row { flex-direction: column; align-items: flex-start; }
@@ -1623,8 +1458,6 @@
 
 @media (max-width: 480px) {
   .compare-fab { top: 64px; right: 10px; }
-  .install-fab { top: 64px; right: 10px; }
-  .install-fab.stacked { top: 112px; }
   .glossary-row { grid-template-columns: 1fr; gap: 4px; }
   .glossary-code { font-size: 0.9rem; }
   .college-stat-row { grid-template-columns: 1fr; }
@@ -1686,11 +1519,6 @@
   background: var(--marigold-dark);
   color: var(--accent-text);
   border-color: var(--marigold-dark);
-}
-.home-cta.install-cta {
-  background: var(--sage);
-  color: var(--accent-text);
-  border-color: var(--sage);
 }
 .home-cta:hover { filter: brightness(1.08); }
 
@@ -2106,7 +1934,137 @@
 @media (max-width: 480px) {
   .teaser-stream-select { min-width: 0; width: 100%; }
   .desired-college-box { font-size: 0.85rem; padding: 12px 14px; }
-  .trend-line-with-spark { flex-wrap: wrap; }
-  .sparkline-svg { width: 60px; height: 18px; }
-  .pdf-download-btn, .whatsapp-share-btn { font-size: 0.78rem; padding: 6px 11px; }
+}
+
+/* ============================================================
+   Home page additions: search box, quote, footer,
+   and improved Option Entry empty-state
+   ============================================================ */
+
+.home-search-box {
+  background: var(--paper-alt);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-bottom: 22px;
+}
+.home-search-label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--slate);
+  margin-bottom: 8px;
+}
+.home-search-row {
+  display: flex;
+  gap: 8px;
+}
+.home-search-row input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  background: var(--paper);
+  color: var(--ink);
+}
+.home-search-row input:focus {
+  outline: none;
+  border-color: var(--marigold);
+  box-shadow: 0 0 0 3px rgba(232, 163, 61, 0.15);
+}
+.home-search-row button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  background: var(--solid-accent-bg);
+  color: var(--accent-text);
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.home-search-row button:hover { filter: brightness(1.15); }
+
+.home-quote {
+  text-align: center;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--ink-soft);
+  max-width: 480px;
+  margin: 28px auto 8px;
+  line-height: 1.5;
+}
+
+.home-footer {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+.home-footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+.home-footer-social a {
+  display: inline-flex;
+  width: 34px;
+  height: 34px;
+}
+.home-footer-social svg { width: 100%; height: 100%; }
+
+.home-footer-links {
+  font-size: 0.82rem;
+  color: var(--slate);
+  margin-bottom: 10px;
+}
+.home-footer-dot { margin: 0 8px; color: var(--border); }
+
+.home-footer-copyright {
+  font-size: 0.75rem;
+  color: var(--slate);
+  margin: 0;
+}
+
+/* Option Entry empty state — bigger, clearer, actionable */
+.empty-options {
+  text-align: center;
+  padding: 36px 24px;
+}
+.empty-options-icon {
+  font-size: 2.4rem;
+  display: block;
+  margin-bottom: 10px;
+}
+.empty-options h4 {
+  font-family: var(--font-display);
+  color: var(--ink);
+  margin: 0 0 8px;
+  font-size: 1.15rem;
+}
+.empty-options p {
+  color: var(--slate);
+  font-size: 0.9rem;
+  max-width: 420px;
+  margin: 0 auto 18px;
+  line-height: 1.5;
+}
+.empty-options-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ---------- Mobile-specific polish for these new elements ---------- */
+@media (max-width: 880px) {
+  .home-search-row { flex-direction: column; }
+  .home-search-row button { width: 100%; }
+  .home-quote { font-size: 0.9rem; padding: 0 8px; }
+  .empty-options-actions { flex-direction: column; }
+  .empty-options-actions .home-cta { width: 100%; }
 }

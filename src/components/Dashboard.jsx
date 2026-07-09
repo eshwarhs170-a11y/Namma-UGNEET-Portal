@@ -1,5 +1,4 @@
-import React, { useState, useMemo, useEffect, useRef, useCallback } from 'react';
-import jsPDF from 'jspdf';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import logo from '../assets/namma-ugneet-logo.png';
 import './Dashboard.css';
 
@@ -42,184 +41,6 @@ const getCategoryMeaning = (code) =>
 
 const OPTIONS_KEY = 'namma_option_entries';
 const makeOptionId = (item) => `${item.year}-${item.stream}-${item.round}-${item.serialNo}-${item.category}`;
-
-// Tiny inline SVG line-sparkline for round-over-round rank trends within a year.
-// Lower cutoff rank is "better" so the line is inverted: a higher point means
-// a more favorable (lower) cutoff rank for that round. Deliberately minimal —
-// a thin line + dots, not a solid block — so it reads as a trend, not a bar chart.
-function RankSparkline({ points }) {
-  if (!points || points.length < 2) return null;
-
-  const width = 100;
-  const height = 28;
-  const padX = 8;
-  const padY = 6;
-
-  const ranks = points.map((p) => p.rank);
-  const maxRank = Math.max(...ranks);
-  const minRank = Math.min(...ranks);
-  const range = maxRank - minRank || 1;
-
-  const coords = points.map((p, i) => {
-    const x = padX + (i * (width - padX * 2)) / (points.length - 1);
-    // Invert: lower rank -> higher point (smaller y)
-    const normalized = (p.rank - minRank) / range;
-    const y = padY + normalized * (height - padY * 2);
-    return { x, y, rank: p.rank };
-  });
-
-  const pathD = coords.map((c, i) => `${i === 0 ? 'M' : 'L'} ${c.x.toFixed(1)} ${c.y.toFixed(1)}`).join(' ');
-
-  return (
-    <svg viewBox={`0 0 ${width} ${height}`} className="sparkline-svg" preserveAspectRatio="xMidYMid meet">
-      <path d={pathD} className="sparkline-line" fill="none" />
-      {coords.map((c, i) => (
-        <circle
-          key={i}
-          cx={c.x}
-          cy={c.y}
-          r={c.rank === minRank ? 3 : 2}
-          className={c.rank === minRank ? 'sparkline-dot sparkline-dot-best' : 'sparkline-dot'}
-        />
-      ))}
-    </svg>
-  );
-}
-
-const PredictedGrid = React.memo(function PredictedGrid({
-  predictedColleges,
-  userRank,
-  isSaved,
-  toggleSave,
-  isInOptionList,
-  addToOptionList,
-  getTrends,
-  onSelectCollege,
-}) {
-  const CARD_RENDER_LIMIT = 150;
-  const [visibleCount, setVisibleCount] = useState(CARD_RENDER_LIMIT);
-
-  // Reset back to the initial page size whenever the underlying match list changes
-  // (new rank, filters, etc.) so "Show More" clicks from a previous search don't linger.
-  useEffect(() => {
-    setVisibleCount(CARD_RENDER_LIMIT);
-  }, [predictedColleges]);
-
-  if (predictedColleges.length === 0) {
-    return (
-      <div className="predicted-grid">
-        <div className="empty-predict">
-          Enter your exact NEET Rank above to populate your custom eligible target mapping list.
-        </div>
-      </div>
-    );
-  }
-
-  const visibleColleges = predictedColleges.slice(0, visibleCount);
-
-  return (
-    <div className="predicted-grid-wrap">
-      <div className="predicted-grid">
-        {visibleColleges.map((item, idx) => {
-        const safetyMargin = item.rank - parseInt(userRank, 10);
-        let stampClass = 'safe';
-        let badgeText = 'Safe Match';
-
-        if (safetyMargin < 2000) {
-          stampClass = 'borderline';
-          badgeText = 'Borderline Chance';
-        } else if (safetyMargin < 8000) {
-          stampClass = 'moderate';
-          badgeText = 'Moderate Chance';
-        }
-
-        return (
-          <div key={idx} className="result-card">
-            <div className="result-top">
-              <span className="result-code">CODE: {item.collegeCode}</span>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <span className={`stamp ${stampClass}`}>{badgeText}</span>
-                <button
-                  className={`star-btn${isSaved(item) ? ' saved' : ''}`}
-                  onClick={() => toggleSave(item)}
-                  aria-label="Save college"
-                >
-                  {isSaved(item) ? '★' : '☆'}
-                </button>
-                <button
-                  className={`add-option-btn${isInOptionList(item) ? ' added' : ''}`}
-                  onClick={() => addToOptionList(item)}
-                  title="Add to Option Entry List"
-                >
-                  {isInOptionList(item) ? '✓ Added' : '+ Add'}
-                </button>
-              </div>
-            </div>
-            <h4
-              className="result-name college-name-link"
-              onClick={() => onSelectCollege({ collegeCode: item.collegeCode, stream: item.stream, collegeName: item.collegeName })}
-            >
-              {item.collegeName}
-            </h4>
-            <p className="result-meta">Course: <strong>{item.courseDetails}</strong></p>
-            <p className="result-meta">Round: <strong>{item.round}</strong> · Year: <strong>{item.year}</strong></p>
-            <p className="result-meta">Annual Cost: <strong>₹{item.fees.toLocaleString('en-IN')}</strong></p>
-
-            {(() => {
-              const { roundsThisYear, otherYearSameRound } = getTrends(item);
-              const uniqueRounds = Array.from(new Map(roundsThisYear.map((r) => [r.round, r])).values());
-              const otherYear = otherYearSameRound[0];
-              if (uniqueRounds.length <= 1 && !otherYear) return null;
-              return (
-                <div className="trend-box">
-                  {uniqueRounds.length > 1 && (
-                    <div className="trend-line trend-line-with-spark">
-                      <div>
-                        <span className="trend-label">This year:</span>
-                        {uniqueRounds.map((r) => (
-                          <span key={r.round} className="trend-chip">{r.round} {r.rank.toLocaleString('en-IN')}</span>
-                        ))}
-                      </div>
-                      <RankSparkline points={uniqueRounds} />
-                    </div>
-                  )}
-                  {otherYear && (
-                    <div className="trend-line">
-                      <span className="trend-label">vs {otherYear.year}:</span>
-                      <span className="trend-chip">
-                        {otherYear.rank.toLocaleString('en-IN')}
-                        {otherYear.rank > item.rank ? ' (tighter now)' : otherYear.rank < item.rank ? ' (looser now)' : ' (same)'}
-                      </span>
-                    </div>
-                  )}
-                </div>
-              );
-            })()}
-
-            <div className="result-footer">
-              <span>Last Cutoff</span>
-              <span className="val">{item.rank.toLocaleString('en-IN')}</span>
-            </div>
-          </div>
-        );
-        })}
-      </div>
-      {predictedColleges.length > visibleCount && (
-        <div className="show-more-wrap">
-          <p className="truncate-note">
-            Showing top {visibleCount.toLocaleString('en-IN')} of {predictedColleges.length.toLocaleString('en-IN')} matches (closest cutoffs first).
-          </p>
-          <button
-            className="show-more-btn"
-            onClick={() => setVisibleCount((prev) => prev + CARD_RENDER_LIMIT)}
-          >
-            Show {Math.min(CARD_RENDER_LIMIT, predictedColleges.length - visibleCount).toLocaleString('en-IN')} More
-          </button>
-        </div>
-      )}
-    </div>
-  );
-});
 
 export default function Dashboard() {
   // Navigation & View State
@@ -275,40 +96,6 @@ export default function Dashboard() {
     const timer = setTimeout(() => setShowEdgeHint(false), 4000);
     return () => clearTimeout(timer);
   }, []);
-
-  // --- PWA "Install App" support ---
-  // Chrome/Edge fire this event when the site is installable; we stash it and
-  // trigger it ourselves from a visible button instead of relying on the
-  // easy-to-miss address-bar icon.
-  const [installPromptEvent, setInstallPromptEvent] = useState(null);
-  const [isAppInstalled, setIsAppInstalled] = useState(false);
-
-  useEffect(() => {
-    const onBeforeInstallPrompt = (e) => {
-      e.preventDefault();
-      setInstallPromptEvent(e);
-    };
-    const onAppInstalled = () => {
-      setInstallPromptEvent(null);
-      setIsAppInstalled(true);
-    };
-    window.addEventListener('beforeinstallprompt', onBeforeInstallPrompt);
-    window.addEventListener('appinstalled', onAppInstalled);
-    return () => {
-      window.removeEventListener('beforeinstallprompt', onBeforeInstallPrompt);
-      window.removeEventListener('appinstalled', onAppInstalled);
-    };
-  }, []);
-
-  const handleInstallClick = async () => {
-    if (!installPromptEvent) return;
-    installPromptEvent.prompt();
-    const { outcome } = await installPromptEvent.userChoice;
-    if (outcome === 'accepted') {
-      setIsAppInstalled(true);
-    }
-    setInstallPromptEvent(null);
-  };
 
   // --- Feature tour: a quick guided walkthrough of what's on the page ---
   const TOUR_KEY = 'namma_tour_seen';
@@ -383,15 +170,6 @@ export default function Dashboard() {
   const [maxBudget, setMaxBudget] = useState(1500000);
   const [roundFilter, setRoundFilter] = useState('ALL');
   const [yearFilter, setYearFilter] = useState('ALL');
-  const [sortConfig, setSortConfig] = useState({ key: 'rank', direction: 'asc' });
-
-  const handleSort = (key) => {
-    setSortConfig((prev) =>
-      prev.key === key
-        ? { key, direction: prev.direction === 'asc' ? 'desc' : 'asc' }
-        : { key, direction: 'asc' }
-    );
-  };
 
   // Rank Predictor Input State variables
   const [userRank, setUserRank] = useState('');
@@ -400,14 +178,6 @@ export default function Dashboard() {
   const [predictorRound, setPredictorRound] = useState('ALL');
   const [predictorYear, setPredictorYear] = useState('ALL');
   const yearDefaultSetRef = useRef(false);
-  // The input itself is bound to userRank directly (so typing feels instant).
-  // Only the heavy 74k-record filtering below uses this debounced copy, updated
-  // ~250ms after the user stops typing, so keystrokes never wait on the filter/sort.
-  const [debouncedUserRank, setDebouncedUserRank] = useState(userRank);
-  useEffect(() => {
-    const timer = setTimeout(() => setDebouncedUserRank(userRank), 250);
-    return () => clearTimeout(timer);
-  }, [userRank]);
 
   useEffect(() => {
     if (!dataLoading && medicalData.length > 0 && !yearDefaultSetRef.current) {
@@ -435,16 +205,16 @@ export default function Dashboard() {
     }
   }, [savedColleges]);
 
-  const isSaved = useCallback((item) => savedColleges.some((s) => s.id === makeId(item)), [savedColleges]);
+  const isSaved = (item) => savedColleges.some((s) => s.id === makeId(item));
 
-  const toggleSave = useCallback((item) => {
+  const toggleSave = (item) => {
     const id = makeId(item);
     setSavedColleges((prev) =>
       prev.some((s) => s.id === id)
         ? prev.filter((s) => s.id !== id)
         : [...prev, { id, ...item }]
     );
-  }, []);
+  };
 
   const removeSaved = (id) => setSavedColleges((prev) => prev.filter((s) => s.id !== id));
 
@@ -527,16 +297,13 @@ export default function Dashboard() {
     try { localStorage.setItem(OPTIONS_KEY, JSON.stringify(optionEntries)); } catch { /* ignore */ }
   }, [optionEntries]);
 
-  const isInOptionList = useCallback((item) => optionEntries.some((o) => o.id === makeOptionId(item)), [optionEntries]);
+  const isInOptionList = (item) => optionEntries.some((o) => o.id === makeOptionId(item));
 
-  const addToOptionList = useCallback((item) => {
+  const addToOptionList = (item) => {
     const id = makeOptionId(item);
-    setOptionEntries((prev) =>
-      prev.some((o) => o.id === id)
-        ? prev.filter((o) => o.id !== id)
-        : [...prev, { id, ...item }]
-    );
-  }, []);
+    if (optionEntries.some((o) => o.id === id)) return;
+    setOptionEntries((prev) => [...prev, { id, ...item }]);
+  };
 
   const removeFromOptionList = (id) => setOptionEntries((prev) => prev.filter((o) => o.id !== id));
 
@@ -566,45 +333,6 @@ export default function Dashboard() {
       setOptionCopyFeedback(true);
       setTimeout(() => setOptionCopyFeedback(false), 2000);
     });
-  };
-
-  const shareOptionListOnWhatsApp = () => {
-    const lines = optionEntries.map((o, i) =>
-      `Option ${i + 1}: ${o.collegeName} (${o.collegeCode}) — ${o.courseDetails}, ${o.category} [${o.round} ${o.year}]`
-    );
-    const text = `📝 NammaUGNEET — My Option Entry Preference List\n\n${lines.join('\n')}\n\nBuild your own list: https://namma-ugneet-portal.vercel.app/`;
-    window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
-  };
-
-  const downloadOptionListPDF = () => {
-    const doc = new jsPDF();
-    doc.setFontSize(16);
-    doc.text('NammaUGNEET — My Option Entry Preference List', 14, 18);
-    doc.setFontSize(9);
-    doc.setTextColor(120);
-    doc.text('For your own planning only — submit your official options on the KEA portal.', 14, 25);
-    doc.setTextColor(0);
-
-    let y = 36;
-    optionEntries.forEach((o, i) => {
-      if (y > 275) {
-        doc.addPage();
-        y = 20;
-      }
-      doc.setFontSize(11);
-      doc.setFont(undefined, 'bold');
-      doc.text(`${i + 1}. ${o.collegeName} (${o.collegeCode})`, 14, y);
-      doc.setFont(undefined, 'normal');
-      doc.setFontSize(9);
-      doc.text(
-        `${o.courseDetails}  |  Category: ${o.category}  |  Fees: Rs.${o.fees.toLocaleString('en-IN')}  |  Cutoff: ${o.rank.toLocaleString('en-IN')}  |  ${o.round} ${o.year}`,
-        14,
-        y + 6
-      );
-      y += 14;
-    });
-
-    doc.save('nammaugneet-option-entry-list.pdf');
   };
 
   // --- UNIQUE DROPDOWN OPTIONS LIST GENERATORS ---
@@ -638,23 +366,13 @@ export default function Dashboard() {
 
         return matchSearch && matchStream && matchCategory && matchBudget && matchRound && matchYear;
       })
-      .sort((a, b) => {
-        let av = a[sortConfig.key];
-        let bv = b[sortConfig.key];
-        if (typeof av === 'string') {
-          av = av.toLowerCase();
-          bv = bv.toLowerCase();
-        }
-        if (av < bv) return sortConfig.direction === 'asc' ? -1 : 1;
-        if (av > bv) return sortConfig.direction === 'asc' ? 1 : -1;
-        return 0;
-      });
-  }, [medicalData, searchQuery, streamFilter, categoryFilter, maxBudget, roundFilter, yearFilter, sortConfig]);
+      .sort((a, b) => a.rank - b.rank);
+  }, [medicalData, searchQuery, streamFilter, categoryFilter, maxBudget, roundFilter, yearFilter]);
 
   // --- ENGINE 2: SMART NEET SEAT PREDICTOR ALGORITHM ---
   const predictedColleges = useMemo(() => {
-    if (!debouncedUserRank || isNaN(debouncedUserRank)) return [];
-    const targetRank = parseInt(debouncedUserRank, 10);
+    if (!userRank || isNaN(userRank)) return [];
+    const targetRank = parseInt(userRank, 10);
 
     return medicalData
       .filter((item) => {
@@ -667,33 +385,7 @@ export default function Dashboard() {
         return matchStream && matchCategory && matchRound && matchYear && matchRankScope;
       })
       .sort((a, b) => a.rank - b.rank);
-  }, [medicalData, debouncedUserRank, predictorCategory, predictorStream, predictorRound, predictorYear]);
-
-  // --- Compare eligibility across every reservation category, for the same rank/stream/round/year ---
-  // Gated behind categoryCompareOpen since this scans every category against the full dataset —
-  // no reason to pay that cost unless the user actually opens this panel.
-  const [categoryCompareOpen, setCategoryCompareOpen] = useState(false);
-  const categoryComparison = useMemo(() => {
-    if (!categoryCompareOpen) return [];
-    if (!debouncedUserRank || isNaN(debouncedUserRank)) return [];
-    const targetRank = parseInt(debouncedUserRank, 10);
-
-    return dynamicCategories
-      .map((cat) => {
-        const matches = medicalData
-          .filter((item) => {
-            const matchStream = item.stream === predictorStream;
-            const matchCategory = item.category === cat;
-            const matchRound = predictorRound === 'ALL' || item.round === predictorRound;
-            const matchYear = predictorYear === 'ALL' || item.year === predictorYear;
-            const matchRankScope = item.rank >= targetRank;
-            return matchStream && matchCategory && matchRound && matchYear && matchRankScope;
-          })
-          .sort((a, b) => a.rank - b.rank);
-        return { category: cat, count: matches.length, best: matches[0] || null };
-      })
-      .sort((a, b) => b.count - a.count);
-  }, [categoryCompareOpen, medicalData, debouncedUserRank, predictorStream, predictorRound, predictorYear, dynamicCategories]);
+  }, [medicalData, userRank, predictorCategory, predictorStream, predictorRound, predictorYear]);
 
   // --- Search for a specific desired college on the Predictor tab ---
   const [desiredCollegeName, setDesiredCollegeName] = useState('');
@@ -722,8 +414,8 @@ export default function Dashboard() {
     );
     if (scoped.length === 0) return { status: 'notfound_for_filters' };
 
-    if (!debouncedUserRank || isNaN(debouncedUserRank)) return { status: 'need_rank' };
-    const targetRank = parseInt(debouncedUserRank, 10);
+    if (!userRank || isNaN(userRank)) return { status: 'need_rank' };
+    const targetRank = parseInt(userRank, 10);
 
     // Easiest (highest cutoff rank number) entry among the scoped matches
     const easiest = [...scoped].sort((a, b) => b.rank - a.rank)[0];
@@ -732,7 +424,7 @@ export default function Dashboard() {
       return { status: 'attainable', record: easiest };
     }
     return { status: 'not_attainable', record: easiest };
-  }, [desiredCollegeName, medicalData, predictorStream, predictorCategory, predictorRound, predictorYear, debouncedUserRank]);
+  }, [desiredCollegeName, medicalData, predictorStream, predictorCategory, predictorRound, predictorYear, userRank]);
 
   // --- Quick stats for sidebar ---
   const avgFeesShown = useMemo(() => {
@@ -754,13 +446,13 @@ export default function Dashboard() {
     return map;
   }, [medicalData]);
 
-  const getTrends = useCallback((item) => {
+  const getTrends = (item) => {
     const key = `${item.stream}|${item.category}|${item.collegeCode}`;
     const entries = trendIndex[key] || [];
     const roundsThisYear = entries.filter((e) => e.year === item.year);
     const otherYearSameRound = entries.filter((e) => e.round === item.round && e.year !== item.year);
     return { roundsThisYear, otherYearSameRound };
-  }, [trendIndex]);
+  };
 
   // Index: stream|collegeCode -> [full records] — powers the college detail modal
   const collegeCodeIndex = useMemo(() => {
@@ -785,55 +477,6 @@ export default function Dashboard() {
       setCopyFeedback(true);
       setTimeout(() => setCopyFeedback(false), 2000);
     });
-  };
-
-  const shareOnWhatsApp = (text) => {
-    const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
-    window.open(url, '_blank', 'noopener,noreferrer');
-  };
-
-  const sharePredictedResultsOnWhatsApp = () => {
-    const lines = predictedColleges.slice(0, 15).map((item, i) =>
-      `${i + 1}. ${item.collegeName} (${item.collegeCode}) — ${item.courseDetails}, ${item.category}, ₹${item.fees.toLocaleString('en-IN')}, Cutoff ${item.rank.toLocaleString('en-IN')} [${item.round} ${item.year}]`
-    );
-    const header = `🎯 NammaUGNEET — Predicted colleges for Rank ${userRank} (${predictorCategory}, ${predictorStream}):\n\n`;
-    const footer = `\n\nCheck your own rank: https://namma-ugneet-portal.vercel.app/`;
-    shareOnWhatsApp(header + lines.join('\n') + footer);
-  };
-
-  const downloadPredictedResultsPDF = () => {
-    const doc = new jsPDF();
-    doc.setFontSize(16);
-    doc.text('NammaUGNEET — Predicted Colleges', 14, 18);
-    doc.setFontSize(10);
-    doc.setTextColor(90);
-    doc.text(
-      `Rank: ${userRank}  |  Category: ${predictorCategory}  |  Stream: ${predictorStream}  |  Round: ${predictorRound}  |  Year: ${predictorYear}`,
-      14,
-      26
-    );
-    doc.setTextColor(0);
-
-    let y = 38;
-    predictedColleges.slice(0, 40).forEach((item, i) => {
-      if (y > 275) {
-        doc.addPage();
-        y = 20;
-      }
-      doc.setFontSize(11);
-      doc.setFont(undefined, 'bold');
-      doc.text(`${i + 1}. ${item.collegeName} (${item.collegeCode})`, 14, y);
-      doc.setFont(undefined, 'normal');
-      doc.setFontSize(9);
-      doc.text(
-        `${item.courseDetails}  |  Category: ${item.category}  |  Fees: Rs.${item.fees.toLocaleString('en-IN')}  |  Cutoff: ${item.rank.toLocaleString('en-IN')}  |  ${item.round} ${item.year}`,
-        14,
-        y + 6
-      );
-      y += 14;
-    });
-
-    doc.save('nammaugneet-predicted-colleges.pdf');
   };
 
   if (dataLoading) {
@@ -1022,25 +665,15 @@ export default function Dashboard() {
         </div>
       )}
 
-      {/* FLOATING TOUR RELAUNCH BUTTON */}
+      {/* FLOATING GUIDE RELAUNCH BUTTON */}
       <button className="tour-fab" onClick={() => { setTourStep(0); setTourOpen(true); }}>
-        ✨ Tour
+        ✨ Guide
       </button>
 
       {/* FLOATING COMPARE BUTTON — only shows once there's something worth comparing */}
       {savedColleges.length >= 2 && (
         <button className="compare-fab" onClick={() => setCompareOpen(true)}>
           ⚖️ Compare ({savedColleges.length})
-        </button>
-      )}
-
-      {/* FLOATING INSTALL APP BUTTON — only shows when the browser says it's installable */}
-      {installPromptEvent && !isAppInstalled && (
-        <button
-          className={`install-fab${savedColleges.length >= 2 ? ' stacked' : ''}`}
-          onClick={handleInstallClick}
-        >
-          ⬇️ Install App
         </button>
       )}
 
@@ -1065,10 +698,7 @@ export default function Dashboard() {
         <div className="sidebar-top">
           <div className="sidebar-brand">
             <img src={logo} alt="NammaUGNEET" className="brand-mark" />
-            <div>
-              <div className="brand-name">NammaUGNEET</div>
-              <div className="brand-tag">KEA Allotment Portal</div>
-            </div>
+            <div className="brand-name-only">NammaUGNEET</div>
           </div>
           <div className="sidebar-top-actions">
             <button
@@ -1297,9 +927,21 @@ export default function Dashboard() {
                 <div className="home-hero-actions">
                   <button className="home-cta primary" onClick={() => navigateTo('predictor')}>🎯 Predict</button>
                   <button className="home-cta" onClick={() => navigateTo('explore')}>🔍 Explore</button>
-                  {installPromptEvent && !isAppInstalled && (
-                    <button className="home-cta install-cta" onClick={handleInstallClick}>⬇️ Install App</button>
-                  )}
+                </div>
+              </div>
+
+              <div className="home-search-box">
+                <label htmlFor="home-search-input" className="home-search-label">🔍 Search a college by name or code</label>
+                <div className="home-search-row">
+                  <input
+                    id="home-search-input"
+                    type="text"
+                    placeholder="e.g. Bangalore Medical College, M001MG..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    onKeyDown={(e) => { if (e.key === 'Enter') navigateTo('explore'); }}
+                  />
+                  <button onClick={() => navigateTo('explore')}>Search</button>
                 </div>
               </div>
 
@@ -1332,6 +974,49 @@ export default function Dashboard() {
                 <a href="https://kea.kar.nic.in" target="_blank" rel="noopener noreferrer">KEA website</a> before making decisions.
                 See the <button className="inline-link-btn" onClick={() => navigateTo('contact')}>Contact &amp; About</button> page for details.
               </div>
+
+              <p className="home-quote">
+                "Every rank is just a starting point — the right guidance turns it into the right college."
+              </p>
+
+              <footer className="home-footer">
+                <div className="home-footer-social">
+                  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=eshwarhs170@gmail.com&su=NammaUGNEET%20Feedback" target="_blank" rel="noopener noreferrer" aria-label="Email">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="2" y="4" width="20" height="16" rx="2.5" fill="#fff" stroke="#e0e0e0" strokeWidth="1"/>
+                      <path d="M3 6.5 12 13l9-6.5" fill="none" stroke="#EA4335" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M3 6.5v11a1 1 0 0 0 1 1h2V9.2z" fill="#FBBC05"/>
+                      <path d="M21 6.5v11a1 1 0 0 1-1 1h-2V9.2z" fill="#34A853"/>
+                      <path d="M3 6.5 12 13l9-6.5" fill="none" stroke="#4285F4" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </a>
+                  <a href="https://instagram.com/_eshwar__hs_" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <defs>
+                        <linearGradient id="igGradHome" x1="0%" y1="100%" x2="100%" y2="0%">
+                          <stop offset="0%" stopColor="#FFDD55" />
+                          <stop offset="50%" stopColor="#E1306C" />
+                          <stop offset="100%" stopColor="#5851DB" />
+                        </linearGradient>
+                      </defs>
+                      <rect x="2" y="2" width="20" height="20" rx="6" fill="url(#igGradHome)" />
+                      <rect x="6.5" y="6.5" width="11" height="11" rx="4" fill="none" stroke="#fff" strokeWidth="1.6" />
+                      <circle cx="12" cy="12" r="3.1" fill="none" stroke="#fff" strokeWidth="1.6" />
+                      <circle cx="17" cy="7" r="1.1" fill="#fff" />
+                    </svg>
+                  </a>
+                </div>
+
+                <div className="home-footer-links">
+                  <button className="inline-link-btn" onClick={() => navigateTo('contact')}>About Us</button>
+                  <span className="home-footer-dot">·</span>
+                  <button className="inline-link-btn" onClick={() => navigateTo('contact')}>Contact</button>
+                  <span className="home-footer-dot">·</span>
+                  <button className="inline-link-btn" onClick={() => navigateTo('contact')}>Disclaimer</button>
+                </div>
+
+                <p className="home-footer-copyright">© {dynamicYears[dynamicYears.length - 1] || '2026'} NammaUGNEET · An independent student initiative</p>
+              </footer>
             </div>
           )}
 
@@ -1352,21 +1037,14 @@ export default function Dashboard() {
                   />
                   <select
                     className="teaser-stream-select"
-                    value={streamFilter}
-                    onChange={(e) => setStreamFilter(e.target.value)}
+                    value={predictorStream}
+                    onChange={(e) => setPredictorStream(e.target.value)}
                   >
                     <option value="MEDICAL">MBBS (Medical)</option>
                     <option value="DENTAL">BDS (Dental)</option>
                     <option value="AYUSH">AYUSH</option>
                   </select>
-                  <button
-                    onClick={() => {
-                      setPredictorStream(streamFilter);
-                      navigateTo('predictor');
-                    }}
-                  >
-                    Predict My Colleges →
-                  </button>
+                  <button onClick={() => navigateTo('predictor')}>Predict My Colleges →</button>
                 </div>
               </div>
 
@@ -1443,26 +1121,11 @@ export default function Dashboard() {
                       <th></th>
                       <th></th>
                       <th>KEA Code</th>
-                      <th
-                        className="sortable-th"
-                        onClick={() => handleSort('collegeName')}
-                      >
-                        College Name{sortConfig.key === 'collegeName' && (sortConfig.direction === 'asc' ? ' ▲' : ' ▼')}
-                      </th>
+                      <th>College Name</th>
                       <th>Course</th>
                       <th>Category</th>
-                      <th
-                        className="sortable-th"
-                        onClick={() => handleSort('fees')}
-                      >
-                        Annual Fees{sortConfig.key === 'fees' && (sortConfig.direction === 'asc' ? ' ▲' : ' ▼')}
-                      </th>
-                      <th
-                        className="sortable-th"
-                        onClick={() => handleSort('rank')}
-                      >
-                        Cutoff Rank{sortConfig.key === 'rank' && (sortConfig.direction === 'asc' ? ' ▲' : ' ▼')}
-                      </th>
+                      <th>Annual Fees</th>
+                      <th>Cutoff Rank</th>
                       <th>Round</th>
                       <th>Year</th>
                     </tr>
@@ -1488,6 +1151,7 @@ export default function Dashboard() {
                             <button
                               className={`add-option-btn${isInOptionList(item) ? ' added' : ''}`}
                               onClick={() => addToOptionList(item)}
+                              disabled={isInOptionList(item)}
                               aria-label="Add to option entry list"
                               title="Add to Option Entry List"
                             >
@@ -1611,38 +1275,10 @@ export default function Dashboard() {
                     <p>🔍 <strong>{desiredCollegeName}</strong> exists in our data, but not under <strong>{predictorCategory}</strong> category for the selected round/year. Try "All Rounds" / "All Years", or a different category.</p>
                   )}
                   {desiredCollegeCheck.status === 'not_attainable' && (
-                    <div>
-                      <p>
-                        😕 Sorry, <strong>{desiredCollegeCheck.record.collegeName}</strong> was not available for Rank {userRank} under these filters.
-                        Its closest cutoff was <strong>{desiredCollegeCheck.record.rank.toLocaleString('en-IN')}</strong> ({desiredCollegeCheck.record.round} {desiredCollegeCheck.record.year}, {desiredCollegeCheck.record.category}) — you'd need a rank at or better than that.
-                      </p>
-                      {(() => {
-                        const alternatives = predictedColleges
-                          .filter((item) => item.collegeCode !== desiredCollegeCheck.record.collegeCode)
-                          .slice(0, 3);
-                        if (alternatives.length === 0) return null;
-                        return (
-                          <div className="similar-colleges-box">
-                            <p className="similar-colleges-heading">💡 You might be attainable for these instead:</p>
-                            <ul className="similar-colleges-list">
-                              {alternatives.map((alt, i) => (
-                                <li key={i}>
-                                  <button
-                                    className="college-name-link"
-                                    onClick={() => setSelectedCollege({ collegeCode: alt.collegeCode, stream: alt.stream, collegeName: alt.collegeName })}
-                                  >
-                                    {alt.collegeName}
-                                  </button>
-                                  <span className="similar-colleges-meta">
-                                    {alt.collegeCode} · Cutoff {alt.rank.toLocaleString('en-IN')} · ₹{alt.fees.toLocaleString('en-IN')} · {alt.round} {alt.year}
-                                  </span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        );
-                      })()}
-                    </div>
+                    <p>
+                      😕 Sorry, <strong>{desiredCollegeCheck.record.collegeName}</strong> was not available for Rank {userRank} under these filters.
+                      Its closest cutoff was <strong>{desiredCollegeCheck.record.rank.toLocaleString('en-IN')}</strong> ({desiredCollegeCheck.record.round} {desiredCollegeCheck.record.year}, {desiredCollegeCheck.record.category}) — you'd need a rank at or better than that.
+                    </p>
                   )}
                   {desiredCollegeCheck.status === 'attainable' && (() => {
                     const item = desiredCollegeCheck.record;
@@ -1661,6 +1297,7 @@ export default function Dashboard() {
                             <button
                               className={`add-option-btn${isInOptionList(item) ? ' added' : ''}`}
                               onClick={() => addToOptionList(item)}
+                              disabled={isInOptionList(item)}
                               title="Add to Option Entry List"
                             >
                               {isInOptionList(item) ? '✓ Added' : '+ Add'}
@@ -1686,82 +1323,108 @@ export default function Dashboard() {
                 </div>
               )}
 
-              {userRank && !isNaN(userRank) && (
-                <div className="category-compare-section">
-                  <button
-                    className="category-compare-toggle"
-                    onClick={() => setCategoryCompareOpen((prev) => !prev)}
-                  >
-                    🔄 {categoryCompareOpen ? 'Hide' : 'Compare'} Across My Eligible Categories
-                  </button>
-                  {categoryCompareOpen && (
-                    <div className="category-compare-table-wrap">
-                      <p className="glossary-intro" style={{ margin: '10px 0' }}>
-                        Same rank ({userRank}), same stream/round/year — here's how many colleges you'd be eligible for under each category:
-                      </p>
-                      <table className="compare-table">
-                        <thead>
-                          <tr>
-                            <th>Category</th>
-                            <th>Eligible Colleges</th>
-                            <th>Best Match</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {categoryComparison.map((row) => (
-                            <tr key={row.category} className={row.category === predictorCategory ? 'current-category-row' : ''}>
-                              <td>
-                                <strong className="code-cell">{row.category}</strong>
-                                {row.category === predictorCategory && <span className="pill" style={{ marginLeft: '6px' }}>Current</span>}
-                              </td>
-                              <td><span className="rank-pill">{row.count}</span></td>
-                              <td>
-                                {row.best ? (
-                                  <span>{row.best.collegeName} <span className="compare-college-name">({row.best.rank.toLocaleString('en-IN')})</span></span>
-                                ) : (
-                                  <span className="compare-college-name">None</span>
-                                )}
-                              </td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-                  )}
-                </div>
-              )}
-
               <div>
                 <div className="predicted-heading-row">
                   <h3 className="predicted-heading">💡 Predicted Eligible Target Opportunities</h3>
                   {predictedColleges.length > 0 && (
-                    <div style={{ display: 'flex', gap: '8px' }}>
-                      <button className="whatsapp-share-btn" onClick={sharePredictedResultsOnWhatsApp}>
-                        💬 Share on WhatsApp
-                      </button>
-                      <button className="pdf-download-btn" onClick={downloadPredictedResultsPDF}>
-                        📄 Download PDF
-                      </button>
-                      <button className="copy-results-btn" onClick={copyPredictedResults}>
-                        {copyFeedback ? '✓ Copied!' : '📋 Copy Results'}
-                      </button>
-                    </div>
+                    <button className="copy-results-btn" onClick={copyPredictedResults}>
+                      {copyFeedback ? '✓ Copied!' : '📋 Copy Results'}
+                    </button>
                   )}
                 </div>
                 <p className="predicted-sub">
                   Colleges where <strong>{predictorYear === 'ALL' ? 'any year\'s' : predictorYear}</strong> <strong>{predictorRound === 'ALL' ? 'any round\'s' : predictorRound}</strong> closing cutoff scores matched higher than or equal to Rank <strong>{userRank || '0'}</strong>:
                 </p>
 
-                <PredictedGrid
-                  predictedColleges={predictedColleges}
-                  userRank={debouncedUserRank}
-                  isSaved={isSaved}
-                  toggleSave={toggleSave}
-                  isInOptionList={isInOptionList}
-                  addToOptionList={addToOptionList}
-                  getTrends={getTrends}
-                  onSelectCollege={setSelectedCollege}
-                />
+                <div className="predicted-grid">
+                  {predictedColleges.length === 0 ? (
+                    <div className="empty-predict">
+                      Enter your exact NEET Rank above to populate your custom eligible target mapping list.
+                    </div>
+                  ) : (
+                    predictedColleges.map((item, idx) => {
+                      const safetyMargin = item.rank - parseInt(userRank, 10);
+                      let stampClass = 'safe';
+                      let badgeText = 'Safe Match';
+
+                      if (safetyMargin < 2000) {
+                        stampClass = 'borderline';
+                        badgeText = 'Borderline Chance';
+                      } else if (safetyMargin < 8000) {
+                        stampClass = 'moderate';
+                        badgeText = 'Moderate Chance';
+                      }
+
+                      return (
+                        <div key={idx} className="result-card">
+                          <div className="result-top">
+                            <span className="result-code">CODE: {item.collegeCode}</span>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                              <span className={`stamp ${stampClass}`}>{badgeText}</span>
+                              <button
+                                className={`star-btn${isSaved(item) ? ' saved' : ''}`}
+                                onClick={() => toggleSave(item)}
+                                aria-label="Save college"
+                              >
+                                {isSaved(item) ? '★' : '☆'}
+                              </button>
+                              <button
+                                className={`add-option-btn${isInOptionList(item) ? ' added' : ''}`}
+                                onClick={() => addToOptionList(item)}
+                                disabled={isInOptionList(item)}
+                                title="Add to Option Entry List"
+                              >
+                                {isInOptionList(item) ? '✓ Added' : '+ Add'}
+                              </button>
+                            </div>
+                          </div>
+                          <h4
+                            className="result-name college-name-link"
+                            onClick={() => setSelectedCollege({ collegeCode: item.collegeCode, stream: item.stream, collegeName: item.collegeName })}
+                          >
+                            {item.collegeName}
+                          </h4>
+                          <p className="result-meta">Course: <strong>{item.courseDetails}</strong></p>
+                          <p className="result-meta">Round: <strong>{item.round}</strong> · Year: <strong>{item.year}</strong></p>
+                          <p className="result-meta">Annual Cost: <strong>₹{item.fees.toLocaleString('en-IN')}</strong></p>
+
+                          {(() => {
+                            const { roundsThisYear, otherYearSameRound } = getTrends(item);
+                            const uniqueRounds = Array.from(new Map(roundsThisYear.map((r) => [r.round, r])).values());
+                            const otherYear = otherYearSameRound[0];
+                            if (uniqueRounds.length <= 1 && !otherYear) return null;
+                            return (
+                              <div className="trend-box">
+                                {uniqueRounds.length > 1 && (
+                                  <div className="trend-line">
+                                    <span className="trend-label">This year:</span>
+                                    {uniqueRounds.map((r) => (
+                                      <span key={r.round} className="trend-chip">{r.round} {r.rank.toLocaleString('en-IN')}</span>
+                                    ))}
+                                  </div>
+                                )}
+                                {otherYear && (
+                                  <div className="trend-line">
+                                    <span className="trend-label">vs {otherYear.year}:</span>
+                                    <span className="trend-chip">
+                                      {otherYear.rank.toLocaleString('en-IN')}
+                                      {otherYear.rank > item.rank ? ' (tighter now)' : otherYear.rank < item.rank ? ' (looser now)' : ' (same)'}
+                                    </span>
+                                  </div>
+                                )}
+                              </div>
+                            );
+                          })()}
+
+                          <div className="result-footer">
+                            <span>Last Cutoff</span>
+                            <span className="val">{item.rank.toLocaleString('en-IN')}</span>
+                          </div>
+                        </div>
+                      );
+                    })
+                  )}
+                </div>
               </div>
             </div>
           )}
@@ -1780,20 +1443,20 @@ export default function Dashboard() {
               </div>
 
               {optionEntries.length === 0 ? (
-                <div className="empty-predict">
-                  Your option list is empty. Go to Explore or Predictor and tap "+ Add" on any college to start building your list.
+                <div className="empty-predict empty-options">
+                  <span className="empty-options-icon">📝</span>
+                  <h4>Your list is empty — let's fix that</h4>
+                  <p>Browse colleges and tap the <strong>"+ Add"</strong> button on any of them to start building your ranked preference list here.</p>
+                  <div className="empty-options-actions">
+                    <button className="home-cta primary" onClick={() => navigateTo('explore')}>🔍 Go to Explore</button>
+                    <button className="home-cta" onClick={() => navigateTo('predictor')}>🎯 Go to Predictor</button>
+                  </div>
                 </div>
               ) : (
                 <>
                   <div className="option-toolbar">
                     <span>{optionEntries.length} college{optionEntries.length !== 1 ? 's' : ''} in your list</span>
                     <div style={{ display: 'flex', gap: '8px' }}>
-                      <button className="whatsapp-share-btn" onClick={shareOptionListOnWhatsApp}>
-                        💬 Share on WhatsApp
-                      </button>
-                      <button className="pdf-download-btn" onClick={downloadOptionListPDF}>
-                        📄 Download PDF
-                      </button>
                       <button className="copy-results-btn" onClick={copyOptionList}>
                         {optionCopyFeedback ? '✓ Copied!' : '📋 Copy List'}
                       </button>
@@ -1906,7 +1569,7 @@ export default function Dashboard() {
                       <circle cx="12" cy="12" r="3.1" fill="none" stroke="#fff" strokeWidth="1.6" />
                       <circle cx="17" cy="7" r="1.1" fill="#fff" />
                     </svg>
-                    <span>namma_ugneet</span>
+                    <span>@namma_ugneet</span>
                   </a>
                 </div>
               </div>

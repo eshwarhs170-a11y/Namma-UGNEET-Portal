@@ -74,6 +74,7 @@
   background: var(--paper);
   font-family: var(--font-body);
   color: var(--ink);
+  position: relative;
 }
 
 .sidebar {
@@ -228,7 +229,7 @@
 
 /* ---------- Feature tour ---------- */
 .tour-fab {
-  position: fixed;
+  position: absolute;
   top: 20px;
   right: 22px;
   z-index: 70;
@@ -607,7 +608,7 @@
     z-index: 40;
   }
 
-  .main-content { padding: 64px 14px 44px; max-width: none; }
+  .main-content { padding: 92px 14px 44px; max-width: none; }
 
   .dash-title { font-size: 1.4rem; }
   .dash-subtitle { font-size: 0.85rem; }
@@ -2067,4 +2068,52 @@
   .home-quote { font-size: 0.9rem; padding: 0 8px; }
   .empty-options-actions { flex-direction: column; }
   .empty-options-actions .home-cta { width: 100%; }
+}
+
+/* ---------- Home search suggestions dropdown ---------- */
+.home-search-box { position: relative; }
+.home-suggestions {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  margin-top: 4px;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 8px 20px var(--shadow);
+  z-index: 30;
+  overflow: hidden;
+  max-height: 280px;
+  overflow-y: auto;
+}
+.home-suggestion-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  text-align: left;
+  padding: 10px 14px;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+}
+.home-suggestion-row:last-child { border-bottom: none; }
+.home-suggestion-row:hover { background: var(--paper-alt); }
+.home-suggestion-name {
+  font-size: 0.86rem;
+  color: var(--ink);
+  font-weight: 600;
+}
+.home-suggestion-meta {
+  font-size: 0.72rem;
+  color: var(--slate);
+  font-family: var(--font-mono);
+  margin-top: 2px;
+}
+.home-suggestion-empty {
+  padding: 14px;
+  font-size: 0.82rem;
+  color: var(--slate);
+  text-align: center;
 }

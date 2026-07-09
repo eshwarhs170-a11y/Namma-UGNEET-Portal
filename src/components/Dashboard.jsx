@@ -336,6 +336,26 @@ export default function Dashboard() {
   };
 
   // --- UNIQUE DROPDOWN OPTIONS LIST GENERATORS ---
+  const homeSearchSuggestions = useMemo(() => {
+    const q = searchQuery.trim().toLowerCase();
+    if (!q || q.length < 2) return [];
+    const seen = new Set();
+    const results = [];
+    for (const item of medicalData) {
+      if (results.length >= 6) break;
+      if (item.collegeName.toLowerCase().includes(q) || item.collegeCode.toLowerCase().includes(q)) {
+        const key = item.collegeCode;
+        if (!seen.has(key)) {
+          seen.add(key);
+          results.push(item);
+        }
+      }
+    }
+    return results;
+  }, [searchQuery, medicalData]);
+
+  const [showHomeSuggestions, setShowHomeSuggestions] = useState(false);
+
   const dynamicCategories = useMemo(() => {
     const categoriesSet = new Set(medicalData.map((item) => item.category));
     return Array.from(categoriesSet).sort();
@@ -936,13 +956,39 @@ export default function Dashboard() {
                   <input
                     id="home-search-input"
                     type="text"
-                    placeholder="e.g. Bangalore Medical College, M001MG..."
+                    placeholder="e.g. Bangalore Medical, M001MG..."
                     value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
+                    onChange={(e) => { setSearchQuery(e.target.value); setShowHomeSuggestions(true); }}
+                    onFocus={() => setShowHomeSuggestions(true)}
+                    onBlur={() => setTimeout(() => setShowHomeSuggestions(false), 150)}
                     onKeyDown={(e) => { if (e.key === 'Enter') navigateTo('explore'); }}
+                    autoComplete="off"
                   />
                   <button onClick={() => navigateTo('explore')}>Search</button>
                 </div>
+
+                {showHomeSuggestions && searchQuery.trim().length >= 2 && (
+                  <div className="home-suggestions">
+                    {homeSearchSuggestions.length === 0 ? (
+                      <div className="home-suggestion-empty">No matches yet — try a different name or code.</div>
+                    ) : (
+                      homeSearchSuggestions.map((item) => (
+                        <button
+                          key={item.collegeCode + item.category + item.round + item.year}
+                          className="home-suggestion-row"
+                          onClick={() => {
+                            setSearchQuery(item.collegeName);
+                            setShowHomeSuggestions(false);
+                            navigateTo('explore');
+                          }}
+                        >
+                          <span className="home-suggestion-name">{item.collegeName}</span>
+                          <span className="home-suggestion-meta">{item.collegeCode} · {item.stream}</span>
+                        </button>
+                      ))
+                    )}
+                  </div>
+                )}
               </div>
 
               <h3 className="home-section-heading">What you can do here</h3>
@@ -981,7 +1027,7 @@ export default function Dashboard() {
 
               <footer className="home-footer">
                 <div className="home-footer-social">
-                  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=eshwarhs170@gmail.com&su=NammaUGNEET%20Feedback" target="_blank" rel="noopener noreferrer" aria-label="Email">
+                  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=nammaugneet@gmail.com&su=NammaUGNEET%20Feedback" target="_blank" rel="noopener noreferrer" aria-label="Email">
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <rect x="2" y="4" width="20" height="16" rx="2.5" fill="#fff" stroke="#e0e0e0" strokeWidth="1"/>
                       <path d="M3 6.5 12 13l9-6.5" fill="none" stroke="#EA4335" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
@@ -990,7 +1036,7 @@ export default function Dashboard() {
                       <path d="M3 6.5 12 13l9-6.5" fill="none" stroke="#4285F4" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </a>
-                  <a href="https://instagram.com/_eshwar__hs_" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                  <a href="https://instagram.com/namma_ugneet" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <defs>
                         <linearGradient id="igGradHome" x1="0%" y1="100%" x2="100%" y2="0%">

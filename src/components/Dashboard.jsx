@@ -1057,25 +1057,22 @@ export default function Dashboard() {
         </div>
       )}
 
-      {/* FLOATING TOUR RELAUNCH BUTTON */}
-      <button className="tour-fab" onClick={() => { setTourStep(0); setTourOpen(true); }}>
-        ✨ Tour
-      </button>
+      {/* FLOATING TOP ROW — Guide + Install App always anchored together at the very top */}
+      <div className="top-fab-row">
+        <button className="tour-fab" onClick={() => { setTourStep(0); setTourOpen(true); }}>
+          ✨ Guide
+        </button>
+        {installPromptEvent && !isAppInstalled && (
+          <button className="install-fab" onClick={handleInstallClick}>
+            ⬇️ Install App
+          </button>
+        )}
+      </div>
 
-      {/* FLOATING COMPARE BUTTON — only shows once there's something worth comparing */}
+      {/* FLOATING COMPARE BUTTON — only shows once there's something worth comparing; sits below the top row */}
       {savedColleges.length >= 2 && (
         <button className="compare-fab" onClick={() => setCompareOpen(true)}>
           ⚖️ Compare ({savedColleges.length})
-        </button>
-      )}
-
-      {/* FLOATING INSTALL APP BUTTON — only shows when the browser says it's installable */}
-      {installPromptEvent && !isAppInstalled && (
-        <button
-          className={`install-fab${savedColleges.length >= 2 ? ' stacked' : ''}`}
-          onClick={handleInstallClick}
-        >
-          ⬇️ Install App
         </button>
       )}
 
@@ -1100,10 +1097,7 @@ export default function Dashboard() {
         <div className="sidebar-top">
           <div className="sidebar-brand">
             <img src={logo} alt="NammaUGNEET" className="brand-mark" />
-            <div>
-              <div className="brand-name">NammaUGNEET</div>
-              {/* <div className="brand-tag">KEA Allotment Portal</div> */}
-            </div>
+            <div className="brand-name">NammaUGNEET</div>
           </div>
           <div className="sidebar-top-actions">
             <button
@@ -1129,7 +1123,7 @@ export default function Dashboard() {
             className={dataSource === 'AIQ' ? 'active' : ''}
             onClick={() => setDataSource('AIQ')}
           >
-            🏛️ AIQ 
+             🏛️ AIQ 
           </button>
         </div>
 
@@ -1349,9 +1343,6 @@ export default function Dashboard() {
                 <div className="home-hero-actions">
                   <button className="home-cta primary" onClick={() => navigateTo('predictor')}>🎯 Predict</button>
                   <button className="home-cta" onClick={() => navigateTo('explore')}>🔍 Explore</button>
-                  {installPromptEvent && !isAppInstalled && (
-                    <button className="home-cta install-cta" onClick={handleInstallClick}>⬇️ Install App</button>
-                  )}
                 </div>
               </div>
 
@@ -1376,6 +1367,21 @@ export default function Dashboard() {
                     <p>All India Quota counselling — cutoffs across MBBS &amp; BDS colleges nationwide, final round.</p>
                     {dataSource === 'AIQ' && <span className="home-datasource-badge">✓ Active</span>}
                   </button>
+                </div>
+              </div>
+
+              <div className="home-search-section">
+                <label className="home-search-label" htmlFor="home-search-input">🔍 Search a college by name or code</label>
+                <div className="home-search-row">
+                  <input
+                    id="home-search-input"
+                    type="text"
+                    placeholder="e.g. Bangalore Medical College, M001MG"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    onKeyDown={(e) => { if (e.key === 'Enter') navigateTo('explore'); }}
+                  />
+                  <button onClick={() => navigateTo('explore')}>Search</button>
                 </div>
               </div>
 
@@ -1408,6 +1414,63 @@ export default function Dashboard() {
                 <a href="https://kea.kar.nic.in" target="_blank" rel="noopener noreferrer">KEA website</a> before making decisions.
                 See the <button className="inline-link-btn" onClick={() => navigateTo('contact')}>Contact &amp; About</button> page for details.
               </div>
+
+              <p className="home-closing-quote">
+                "Every rank has a path forward. We built this so you can see yours clearly — and choose it with confidence." 🌟
+              </p>
+
+              <footer className="home-footer">
+                <div className="home-footer-socials">
+                  <a
+                    className="home-footer-icon-btn"
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=nammaugneet@gmail.com&su=NammaUGNEET%20Feedback"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Email"
+                  >
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="2" y="4" width="20" height="16" rx="2.5" fill="#fff" stroke="#e0e0e0" strokeWidth="1"/>
+                      <path d="M3 6.5 12 13l9-6.5" fill="none" stroke="#EA4335" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M3 6.5v11a1 1 0 0 0 1 1h2V9.2z" fill="#FBBC05"/>
+                      <path d="M21 6.5v11a1 1 0 0 1-1 1h-2V9.2z" fill="#34A853"/>
+                      <path d="M3 6.5 12 13l9-6.5" fill="none" stroke="#4285F4" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </a>
+                  <a
+                    className="home-footer-icon-btn"
+                    href="https://instagram.com/namma_ugneet"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                  >
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <defs>
+                        <linearGradient id="igGradFooter" x1="0%" y1="100%" x2="100%" y2="0%">
+                          <stop offset="0%" stopColor="#FFDD55" />
+                          <stop offset="50%" stopColor="#E1306C" />
+                          <stop offset="100%" stopColor="#5851DB" />
+                        </linearGradient>
+                      </defs>
+                      <rect x="2" y="2" width="20" height="20" rx="6" fill="url(#igGradFooter)" />
+                      <rect x="6.5" y="6.5" width="11" height="11" rx="4" fill="none" stroke="#fff" strokeWidth="1.6" />
+                      <circle cx="12" cy="12" r="3.1" fill="none" stroke="#fff" strokeWidth="1.6" />
+                      <circle cx="17" cy="7" r="1.1" fill="#fff" />
+                    </svg>
+                  </a>
+                </div>
+
+                <div className="home-footer-links">
+                  <button onClick={() => navigateTo('explore')}>Explore</button>
+                  <span className="home-footer-dot">·</span>
+                  <button onClick={() => navigateTo('predictor')}>Predictor</button>
+                  <span className="home-footer-dot">·</span>
+                  <button onClick={() => navigateTo('contact')}>About &amp; Contact</button>
+                </div>
+
+                <p className="home-footer-copyright">
+                  © {new Date().getFullYear()} NammaUGNEET — an independent, student-built initiative. Not affiliated with KEA.
+                </p>
+              </footer>
             </div>
           )}
 
@@ -1864,8 +1927,21 @@ export default function Dashboard() {
               </div>
 
               {optionEntries.length === 0 ? (
-                <div className="empty-predict">
-                  Your option list is empty. Go to Explore or Predictor and tap "+ Add" on any college to start building your list.
+                <div className="option-empty-state">
+                  <span className="option-empty-icon">📝</span>
+                  <h4>Your preference list starts here</h4>
+                  <p>
+                    Think of this as a practice run for KEA's real "Option Entry" step — where you'll rank
+                    every college you'd accept, in order of preference, before the actual counselling round.
+                  </p>
+                  <p className="option-empty-steps">
+                    Browse colleges on <strong>Explore</strong> or check your matches on <strong>Predictor</strong>,
+                    then tap the <span className="pill">+ Add</span> button on any college — it'll show up right here, ready to reorder.
+                  </p>
+                  <div className="option-empty-actions">
+                    <button className="home-cta primary" onClick={() => navigateTo('explore')}>🔍 Go to Explore</button>
+                    <button className="home-cta" onClick={() => navigateTo('predictor')}>🎯 Go to Predictor</button>
+                  </div>
                 </div>
               ) : (
                 <>

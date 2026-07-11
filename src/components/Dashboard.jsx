@@ -348,6 +348,16 @@ export default function Dashboard() {
       window.removeEventListener('appinstalled', onAppInstalled);
     };
   }, []);
+  
+  const handleInstallClick = async () => {
+    if (!installPromptEvent) return;
+    installPromptEvent.prompt();
+    const { outcome } = await installPromptEvent.userChoice;
+    if (outcome === 'accepted') {
+      setIsAppInstalled(true);
+    }
+    setInstallPromptEvent(null);
+  };
 
   const TOUR_KEY = 'namma_tour_seen';
   const tourSteps = [

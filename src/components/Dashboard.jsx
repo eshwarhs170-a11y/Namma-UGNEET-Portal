@@ -465,6 +465,7 @@ export default function Dashboard() {
   const [maxBudget, setMaxBudget] = useState(1500000);
   const [roundFilter, setRoundFilter] = useState('ALL');
   const [yearFilter, setYearFilter] = useState('ALL');
+  const [exploreVisibleCount, setExploreVisibleCount] = useState(100);
   const [sortConfig, setSortConfig] = useState({ key: 'rank', direction: 'asc' });
 
   const filteredDashboardData = useMemo(() => {
@@ -503,6 +504,10 @@ export default function Dashboard() {
         return 0;
       });
   }, [medicalData, searchQuery, streamFilter, categoryFilter, maxBudget, roundFilter, yearFilter, sortConfig, dataSource, quotaFilter]);
+
+  useEffect(() => {
+    setExploreVisibleCount(100);
+  }, [filteredDashboardData]);
 
   const handleSort = (key) => {
     setSortConfig((prev) =>
@@ -1737,7 +1742,7 @@ export default function Dashboard() {
                         <td colSpan={showFees ? 10 : 9}>No allotment matching your criteria found. Adjust filters.</td>
                       </tr>
                     ) : (
-                      filteredDashboardData.slice(0, 100).map((item, i) => (
+                      filteredDashboardData.slice(0, exploreVisibleCount).map((item, i) => (
                         <tr key={i}>
                           <td>
                             <button
@@ -1782,8 +1787,18 @@ export default function Dashboard() {
                   </tbody>
                 </table>
               </div>
-              {filteredDashboardData.length > 100 && (
-                <p className="truncate-note">Truncated at 100 entries for view performance. Refine filters to narrow results.</p>
+              {filteredDashboardData.length > exploreVisibleCount && (
+                <div className="show-more-wrap" style={{ marginTop: '16px' }}>
+                  <p className="truncate-note">
+                    Showing {exploreVisibleCount.toLocaleString('en-IN')} of {filteredDashboardData.length.toLocaleString('en-IN')} matching cutoffs.
+                  </p>
+                  <button
+                    className="show-more-btn"
+                    onClick={() => setExploreVisibleCount((prev) => prev + 100)}
+                  >
+                    Show {Math.min(100, filteredDashboardData.length - exploreVisibleCount).toLocaleString('en-IN')} More
+                  </button>
+                </div>
               )}
             </div>
           )}
@@ -1821,7 +1836,7 @@ export default function Dashboard() {
                       <input
                         type="range"
                         min="0"
-                        max="30000"
+                        max="10000"
                         step="1000"
                         value={rankRange}
                         onChange={(e) => setRankRange(Number(e.target.value))}

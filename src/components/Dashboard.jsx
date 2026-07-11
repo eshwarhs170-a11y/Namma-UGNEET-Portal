@@ -7,9 +7,6 @@ const SAVED_KEY = 'namma_saved_colleges';
 const PROFILES_KEY = 'namma_saved_profiles';
 const makeId = (item) => `${item.year}-${item.stream}-${item.round}-${item.serialNo}-${item.category}`;
 
-// Content for the footer's legal/info pages, shown via modal. Kept honest and
-// specific to how this app actually works (client-side only, localStorage,
-// no accounts) rather than generic boilerplate.
 const LEGAL_CONTENT = {
   about: {
     title: 'ℹ️ About Us',
@@ -17,13 +14,6 @@ const LEGAL_CONTENT = {
       'NammaUGNEET is an independent, student-built tool created to help Karnataka NEET UG aspirants (and now All India Quota candidates too) explore past counselling cutoffs and estimate realistic college options.',
       'It is not affiliated with, endorsed by, or connected to the Karnataka Examinations Authority (KEA), the Medical Counselling Committee (MCC), or any government body.',
       'The goal is simple: give students and parents a clearer, faster way to understand cutoff trends during a genuinely stressful and confusing time — counselling season.',
-    ],
-  },
-  contact: {
-    title: '✉️ Contact Us',
-    paragraphs: [
-      'Found an error in the data, hit a bug, or have a feature suggestion? We\'d genuinely like to hear about it.',
-      'This is a small, independently-run project, so replies may take a little time — but every message is read.',
     ],
   },
   disclaimer: {
@@ -58,10 +48,15 @@ const LEGAL_CONTENT = {
       'Questions about your data? Reach out at nammaugneet@gmail.com.',
     ],
   },
+  contact: {
+    title: '✉️ Contact Us',
+    paragraphs: [
+      'Found an error in the data, hit a bug, or have a feature suggestion? We\'d genuinely like to hear about it.',
+      'This is a small, independently-run project, so replies may take a little time — but every message is read.',
+    ],
+  },
 };
 
-// Plain-language explanations for common KEA reservation category codes.
-// Codes not listed here still work in the app — they just show a generic fallback in the glossary.
 const CATEGORY_GLOSSARY = {
   GM: 'General Merit — open to all candidates regardless of category.',
   '1G': 'Category I (Karnataka) — reserved for a specific backward class group.',
@@ -88,7 +83,6 @@ const CATEGORY_GLOSSARY = {
   OTH: 'Other/general category, typically used for private college quotas.',
   KM: 'Kannada Medium candidate reservation.',
   EWS: 'Economically Weaker Section reservation.',
-  // AIQ (All India Quota) category codes — different vocabulary from KEA's above.
   BC: 'Other Backward Class (OBC-NCL) — AIQ category.',
   'BC PwD': 'Other Backward Class (OBC-NCL), Person with Disability — AIQ category.',
   EW: 'General-EWS (Economically Weaker Section) — AIQ category.',
@@ -103,21 +97,14 @@ const CATEGORY_GLOSSARY = {
 const getCategoryMeaning = (code) =>
   CATEGORY_GLOSSARY[code] || 'Karnataka counselling reservation/quota code — refer to the official KEA notification for exact eligibility rules.';
 
-// AIQ records have no fees data at all (fees: null) — every place fees are displayed
-// needs to fall back to this instead of crashing on null.toLocaleString().
 const formatFees = (fees) =>
   fees === null || fees === undefined ? 'Not available' : `₹${fees.toLocaleString('en-IN')}`;
 
-// AIQ category can literally be the string "UNKNOWN" — show something readable instead.
 const formatCategory = (category) => (category === 'UNKNOWN' ? 'Category not recorded' : category);
 
 const OPTIONS_KEY = 'namma_option_entries';
 const makeOptionId = (item) => `${item.year}-${item.stream}-${item.round}-${item.serialNo}-${item.category}`;
 
-// Tiny inline SVG line-sparkline for round-over-round rank trends within a year.
-// Lower cutoff rank is "better" so the line is inverted: a higher point means
-// a more favorable (lower) cutoff rank for that round. Deliberately minimal —
-// a thin line + dots, not a solid block — so it reads as a trend, not a bar chart.
 function RankSparkline({ points }) {
   if (!points || points.length < 2) return null;
 
@@ -133,7 +120,6 @@ function RankSparkline({ points }) {
 
   const coords = points.map((p, i) => {
     const x = padX + (i * (width - padX * 2)) / (points.length - 1);
-    // Invert: lower rank -> higher point (smaller y)
     const normalized = (p.rank - minRank) / range;
     const y = padY + normalized * (height - padY * 2);
     return { x, y, rank: p.rank };
@@ -171,8 +157,6 @@ const PredictedGrid = React.memo(function PredictedGrid({
   const CARD_RENDER_LIMIT = 150;
   const [visibleCount, setVisibleCount] = useState(CARD_RENDER_LIMIT);
 
-  // Reset back to the initial page size whenever the underlying match list changes
-  // (new rank, filters, etc.) so "Show More" clicks from a previous search don't linger.
   useEffect(() => {
     setVisibleCount(CARD_RENDER_LIMIT);
   }, [predictedColleges]);
@@ -294,12 +278,8 @@ const PredictedGrid = React.memo(function PredictedGrid({
 });
 
 export default function Dashboard() {
-  // Navigation & View State
   const [activeTab, setActiveTab] = useState('home');
 
-  // Wire up browser back/forward support: each tab switch pushes a history entry
-  // (using the URL hash, so it works on static hosting with no server routing config),
-  // and popstate (back/forward button) syncs activeTab back to match.
   const navigateTo = (tab) => {
     if (tab === activeTab) return;
     window.history.pushState({ tab }, '', `#${tab}`);
@@ -307,7 +287,6 @@ export default function Dashboard() {
   };
 
   useEffect(() => {
-    // Set up the very first history entry so the first "back" press has somewhere valid to land
     const initialTab = window.location.hash.replace('#', '') || 'home';
     setActiveTab(initialTab);
     window.history.replaceState({ tab: initialTab }, '', `#${initialTab}`);
@@ -320,11 +299,6 @@ export default function Dashboard() {
     return () => window.removeEventListener('popstate', onPopState);
   }, []);
 
-  // Dataset is now fetched at runtime from public/data/ instead of bundled directly into the JS —
-  // a ~74,000-record JSON was making the app itself slow to load when imported statically.
-  // 'dataSource' switches between KEA (Karnataka) and AIQ (All India Quota) — these are
-  // completely separate datasets the user picks between, not merged into one table,
-  // since they use different category systems and AIQ has no fees data at all.
   const [dataSource, setDataSource] = useState('KEA');
   const [medicalData, setMedicalData] = useState([]);
   const [dataLoading, setDataLoading] = useState(true);
@@ -355,10 +329,6 @@ export default function Dashboard() {
     return () => clearTimeout(timer);
   }, []);
 
-  // --- PWA "Install App" support ---
-  // Chrome/Edge fire this event when the site is installable; we stash it and
-  // trigger it ourselves from a visible button instead of relying on the
-  // easy-to-miss address-bar icon.
   const [installPromptEvent, setInstallPromptEvent] = useState(null);
   const [isAppInstalled, setIsAppInstalled] = useState(false);
 
@@ -379,17 +349,6 @@ export default function Dashboard() {
     };
   }, []);
 
-  const handleInstallClick = async () => {
-    if (!installPromptEvent) return;
-    installPromptEvent.prompt();
-    const { outcome } = await installPromptEvent.userChoice;
-    if (outcome === 'accepted') {
-      setIsAppInstalled(true);
-    }
-    setInstallPromptEvent(null);
-  };
-
-  // --- Feature tour: a quick guided walkthrough of what's on the page ---
   const TOUR_KEY = 'namma_tour_seen';
   const tourSteps = [
     { title: '🎯 Quick Predict', body: 'Enter your NEET rank right on this page to jump straight into the Smart College Predictor.' },
@@ -407,31 +366,29 @@ export default function Dashboard() {
       if (!localStorage.getItem(TOUR_KEY)) {
         setTourOpen(true);
       }
-    } catch {
-      // localStorage unavailable — skip auto-tour, manual button still works
-    }
+    } catch { }
   }, []);
 
   const closeTour = () => {
     setTourOpen(false);
     setTourStep(0);
-    try { localStorage.setItem(TOUR_KEY, 'true'); } catch { /* ignore */ }
+    try { localStorage.setItem(TOUR_KEY, 'true'); } catch { }
   };
   const [darkMode, setDarkMode] = useState(() => {
     try {
       const saved = localStorage.getItem('namma_dark_mode');
       if (saved !== null) return saved === 'true';
-    } catch { /* ignore */ }
-    return false; // default to light mode regardless of system preference
+    } catch { }
+    return false;
   });
 
   useEffect(() => {
-    try { localStorage.setItem('namma_dark_mode', String(darkMode)); } catch { /* ignore */ }
+    try { localStorage.setItem('namma_dark_mode', String(darkMode)); } catch { }
   }, [darkMode]);
 
   const [sidebarOpen, setSidebarOpen] = useState(() => {
     if (typeof window === 'undefined') return true;
-    return window.matchMedia('(min-width: 881px)').matches; // open by default on desktop, closed on mobile
+    return window.matchMedia('(min-width: 881px)').matches;
   });
   const [viewportWidth, setViewportWidth] = useState(() =>
     typeof window === 'undefined' ? 1200 : window.innerWidth
@@ -442,8 +399,6 @@ export default function Dashboard() {
     const onResize = () => {
       const w = window.innerWidth;
       setViewportWidth(w);
-      // Keep the sidebar in sync with screen size automatically —
-      // but stop doing that the moment the user manually opens/closes it themselves.
       if (!userToggledRef.current) {
         setSidebarOpen(w >= 881);
       }
@@ -452,10 +407,8 @@ export default function Dashboard() {
     return () => window.removeEventListener('resize', onResize);
   }, []);
 
-  // matches the sidebar's own responsive width rules in Dashboard.css
   const sidebarWidthPx = viewportWidth <= 420 ? Math.min(viewportWidth * 0.88, 300) : 280;
 
-  // Search & Filter State variables
   const [searchQuery, setSearchQuery] = useState('');
   const [streamFilter, setStreamFilter] = useState('MEDICAL');
   const [categoryFilter, setCategoryFilter] = useState('GM');
@@ -472,16 +425,13 @@ export default function Dashboard() {
     );
   };
 
-  // Rank Predictor Input State variables
   const [userRank, setUserRank] = useState('');
   const [predictorCategory, setPredictorCategory] = useState('GM');
   const [predictorStream, setPredictorStream] = useState('MEDICAL');
   const [predictorRound, setPredictorRound] = useState('ALL');
   const [predictorYear, setPredictorYear] = useState('ALL');
   const yearDefaultSetRef = useRef(false);
-  // The input itself is bound to userRank directly (so typing feels instant).
-  // Only the heavy 74k-record filtering below uses this debounced copy, updated
-  // ~250ms after the user stops typing, so keystrokes never wait on the filter/sort.
+
   const [debouncedUserRank, setDebouncedUserRank] = useState(userRank);
   useEffect(() => {
     const timer = setTimeout(() => setDebouncedUserRank(userRank), 250);
@@ -492,11 +442,10 @@ export default function Dashboard() {
     if (!dataLoading && medicalData.length > 0 && !yearDefaultSetRef.current) {
       yearDefaultSetRef.current = true;
       const years = Array.from(new Set(medicalData.map((item) => item.year).filter(Boolean))).sort();
-      if (years.length > 0) setPredictorYear(years.slice(-1)[0]); // default to most recent year
+      if (years.length > 0) setPredictorYear(years.slice(-1)[0]);
     }
   }, [dataLoading, medicalData]);
 
-  // Saved / bookmarked colleges — persisted across sessions
   const [savedColleges, setSavedColleges] = useState(() => {
     try {
       const raw = localStorage.getItem(SAVED_KEY);
@@ -509,9 +458,7 @@ export default function Dashboard() {
   useEffect(() => {
     try {
       localStorage.setItem(SAVED_KEY, JSON.stringify(savedColleges));
-    } catch {
-      // storage unavailable — saved list just won't persist this session
-    }
+    } catch { }
   }, [savedColleges]);
 
   const isSaved = useCallback((item) => savedColleges.some((s) => s.id === makeId(item)), [savedColleges]);
@@ -527,17 +474,10 @@ export default function Dashboard() {
 
   const removeSaved = (id) => setSavedColleges((prev) => prev.filter((s) => s.id !== id));
 
-  // --- Category glossary modal ---
   const [glossaryOpen, setGlossaryOpen] = useState(false);
-
-  // --- Compare saved colleges ---
   const [compareOpen, setCompareOpen] = useState(false);
 
-  // --- Copy/share predictor results ---
-  const [copyFeedback, setCopyFeedback] = useState(false);
-
-  // --- College detail modal + personal notes ---
-  const [selectedCollege, setSelectedCollege] = useState(null); // { collegeCode, stream, collegeName }
+  const [selectedCollege, setSelectedCollege] = useState(null); 
   const NOTES_KEY = 'namma_college_notes';
   const [collegeNotes, setCollegeNotes] = useState(() => {
     try {
@@ -548,10 +488,9 @@ export default function Dashboard() {
     }
   });
   useEffect(() => {
-    try { localStorage.setItem(NOTES_KEY, JSON.stringify(collegeNotes)); } catch { /* ignore */ }
+    try { localStorage.setItem(NOTES_KEY, JSON.stringify(collegeNotes)); } catch { }
   }, [collegeNotes]);
 
-  // --- Saved rank profiles (e.g. "Me", "Cousin's rank") ---
   const [profiles, setProfiles] = useState(() => {
     try {
       const raw = localStorage.getItem(PROFILES_KEY);
@@ -563,7 +502,7 @@ export default function Dashboard() {
   const [newProfileName, setNewProfileName] = useState('');
 
   useEffect(() => {
-    try { localStorage.setItem(PROFILES_KEY, JSON.stringify(profiles)); } catch { /* ignore */ }
+    try { localStorage.setItem(PROFILES_KEY, JSON.stringify(profiles)); } catch { }
   }, [profiles]);
 
   const saveCurrentAsProfile = () => {
@@ -592,7 +531,6 @@ export default function Dashboard() {
 
   const deleteProfile = (id) => setProfiles((prev) => prev.filter((p) => p.id !== id));
 
-  // --- Option Entry Generator: build a ranked preference list, mirroring KEA's real "Option Entry" step ---
   const [optionEntries, setOptionEntries] = useState(() => {
     try {
       const raw = localStorage.getItem(OPTIONS_KEY);
@@ -603,7 +541,7 @@ export default function Dashboard() {
   });
 
   useEffect(() => {
-    try { localStorage.setItem(OPTIONS_KEY, JSON.stringify(optionEntries)); } catch { /* ignore */ }
+    try { localStorage.setItem(OPTIONS_KEY, JSON.stringify(optionEntries)); } catch { }
   }, [optionEntries]);
 
   const isInOptionList = useCallback((item) => optionEntries.some((o) => o.id === makeOptionId(item)), [optionEntries]);
@@ -633,18 +571,6 @@ export default function Dashboard() {
     if (window.confirm('Clear your entire option entry list? This cannot be undone.')) {
       setOptionEntries([]);
     }
-  };
-
-  const [optionCopyFeedback, setOptionCopyFeedback] = useState(false);
-  const copyOptionList = () => {
-    const lines = optionEntries.map((o, i) =>
-      `Option ${i + 1}: ${o.collegeName} (${o.collegeCode}) — ${o.courseDetails}, ${o.category} [${o.round} ${o.year}]`
-    );
-    const text = `NammaUGNEET — My Option Entry Preference List\n\n${lines.join('\n')}\n\nGenerated for reference only. Always submit your actual option entry on the official KEA portal.`;
-    navigator.clipboard.writeText(text).then(() => {
-      setOptionCopyFeedback(true);
-      setTimeout(() => setOptionCopyFeedback(false), 2000);
-    });
   };
 
   const shareOptionListOnWhatsApp = () => {
@@ -686,7 +612,6 @@ export default function Dashboard() {
     doc.save('nammaugneet-option-entry-list.pdf');
   };
 
-  // --- UNIQUE DROPDOWN OPTIONS LIST GENERATORS ---
   const dynamicCategories = useMemo(() => {
     const categoriesSet = new Set(medicalData.map((item) => item.category));
     return Array.from(categoriesSet).sort();
@@ -702,7 +627,27 @@ export default function Dashboard() {
     return Array.from(yearsSet).sort();
   }, [medicalData]);
 
-  // --- ENGINE 1: MAIN SEARCH & FILTER DATAVIEW PIPELINE ---
+  // --- AUTO-COMPLETE LISTS ---
+  const allCollegeNames = useMemo(() => {
+    const names = new Set(medicalData.map((item) => item.collegeName));
+    return Array.from(names).sort();
+  }, [medicalData]);
+
+  const exploreStreamCollegeNames = useMemo(() => {
+    const names = new Set(
+      medicalData.filter((item) => item.stream === streamFilter).map((item) => item.collegeName)
+    );
+    return Array.from(names).sort();
+  }, [medicalData, streamFilter]);
+
+  const predictorStreamCollegeNames = useMemo(() => {
+    const names = new Set(
+      medicalData.filter((item) => item.stream === predictorStream).map((item) => item.collegeName)
+    );
+    return Array.from(names).sort();
+  }, [medicalData, predictorStream]);
+
+
   const filteredDashboardData = useMemo(() => {
     return medicalData
       .filter((item) => {
@@ -711,8 +656,6 @@ export default function Dashboard() {
           item.collegeCode.toLowerCase().includes(searchQuery.toLowerCase());
         const matchStream = item.stream === streamFilter;
         const matchCategory = item.category === categoryFilter;
-        // AIQ records have fees: null (no fee data published) — treat those as
-        // always passing the budget filter rather than always failing it.
         const matchBudget = item.fees === null || item.fees === undefined || item.fees <= maxBudget;
         const matchRound = roundFilter === 'ALL' || item.round === roundFilter;
         const matchYear = yearFilter === 'ALL' || item.year === yearFilter;
@@ -732,7 +675,6 @@ export default function Dashboard() {
       });
   }, [medicalData, searchQuery, streamFilter, categoryFilter, maxBudget, roundFilter, yearFilter, sortConfig]);
 
-  // --- ENGINE 2: SMART NEET SEAT PREDICTOR ALGORITHM ---
   const predictedColleges = useMemo(() => {
     if (!debouncedUserRank || isNaN(debouncedUserRank)) return [];
     const targetRank = parseInt(debouncedUserRank, 10);
@@ -750,9 +692,6 @@ export default function Dashboard() {
       .sort((a, b) => a.rank - b.rank);
   }, [medicalData, debouncedUserRank, predictorCategory, predictorStream, predictorRound, predictorYear]);
 
-  // --- Compare eligibility across every reservation category, for the same rank/stream/round/year ---
-  // Gated behind categoryCompareOpen since this scans every category against the full dataset —
-  // no reason to pay that cost unless the user actually opens this panel.
   const [categoryCompareOpen, setCategoryCompareOpen] = useState(false);
   const categoryComparison = useMemo(() => {
     if (!categoryCompareOpen) return [];
@@ -776,15 +715,7 @@ export default function Dashboard() {
       .sort((a, b) => b.count - a.count);
   }, [categoryCompareOpen, medicalData, debouncedUserRank, predictorStream, predictorRound, predictorYear, dynamicCategories]);
 
-  // --- Search for a specific desired college on the Predictor tab ---
   const [desiredCollegeName, setDesiredCollegeName] = useState('');
-
-  const predictorStreamCollegeNames = useMemo(() => {
-    const names = new Set(
-      medicalData.filter((item) => item.stream === predictorStream).map((item) => item.collegeName)
-    );
-    return Array.from(names).sort();
-  }, [medicalData, predictorStream]);
 
   const desiredCollegeCheck = useMemo(() => {
     const query = desiredCollegeName.trim().toLowerCase();
@@ -806,7 +737,6 @@ export default function Dashboard() {
     if (!debouncedUserRank || isNaN(debouncedUserRank)) return { status: 'need_rank' };
     const targetRank = parseInt(debouncedUserRank, 10);
 
-    // Easiest (highest cutoff rank number) entry among the scoped matches
     const easiest = [...scoped].sort((a, b) => b.rank - a.rank)[0];
 
     if (easiest.rank >= targetRank) {
@@ -815,21 +745,16 @@ export default function Dashboard() {
     return { status: 'not_attainable', record: easiest };
   }, [desiredCollegeName, medicalData, predictorStream, predictorCategory, predictorRound, predictorYear, debouncedUserRank]);
 
-  // --- Quick stats for sidebar ---
-  // AIQ has no fee data at all — hide every fees-related UI element rather than
-  // showing "Not available" everywhere, which is just noise.
   const showFees = dataSource === 'KEA';
 
   const avgFeesShown = useMemo(() => {
     const list = activeTab === 'predictor' ? predictedColleges : filteredDashboardData;
     const withFees = list.filter((item) => item.fees !== null && item.fees !== undefined);
-    if (withFees.length === 0) return null; // e.g. all AIQ records — no fee data exists at all
+    if (withFees.length === 0) return null; 
     const total = withFees.reduce((sum, item) => sum + item.fees, 0);
     return Math.round(total / withFees.length);
   }, [filteredDashboardData, predictedColleges, activeTab]);
 
-  // Index: stream|category|collegeCode -> [{round, year, rank}] — powers the round/year trend
-  // display on predictor cards without re-scanning the full 74k-record dataset per card.
   const trendIndex = useMemo(() => {
     const map = {};
     medicalData.forEach((item) => {
@@ -848,7 +773,6 @@ export default function Dashboard() {
     return { roundsThisYear, otherYearSameRound };
   }, [trendIndex]);
 
-  // Index: stream|collegeCode -> [full records] — powers the college detail modal
   const collegeCodeIndex = useMemo(() => {
     const map = {};
     medicalData.forEach((item) => {
@@ -860,18 +784,6 @@ export default function Dashboard() {
   }, [medicalData]);
 
   const getCollegeRecords = (stream, collegeCode) => collegeCodeIndex[`${stream}|${collegeCode}`] || [];
-
-  const copyPredictedResults = () => {
-    const lines = predictedColleges.slice(0, 15).map((item, i) =>
-      `${i + 1}. ${item.collegeName} (${item.collegeCode}) — ${item.courseDetails}, ${formatCategory(item.category)}${showFees ? `, ${formatFees(item.fees)}` : ''}, Cutoff ${item.rank.toLocaleString('en-IN')} [${item.round} ${item.year}]`
-    );
-    const header = `NammaUGNEET — Predicted colleges for Rank ${userRank} (${predictorCategory}, ${predictorStream}):\n\n`;
-    const text = header + lines.join('\n');
-    navigator.clipboard.writeText(text).then(() => {
-      setCopyFeedback(true);
-      setTimeout(() => setCopyFeedback(false), 2000);
-    });
-  };
 
   const shareOnWhatsApp = (text) => {
     const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
@@ -1110,7 +1022,7 @@ export default function Dashboard() {
         </div>
       )}
 
-      {/* FLOATING TOP ROW — Guide + Install App always anchored together at the very top */}
+      {/* FLOATING TOP ROW — Absolute positioning to scroll smoothly away */}
       <div className="top-fab-row">
         <button className="tour-fab" onClick={() => { setTourStep(0); setTourOpen(true); }}>
           ✨ Guide
@@ -1122,17 +1034,17 @@ export default function Dashboard() {
         )}
       </div>
 
-      {/* FLOATING COMPARE BUTTON — only shows once there's something worth comparing; sits below the top row */}
+      {/* FLOATING COMPARE BUTTON */}
       {savedColleges.length >= 2 && (
         <button className="compare-fab" onClick={() => setCompareOpen(true)}>
           ⚖️ Compare ({savedColleges.length})
         </button>
       )}
 
-      {/* BACKDROP (mobile only, dims content behind the open sidebar) */}
+      {/* BACKDROP */}
       {sidebarOpen && <div className="sidebar-backdrop" onClick={() => { userToggledRef.current = true; setSidebarOpen(false); }} />}
 
-      {/* EDGE HANDLE — always present so the sidebar can be reopened once closed */}
+      {/* EDGE HANDLE */}
       <button
         className={`sidebar-edge-handle${showEdgeHint ? ' hint-pulse' : ''}`}
         style={{ left: sidebarOpen ? `${sidebarWidthPx}px` : '0px' }}
@@ -1249,10 +1161,16 @@ export default function Dashboard() {
               <label>Search Institution</label>
               <input
                 type="text"
+                list="explore-sidebar-options"
                 placeholder="Name or code..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
+              <datalist id="explore-sidebar-options">
+                {exploreStreamCollegeNames.map((name) => (
+                  <option key={name} value={name} />
+                ))}
+              </datalist>
             </div>
 
             <div className="field">
@@ -1441,11 +1359,17 @@ export default function Dashboard() {
                   <input
                     id="home-search-input"
                     type="text"
+                    list="home-college-options"
                     placeholder="e.g. Bangalore Medical College, M001MG"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     onKeyDown={(e) => { if (e.key === 'Enter') navigateTo('explore'); }}
                   />
+                  <datalist id="home-college-options">
+                    {allCollegeNames.map((name) => (
+                      <option key={name} value={name} />
+                    ))}
+                  </datalist>
                   <button onClick={() => navigateTo('explore')}>Search</button>
                 </div>
               </div>
@@ -1524,6 +1448,12 @@ export default function Dashboard() {
                   </a>
                 </div>
 
+                <div className="home-footer-links">
+                  <button onClick={() => navigateTo('explore')}>Explore</button>
+                  <span className="home-footer-dot">·</span>
+                  <button onClick={() => navigateTo('predictor')}>Predictor</button>
+                </div>
+
                 <div className="home-footer-legal-links">
                   <button onClick={() => navigateTo('legal-about')}>About Us</button>
                   <button onClick={() => navigateTo('legal-contact')}>Contact Us</button>
@@ -1582,10 +1512,16 @@ export default function Dashboard() {
                       <label>Search Institution</label>
                       <input
                         type="text"
+                        list="explore-college-options"
                         placeholder="Enter name or code..."
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                       />
+                      <datalist id="explore-college-options">
+                        {exploreStreamCollegeNames.map((name) => (
+                          <option key={name} value={name} />
+                        ))}
+                      </datalist>
                     </div>
                     <div className="field">
                       <label>Course Stream</label>
@@ -1807,6 +1743,14 @@ export default function Dashboard() {
                       ))}
                     </datalist>
                   </div>
+                  
+                  {/* Newly added visible Search Button */}
+                  <div className="field">
+                    <label>&nbsp;</label>
+                    <button type="button" className="home-cta primary" style={{ width: '100%', height: '41px' }} onClick={() => {}}>
+                      🔍 Search Matches
+                    </button>
+                  </div>
                 </div>
               </div>
 
@@ -1953,9 +1897,6 @@ export default function Dashboard() {
                       <button className="pdf-download-btn" onClick={downloadPredictedResultsPDF}>
                         📄 Download PDF
                       </button>
-                      <button className="copy-results-btn" onClick={copyPredictedResults}>
-                        {copyFeedback ? '✓ Copied!' : '📋 Copy Results'}
-                      </button>
                     </div>
                   )}
                 </div>
@@ -2019,9 +1960,6 @@ export default function Dashboard() {
                       <button className="pdf-download-btn" onClick={downloadOptionListPDF}>
                         📄 Download PDF
                       </button>
-                      <button className="copy-results-btn" onClick={copyOptionList}>
-                        {optionCopyFeedback ? '✓ Copied!' : '📋 Copy List'}
-                      </button>
                       <button className="clear-options-btn" onClick={clearOptionList}>🗑 Clear All</button>
                     </div>
                   </div>
@@ -2062,40 +2000,38 @@ export default function Dashboard() {
           {/* --- FEATURE 4: CONTACT & ABOUT --- */}
           {activeTab === 'contact' && (
             <div className="contact-view">
+              
               <div className="contact-section">
-                <h3>ℹ️ About NammaUGNEET</h3>
-                <p>
-                  NammaUGNEET is an independent, student-built tool to help Karnataka NEET UG aspirants explore past
-                  counselling cutoffs and estimate their college options. It is <strong>not affiliated with, endorsed by,
-                  or connected to</strong> the Karnataka Examinations Authority (KEA) or any government body.
-                </p>
+                <h3>{LEGAL_CONTENT.about.title}</h3>
+                {LEGAL_CONTENT.about.paragraphs.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
+              
+              <div className="contact-section">
+                <h3>{LEGAL_CONTENT.disclaimer.title}</h3>
+                {LEGAL_CONTENT.disclaimer.paragraphs.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
+              
+              <div className="contact-section">
+                <h3>{LEGAL_CONTENT.terms.title}</h3>
+                {LEGAL_CONTENT.terms.paragraphs.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
               </div>
 
               <div className="contact-section">
-                <h3>📊 Where the data comes from</h3>
-                <p>
-                  All cutoff, fee, and allotment data is manually compiled from official KEA seat allotment PDFs published
-                  on the KEA website for each round of counselling ({dynamicYears.join(' & ')}). Every effort is made to
-                  extract this data accurately, but small errors are possible during parsing. Always cross-check important
-                  decisions against the original PDF or the{' '}
-                  <a href="https://kea.kar.nic.in" target="_blank" rel="noopener noreferrer">official KEA website</a>.
-                </p>
+                <h3>{LEGAL_CONTENT.privacy.title}</h3>
+                {LEGAL_CONTENT.privacy.paragraphs.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
               </div>
 
               <div className="contact-section">
-                <h3>⚠️ Disclaimer</h3>
-                <p>
-                  This tool provides estimates based on historical data. Actual cutoffs change every year based on the
-                  number of applicants, seat availability, and policy changes. Predictions here are <strong>not guarantees</strong>{' '}
-                  of admission. Use this as a planning aid alongside official KEA notifications, not as a replacement for them.
-                </p>
-              </div>
-
-              <div className="contact-section">
-                <h3>✉️ Get in touch</h3>
-                <p>
-                  Found an error in the data, or have a feature suggestion? Reach out:
-                </p>
+                <h3>{LEGAL_CONTENT.contact.title}</h3>
+                <p>Found an error in the data, or have a feature suggestion? Reach out:</p>
                 <div className="contact-links">
                   <a
                     className="contact-link-btn"
@@ -2135,6 +2071,7 @@ export default function Dashboard() {
                   </a>
                 </div>
               </div>
+
             </div>
           )}
 

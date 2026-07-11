@@ -69,7 +69,6 @@
 
 /* ---------- App shell / sidebar layout ---------- */
 .app-shell {
-  position: relative;
   display: flex;
   min-height: 100vh;
   background: var(--paper);
@@ -92,6 +91,7 @@
   overflow-y: auto;
   overflow-x: hidden;
   transition: width 0.22s ease, padding 0.22s ease;
+  z-index: 50;
 }
 
 .sidebar.closed {
@@ -227,12 +227,12 @@
 .back-home-btn:hover { background: var(--paper-alt); }
 .back-home-btn:focus-visible { outline: 2px solid var(--marigold); outline-offset: 2px; }
 
-/* ---------- Feature tour ---------- */
+/* ---------- Feature tour & Floating Top Row ---------- */
 .top-fab-row {
   position: absolute;
   top: 20px;
   right: 22px;
-  z-index: 70;
+  z-index: 30; /* Stays below the mobile sidebar (z-index 50) and backdrop (z-index 40) */
   display: flex;
   align-items: center;
   gap: 10px;
@@ -404,7 +404,6 @@
   .predictor-teaser-action { flex-direction: column; }
   .predictor-teaser-action input { width: 100%; }
 }
-
 .sidebar-brand {
   display: flex;
   align-items: center;
@@ -594,6 +593,7 @@
   flex: 1;
   min-width: 0;
   padding: 32px 40px 64px;
+  position: relative; /* Gives absolute FAB buttons an anchor so they scroll away naturally */
 }
 
 .sidebar-backdrop { display: none; }
@@ -610,7 +610,7 @@
     z-index: 50;
     box-shadow: 8px 0 24px rgba(0, 0, 0, 0.15);
   }
-  .sidebar.open { transform: translateX(0); }
+.sidebar.open { transform: translateX(0); }
   .sidebar.closed { width: 280px; padding: 24px 18px 32px; } /* keep full drawer size, just off-screen */
 
   .sidebar-close { display: inline-flex; }
@@ -697,9 +697,6 @@
 }
 
 @media (max-width: 880px) {
-  /* The sidebar edge-handle already shows the brand logo persistently in the
-     same top-left corner on mobile — showing it again here just clutters the
-     header and visually competes with the eyebrow badge text. */
   .header-logo { display: none; }
 }
 
@@ -1215,7 +1212,6 @@
   overflow-y: auto;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
 }
-
 .compare-card, .college-detail-card { max-width: 720px; }
 
 .glossary-header {
@@ -1310,7 +1306,7 @@
   position: fixed;
   top: 70px;
   right: 22px;
-  z-index: 70;
+  z-index: 30; /* Stays below the mobile sidebar (z-index 50) and backdrop (z-index 40) */
   background: var(--sage);
   color: var(--accent-text);
   border: none;
@@ -1457,7 +1453,7 @@
   stroke: var(--sage);
 }
 
-/* ---------- Copy results button ---------- */
+/* ---------- Download & Share Action Buttons ---------- */
 .predicted-heading-row {
   display: flex;
   align-items: center;
@@ -1465,19 +1461,6 @@
   gap: 12px;
   flex-wrap: wrap;
 }
-.copy-results-btn {
-  background: var(--paper-alt);
-  border: 1px solid var(--border);
-  color: var(--ink-soft);
-  font-weight: 600;
-  font-size: 0.82rem;
-  padding: 7px 14px;
-  border-radius: 6px;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: background 0.15s ease;
-}
-.copy-results-btn:hover { background: var(--paper); }
 
 /* ---------- WhatsApp share button ---------- */
 .whatsapp-share-btn {
@@ -1610,7 +1593,6 @@
   color: var(--slate);
   cursor: not-allowed;
 }
-
 .profile-list {
   list-style: none;
   margin: 0;
@@ -1701,30 +1683,51 @@
   margin: 0;
   line-height: 1.4;
 }
+
+/* ---------- Home Hero Buttons (Predict & Explore) ---------- */
 .home-hero-actions {
   display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
+  gap: 12px;
+  flex-wrap: nowrap; /* Forces them to sit adjacent to each other */
   flex-shrink: 0;
+  width: 100%; /* Ensures the container takes up the full available width */
+  margin-top: 10px;
 }
+
 .home-cta {
-  padding: 10px 18px;
-  min-height: 40px;
-  border-radius: 7px;
+  flex: 1; /* Makes both buttons stretch evenly to fill the empty space */
+  padding: 12px 18px;
+  min-height: 48px; /* Slightly taller for a better click target */
+  border-radius: 8px;
   border: 1px solid var(--border);
   background: var(--paper);
   color: var(--ink);
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 0.95rem; /* Slightly larger text */
   cursor: pointer;
   white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: filter 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
 }
+
 .home-cta.primary {
   background: var(--marigold-dark);
   color: var(--accent-text);
   border-color: var(--marigold-dark);
 }
-.home-cta:hover { filter: brightness(1.08); }
+
+.home-cta:hover { 
+  filter: brightness(1.08); 
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+.home-cta:active {
+  transform: scale(0.98);
+}
 
 .home-stats-grid {
   display: grid;
@@ -2023,18 +2026,13 @@
   text-decoration-color: currentColor;
 }
 
-/* ---------- Footer legal/info pages (About, Contact, Disclaimer, Terms, Privacy) ---------- */
-.legal-page-view .contact-section p {
-  font-size: 0.92rem;
-  line-height: 1.65;
+.legal-modal-body p {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  margin: 0 0 12px;
 }
-.legal-page-updated {
-  margin: 4px 0 0;
-  font-size: 0.75rem;
-  color: var(--slate);
-  font-style: italic;
-}
-
+.legal-modal-body p:last-child { margin-bottom: 0; }
 .home-footer-copyright {
   margin: 0;
   font-size: 0.72rem;
@@ -2221,7 +2219,7 @@
 .add-option-btn.added { border-color: var(--slate); color: var(--slate); }
 .add-option-btn:disabled { cursor: default; }
 
-/* ---------- Contact / About ---------- */
+/* ---------- Contact / About / Legal pages ---------- */
 .contact-view { display: flex; flex-direction: column; gap: 20px; }
 .contact-section {
   background: var(--paper-alt);
@@ -2257,30 +2255,44 @@
   font-style: italic;
 }
 
+.legal-page-view .contact-section p {
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+.legal-page-updated {
+  margin: 16px 0 0;
+  font-size: 0.75rem;
+  color: var(--slate);
+  font-style: italic;
+  text-align: center;
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 880px) {
   .home-hero h2 { font-size: 1.4rem; }
   .option-entry-row { flex-wrap: wrap; }
   .option-entry-actions { margin-left: 44px; }
+  /* Make the home hero buttons explicitly inline on mid-screens as well */
+  .home-hero-actions { flex-direction: row; }
 }
 
 @media (max-width: 600px) {
   .home-stats-grid { grid-template-columns: repeat(2, 1fr); }
   .home-feature-grid { grid-template-columns: 1fr; }
-  .home-hero-actions { flex-direction: column; gap: 12px; }
+  
+  /* Buttons strictly stay row + flex: 1 */
+  .home-hero-actions { flex-direction: row; }
+  
   .home-cta {
-    width: 100%;
-    min-height: 58px;
-    padding: 18px 20px;
-    font-size: 1.05rem;
-    font-weight: 700;
-    border-radius: 12px;
+    padding: 14px 18px;
+    font-size: 0.95rem;
+    border-radius: 10px;
     box-shadow: 0 4px 12px var(--shadow);
     transition: transform 0.15s ease, box-shadow 0.15s ease;
-    letter-spacing: 0.01em;
   }
   .home-cta:active { transform: scale(0.98); }
-  .home-cta.primary { box-shadow: 0 6px 18px rgba(201, 130, 31, 0.35); }
+  .home-cta.primary { box-shadow: 0 6px 16px rgba(201, 130, 31, 0.3); }
 }
 
 @media (max-width: 480px) {
@@ -2440,6 +2452,14 @@
 .result-card.searched-result {
   border: 2px solid var(--sage);
   box-shadow: 0 6px 18px rgba(76, 122, 99, 0.18);
+}
+
+/* ---------- Feature Tour Search Button  ---------- */
+/* Only needed if you use className="home-search-btn" instead of primary */
+.home-search-btn {
+  background: var(--solid-accent-bg);
+  color: var(--accent-text);
+  border-color: var(--solid-accent-bg);
 }
 
 @media (max-width: 480px) {

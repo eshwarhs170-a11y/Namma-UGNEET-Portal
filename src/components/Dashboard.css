@@ -1997,6 +1997,39 @@
 }
 .home-footer-dot { color: var(--border); }
 
+.home-footer-legal-links {
+  display: flex;
+  align-items: center;
+  gap: 6px 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 480px;
+}
+.home-footer-legal-links button {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--slate);
+  font-weight: 500;
+  font-size: 0.75rem;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition: text-decoration-color 0.15s ease, color 0.15s ease;
+}
+.home-footer-legal-links button:hover {
+  color: var(--marigold-dark);
+  text-decoration-color: currentColor;
+}
+
+.legal-modal-body p {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  margin: 0 0 12px;
+}
+.legal-modal-body p:last-child { margin-bottom: 0; }
+
 .home-footer-copyright {
   margin: 0;
   font-size: 0.72rem;

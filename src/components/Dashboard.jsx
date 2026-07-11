@@ -7,6 +7,61 @@ const SAVED_KEY = 'namma_saved_colleges';
 const PROFILES_KEY = 'namma_saved_profiles';
 const makeId = (item) => `${item.year}-${item.stream}-${item.round}-${item.serialNo}-${item.category}`;
 
+// Content for the footer's legal/info pages, shown via modal. Kept honest and
+// specific to how this app actually works (client-side only, localStorage,
+// no accounts) rather than generic boilerplate.
+const LEGAL_CONTENT = {
+  about: {
+    title: 'ℹ️ About Us',
+    paragraphs: [
+      'NammaUGNEET is an independent, student-built tool created to help Karnataka NEET UG aspirants (and now All India Quota candidates too) explore past counselling cutoffs and estimate realistic college options.',
+      'It is not affiliated with, endorsed by, or connected to the Karnataka Examinations Authority (KEA), the Medical Counselling Committee (MCC), or any government body.',
+      'The goal is simple: give students and parents a clearer, faster way to understand cutoff trends during a genuinely stressful and confusing time — counselling season.',
+    ],
+  },
+  contact: {
+    title: '✉️ Contact Us',
+    paragraphs: [
+      'Found an error in the data, hit a bug, or have a feature suggestion? We\'d genuinely like to hear about it.',
+      'Email: nammaugneet@gmail.com',
+      'Instagram: @namma_ugneet',
+      'This is a small, independently-run project, so replies may take a little time — but every message is read.',
+    ],
+  },
+  disclaimer: {
+    title: '⚠️ Disclaimer',
+    paragraphs: [
+      'This tool provides estimates based on historical counselling data. Actual cutoffs change every year based on the number of applicants, seat availability, and policy changes — predictions here are not guarantees of admission.',
+      'All cutoff, fee, and allotment data is manually compiled from official KEA and AIQ seat allotment PDFs. Every effort is made to extract this data accurately, but small errors are possible during parsing.',
+      'Always cross-verify important decisions against the original allotment PDF or the official KEA website (kea.kar.nic.in) / MCC website before making any counselling decisions.',
+      'Use this as a planning aid alongside official notifications, not as a replacement for them.',
+    ],
+  },
+  terms: {
+    title: '📜 Terms & Conditions',
+    paragraphs: [
+      'By using NammaUGNEET, you agree to the following:',
+      '• This site is provided free of charge, for informational and planning purposes only. No account or payment is required to use it.',
+      '• The data shown is for reference only and should not be treated as an official or final source. Always verify with KEA/MCC before making admission decisions.',
+      '• We make no warranty, express or implied, about the accuracy, completeness, or availability of the site or its data, and accept no liability for decisions made based on it.',
+      '• Content, data compilations, and design on this site may not be copied or redistributed for commercial purposes without permission.',
+      '• The site, its features, or its availability may change or be discontinued at any time without prior notice.',
+      '• Misuse of the site — including attempts to scrape data at scale, disrupt service, or bypass normal usage — is not permitted.',
+    ],
+  },
+  privacy: {
+    title: '🔒 Privacy Policy',
+    paragraphs: [
+      'No account creation is required to use NammaUGNEET, and we do not collect personal information to let you use the core features.',
+      'Saved colleges, notes, rank profiles, and filter preferences are stored locally in your own browser (using localStorage) — this data never leaves your device or gets sent to us.',
+      'If you contact us directly via email or Instagram, we only see whatever information you choose to include in that message. Standard privacy practices of those platforms apply to that communication.',
+      'Like most modern hosted websites, our hosting provider may automatically log basic technical information (such as page requests) for security and reliability purposes. This is not used for advertising or personal tracking.',
+      'External links (e.g., to the official KEA or MCC websites) are outside our control, and their own privacy policies apply once you leave our site.',
+      'Questions about your data? Reach out at nammaugneet@gmail.com.',
+    ],
+  },
+};
+
 // Plain-language explanations for common KEA reservation category codes.
 // Codes not listed here still work in the app — they just show a generic fallback in the glossary.
 const CATEGORY_GLOSSARY = {
@@ -477,6 +532,9 @@ export default function Dashboard() {
   // --- Category glossary modal ---
   const [glossaryOpen, setGlossaryOpen] = useState(false);
 
+  // --- Footer legal/info modal (About, Contact, Disclaimer, Terms, Privacy) ---
+  const [legalModalTopic, setLegalModalTopic] = useState(null);
+
   // --- Compare saved colleges ---
   const [compareOpen, setCompareOpen] = useState(false);
 
@@ -890,6 +948,23 @@ export default function Dashboard() {
   return (
     <div className={`app-shell${darkMode ? " dark" : ""}`}>
 
+      {/* FOOTER LEGAL/INFO MODAL (About, Contact, Disclaimer, Terms, Privacy) */}
+      {legalModalTopic && (
+        <div className="tour-backdrop" onClick={() => setLegalModalTopic(null)}>
+          <div className="glossary-card" onClick={(e) => e.stopPropagation()}>
+            <div className="glossary-header">
+              <h3>{LEGAL_CONTENT[legalModalTopic].title}</h3>
+              <button className="modal-close-btn" onClick={() => setLegalModalTopic(null)} aria-label="Close">✕</button>
+            </div>
+            <div className="legal-modal-body">
+              {LEGAL_CONTENT[legalModalTopic].paragraphs.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* CATEGORY GLOSSARY MODAL */}
       {glossaryOpen && (
         <div className="tour-backdrop" onClick={() => setGlossaryOpen(false)}>
@@ -1117,13 +1192,13 @@ export default function Dashboard() {
             className={dataSource === 'KEA' ? 'active' : ''}
             onClick={() => setDataSource('KEA')}
           >
-            🏛️ KEA
+            🏛️ KEA (Karnataka)
           </button>
           <button
             className={dataSource === 'AIQ' ? 'active' : ''}
             onClick={() => setDataSource('AIQ')}
           >
-             🏛️ AIQ 
+            🇮🇳 AIQ (All India)
           </button>
         </div>
 
@@ -1335,17 +1410,6 @@ export default function Dashboard() {
           {/* --- FEATURE 0: HOME --- */}
           {activeTab === 'home' && (
             <div className="home-view">
-              <div className="home-hero">
-                <div className="home-hero-text">
-                  <h2>Predict. Plan. Prioritize.</h2>
-                  <p>Your guide to Karnataka NEET UG counselling — Medical, Dental &amp; AYUSH, {dynamicYears.join('–')}.</p>
-                </div>
-                <div className="home-hero-actions">
-                  <button className="home-cta primary" onClick={() => navigateTo('predictor')}>🎯 Predict</button>
-                  <button className="home-cta" onClick={() => navigateTo('explore')}>🔍 Explore</button>
-                </div>
-              </div>
-
               <div className="home-datasource-section">
                 <h3 className="home-section-heading">📊 Choose Your Data Source</h3>
                 <div className="home-datasource-grid">
@@ -1362,11 +1426,22 @@ export default function Dashboard() {
                     className={`home-datasource-card${dataSource === 'AIQ' ? ' active' : ''}`}
                     onClick={() => setDataSource('AIQ')}
                   >
-                    <span className="home-datasource-icon">🏛️</span>
+                    <span className="home-datasource-icon">🇮🇳</span>
                     <strong>AIQ (All India)</strong>
                     <p>All India Quota counselling — cutoffs across MBBS &amp; BDS colleges nationwide, final round.</p>
                     {dataSource === 'AIQ' && <span className="home-datasource-badge">✓ Active</span>}
                   </button>
+                </div>
+              </div>
+
+              <div className="home-hero">
+                <div className="home-hero-text">
+                  <h2>Predict. Plan. Prioritize.</h2>
+                  <p>Your guide to Karnataka NEET UG counselling — Medical, Dental &amp; AYUSH, {dynamicYears.join('–')}.</p>
+                </div>
+                <div className="home-hero-actions">
+                  <button className="home-cta primary" onClick={() => navigateTo('predictor')}>🎯 Predict</button>
+                  <button className="home-cta" onClick={() => navigateTo('explore')}>🔍 Explore</button>
                 </div>
               </div>
 
@@ -1463,8 +1538,14 @@ export default function Dashboard() {
                   <button onClick={() => navigateTo('explore')}>Explore</button>
                   <span className="home-footer-dot">·</span>
                   <button onClick={() => navigateTo('predictor')}>Predictor</button>
-                  <span className="home-footer-dot">·</span>
-                  <button onClick={() => navigateTo('contact')}>About &amp; Contact</button>
+                </div>
+
+                <div className="home-footer-legal-links">
+                  <button onClick={() => setLegalModalTopic('about')}>About Us</button>
+                  <button onClick={() => setLegalModalTopic('contact')}>Contact Us</button>
+                  <button onClick={() => setLegalModalTopic('disclaimer')}>Disclaimer</button>
+                  <button onClick={() => setLegalModalTopic('terms')}>Terms &amp; Conditions</button>
+                  <button onClick={() => setLegalModalTopic('privacy')}>Privacy Policy</button>
                 </div>
 
                 <p className="home-footer-copyright">

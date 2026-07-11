@@ -869,7 +869,7 @@
   appearance: none;
   height: 6px;
   border-radius: 3px;
-  background: var(--border);
+  background: transparent;
   outline: none;
   transition: background 0.2s ease;
   cursor: pointer;
@@ -916,6 +916,21 @@
   height: 6px;
   border-radius: 3px;
   background: var(--border);
+}
+
+.range-slider::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--border);
+  border: none;
+}
+
+.dark .range-slider::-webkit-slider-runnable-track {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.range-slider::-webkit-slider-thumb {
+  margin-top: -8px; /* (Track height 6px - Thumb height 22px) / 2 = -8px */
 }
 
 .range-number-input {

@@ -77,11 +77,11 @@
 }
 
 .sidebar {
-  width: 280px;
+  width: 290px;
   flex-shrink: 0;
   background: var(--paper-alt);
   border-right: 1px solid var(--border);
-  padding: 24px 18px 32px;
+  padding: 24px 16px 32px;
   display: flex;
   flex-direction: column;
   gap: 22px;
@@ -105,12 +105,12 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 8px;
+  gap: 6px;
   flex-wrap: wrap;
 }
 
 .sidebar-close {
-  display: none; /* only needed on mobile — desktop uses the edge-handle chevron to collapse */
+  display: inline-flex; /* Show X button on all screens */
   align-items: center;
   justify-content: center;
   width: 30px;
@@ -407,7 +407,7 @@
 .sidebar-brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px; /* reduced from 10px */
   min-width: 0;
   flex: 1;
 }
@@ -418,8 +418,8 @@
 }
 
 .brand-mark {
-  width: 46px;
-  height: 46px;
+  width: 38px; /* reduced from 46px */
+  height: 38px; /* reduced from 46px */
   border-radius: 50%;
   flex-shrink: 0;
   display: block;
@@ -430,7 +430,7 @@
   font-family: var(--font-display);
   font-weight: 700;
   color: var(--ink);
-  font-size: 1.05rem;
+  font-size: 0.95rem; /* reduced from 1.05rem */
   line-height: 1.2;
   white-space: nowrap;
   overflow: hidden;
@@ -603,7 +603,7 @@
     position: fixed;
     left: 0;
     top: 0;
-    width: 280px;
+    width: 290px;
     height: 100vh;
     transform: translateX(-100%);
     transition: transform 0.22s ease;
@@ -611,7 +611,7 @@
     box-shadow: 8px 0 24px rgba(0, 0, 0, 0.15);
   }
 .sidebar.open { transform: translateX(0); }
-  .sidebar.closed { width: 280px; padding: 24px 18px 32px; } /* keep full drawer size, just off-screen */
+  .sidebar.closed { width: 290px; padding: 24px 16px 32px; } /* keep full drawer size, just off-screen */
 
   .sidebar-close { display: inline-flex; }
 

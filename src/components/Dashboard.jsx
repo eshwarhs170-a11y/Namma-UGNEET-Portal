@@ -417,7 +417,7 @@ export default function Dashboard() {
     return () => window.removeEventListener('resize', onResize);
   }, []);
 
-  const sidebarWidthPx = viewportWidth <= 420 ? Math.min(viewportWidth * 0.88, 300) : 280;
+  const sidebarWidthPx = viewportWidth <= 420 ? Math.min(viewportWidth * 0.88, 300) : 290;
 
   const [searchQuery, setSearchQuery] = useState('');
   const [streamFilter, setStreamFilter] = useState('MEDICAL');

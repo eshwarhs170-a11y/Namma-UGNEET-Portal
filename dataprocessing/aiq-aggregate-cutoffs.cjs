@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const INPUT_FILE = path.join(__dirname, 'aiq_staging_output', 'aiq_mbbs_bds_compiled.json');
+const STAGING_DIR = path.join(__dirname, 'aiq_staging_output');
 const OUTPUT_FILE = path.join(__dirname, 'aiq_staging_output', 'aiq_cutoffs_compiled.json');
 
 // Confirmed remark classification (verified against real AIQ data):
@@ -31,17 +31,26 @@ function isHoldingRemark(remark) {
 }
 
 function aggregateCutoffs() {
-  if (!fs.existsSync(INPUT_FILE)) {
-    console.error(`❌ Input not found: ${INPUT_FILE}. Run aiq-mbbs-bds-compile.cjs first.`);
+  if (!fs.existsSync(STAGING_DIR)) {
+    console.error(`❌ Input directory not found: ${STAGING_DIR}`);
     process.exit(1);
   }
 
-  const rows = JSON.parse(fs.readFileSync(INPUT_FILE, 'utf8'));
-  console.log(`📥 Loaded ${rows.length} raw candidate rows`);
+  const files = fs.readdirSync(STAGING_DIR).filter(f => f.endsWith('_compiled.json') && f !== 'aiq_cutoffs_compiled.json');
+  let rows = [];
+  files.forEach(file => {
+    const filePath = path.join(STAGING_DIR, file);
+    const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    rows = rows.concat(data);
+    console.log(`📥 Loaded ${data.length} raw candidate rows from ${file}`);
+  });
 
   let excludedNonHolding = 0;
   let excludedMissingFields = 0;
   let missingCategoryCount = 0;
+
+  const categoryMapPath = path.join(STAGING_DIR, 'aiq_category_map.json');
+  const categoryMap = fs.existsSync(categoryMapPath) ? JSON.parse(fs.readFileSync(categoryMapPath, 'utf8')) : {};
 
   const groups = new Map();
 
@@ -54,11 +63,29 @@ function aggregateCutoffs() {
       excludedNonHolding++;
       return;
     }
-    if (!row.allottedCategory) {
+
+    let allottedCat = row.allottedCategory;
+    let candidateCat = row.candidateCategory;
+
+    if (!allottedCat || !candidateCat) {
+      const mapped = categoryMap[row.rank];
+      if (mapped) {
+        allottedCat = allottedCat || mapped.allottedCategory;
+        candidateCat = candidateCat || mapped.candidateCategory;
+      }
+    }
+
+    if ((candidateCat && candidateCat.includes('PwD')) || 
+        (allottedCat && allottedCat.includes('PwD'))) {
+      // Exclude PwD candidates as they inflate the normal cutoffs
+      return;
+    }
+    
+    if (!allottedCat) {
       missingCategoryCount++;
     }
 
-    const category = row.allottedCategory || 'UNKNOWN';
+    const category = allottedCat || 'UNKNOWN';
     const quota = row.quota || 'UNKNOWN';
     const key = `${row.collegeName}|${row.course}|${category}|${quota}|${row.year}`;
 

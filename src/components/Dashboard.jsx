@@ -94,8 +94,33 @@ const CATEGORY_GLOSSARY = {
   UNKNOWN: 'Category not recorded — this candidate\'s seat was finalized in an earlier round, and this particular AIQ report only records category for the final round.',
 };
 
+const AIQ_QUOTA_GLOSSARY = {
+  'All India': 'Government medical/dental seats under All India Quota — 15% of total seats in every govt college.',
+  'Open Seat Quota': 'Open seats in central institutions (AIIMS, JIPMER, etc.) — merit-based, no domicile restriction.',
+  'Deemed/ Paid Seats Quota': 'Seats in Deemed Universities with higher fees — separate merit list.',
+  'NonResident Indian': 'NRI quota seats — reserved for NRI-sponsored candidates, typically in private/deemed colleges.',
+  'Non- Resident Indian': 'NRI quota seats — reserved for NRI-sponsored candidates, typically in private/deemed colleges.',
+  'Delhi University Quota': 'Seats reserved for Delhi domicile candidates in Delhi University colleges.',
+  'IP University Quota': 'Seats reserved under IP University, Delhi for its affiliated medical colleges.',
+  'Muslim Minority Quota': 'Minority quota in institutions with Muslim minority status (e.g., Jamia, AMU).',
+  'Jain Minority Quota': 'Minority quota in institutions with Jain minority status.',
+  'Management/Paid Seats Quota': 'Management/paid seats in private AYUSH colleges with higher fee structures.',
+  'Management/ Paid Seats Quota': 'Management/paid seats in private AYUSH colleges with higher fee structures.',
+  'All India Quota Government': 'Government AYUSH college seats under centralized AIQ counselling.',
+  'All India Quota Govt Aided': 'Government-aided AYUSH college seats under centralized AIQ counselling.',
+  'Central Universites / National Institutions': 'Seats in central universities and national-level AYUSH institutes.',
+  'Self Finance': 'Self-financed seats in private AYUSH colleges.',
+  'Linguistic Minority': 'Quota for linguistic minority institutions.',
+  'Employee s State Insurance Scheme( ESI)': 'Seats for dependants of ESI-insured workers.',
+  'Foreign Country Quota': 'Seats reserved for foreign nationals.',
+  'Aligarh Muslim University (AMU) Quota': 'Internal AMU quota seats.',
+};
+
+const getQuotaMeaning = (quota) =>
+  AIQ_QUOTA_GLOSSARY[quota] || 'AIQ seat quota — refer to the official MCC notification for eligibility details.';
+
 const getCategoryMeaning = (code) =>
-  CATEGORY_GLOSSARY[code] || 'Karnataka counselling reservation/quota code — refer to the official KEA notification for exact eligibility rules.';
+  CATEGORY_GLOSSARY[code] || 'Reservation/quota category code — refer to the official counselling notification for exact eligibility rules.';
 
 const formatFees = (fees) =>
   fees === null || fees === undefined ? 'Not available' : `₹${fees.toLocaleString('en-IN')}`;
@@ -417,15 +442,67 @@ export default function Dashboard() {
     return () => window.removeEventListener('resize', onResize);
   }, []);
 
+  // Utility to normalize college names (remove newlines, extra spaces)
+  const cleanCollegeName = (name) =>
+    name.replace(/\r?\n/g, ' ') // replace line breaks with space
+      .replace(/\s+/g, ' ') // collapse multiple whitespace
+      .trim();
+
+  // Auto-complete list of all college names (cleaned)
+  const allCollegeNames = useMemo(() => {
+    const names = new Set(
+      medicalData.map((item) => cleanCollegeName(item.collegeName))
+    );
+    return Array.from(names).sort();
+  }, [medicalData]);
+
   const sidebarWidthPx = viewportWidth <= 420 ? Math.min(viewportWidth * 0.88, 300) : 290;
 
   const [searchQuery, setSearchQuery] = useState('');
   const [streamFilter, setStreamFilter] = useState('MEDICAL');
   const [categoryFilter, setCategoryFilter] = useState('GM');
+  const [quotaFilter, setQuotaFilter] = useState('ALL');
   const [maxBudget, setMaxBudget] = useState(1500000);
   const [roundFilter, setRoundFilter] = useState('ALL');
   const [yearFilter, setYearFilter] = useState('ALL');
   const [sortConfig, setSortConfig] = useState({ key: 'rank', direction: 'asc' });
+
+  const filteredDashboardData = useMemo(() => {
+    return medicalData
+      .filter((item) => {
+        const cleanedName = cleanCollegeName(item.collegeName).toLowerCase();
+        const cleanedQuery = searchQuery.replace(/\s+/g, ' ').toLowerCase().trim();
+        const matchSearch =
+          cleanedName.includes(cleanedQuery) ||
+          item.collegeCode.toLowerCase().includes(cleanedQuery);
+        const matchStream = item.stream === streamFilter;
+        const matchCategory = item.category === categoryFilter;
+        const matchBudget = item.fees === null || item.fees === undefined || item.fees <= maxBudget;
+        const matchRound = roundFilter === 'ALL' || item.round === roundFilter;
+        const matchYear = yearFilter === 'ALL' || item.year === yearFilter;
+        const matchQuota = dataSource !== 'AIQ' || quotaFilter === 'ALL' || item.quota === quotaFilter;
+        return (
+          matchSearch &&
+          matchStream &&
+          matchCategory &&
+          matchBudget &&
+          matchRound &&
+          matchYear &&
+          matchQuota
+        );
+      })
+      .sort((a, b) => {
+        let av = a[sortConfig.key];
+        let bv = b[sortConfig.key];
+        if (typeof av === 'string') {
+          av = av.toLowerCase();
+          bv = bv.toLowerCase();
+        }
+        if (av < bv) return sortConfig.direction === 'asc' ? -1 : 1;
+        if (av > bv) return sortConfig.direction === 'asc' ? 1 : -1;
+        return 0;
+      });
+  }, [medicalData, searchQuery, streamFilter, categoryFilter, maxBudget, roundFilter, yearFilter, sortConfig, dataSource, quotaFilter]);
 
   const handleSort = (key) => {
     setSortConfig((prev) =>
@@ -437,10 +514,30 @@ export default function Dashboard() {
 
   const [userRank, setUserRank] = useState('');
   const [predictorCategory, setPredictorCategory] = useState('GM');
+  const [predictorQuota, setPredictorQuota] = useState('ALL');
   const [predictorStream, setPredictorStream] = useState('MEDICAL');
   const [predictorRound, setPredictorRound] = useState('ALL');
   const [predictorYear, setPredictorYear] = useState('ALL');
   const [rankRange, setRankRange] = useState(0);
+
+  useEffect(() => {
+    if (dataSource === 'AIQ') {
+      setCategoryFilter('Open');
+      setPredictorCategory('Open');
+      setRoundFilter('ALL');
+      setPredictorRound('ALL');
+      setQuotaFilter('ALL');
+      setPredictorQuota('ALL');
+    } else {
+      setCategoryFilter('GM');
+      setPredictorCategory('GM');
+      setRoundFilter('ALL');
+      setPredictorRound('ALL');
+      setQuotaFilter('ALL');
+      setPredictorQuota('ALL');
+    }
+  }, [dataSource]);
+
   const yearDefaultSetRef = useRef(false);
 
   const [debouncedUserRank, setDebouncedUserRank] = useState(userRank);
@@ -633,6 +730,11 @@ export default function Dashboard() {
     return Array.from(categoriesSet).sort();
   }, [medicalData]);
 
+  const dynamicQuotas = useMemo(() => {
+    const quotasSet = new Set(medicalData.map((item) => item.quota).filter(Boolean));
+    return Array.from(quotasSet).sort();
+  }, [medicalData]);
+
   const dynamicRounds = useMemo(() => {
     const roundsSet = new Set(medicalData.map((item) => item.round));
     return Array.from(roundsSet).sort();
@@ -644,52 +746,19 @@ export default function Dashboard() {
   }, [medicalData]);
 
   // --- AUTO-COMPLETE LISTS ---
-  const allCollegeNames = useMemo(() => {
-    const names = new Set(medicalData.map((item) => item.collegeName));
-    return Array.from(names).sort();
-  }, [medicalData]);
-
   const exploreStreamCollegeNames = useMemo(() => {
     const names = new Set(
-      medicalData.filter((item) => item.stream === streamFilter).map((item) => item.collegeName)
+      medicalData.filter((item) => item.stream === streamFilter).map((item) => cleanCollegeName(item.collegeName))
     );
     return Array.from(names).sort();
   }, [medicalData, streamFilter]);
 
   const predictorStreamCollegeNames = useMemo(() => {
     const names = new Set(
-      medicalData.filter((item) => item.stream === predictorStream).map((item) => item.collegeName)
+      medicalData.filter((item) => item.stream === predictorStream).map((item) => cleanCollegeName(item.collegeName))
     );
     return Array.from(names).sort();
   }, [medicalData, predictorStream]);
-
-
-  const filteredDashboardData = useMemo(() => {
-    return medicalData
-      .filter((item) => {
-        const matchSearch =
-          item.collegeName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          item.collegeCode.toLowerCase().includes(searchQuery.toLowerCase());
-        const matchStream = item.stream === streamFilter;
-        const matchCategory = item.category === categoryFilter;
-        const matchBudget = item.fees === null || item.fees === undefined || item.fees <= maxBudget;
-        const matchRound = roundFilter === 'ALL' || item.round === roundFilter;
-        const matchYear = yearFilter === 'ALL' || item.year === yearFilter;
-
-        return matchSearch && matchStream && matchCategory && matchBudget && matchRound && matchYear;
-      })
-      .sort((a, b) => {
-        let av = a[sortConfig.key];
-        let bv = b[sortConfig.key];
-        if (typeof av === 'string') {
-          av = av.toLowerCase();
-          bv = bv.toLowerCase();
-        }
-        if (av < bv) return sortConfig.direction === 'asc' ? -1 : 1;
-        if (av > bv) return sortConfig.direction === 'asc' ? 1 : -1;
-        return 0;
-      });
-  }, [medicalData, searchQuery, streamFilter, categoryFilter, maxBudget, roundFilter, yearFilter, sortConfig]);
 
   const predictedColleges = useMemo(() => {
     if (!debouncedUserRank || isNaN(debouncedUserRank)) return [];
@@ -705,11 +774,12 @@ export default function Dashboard() {
         const matchRankScope = rangeVal > 0
           ? item.rank >= Math.max(1, targetRank - rangeVal) && item.rank <= targetRank + rangeVal
           : item.rank >= targetRank;
+        const matchQuota = dataSource !== 'AIQ' || predictorQuota === 'ALL' || item.quota === predictorQuota;
 
-        return matchStream && matchCategory && matchRound && matchYear && matchRankScope;
+        return matchStream && matchCategory && matchRound && matchYear && matchRankScope && matchQuota;
       })
       .sort((a, b) => a.rank - b.rank);
-  }, [medicalData, debouncedUserRank, debouncedRankRange, predictorCategory, predictorStream, predictorRound, predictorYear]);
+  }, [medicalData, debouncedUserRank, debouncedRankRange, predictorCategory, predictorStream, predictorRound, predictorYear, dataSource, predictorQuota]);
 
   const [categoryCompareOpen, setCategoryCompareOpen] = useState(false);
   const categoryComparison = useMemo(() => {
@@ -879,10 +949,24 @@ export default function Dashboard() {
         <div className="tour-backdrop" onClick={() => setGlossaryOpen(false)}>
           <div className="glossary-card" onClick={(e) => e.stopPropagation()}>
             <div className="glossary-header">
-              <h3>📖 Category Guide</h3>
+              <h3>📖 {dataSource === 'AIQ' ? 'AIQ Guide' : 'Category Guide'}</h3>
               <button className="modal-close-btn" onClick={() => setGlossaryOpen(false)} aria-label="Close">✕</button>
             </div>
-            <p className="glossary-intro">What KEA reservation/quota category codes mean:</p>
+            {dataSource === 'AIQ' && dynamicQuotas.length > 0 && (
+              <>
+                <p className="glossary-intro">What AIQ seat quota types mean:</p>
+                <div className="glossary-list">
+                  {dynamicQuotas.map((q) => (
+                    <div key={q} className="glossary-row">
+                      <span className="glossary-code">{q}</span>
+                      <span className="glossary-meaning">{getQuotaMeaning(q)}</span>
+                    </div>
+                  ))}
+                </div>
+                <hr style={{ margin: '12px 0', opacity: 0.2 }} />
+              </>
+            )}
+            <p className="glossary-intro">{dataSource === 'AIQ' ? 'What AIQ category codes mean:' : 'What KEA reservation/quota category codes mean:'}</p>
             <div className="glossary-list">
               {dynamicCategories.map((cat) => (
                 <div key={cat} className="glossary-row">
@@ -1201,8 +1285,19 @@ export default function Dashboard() {
               </select>
             </div>
 
+            {dataSource === 'AIQ' && (
+              <div className="field">
+                <label>AIQ Seat Quota <button type="button" className="glossary-btn" onClick={() => setGlossaryOpen(true)} aria-label="What do these mean?">ⓘ</button></label>
+                <select value={quotaFilter} onChange={(e) => setQuotaFilter(e.target.value)}>
+                  <option value="ALL">All Quotas</option>
+                  {dynamicQuotas.map((q) => (
+                    <option key={q} value={q}>{q}</option>
+                  ))}
+                </select>
+              </div>
+            )}
             <div className="field">
-              <label>KEA Quota Category <button type="button" className="glossary-btn" onClick={() => setGlossaryOpen(true)} aria-label="What do these mean?">ⓘ</button></label>
+              <label>{dataSource === 'KEA' ? 'KEA Quota Category' : 'AIQ Seat Category'} <button type="button" className="glossary-btn" onClick={() => setGlossaryOpen(true)} aria-label="What do these mean?">ⓘ</button></label>
               <select value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)}>
                 {dynamicCategories.map((cat) => (
                   <option key={cat} value={cat}>{cat}</option>
@@ -1364,7 +1459,7 @@ export default function Dashboard() {
               <div className="home-hero">
                 <div className="home-hero-text">
                   <h2>Predict. Plan. Prioritize.</h2>
-                  <p>Your guide to Karnataka NEET UG counselling — Medical, Dental &amp; AYUSH, {dynamicYears.join('–')}.</p>
+                  <p>Your guide to {dataSource === 'AIQ' ? 'All India Quota' : 'Karnataka'} NEET UG counselling — {dataSource === 'AIQ' ? 'MBBS, BDS & AYUSH' : 'Medical, Dental & AYUSH'}, {dynamicYears.join('–')}.</p>
                 </div>
                 <div className="home-hero-actions">
                   <button className="home-cta primary" onClick={() => navigateTo('predictor')}>🎯 Predict</button>
@@ -1545,8 +1640,19 @@ export default function Dashboard() {
                         <option value="AYUSH">🟤 AYUSH Streams</option>
                       </select>
                     </div>
+                    {dataSource === 'AIQ' && (
+                      <div className="field">
+                        <label>AIQ Seat Quota <button type="button" className="glossary-btn" onClick={() => setGlossaryOpen(true)} aria-label="What do these mean?">ⓘ</button></label>
+                        <select value={quotaFilter} onChange={(e) => setQuotaFilter(e.target.value)}>
+                          <option value="ALL">All Quotas</option>
+                          {dynamicQuotas.map((q) => (
+                            <option key={q} value={q}>{q}</option>
+                          ))}
+                        </select>
+                      </div>
+                    )}
                     <div className="field">
-                      <label>KEA Quota Category <button type="button" className="glossary-btn" onClick={() => setGlossaryOpen(true)} aria-label="What do these mean?">ⓘ</button></label>
+                      <label>{dataSource === 'KEA' ? 'KEA Quota Category' : 'AIQ Seat Category'} <button type="button" className="glossary-btn" onClick={() => setGlossaryOpen(true)} aria-label="What do these mean?">ⓘ</button></label>
                       <select value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)}>
                         {dynamicCategories.map((cat) => (
                           <option key={cat} value={cat}>{cat}</option>
@@ -1743,8 +1849,19 @@ export default function Dashboard() {
                     </select>
                   </div>
 
+                  {dataSource === 'AIQ' && (
+                    <div className="field">
+                      <label>AIQ Seat Quota <button type="button" className="glossary-btn" onClick={() => setGlossaryOpen(true)} aria-label="What do these mean?">ⓘ</button></label>
+                      <select value={predictorQuota} onChange={(e) => setPredictorQuota(e.target.value)}>
+                        <option value="ALL">All Quotas</option>
+                        {dynamicQuotas.map((q) => (
+                          <option key={q} value={q}>{q}</option>
+                        ))}
+                      </select>
+                    </div>
+                  )}
                   <div className="field">
-                    <label>Reservation Category <button type="button" className="glossary-btn" onClick={() => setGlossaryOpen(true)} aria-label="What do these mean?">ⓘ</button></label>
+                    <label>{dataSource === 'KEA' ? 'Reservation Category' : 'AIQ Seat Category'} <button type="button" className="glossary-btn" onClick={() => setGlossaryOpen(true)} aria-label="What do these mean?">ⓘ</button></label>
                     <select value={predictorCategory} onChange={(e) => setPredictorCategory(e.target.value)}>
                       {dynamicCategories.map((cat) => (
                         <option key={cat} value={cat}>{cat}</option>

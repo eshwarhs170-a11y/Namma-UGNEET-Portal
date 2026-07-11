@@ -440,13 +440,19 @@ export default function Dashboard() {
   const [predictorStream, setPredictorStream] = useState('MEDICAL');
   const [predictorRound, setPredictorRound] = useState('ALL');
   const [predictorYear, setPredictorYear] = useState('ALL');
+  const [rankRange, setRankRange] = useState(0);
   const yearDefaultSetRef = useRef(false);
 
   const [debouncedUserRank, setDebouncedUserRank] = useState(userRank);
+  const [debouncedRankRange, setDebouncedRankRange] = useState(rankRange);
   useEffect(() => {
     const timer = setTimeout(() => setDebouncedUserRank(userRank), 250);
     return () => clearTimeout(timer);
   }, [userRank]);
+  useEffect(() => {
+    const timer = setTimeout(() => setDebouncedRankRange(rankRange), 250);
+    return () => clearTimeout(timer);
+  }, [rankRange]);
 
   useEffect(() => {
     if (!dataLoading && medicalData.length > 0 && !yearDefaultSetRef.current) {
@@ -688,6 +694,7 @@ export default function Dashboard() {
   const predictedColleges = useMemo(() => {
     if (!debouncedUserRank || isNaN(debouncedUserRank)) return [];
     const targetRank = parseInt(debouncedUserRank, 10);
+    const rangeVal = parseInt(debouncedRankRange, 10) || 0;
 
     return medicalData
       .filter((item) => {
@@ -695,12 +702,14 @@ export default function Dashboard() {
         const matchCategory = item.category === predictorCategory;
         const matchRound = predictorRound === 'ALL' || item.round === predictorRound;
         const matchYear = predictorYear === 'ALL' || item.year === predictorYear;
-        const matchRankScope = item.rank >= targetRank;
+        const matchRankScope = rangeVal > 0
+          ? item.rank >= Math.max(1, targetRank - rangeVal) && item.rank <= targetRank + rangeVal
+          : item.rank >= targetRank;
 
         return matchStream && matchCategory && matchRound && matchYear && matchRankScope;
       })
       .sort((a, b) => a.rank - b.rank);
-  }, [medicalData, debouncedUserRank, predictorCategory, predictorStream, predictorRound, predictorYear]);
+  }, [medicalData, debouncedUserRank, debouncedRankRange, predictorCategory, predictorStream, predictorRound, predictorYear]);
 
   const [categoryCompareOpen, setCategoryCompareOpen] = useState(false);
   const categoryComparison = useMemo(() => {
@@ -1458,11 +1467,6 @@ export default function Dashboard() {
                   </a>
                 </div>
 
-                <div className="home-footer-links">
-                  <button onClick={() => navigateTo('explore')}>Explore</button>
-                  <span className="home-footer-dot">·</span>
-                  <button onClick={() => navigateTo('predictor')}>Predictor</button>
-                </div>
 
                 <div className="home-footer-legal-links">
                   <button onClick={() => navigateTo('legal-about')}>About Us</button>
@@ -1701,6 +1705,36 @@ export default function Dashboard() {
                   </div>
 
                   <div className="field">
+                    <label style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px' }}>
+                      <span>Search Margin (±)</span>
+                      <span style={{ color: 'var(--slate)', fontWeight: 400, fontSize: '0.75rem' }}>
+                        Type or drag
+                      </span>
+                    </label>
+                    <div className="range-control-wrap">
+                      <input
+                        type="range"
+                        min="0"
+                        max="30000"
+                        step="1000"
+                        value={rankRange}
+                        onChange={(e) => setRankRange(Number(e.target.value))}
+                        className="range-slider"
+                      />
+                      <input
+                        type="number"
+                        min="0"
+                        max="100000"
+                        step="100"
+                        value={rankRange}
+                        onChange={(e) => setRankRange(Math.max(0, Number(e.target.value) || 0))}
+                        className="range-number-input"
+                        placeholder="0"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="field">
                     <label>Stream Target</label>
                     <select value={predictorStream} onChange={(e) => setPredictorStream(e.target.value)}>
                       <option value="MEDICAL">MBBS (Medical)</option>
@@ -1911,7 +1945,11 @@ export default function Dashboard() {
                   )}
                 </div>
                 <p className="predicted-sub">
-                  Colleges where <strong>{predictorYear === 'ALL' ? 'any year\'s' : predictorYear}</strong> <strong>{predictorRound === 'ALL' ? 'any round\'s' : predictorRound}</strong> closing cutoff scores matched higher than or equal to Rank <strong>{userRank || '0'}</strong>:
+                  {rankRange > 0 && userRank && !isNaN(userRank) ? (
+                    <>Colleges where <strong>{predictorYear === 'ALL' ? "any year's" : predictorYear}</strong> <strong>{predictorRound === 'ALL' ? "any round's" : predictorRound}</strong> closing cutoff falls within ranks <strong>{Math.max(1, parseInt(userRank, 10) - rankRange).toLocaleString('en-IN')}</strong> to <strong>{(parseInt(userRank, 10) + rankRange).toLocaleString('en-IN')}</strong> (±{rankRange.toLocaleString('en-IN')} of Rank {userRank}):</>
+                  ) : (
+                    <>Colleges where <strong>{predictorYear === 'ALL' ? "any year's" : predictorYear}</strong> <strong>{predictorRound === 'ALL' ? "any round's" : predictorRound}</strong> closing cutoff scores matched higher than or equal to Rank <strong>{userRank || '0'}</strong>:</>
+                  )}
                 </p>
 
                 <PredictedGrid

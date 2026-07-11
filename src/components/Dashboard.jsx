@@ -23,8 +23,6 @@ const LEGAL_CONTENT = {
     title: '✉️ Contact Us',
     paragraphs: [
       'Found an error in the data, hit a bug, or have a feature suggestion? We\'d genuinely like to hear about it.',
-      'Email: nammaugneet@gmail.com',
-      'Instagram: @namma_ugneet',
       'This is a small, independently-run project, so replies may take a little time — but every message is read.',
     ],
   },
@@ -532,9 +530,6 @@ export default function Dashboard() {
   // --- Category glossary modal ---
   const [glossaryOpen, setGlossaryOpen] = useState(false);
 
-  // --- Footer legal/info modal (About, Contact, Disclaimer, Terms, Privacy) ---
-  const [legalModalTopic, setLegalModalTopic] = useState(null);
-
   // --- Compare saved colleges ---
   const [compareOpen, setCompareOpen] = useState(false);
 
@@ -948,23 +943,6 @@ export default function Dashboard() {
   return (
     <div className={`app-shell${darkMode ? " dark" : ""}`}>
 
-      {/* FOOTER LEGAL/INFO MODAL (About, Contact, Disclaimer, Terms, Privacy) */}
-      {legalModalTopic && (
-        <div className="tour-backdrop" onClick={() => setLegalModalTopic(null)}>
-          <div className="glossary-card" onClick={(e) => e.stopPropagation()}>
-            <div className="glossary-header">
-              <h3>{LEGAL_CONTENT[legalModalTopic].title}</h3>
-              <button className="modal-close-btn" onClick={() => setLegalModalTopic(null)} aria-label="Close">✕</button>
-            </div>
-            <div className="legal-modal-body">
-              {LEGAL_CONTENT[legalModalTopic].paragraphs.map((p, i) => (
-                <p key={i}>{p}</p>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
-
       {/* CATEGORY GLOSSARY MODAL */}
       {glossaryOpen && (
         <div className="tour-backdrop" onClick={() => setGlossaryOpen(false)}>
@@ -1191,14 +1169,16 @@ export default function Dashboard() {
           <button
             className={dataSource === 'KEA' ? 'active' : ''}
             onClick={() => setDataSource('KEA')}
+            title="KEA — Karnataka state counselling"
           >
-            🏛️ KEA (Karnataka)
+            🏛️ KEA
           </button>
           <button
             className={dataSource === 'AIQ' ? 'active' : ''}
             onClick={() => setDataSource('AIQ')}
+            title="AIQ — All India Quota counselling"
           >
-            🇮🇳 AIQ (All India)
+            🌐 AIQ
           </button>
         </div>
 
@@ -1391,6 +1371,11 @@ export default function Dashboard() {
                 predictor: 'Smart College Predictor',
                 options: 'My Option Entry List',
                 contact: 'Contact & About',
+                'legal-about': 'About Us',
+                'legal-contact': 'Contact Us',
+                'legal-disclaimer': 'Disclaimer',
+                'legal-terms': 'Terms & Conditions',
+                'legal-privacy': 'Privacy Policy',
               }[activeTab]}
             </h1>
           </div>
@@ -1401,6 +1386,11 @@ export default function Dashboard() {
               predictor: 'Enter your rank to see which colleges you realistically qualify for.',
               options: 'Rank your preferred colleges in order, just like the real KEA option entry form.',
               contact: 'Who built this, where the data comes from, and how to reach out.',
+              'legal-about': 'Who NammaUGNEET is built for, and why.',
+              'legal-contact': 'Reach out with feedback, errors, or suggestions.',
+              'legal-disclaimer': 'Please read this before making any decisions.',
+              'legal-terms': 'The terms you agree to by using this site.',
+              'legal-privacy': 'How your data is (and isn\'t) handled.',
             }[activeTab]}
           </p>
         </header>
@@ -1426,7 +1416,7 @@ export default function Dashboard() {
                     className={`home-datasource-card${dataSource === 'AIQ' ? ' active' : ''}`}
                     onClick={() => setDataSource('AIQ')}
                   >
-                    <span className="home-datasource-icon">🇮🇳</span>
+                    <span className="home-datasource-icon">🌐</span>
                     <strong>AIQ (All India)</strong>
                     <p>All India Quota counselling — cutoffs across MBBS &amp; BDS colleges nationwide, final round.</p>
                     {dataSource === 'AIQ' && <span className="home-datasource-badge">✓ Active</span>}
@@ -1534,18 +1524,12 @@ export default function Dashboard() {
                   </a>
                 </div>
 
-                <div className="home-footer-links">
-                  <button onClick={() => navigateTo('explore')}>Explore</button>
-                  <span className="home-footer-dot">·</span>
-                  <button onClick={() => navigateTo('predictor')}>Predictor</button>
-                </div>
-
                 <div className="home-footer-legal-links">
-                  <button onClick={() => setLegalModalTopic('about')}>About Us</button>
-                  <button onClick={() => setLegalModalTopic('contact')}>Contact Us</button>
-                  <button onClick={() => setLegalModalTopic('disclaimer')}>Disclaimer</button>
-                  <button onClick={() => setLegalModalTopic('terms')}>Terms &amp; Conditions</button>
-                  <button onClick={() => setLegalModalTopic('privacy')}>Privacy Policy</button>
+                  <button onClick={() => navigateTo('legal-about')}>About Us</button>
+                  <button onClick={() => navigateTo('legal-contact')}>Contact Us</button>
+                  <button onClick={() => navigateTo('legal-disclaimer')}>Disclaimer</button>
+                  <button onClick={() => navigateTo('legal-terms')}>Terms &amp; Conditions</button>
+                  <button onClick={() => navigateTo('legal-privacy')}>Privacy Policy</button>
                 </div>
 
                 <p className="home-footer-copyright">
@@ -2153,6 +2137,69 @@ export default function Dashboard() {
               </div>
             </div>
           )}
+
+          {/* --- FOOTER PAGES: About Us, Contact Us, Disclaimer, Terms & Conditions, Privacy Policy --- */}
+          {activeTab.startsWith('legal-') && (() => {
+            const topicKey = activeTab.replace('legal-', '');
+            const content = LEGAL_CONTENT[topicKey];
+            if (!content) return null;
+            return (
+              <div className="contact-view legal-page-view">
+                <button className="back-home-btn" onClick={() => navigateTo('home')}>
+                  ← Back to Home
+                </button>
+                <div className="contact-section">
+                  <h3>{content.title}</h3>
+                  {content.paragraphs.map((p, i) => (
+                    <p key={i}>{p}</p>
+                  ))}
+
+                  {topicKey === 'contact' && (
+                    <div className="contact-links">
+                      <a
+                        className="contact-link-btn"
+                        href="https://mail.google.com/mail/?view=cm&fs=1&to=nammaugneet@gmail.com&su=NammaUGNEET%20Feedback"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <svg className="contact-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <rect x="2" y="4" width="20" height="16" rx="2.5" fill="#fff" stroke="#e0e0e0" strokeWidth="1"/>
+                          <path d="M3 6.5 12 13l9-6.5" fill="none" stroke="#EA4335" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                          <path d="M3 6.5v11a1 1 0 0 0 1 1h2V9.2z" fill="#FBBC05"/>
+                          <path d="M21 6.5v11a1 1 0 0 1-1 1h-2V9.2z" fill="#34A853"/>
+                          <path d="M3 6.5 12 13l9-6.5" fill="none" stroke="#4285F4" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                        <span>nammaugneet@gmail.com</span>
+                      </a>
+                      <a
+                        className="contact-link-btn"
+                        href="https://instagram.com/namma_ugneet"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <svg className="contact-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <defs>
+                            <linearGradient id="igGradLegal" x1="0%" y1="100%" x2="100%" y2="0%">
+                              <stop offset="0%" stopColor="#FFDD55" />
+                              <stop offset="50%" stopColor="#E1306C" />
+                              <stop offset="100%" stopColor="#5851DB" />
+                            </linearGradient>
+                          </defs>
+                          <rect x="2" y="2" width="20" height="20" rx="6" fill="url(#igGradLegal)" />
+                          <rect x="6.5" y="6.5" width="11" height="11" rx="4" fill="none" stroke="#fff" strokeWidth="1.6" />
+                          <circle cx="12" cy="12" r="3.1" fill="none" stroke="#fff" strokeWidth="1.6" />
+                          <circle cx="17" cy="7" r="1.1" fill="#fff" />
+                        </svg>
+                        <span>namma_ugneet</span>
+                      </a>
+                    </div>
+                  )}
+                </div>
+
+                <p className="legal-page-updated">Last updated: {new Date().toLocaleDateString('en-IN', { year: 'numeric', month: 'long' })}</p>
+              </div>
+            );
+          })()}
 
         </div>
       </main>

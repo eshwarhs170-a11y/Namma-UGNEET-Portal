@@ -69,6 +69,7 @@
 
 /* ---------- App shell / sidebar layout ---------- */
 .app-shell {
+  position: relative;
   display: flex;
   min-height: 100vh;
   background: var(--paper);
@@ -228,7 +229,7 @@
 
 /* ---------- Feature tour ---------- */
 .top-fab-row {
-  position: fixed;
+  position: absolute;
   top: 20px;
   right: 22px;
   z-index: 70;
@@ -2022,13 +2023,17 @@
   text-decoration-color: currentColor;
 }
 
-.legal-modal-body p {
-  font-size: 0.88rem;
-  color: var(--ink-soft);
-  line-height: 1.6;
-  margin: 0 0 12px;
+/* ---------- Footer legal/info pages (About, Contact, Disclaimer, Terms, Privacy) ---------- */
+.legal-page-view .contact-section p {
+  font-size: 0.92rem;
+  line-height: 1.65;
 }
-.legal-modal-body p:last-child { margin-bottom: 0; }
+.legal-page-updated {
+  margin: 4px 0 0;
+  font-size: 0.75rem;
+  color: var(--slate);
+  font-style: italic;
+}
 
 .home-footer-copyright {
   margin: 0;
@@ -2262,17 +2267,20 @@
 @media (max-width: 600px) {
   .home-stats-grid { grid-template-columns: repeat(2, 1fr); }
   .home-feature-grid { grid-template-columns: 1fr; }
-  .home-hero-actions { flex-direction: column; }
+  .home-hero-actions { flex-direction: column; gap: 12px; }
   .home-cta {
     width: 100%;
-    padding: 14px 18px;
-    font-size: 0.95rem;
-    border-radius: 10px;
+    min-height: 58px;
+    padding: 18px 20px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    border-radius: 12px;
     box-shadow: 0 4px 12px var(--shadow);
     transition: transform 0.15s ease, box-shadow 0.15s ease;
+    letter-spacing: 0.01em;
   }
   .home-cta:active { transform: scale(0.98); }
-  .home-cta.primary { box-shadow: 0 6px 16px rgba(201, 130, 31, 0.3); }
+  .home-cta.primary { box-shadow: 0 6px 18px rgba(201, 130, 31, 0.35); }
 }
 
 @media (max-width: 480px) {

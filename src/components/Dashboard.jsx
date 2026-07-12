@@ -428,6 +428,7 @@ export default function Dashboard() {
     { title: '☰ Sidebar', body: 'Use the edge handle (top-left) to open the sidebar anytime for live stats, filters, and your saved lists.' },
   ];
   const [tourOpen, setTourOpen] = useState(false);
+  const [supportOpen, setSupportOpen] = useState(false);
   const [tourStep, setTourStep] = useState(0);
 
   useEffect(() => {
@@ -1326,6 +1327,39 @@ export default function Dashboard() {
         </div>
       )}
 
+      {/* SUPPORT MODAL */}
+      {supportOpen && (
+        <div className="tour-backdrop" onClick={() => setSupportOpen(false)}>
+          <div className="tour-card" onClick={(e) => e.stopPropagation()} style={{ textAlign: 'center', maxWidth: '380px' }}>
+            <h3 style={{ fontSize: '1.5rem', marginBottom: '0.5rem', color: '#10b981' }}>Buy Us a Coffee ☕</h3>
+            <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem', fontSize: '0.95rem' }}>
+              If NammaUGNEET helped you find your dream college, consider supporting our work! Your tip helps keep the servers running and the site ad-free.
+            </p>
+            
+            <div style={{ background: '#ffffff', padding: '1rem', borderRadius: '12px', display: 'inline-block', marginBottom: '1.5rem', boxShadow: '0 4px 15px rgba(0,0,0,0.1)' }}>
+              <img src="/upi-qr.png" alt="UPI QR Code" style={{ width: '200px', height: '200px', display: 'block', margin: '0 auto' }} />
+              <div style={{ marginTop: '1rem', color: '#333', fontWeight: 'bold', fontSize: '1.1rem', letterSpacing: '0.5px' }}>
+                eshwarhs170@oksbi
+              </div>
+            </div>
+
+            <p style={{ fontSize: '0.85rem', color: 'var(--text-tertiary)', marginBottom: '1.5rem' }}>
+              Scan to pay with Google Pay, PhonePe, Paytm, or any UPI app.
+            </p>
+
+            <div className="tour-actions" style={{ justifyContent: 'center' }}>
+              <button 
+                className="tour-next" 
+                style={{ width: '100%', padding: '12px', fontSize: '1rem' }} 
+                onClick={() => setSupportOpen(false)}
+              >
+                Maybe Later
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* FLOATING TOP ROW — Absolute positioning to scroll smoothly away */}
       <div className="top-fab-row">
         <button className="tour-fab" onClick={() => { setTourStep(0); setTourOpen(true); }}>
@@ -1443,6 +1477,16 @@ export default function Dashboard() {
             }}
           >
             ✉️ Contact &amp; About
+          </button>
+          <button
+            className="support-nav-btn"
+            style={{ marginTop: '0.5rem', background: 'rgba(16, 185, 129, 0.1)', color: '#10b981', fontWeight: '600' }}
+            onClick={() => {
+              setSupportOpen(true);
+              if (window.matchMedia('(max-width: 880px)').matches) setSidebarOpen(false);
+            }}
+          >
+            ☕ Support Us
           </button>
         </nav>
 
@@ -2377,6 +2421,23 @@ export default function Dashboard() {
           {activeTab === 'contact' && (
             <div className="contact-view">
               
+              <div className="contact-section" style={{ background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%)', border: '1px solid rgba(16, 185, 129, 0.2)', padding: '2rem', borderRadius: '16px', textAlign: 'center', marginBottom: '2rem' }}>
+                <h3 style={{ color: '#10b981', fontSize: '1.6rem', marginBottom: '0.5rem' }}>Buy Us a Coffee ☕</h3>
+                <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem', maxWidth: '600px', margin: '0 auto 1.5rem auto' }}>
+                  NammaUGNEET is an independent, student-built tool provided completely free of charge and free of ads. 
+                  If this tool helped you predict your college or saved you hours of PDF scrolling, consider supporting our work! Your tip helps keep the servers running.
+                </p>
+                <div style={{ background: '#ffffff', padding: '1rem', borderRadius: '12px', display: 'inline-block', boxShadow: '0 4px 15px rgba(0,0,0,0.1)' }}>
+                  <img src="/upi-qr.png" alt="UPI QR Code" style={{ width: '200px', height: '200px', display: 'block', margin: '0 auto' }} />
+                  <div style={{ marginTop: '1rem', color: '#333', fontWeight: 'bold', fontSize: '1.1rem', letterSpacing: '0.5px' }}>
+                    eshwarhs170@oksbi
+                  </div>
+                </div>
+                <p style={{ fontSize: '0.9rem', color: 'var(--text-tertiary)', marginTop: '1.5rem' }}>
+                  Scan to pay with Google Pay, PhonePe, Paytm, or any UPI app.
+                </p>
+              </div>
+
               <div className="contact-section">
                 <h3>{LEGAL_CONTENT.about.title}</h3>
                 {LEGAL_CONTENT.about.paragraphs.map((p, i) => (

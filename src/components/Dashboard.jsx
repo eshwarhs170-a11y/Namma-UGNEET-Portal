@@ -1,11 +1,29 @@
 import React, { useState, useMemo, useEffect, useRef, useCallback } from 'react';
 import jsPDF from 'jspdf';
 import logo from '../assets/namma-ugneet-logo.png';
+import { fetchVisitCounts } from '../visitorCounter.js';
 import './Dashboard.css';
 
 const SAVED_KEY = 'namma_saved_colleges';
 const PROFILES_KEY = 'namma_saved_profiles';
 const makeId = (item) => `${item.year}-${item.stream}-${item.round}-${item.serialNo}-${item.category}`;
+
+// ── LocalStorage keys for persisted user inputs ──────────────────────────────
+const LS_PREDICTOR = 'namma_predictor_state';
+const LS_EXPLORE   = 'namma_explore_state';
+const LS_DATASRC   = 'namma_data_source';
+
+function lsGet(key, fallback) {
+  try {
+    const raw = localStorage.getItem(key);
+    return raw !== null ? JSON.parse(raw) : fallback;
+  } catch {
+    return fallback;
+  }
+}
+function lsSet(key, value) {
+  try { localStorage.setItem(key, JSON.stringify(value)); } catch { }
+}
 
 const LEGAL_CONTENT = {
   about: {
@@ -324,10 +342,26 @@ export default function Dashboard() {
     return () => window.removeEventListener('popstate', onPopState);
   }, []);
 
-  const [dataSource, setDataSource] = useState('KEA');
+  // ── ADMIN PANEL STATE (hidden, developer-only) ────────────────────────────
+  const ADMIN_HASH = 'admin-nammaugneet-dev';
+  const [adminVisitCount, setAdminVisitCount] = useState({ total: null, today: null });
+  const [adminLoading, setAdminLoading] = useState(false);
+
+  useEffect(() => {
+    if (activeTab !== ADMIN_HASH) return;
+    setAdminLoading(true);
+    fetchVisitCounts().then((counts) => {
+      setAdminVisitCount(counts);
+      setAdminLoading(false);
+    });
+  }, [activeTab]);
+
+
+  const [dataSource, setDataSource] = useState(() => lsGet(LS_DATASRC, 'KEA'));
   const [medicalData, setMedicalData] = useState([]);
   const [dataLoading, setDataLoading] = useState(true);
   const [dataError, setDataError] = useState(false);
+
 
   useEffect(() => {
     setDataLoading(true);
@@ -459,14 +493,22 @@ export default function Dashboard() {
   const sidebarWidthPx = viewportWidth <= 420 ? Math.min(viewportWidth * 0.88, 300) : 290;
 
   const [searchQuery, setSearchQuery] = useState('');
-  const [streamFilter, setStreamFilter] = useState('MEDICAL');
-  const [categoryFilter, setCategoryFilter] = useState('GM');
-  const [quotaFilter, setQuotaFilter] = useState('ALL');
-  const [maxBudget, setMaxBudget] = useState(1500000);
-  const [roundFilter, setRoundFilter] = useState('ALL');
-  const [yearFilter, setYearFilter] = useState('ALL');
+  const [streamFilter, setStreamFilter] = useState(() => lsGet(LS_EXPLORE, {}).streamFilter ?? 'MEDICAL');
+  const [categoryFilter, setCategoryFilter] = useState(() => lsGet(LS_EXPLORE, {}).categoryFilter ?? 'GM');
+  const [quotaFilter, setQuotaFilter] = useState(() => lsGet(LS_EXPLORE, {}).quotaFilter ?? 'ALL');
+  const [maxBudget, setMaxBudget] = useState(() => lsGet(LS_EXPLORE, {}).maxBudget ?? 1500000);
+  const [roundFilter, setRoundFilter] = useState(() => lsGet(LS_EXPLORE, {}).roundFilter ?? 'ALL');
+  const [yearFilter, setYearFilter] = useState(() => lsGet(LS_EXPLORE, {}).yearFilter ?? 'ALL');
   const [exploreVisibleCount, setExploreVisibleCount] = useState(100);
-  const [sortConfig, setSortConfig] = useState({ key: 'rank', direction: 'asc' });
+  const [sortConfig, setSortConfig] = useState(() => lsGet(LS_EXPLORE, {}).sortConfig ?? { key: 'rank', direction: 'asc' });
+
+  // Persist explore filter settings whenever they change
+  useEffect(() => {
+    lsSet(LS_EXPLORE, { streamFilter, categoryFilter, quotaFilter, maxBudget, roundFilter, yearFilter, sortConfig });
+  }, [streamFilter, categoryFilter, quotaFilter, maxBudget, roundFilter, yearFilter, sortConfig]);
+
+  // Persist dataSource
+  useEffect(() => { lsSet(LS_DATASRC, dataSource); }, [dataSource]);
 
   const filteredDashboardData = useMemo(() => {
     return medicalData
@@ -517,13 +559,18 @@ export default function Dashboard() {
     );
   };
 
-  const [userRank, setUserRank] = useState('');
-  const [predictorCategory, setPredictorCategory] = useState('GM');
-  const [predictorQuota, setPredictorQuota] = useState('ALL');
-  const [predictorStream, setPredictorStream] = useState('MEDICAL');
-  const [predictorRound, setPredictorRound] = useState('ALL');
-  const [predictorYear, setPredictorYear] = useState('ALL');
-  const [rankRange, setRankRange] = useState(0);
+  const [userRank, setUserRank] = useState(() => lsGet(LS_PREDICTOR, {}).userRank ?? '');
+  const [predictorCategory, setPredictorCategory] = useState(() => lsGet(LS_PREDICTOR, {}).predictorCategory ?? 'GM');
+  const [predictorQuota, setPredictorQuota] = useState(() => lsGet(LS_PREDICTOR, {}).predictorQuota ?? 'ALL');
+  const [predictorStream, setPredictorStream] = useState(() => lsGet(LS_PREDICTOR, {}).predictorStream ?? 'MEDICAL');
+  const [predictorRound, setPredictorRound] = useState(() => lsGet(LS_PREDICTOR, {}).predictorRound ?? 'ALL');
+  const [predictorYear, setPredictorYear] = useState(() => lsGet(LS_PREDICTOR, {}).predictorYear ?? 'ALL');
+  const [rankRange, setRankRange] = useState(() => lsGet(LS_PREDICTOR, {}).rankRange ?? 0);
+
+  // Persist predictor inputs whenever they change
+  useEffect(() => {
+    lsSet(LS_PREDICTOR, { userRank, predictorCategory, predictorQuota, predictorStream, predictorRound, predictorYear, rankRange });
+  }, [userRank, predictorCategory, predictorQuota, predictorStream, predictorRound, predictorYear, rankRange]);
 
   useEffect(() => {
     if (dataSource === 'AIQ') {
@@ -927,6 +974,155 @@ export default function Dashboard() {
 
     doc.save('nammaugneet-predicted-colleges.pdf');
   };
+
+  // ── HIDDEN ADMIN PANEL ────────────────────────────────────────────────────
+  if (activeTab === ADMIN_HASH) {
+    return (
+      <div style={{
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: 'linear-gradient(135deg, #0a0f1e 0%, #0f172a 50%, #0a0f1e 100%)',
+        fontFamily: "'Inter', 'Segoe UI', system-ui, sans-serif",
+        color: '#e2e8f0',
+        padding: '2rem',
+        position: 'relative',
+        overflow: 'hidden',
+      }}>
+        {/* Ambient glow effects */}
+        <div style={{
+          position: 'absolute', top: '20%', left: '50%', transform: 'translateX(-50%)',
+          width: 400, height: 400, borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%)',
+          pointerEvents: 'none',
+        }} />
+
+        <div style={{ zIndex: 1, textAlign: 'center', marginBottom: '2rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <img 
+            src={logo} 
+            alt="NammaUGNEET" 
+            style={{ 
+              width: 80, 
+              height: 80, 
+              marginBottom: '1rem', 
+              borderRadius: '50%',
+              objectFit: 'contain',
+              backgroundColor: '#ffffff',
+              boxShadow: '0 0 20px rgba(99,102,241,0.4)',
+              border: '2px solid rgba(255,255,255,0.1)',
+              display: 'block'
+            }} 
+          />
+          <h1 style={{ fontSize: '1.75rem', fontWeight: 700, margin: 0, color: '#e2e8f0' }}>Admin Panel</h1>
+          <p style={{ color: '#64748b', fontSize: '0.85rem', marginTop: '0.35rem' }}>Developer-only view — do not share this URL.</p>
+        </div>
+
+        <div style={{
+          zIndex: 1,
+          background: 'rgba(15,23,42,0.85)',
+          border: '1px solid rgba(99,102,241,0.25)',
+          borderRadius: '20px',
+          padding: '2.5rem',
+          textAlign: 'center',
+          width: '100%',
+          maxWidth: 600,
+          backdropFilter: 'blur(20px)',
+          boxShadow: '0 25px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04) inset',
+          marginBottom: '1.5rem'
+        }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+            <div>
+              <p style={{ color: '#94a3b8', fontSize: '0.75rem', marginBottom: '0.5rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em' }}>All-Time Visits</p>
+              {adminLoading ? (
+                <p style={{ fontSize: '2.5rem', fontWeight: 700, color: '#818cf8', margin: '0.5rem 0' }}>…</p>
+              ) : adminVisitCount.total !== null ? (
+                <p style={{ fontSize: '3rem', fontWeight: 800, color: '#818cf8', lineHeight: 1, margin: '0.5rem 0', textShadow: '0 0 20px rgba(129,140,248,0.4)' }}>
+                  {adminVisitCount.total.toLocaleString('en-IN')}
+                </p>
+              ) : (
+                <p style={{ color: '#94a3b8', fontSize: '0.8rem', margin: '1rem 0', background: 'rgba(255,255,255,0.05)', padding: '0.5rem', borderRadius: '8px' }}>
+                  Live deployment required
+                </p>
+              )}
+            </div>
+            
+            <div style={{ borderLeft: '1px solid rgba(255,255,255,0.1)' }}>
+              <p style={{ color: '#94a3b8', fontSize: '0.75rem', marginBottom: '0.5rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em' }}>Today's Visits</p>
+              {adminLoading ? (
+                <p style={{ fontSize: '2.5rem', fontWeight: 700, color: '#38bdf8', margin: '0.5rem 0' }}>…</p>
+              ) : adminVisitCount.today !== null ? (
+                <p style={{ fontSize: '3rem', fontWeight: 800, color: '#38bdf8', lineHeight: 1, margin: '0.5rem 0', textShadow: '0 0 20px rgba(56,189,248,0.4)' }}>
+                  {adminVisitCount.today.toLocaleString('en-IN')}
+                </p>
+              ) : (
+                <p style={{ color: '#94a3b8', fontSize: '0.8rem', margin: '1rem 0', background: 'rgba(255,255,255,0.05)', padding: '0.5rem', borderRadius: '8px' }}>
+                  Live deployment required
+                </p>
+              )}
+            </div>
+          </div>
+          <p style={{ color: '#475569', fontSize: '0.75rem', margin: '1.5rem 0 0 0' }}>Counted once per device per day</p>
+        </div>
+
+        <div style={{
+          zIndex: 1,
+          background: 'rgba(15,23,42,0.85)',
+          border: '1px solid rgba(99,102,241,0.25)',
+          borderRadius: '16px',
+          padding: '2rem',
+          width: '100%',
+          maxWidth: 600,
+          backdropFilter: 'blur(20px)',
+          boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
+        }}>
+          <p style={{ color: '#94a3b8', fontSize: '0.75rem', marginBottom: '1.5rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', textAlign: 'center' }}>LocalStorage snapshot</p>
+          
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem', fontSize: '0.9rem' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '0.5rem' }}>
+              <span style={{ color: '#94a3b8' }}>Predictor saved:</span> <strong style={{ color: '#818cf8' }}>{localStorage.getItem('namma_predictor_state') ? '✓' : '–'}</strong>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '0.5rem' }}>
+              <span style={{ color: '#94a3b8' }}>Explore saved:</span> <strong style={{ color: '#818cf8' }}>{localStorage.getItem('namma_explore_state') ? '✓' : '–'}</strong>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '0.5rem' }}>
+              <span style={{ color: '#94a3b8' }}>Saved colleges:</span> <strong style={{ color: '#818cf8' }}>{JSON.parse(localStorage.getItem('namma_saved_colleges') || '[]').length}</strong>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '0.5rem' }}>
+              <span style={{ color: '#94a3b8' }}>Profiles saved:</span> <strong style={{ color: '#818cf8' }}>{JSON.parse(localStorage.getItem('namma_saved_profiles') || '[]').length}</strong>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '0.5rem' }}>
+              <span style={{ color: '#94a3b8' }}>Option entries:</span> <strong style={{ color: '#818cf8' }}>{JSON.parse(localStorage.getItem('namma_option_entries') || '[]').length}</strong>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '0.5rem' }}>
+              <span style={{ color: '#94a3b8' }}>Last ping date:</span> <strong style={{ color: '#818cf8' }}>{localStorage.getItem('namma_last_ping_day') || '–'}</strong>
+            </div>
+          </div>
+        </div>
+
+        <button
+          onClick={() => { window.location.hash = 'home'; }}
+          style={{
+            zIndex: 1,
+            marginTop: '2.5rem',
+            padding: '0.75rem 1.5rem',
+            borderRadius: '10px',
+            background: 'linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)',
+            color: '#ffffff',
+            border: 'none',
+            cursor: 'pointer',
+            fontSize: '0.9rem',
+            fontWeight: 600,
+            boxShadow: '0 4px 15px rgba(99,102,241,0.4)',
+            transition: 'transform 0.2s, box-shadow 0.2s',
+          }}
+          onMouseOver={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 6px 20px rgba(99,102,241,0.6)'; }}
+          onMouseOut={(e) => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '0 4px 15px rgba(99,102,241,0.4)'; }}
+        >← Return to App</button>
+      </div>
+    );
+  }
 
   if (dataLoading) {
     return (

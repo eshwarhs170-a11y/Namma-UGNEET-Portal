@@ -79,7 +79,6 @@ html, body {
   background: var(--paper);
   font-family: var(--font-body);
   color: var(--ink);
-  overflow-x: hidden;
 }
 
 .sidebar {

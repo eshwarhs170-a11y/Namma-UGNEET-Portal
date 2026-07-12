@@ -171,18 +171,35 @@ function parseRow(rowText, rank) {
   };
 }
 
-function compileAyushRound3() {
+function compileAyushAllRounds() {
   const masterData = [];
   const years = detectYearFolders();
+
+  function getRoundLabel(fileName) {
+    if (/stray/i.test(fileName)) return 'STRAY';
+    if (/r1|round1/i.test(fileName)) return 'R1';
+    if (/r2|round2/i.test(fileName)) return 'R2';
+    if (/r3|round3/i.test(fileName)) return 'R3';
+    return 'UNKNOWN';
+  }
 
   years.forEach((year) => {
     const yearPath = path.join(AIQ_INPUT_DIR, year);
     if (!fs.existsSync(yearPath)) return;
-    const files = fs.readdirSync(yearPath).filter((f) => /ayush.*r3|ayush.*round3/i.test(f) && f.endsWith('.txt'));
+
+    // Pick all ayush round files
+    const files = fs.readdirSync(yearPath)
+      .filter((f) => /ayush/i.test(f) && f.endsWith('.txt'))
+      .sort();
+
+    if (files.length === 0) {
+      console.log(`⚠️  No AYUSH files found in ${year}`);
+    }
 
     files.forEach((fileName) => {
+      const round = getRoundLabel(fileName);
       const filePath = path.join(yearPath, fileName);
-      console.log(`⏳ Processing AYUSH final round from ${fileName} (${year})...`);
+      console.log(`⏳ Processing AYUSH ${round} from ${fileName} (${year})...`);
       const rawText = fs.readFileSync(filePath, 'utf8');
       const rows = splitIntoRows(rawText);
 
@@ -193,7 +210,7 @@ function compileAyushRound3() {
         const parsed = parseRow(text, rank);
         if (parsed) {
           if (parsed.quota === null) quotaNullCount++;
-          masterData.push({ ...parsed, year, dataset: 'AIQ', stream: 'AYUSH', source: 'round3' });
+          masterData.push({ ...parsed, year, round, dataset: 'AIQ', stream: 'AYUSH', source: round.toLowerCase() });
           count++;
         } else {
           skipped++;
@@ -212,4 +229,4 @@ function compileAyushRound3() {
   console.log(`\n🎉 Total: ${masterData.length} records written to ${OUTPUT_FILE}`);
 }
 
-compileAyushRound3();
+compileAyushAllRounds();

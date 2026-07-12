@@ -193,14 +193,32 @@ function compileMbbsBds() {
   const masterData = [];
   const years = detectYearFolders();
 
+  // Round label mapping: match r1/round1 → R1, r2/round2 → R2, r3/round3/revised → R3
+  function getRoundLabel(fileName) {
+    if (/r1|round1/i.test(fileName)) return 'R1';
+    if (/r2|round2/i.test(fileName)) return 'R2';
+    if (/r3|round3|revised/i.test(fileName)) return 'R3';
+    return 'UNKNOWN';
+  }
+
   years.forEach((year) => {
     const yearPath = path.join(AIQ_INPUT_DIR, year);
     if (!fs.existsSync(yearPath)) return;
-    const files = fs.readdirSync(yearPath).filter((f) => /r3|round3|revised/i.test(f) && f.endsWith('.txt'));
+
+    // Pick all MBBS/BDS round files (aiq_r1.txt, aiq_r2.txt, aiq_r3.txt etc.)
+    // Exclude ayush files explicitly
+    const files = fs.readdirSync(yearPath)
+      .filter((f) => /^aiq.*r\d|round\d/i.test(f) && !(/ayush/i.test(f)) && f.endsWith('.txt'))
+      .sort();
+
+    if (files.length === 0) {
+      console.log(`⚠️  No MBBS/BDS round files found in ${year}`);
+    }
 
     files.forEach((fileName) => {
+      const round = getRoundLabel(fileName);
       const filePath = path.join(yearPath, fileName);
-      console.log(`⏳ Processing MBBS/BDS final round from ${fileName} (${year})...`);
+      console.log(`⏳ Processing MBBS/BDS ${round} from ${fileName} (${year})...`);
       const rawText = fs.readFileSync(filePath, 'utf8');
       const rows = splitIntoRows(rawText);
 
@@ -211,7 +229,7 @@ function compileMbbsBds() {
         const parsed = parseRow(text, rank);
         if (parsed) {
           if (parsed.quota === null) quotaNullCount++;
-          masterData.push({ ...parsed, year, dataset: 'AIQ', stream: 'MEDICAL_DENTAL' });
+          masterData.push({ ...parsed, year, round, dataset: 'AIQ', stream: 'MEDICAL_DENTAL' });
           count++;
         } else {
           skipped++;
@@ -223,6 +241,7 @@ function compileMbbsBds() {
       }
     });
   });
+
 
   const outputDir = path.dirname(OUTPUT_FILE);
   if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });

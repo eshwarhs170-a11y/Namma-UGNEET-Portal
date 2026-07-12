@@ -163,7 +163,7 @@ function transform() {
       return {
         year: c.year,
         stream: deriveStream(c.course),
-        round: 'FINAL',
+        round: c.round || 'FINAL',
         collegeCode: makeSyntheticCode(cleanedName),
         collegeName: cleanedName,
         courseDetails: c.course,

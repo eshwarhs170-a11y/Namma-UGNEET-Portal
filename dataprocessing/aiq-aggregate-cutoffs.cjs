@@ -87,7 +87,8 @@ function aggregateCutoffs() {
 
     const category = allottedCat || 'UNKNOWN';
     const quota = row.quota || 'UNKNOWN';
-    const key = `${row.collegeName}|${row.course}|${category}|${quota}|${row.year}`;
+    const round = row.round || 'FINAL';
+    const key = `${row.collegeName}|${row.course}|${category}|${quota}|${row.year}|${round}`;
 
     const existing = groups.get(key);
     if (!existing) {
@@ -97,6 +98,7 @@ function aggregateCutoffs() {
         category,
         quota,
         year: row.year,
+        round,
         stream: row.stream,
         dataset: row.dataset,
         cutoffRank: row.rank,

@@ -1149,7 +1149,7 @@ export default function Dashboard() {
     return (
       <div className={`loading-screen${darkMode ? " dark" : ""}`}>
         <img src={logo} alt="Namma-UGNEET" className="loading-logo" />
-        <p>Couldn't load the dataset. Make sure <code>compiled_allotments.json</code> exists in <code>public/data/</code>, then refresh.</p>
+        <p>Could not connect to the database. If running locally, use <code>vercel dev</code> instead of <code>npm run dev</code>.</p>
       </div>
     );
   }

@@ -7,17 +7,17 @@ const OUTPUT_FILE = path.join(__dirname, 'aiq_staging_output', 'aiq_ayush_stray_
 const REMARK_PATTERN = /^(Reported|Not Reported|Seat Surrendered|Upgraded|No Upgradation|Allotted|Fresh Allotted in \d+\w{2} Round(?:\([^)]*\))?|Did not opt for Upgradation\.|Did not fill up fresh choices\.)/;
 
 const KNOWN_QUOTA_PATTERNS = [
-  /^(Management\/Paid Seats Quota)/i,
-  /^(All India Quota Govt Aided)/i,
-  /^(All India Quota Government)/i,
-  /^(Central Universites\s*\/\s*National Institutions)/i,
-  /^(Non-Resident Indian)/i,
-  /^(Muslim Minority Quota\(Govt Aided\))/i,
-  /^(Jain Minority Quota\(Govt Aided\))/i,
-  /^(Muslim Minority Quota)/i,
-  /^(Jain Minority Quota)/i,
-  /^(Linguistic Minority)/i,
-  /^(Self Finance)/i,
+  /(Management\/Paid Seats Quota)/i,
+  /(All India Quota Govt Aided)/i,
+  /(All India Quota Government)/i,
+  /(Central Universites\s*\/\s*National Institutions)/i,
+  /(Non-Resident Indian)/i,
+  /(Muslim Minority Quota\(Govt Aided\))/i,
+  /(Jain Minority Quota\(Govt Aided\))/i,
+  /(Muslim Minority Quota)/i,
+  /(Jain Minority Quota)/i,
+  /(Linguistic Minority)/i,
+  /(Self Finance)/i,
 ];
 
 const COURSE_PATTERN = /Bachelor of\s+\w+\s+Medicine\s+and\s+Surgery/is;
@@ -75,13 +75,13 @@ function parseRow(text, rank) {
     const m = beforeCourse.match(pattern);
     if (m) {
       quota = m[1];
-      institute = beforeCourse.slice(m[0].length).trim();
+      institute = beforeCourse.slice(m.index + m[0].length).trim();
       break;
     }
   }
 
   if (quota === null) {
-    const quotaSplit = beforeCourse.match(/^([A-Za-z()\/\s]*?(?:Quota|Institutions?|Indian|India(?!\s+Institute)))\s+([\s\S]*)$/);
+    const quotaSplit = beforeCourse.match(/^[\d\s.\-]*([A-Za-z()\/\s]*?(?:Quota|Institutions?|Indian|India(?!\s+Institute)))\s+([\s\S]*)$/);
     if (quotaSplit) {
       quota = quotaSplit[1];
       institute = quotaSplit[2];

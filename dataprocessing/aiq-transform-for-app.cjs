@@ -151,6 +151,27 @@ function transform() {
   let cleanedNameCount = 0;
   let fixedCategoryCount = 0;
 
+  // Filter out records with garbage/empty college names or header bleed-through
+  // (R1 PDFs often have the abbreviation legend parsed as a "college name")
+  function isGarbageName(name) {
+    if (!name || name.length < 5) return true;
+    if (name.length > 160) return true; // legitimate college names are short
+    if (/abbreviat/i.test(name)) return true;
+    if (/allotted category/i.test(name)) return true;
+    if (/candidate category/i.test(name)) return true;
+    if (/counselling seats allotment/i.test(name)) return true;
+    if (/neet-ug counselling/i.test(name)) return true;
+    if (/\bsno\b.*\brank\b/i.test(name)) return true; // header row
+    if (/^\d*\.\d+\s/i.test(name)) return true; // decimal rank prefix like "1.02 Open Seat..." or ".02 Open..."
+    if (/^[\d\s.\-]+$/i.test(name)) return true; // pure numbers/dashes
+    if (/^Open Seat Quota\s/i.test(name)) return true; // quota leaked into name
+    if (/^NonResident\s/i.test(name)) return true; // quota leaked into name
+    if (/^Non-Resident\s/i.test(name)) return true; // quota leaked into name
+    if (/^All India\s/i.test(name) && name.length < 30) return true; // "All India Government..." as name
+    if (/^- - - -/i.test(name)) return true; // dash block artifacts
+    return false;
+  }
+
   const transformed = cutoffs
     .map((c) => {
       const originalName = c.collegeName || '';
@@ -175,8 +196,8 @@ function transform() {
         dataset: 'AIQ',
       };
     })
-    // Filter out records with garbage/empty college names
-    .filter((r) => r.collegeName.length >= 5);
+    .filter((r) => !isGarbageName(r.collegeName));
+
 
   const outputDir = path.dirname(OUTPUT_FILE);
   if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });

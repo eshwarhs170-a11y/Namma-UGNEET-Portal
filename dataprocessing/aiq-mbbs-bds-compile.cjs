@@ -7,34 +7,34 @@ const OUTPUT_FILE = path.join(__dirname, 'aiq_staging_output', 'aiq_mbbs_bds_com
 const REMARK_PATTERN = /^(Reported|Not\s+Reported|Not\s+Allotted\.|Seat\s+Surrendered|Upgraded|No\s+Upgradation|Fresh\s+Allotted\s+in\s+\d+\w{2}\s+Round(?:\([^)]*\))?|Did\s+not\s+opt\s+for\s+Upgradation\.|Did\s+not\s+fill\s+up\s+fresh\s+choices\.)/;
 
 const KNOWN_QUOTA_PATTERNS = [
-  /^(Non\s*-?\s*Resident\s+Indian\s*\(\s*A\s*M\s*U\s*\)\s*Quota)/i,
-  /^(Non\s*-?\s*Resident\s+Indian\s*\(\s*Jamia\s*\)\s*Quota)/i,
-  /^(Delhi\s*NCR\s*Children\s*\/?\s*Widows\s*of\s*Personnel\s*of\s*the\s*Armed\s*Forces\s*\(\s*CW\s*\)\s*DU\s*Quota)/i,
-  /^(Delhi\s*NCR\s*Children\s*\/?\s*Widows\s*of\s*Personnel\s*of\s*the\s*Armed\s*Forces\s*\(\s*CW\s*\)\s*IP\s*Quota)/i,
-  /^(Employee['’\s]*s\s+State\s+Insurance\s+Scheme\s+Nursing\s+Quota\s*\(\s*ESI-?IP\s*Quota\s*Nursing\s*\))/i,
-  /^(Employee['’\s]*s\s+State\s+Insurance\s+Scheme\s*\(\s*ESI\s*\))/i,
-  /^(Aligarh\s+Muslim\s+University\s*\(\s*A\s*M\s*U\s*\)\s*Quota)/i,
-  /^(B\.?\s*Sc\.?\s+Nursing\s+Delhi\s*NCR\s*CW\s*Quota)/i,
-  /^(B\.?\s*Sc\.?\s+Nursing\s+IP\s*CW\s*Quota)/i,
-  /^(B\.?\s*Sc\.?\s+Nursing\s+Delhi\s*NCR)/i,
-  /^(B\.?\s*Sc\.?\s+Nursing\s+All\s+India)/i,
-  /^(Deemed\s*\/?\s*Paid\s+Seats\s+Quota)/i,
-  /^(Internal\s*-?\s*Puduche\s*r\s*r\s*y\s+UT\s+Domicile)/i,
-  /^(IP\s+University\s+Quota)/i,
-  /^(Jain\s+Minority\s+Quota)/i,
-  /^(Jamia\s+Internal\s+Quota)/i,
-  /^(Muslim\s+Minority\s+Quota)/i,
-  /^(Muslim\s+OBC\s+Quota)/i,
-  /^(Muslim\s+ST\s+Quota)/i,
-  /^(Muslim\s+Women\s+Quota)/i,
-  /^(Muslim\s+Quota)/i,
-  /^(Delhi\s+University\s+Quota)/i,
-  /^(Foreign\s+Country\s+Quota)/i,
-  /^(Open\s+Seat\s+Quota)/i,
-  /^(Non\s*-?\s*Resident\s+Indian)/i,
-  /^(\(\s*A\s*M\s*U\s*\)\s*Self\s*finance\s+All\s+India)/i,
-  /^(\(\s*A\s*M\s*U\s*\)\s*Self\s*finance\s+internal)/i,
-  /^(All\s+India)/i,
+  /(Non\s*-?\s*Resident\s+Indian\s*\(\s*A\s*M\s*U\s*\)\s*Quota)/i,
+  /(Non\s*-?\s*Resident\s+Indian\s*\(\s*Jamia\s*\)\s*Quota)/i,
+  /(Delhi\s*NCR\s*Children\s*\/?\s*Widows\s*of\s*Personnel\s*of\s*the\s*Armed\s*Forces\s*\(\s*CW\s*\)\s*DU\s*Quota)/i,
+  /(Delhi\s*NCR\s*Children\s*\/?\s*Widows\s*of\s*Personnel\s*of\s*the\s*Armed\s*Forces\s*\(\s*CW\s*\)\s*IP\s*Quota)/i,
+  /(Employee['’\s]*s\s+State\s+Insurance\s+Scheme\s+Nursing\s+Quota\s*\(\s*ESI-?IP\s*Quota\s*Nursing\s*\))/i,
+  /(Employee['’\s]*s\s+State\s+Insurance\s+Scheme\s*\(\s*ESI\s*\))/i,
+  /(Aligarh\s+Muslim\s+University\s*\(\s*A\s*M\s*U\s*\)\s*Quota)/i,
+  /(B\.?\s*Sc\.?\s+Nursing\s+Delhi\s*NCR\s*CW\s*Quota)/i,
+  /(B\.?\s*Sc\.?\s+Nursing\s+IP\s*CW\s*Quota)/i,
+  /(B\.?\s*Sc\.?\s+Nursing\s+Delhi\s*NCR)/i,
+  /(B\.?\s*Sc\.?\s+Nursing\s+All\s+India)/i,
+  /(Deemed\s*\/?\s*Paid\s+Seats\s+Quota)/i,
+  /(Internal\s*-?\s*Puduche\s*r\s*r\s*y\s+UT\s+Domicile)/i,
+  /(IP\s+University\s+Quota)/i,
+  /(Jain\s+Minority\s+Quota)/i,
+  /(Jamia\s+Internal\s+Quota)/i,
+  /(Muslim\s+Minority\s+Quota)/i,
+  /(Muslim\s+OBC\s+Quota)/i,
+  /(Muslim\s+ST\s+Quota)/i,
+  /(Muslim\s+Women\s+Quota)/i,
+  /(Muslim\s+Quota)/i,
+  /(Delhi\s+University\s+Quota)/i,
+  /(Foreign\s+Country\s+Quota)/i,
+  /(Open\s+Seat\s+Quota)/i,
+  /(Non\s*-?\s*Resident\s+Indian)/i,
+  /(\(\s*A\s*M\s*U\s*\)\s*Self\s*finance\s+All\s+India)/i,
+  /(\(\s*A\s*M\s*U\s*\)\s*Self\s*finance\s+internal)/i,
+  /(All\s+India)/i,
 ];
 
 function normalizeWhitespace(str) {
@@ -115,13 +115,13 @@ function parseRealBlock(text, isFinalBlock) {
     const m = beforeCourse.match(pattern);
     if (m) {
       quota = m[1];
-      institute = beforeCourse.slice(m[0].length).trim();
+      institute = beforeCourse.slice(m.index + m[0].length).trim();
       break;
     }
   }
 
   if (quota === null) {
-    const quotaSplit = beforeCourse.match(/^([A-Za-z()\/\s]*?(?:Quota|Institutions?|Indian|India(?!\s+Institute)))\s+([\s\S]*)$/);
+    const quotaSplit = beforeCourse.match(/^[\d\s.\-]*([A-Za-z()\/\s]*?(?:Quota|Institutions?|Indian|India(?!\s+Institute)))\s+([\s\S]*)$/);
     if (quotaSplit) {
       quota = quotaSplit[1];
       institute = quotaSplit[2];
@@ -193,30 +193,29 @@ function compileMbbsBds() {
   const masterData = [];
   const years = detectYearFolders();
 
-  // Round label mapping: match r1/round1 → R1, r2/round2 → R2, r3/round3/revised → R3
   function getRoundLabel(fileName) {
-    if (/r1|round1/i.test(fileName)) return 'R1';
     if (/r2|round2/i.test(fileName)) return 'R2';
     if (/r3|round3|revised/i.test(fileName)) return 'R3';
-    return 'UNKNOWN';
+    return null; // null means skip
   }
 
   years.forEach((year) => {
     const yearPath = path.join(AIQ_INPUT_DIR, year);
     if (!fs.existsSync(yearPath)) return;
 
-    // Pick all MBBS/BDS round files (aiq_r1.txt, aiq_r2.txt, aiq_r3.txt etc.)
-    // Exclude ayush files explicitly
+    // Only process R2 and R3 — R1 has a different PDF format (3-round combined sheet)
+    // that the current parser cannot handle reliably. Skip it.
     const files = fs.readdirSync(yearPath)
-      .filter((f) => /^aiq.*r\d|round\d/i.test(f) && !(/ayush/i.test(f)) && f.endsWith('.txt'))
+      .filter((f) => /^aiq.*r[23]|round[23]/i.test(f) && !(/ayush/i.test(f)) && f.endsWith('.txt'))
       .sort();
 
     if (files.length === 0) {
-      console.log(`⚠️  No MBBS/BDS round files found in ${year}`);
+      console.log(`⚠️  No MBBS/BDS R2/R3 files found in ${year}`);
     }
 
     files.forEach((fileName) => {
       const round = getRoundLabel(fileName);
+      if (!round) { console.log(`⏭️  Skipping ${fileName} (format not supported)`); return; }
       const filePath = path.join(yearPath, fileName);
       console.log(`⏳ Processing MBBS/BDS ${round} from ${fileName} (${year})...`);
       const rawText = fs.readFileSync(filePath, 'utf8');
@@ -241,7 +240,6 @@ function compileMbbsBds() {
       }
     });
   });
-
 
   const outputDir = path.dirname(OUTPUT_FILE);
   if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });

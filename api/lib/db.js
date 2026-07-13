@@ -9,7 +9,7 @@
  * Requires MONGODB_URI env var set in Vercel dashboard.
  */
 
-const { MongoClient } = require('mongodb');
+import { MongoClient } from 'mongodb';
 
 const MONGODB_URI = process.env.MONGODB_URI;
 const DB_NAME = 'nammaugneet';
@@ -53,4 +53,4 @@ async function connectToDatabase() {
   return { client, db };
 }
 
-module.exports = { connectToDatabase, DB_NAME };
+export { connectToDatabase };

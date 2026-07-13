@@ -25,7 +25,7 @@
  *   { data: [...], total: 1234, page: 1, totalPages: 25 }
  */
 
-const { connectToDatabase } = require('./lib/db');
+import { connectToDatabase } from './lib/db.js';
 
 // ── Rate Limiting (in-memory, per serverless instance) ───────────────────────
 const rateLimitMap = new Map();
@@ -75,7 +75,7 @@ function sanitizeInt(val, min, max, fallback) {
 }
 
 // ── Handler ──────────────────────────────────────────────────────────────────
-module.exports = async function handler(req, res) {
+export default async function handler(req, res) {
   // CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');

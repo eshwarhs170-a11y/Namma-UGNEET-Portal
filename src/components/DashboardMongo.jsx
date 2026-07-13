@@ -831,11 +831,8 @@ export default function Dashboard() {
            const closest = history.reduce((prev, curr) => Math.abs(curr.rank - rankNum) < Math.abs(prev.rank - rankNum) ? curr : prev);
            const diff = closest.rank - rankNum;
            return {
-             collegeCode: code,
-             collegeName: history[0].collegeName,
-             stream: closest.stream,
+             ...closest,
              matchHistory: history,
-             closestMatch: closest,
              rankDiff: diff,
            };
          });

@@ -540,7 +540,7 @@ export default function Dashboard() {
 
   // Fetch Explore Tab Data
   useEffect(() => {
-    if (activeTab !== 'home') return;
+    if (activeTab !== 'explore') return;
     setDataLoading(true);
     
     const params = new URLSearchParams({

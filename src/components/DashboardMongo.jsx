@@ -809,7 +809,7 @@ export default function Dashboard() {
       dataset: dataSource,
       minRank,
       maxRank,
-      limit: 200,
+      limit: 5000,
     });
     
     if (predictorCategory !== 'ALL') params.set('category', predictorCategory);

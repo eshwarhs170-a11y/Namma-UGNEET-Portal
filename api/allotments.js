@@ -180,7 +180,7 @@ export default async function handler(req, res) {
     const sortObj = { [safeSortField]: safeSortOrder === 'asc' ? 1 : -1 };
 
     // Pagination
-    const safeLimit = sanitizeInt(limit, 1, 200, 50);
+    const safeLimit = sanitizeInt(limit, 1, 10000, 50);
     const safePage = sanitizeInt(page, 1, 100000, 1);
     const skip = (safePage - 1) * safeLimit;
 

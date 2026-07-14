@@ -376,20 +376,16 @@ export default function Dashboard() {
       .then(r => r.json())
       .then(d => {
         setDropdownStats(d);
+        if (d.colleges) {
+          const cleanedNames = new Set(d.colleges.map(name => cleanCollegeName(name)));
+          setAllCollegeNames(Array.from(cleanedNames).sort());
+        }
         setDataLoading(false);
       })
       .catch(() => {
         setDataError(true);
         setDataLoading(false);
       });
-      
-    // Fetch all names for autocomplete
-    fetch(`/api/allotments?dataset=${dataSource}&limit=5000`)
-      .then(r => r.json())
-      .then(res => {
-         const names = new Set((res.data || []).map(item => cleanCollegeName(item.collegeName)));
-         setAllCollegeNames(Array.from(names).sort());
-      }).catch(() => {});
   }, [dataSource]);
   const [showEdgeHint, setShowEdgeHint] = useState(true);
 
@@ -515,6 +511,11 @@ export default function Dashboard() {
 
   // Persist dataSource
   useEffect(() => { lsSet(LS_DATASRC, dataSource); }, [dataSource]);
+
+  // Reset pagination page to 1 whenever any filter changes
+  useEffect(() => {
+    setExplorePage(1);
+  }, [dataSource, searchQuery, streamFilter, categoryFilter, maxBudget, roundFilter, yearFilter, sortConfig, quotaFilter]);
 
   // Fetch Explore Tab Data
   useEffect(() => {
@@ -1500,10 +1501,10 @@ export default function Dashboard() {
 
         <div className="sidebar-section">
           <h4>Quick Stats</h4>
-          <div className="stat-row"><span>Total Records</span><span>{apiTotal.toLocaleString('en-IN')}</span></div>
+          <div className="stat-row"><span>Total Records</span><span>{(dropdownStats.totalRecords || 0).toLocaleString('en-IN')}</span></div>
           <div className="stat-row">
             <span>{activeTab === 'predictor' ? 'Predicted Matches' : 'Matching Filters'}</span>
-            <span>{(activeTab === 'predictor' ? predictedColleges.length : filteredDashboardData.length).toLocaleString('en-IN')}</span>
+            <span>{(activeTab === 'predictor' ? predictedColleges.length : apiTotal).toLocaleString('en-IN')}</span>
           </div>
           {showFees && <div className="stat-row"><span>Avg Fees (shown)</span><span>{formatFees(avgFeesShown)}</span></div>}
           <div className="stat-row"><span>Saved</span><span>{savedColleges.length}</span></div>
@@ -2035,16 +2036,17 @@ export default function Dashboard() {
                   </tbody>
                 </table>
               </div>
-              {filteredDashboardData.length > exploreVisibleCount && (
+              {apiTotal > filteredDashboardData.length && (
                 <div className="show-more-wrap" style={{ marginTop: '16px' }}>
                   <p className="truncate-note">
-                    Showing {exploreVisibleCount.toLocaleString('en-IN')} of {filteredDashboardData.length.toLocaleString('en-IN')} matching cutoffs.
+                    Showing {filteredDashboardData.length.toLocaleString('en-IN')} of {apiTotal.toLocaleString('en-IN')} matching cutoffs.
                   </p>
                   <button
                     className="show-more-btn"
-                    onClick={() => setExploreVisibleCount((prev) => prev + 100)}
+                    disabled={dataLoading}
+                    onClick={() => setExplorePage((prev) => prev + 1)}
                   >
-                    Show {Math.min(100, filteredDashboardData.length - exploreVisibleCount).toLocaleString('en-IN')} More
+                    {dataLoading ? 'Loading...' : `Show ${Math.min(100, apiTotal - filteredDashboardData.length).toLocaleString('en-IN')} More`}
                   </button>
                 </div>
               )}

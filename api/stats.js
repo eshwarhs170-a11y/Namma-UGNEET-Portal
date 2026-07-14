@@ -36,12 +36,14 @@ export default async function handler(req, res) {
     res.setHeader('Cache-Control', 's-maxage=43200, stale-while-revalidate=86400');
 
     // Fetch distinct values for dropdowns in parallel
-    const [years, streams, categories, rounds, quotas] = await Promise.all([
+    const [years, streams, categories, rounds, quotas, colleges, totalRecords] = await Promise.all([
       collection.distinct('year', { dataset }),
       collection.distinct('stream', { dataset }),
       collection.distinct('category', { dataset }),
       collection.distinct('round', { dataset }),
       dataset === 'AIQ' ? collection.distinct('quota', { dataset }) : Promise.resolve([]),
+      collection.distinct('collegeName', { dataset }),
+      collection.countDocuments({ dataset }),
     ]);
 
     return res.status(200).json({
@@ -50,6 +52,8 @@ export default async function handler(req, res) {
       categories: categories.filter(Boolean).sort(),
       rounds: rounds.filter(Boolean).sort(),
       quotas: quotas.filter(Boolean).sort(),
+      colleges: colleges.filter(Boolean).sort(),
+      totalRecords,
     });
   } catch (err) {
     console.error('API /api/stats error:', err);

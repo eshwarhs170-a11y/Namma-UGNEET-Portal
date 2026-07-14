@@ -334,12 +334,17 @@ export default function Dashboard() {
     setActiveTab(initialTab);
     window.history.replaceState({ tab: initialTab }, '', `#${initialTab}`);
 
-    const onPopState = (e) => {
-      const tab = (e.state && e.state.tab) || window.location.hash.replace('#', '') || 'home';
+    const handleRouting = () => {
+      const tab = window.location.hash.replace('#', '') || 'home';
       setActiveTab(tab);
     };
-    window.addEventListener('popstate', onPopState);
-    return () => window.removeEventListener('popstate', onPopState);
+
+    window.addEventListener('popstate', handleRouting);
+    window.addEventListener('hashchange', handleRouting);
+    return () => {
+      window.removeEventListener('popstate', handleRouting);
+      window.removeEventListener('hashchange', handleRouting);
+    };
   }, []);
 
   // ── ADMIN PANEL STATE (hidden, developer-only) ────────────────────────────

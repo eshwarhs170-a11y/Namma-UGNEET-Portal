@@ -483,6 +483,17 @@ export default function Dashboard() {
     return () => window.removeEventListener('resize', onResize);
   }, []);
 
+  // Prevent background scroll when sidebar is open on mobile
+  useEffect(() => {
+    const isMobile = window.matchMedia('(max-width: 880px)').matches;
+    if (sidebarOpen && isMobile) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [sidebarOpen]);
+
   // Utility to normalize college names (remove newlines, extra spaces)
   const cleanCollegeName = (name) =>
     name.replace(/\r?\n/g, ' ') // replace line breaks with space
@@ -802,15 +813,22 @@ export default function Dashboard() {
     
     setPredictedLoading(true);
     const rankNum = parseInt(debouncedUserRank, 10);
-    const minRank = Math.max(1, rankNum - debouncedRankRange);
-    const maxRank = rankNum + debouncedRankRange;
+    const rangeVal = parseInt(debouncedRankRange, 10) || 0;
     
     const params = new URLSearchParams({
       dataset: dataSource,
-      minRank,
-      maxRank,
       limit: 5000,
     });
+    
+    if (rangeVal > 0) {
+      // Range mode: show colleges within ± rankRange of user's rank
+      params.set('minRank', Math.max(1, rankNum - rangeVal));
+      params.set('maxRank', rankNum + rangeVal);
+    } else {
+      // Default mode (rankRange=0): show all colleges where cutoff >= user's rank
+      // (i.e., colleges where the user can realistically get a seat)
+      params.set('minRank', rankNum);
+    }
     
     if (predictorCategory !== 'ALL') params.set('category', predictorCategory);
     if (predictorStream !== 'ALL') params.set('stream', predictorStream);
@@ -838,8 +856,12 @@ export default function Dashboard() {
            };
          });
          
-         // Sort by closest rank
-         results.sort((a, b) => Math.abs(a.rankDiff) - Math.abs(b.rankDiff));
+         // Sort: range mode by closest rank diff, default mode by rank ascending
+         if (rangeVal > 0) {
+           results.sort((a, b) => Math.abs(a.rankDiff) - Math.abs(b.rankDiff));
+         } else {
+           results.sort((a, b) => a.rank - b.rank);
+         }
          setPredictedData(results);
          setPredictedLoading(false);
       }).catch(() => setPredictedLoading(false));

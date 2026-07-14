@@ -2203,21 +2203,24 @@ export default function Dashboard() {
                     </datalist>
                   </div>
                   
-                  {/* Newly added visible Search Button */}
-                  {!hasSearchedOnce && (
-                    <div className="field">
-                      <label>&nbsp;</label>
-                      <button 
-                        type="button" 
-                        className="home-cta primary" 
-                        style={{ width: '100%', height: '41px' }} 
-                        onClick={() => setHasSearchedOnce(true)}
-                        disabled={!userRank}
-                      >
-                        🔍 Search Matches
-                      </button>
-                    </div>
-                  )}
+                  {/* Search Button (remains visible but disabled after first click) */}
+                  <div className="field">
+                    <label>&nbsp;</label>
+                    <button 
+                      type="button" 
+                      className="home-cta primary" 
+                      style={{ 
+                        width: '100%', 
+                        height: '41px',
+                        opacity: hasSearchedOnce ? 0.6 : 1,
+                        cursor: hasSearchedOnce ? 'default' : 'pointer'
+                      }} 
+                      onClick={() => !hasSearchedOnce && setHasSearchedOnce(true)}
+                      disabled={hasSearchedOnce || !userRank}
+                    >
+                      🔍 Search Matches
+                    </button>
+                  </div>
                 </div>
               </div>
 
@@ -2227,10 +2230,6 @@ export default function Dashboard() {
                   <div className="dash-panel" style={{ marginBottom: '24px' }}>
                     <h4 style={{ marginBottom: '16px', color: 'var(--brand-deep)', fontSize: '1.1rem' }}>Quick Stats</h4>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '24px' }}>
-                      <div className="stat-row" style={{ flexDirection: 'column', alignItems: 'flex-start', flex: '1 1 min-content' }}>
-                        <span style={{ fontSize: '0.85rem', color: 'var(--slate)' }}>Total Records</span>
-                        <strong style={{ fontSize: '1.25rem' }}>{(dropdownStats.totalRecords || 0).toLocaleString('en-IN')}</strong>
-                      </div>
                       <div className="stat-row" style={{ flexDirection: 'column', alignItems: 'flex-start', flex: '1 1 min-content' }}>
                         <span style={{ fontSize: '0.85rem', color: 'var(--slate)' }}>Predicted Matches</span>
                         <strong style={{ fontSize: '1.25rem' }}>{predictedColleges.length.toLocaleString('en-IN')}</strong>

@@ -508,6 +508,14 @@ export default function Dashboard() {
   const sidebarWidthPx = viewportWidth <= 420 ? Math.min(viewportWidth * 0.88, 300) : 290;
 
   const [searchQuery, setSearchQuery] = useState('');
+  const [debouncedSearchQuery, setDebouncedSearchQuery] = useState(searchQuery);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedSearchQuery(searchQuery);
+    }, 400);
+    return () => clearTimeout(handler);
+  }, [searchQuery]);
   const [streamFilter, setStreamFilter] = useState(() => lsGet(LS_EXPLORE, {}).streamFilter ?? 'MEDICAL');
   const [categoryFilter, setCategoryFilter] = useState(() => lsGet(LS_EXPLORE, {}).categoryFilter ?? 'GM');
   const [quotaFilter, setQuotaFilter] = useState(() => lsGet(LS_EXPLORE, {}).quotaFilter ?? 'ALL');
@@ -528,7 +536,7 @@ export default function Dashboard() {
   // Reset pagination page to 1 whenever any filter changes
   useEffect(() => {
     setExplorePage(1);
-  }, [dataSource, searchQuery, streamFilter, categoryFilter, maxBudget, roundFilter, yearFilter, sortConfig, quotaFilter]);
+  }, [dataSource, debouncedSearchQuery, streamFilter, categoryFilter, maxBudget, roundFilter, yearFilter, sortConfig, quotaFilter]);
 
   // Fetch Explore Tab Data
   useEffect(() => {
@@ -543,7 +551,7 @@ export default function Dashboard() {
       order: sortConfig.direction,
     });
     
-    if (searchQuery.trim().length >= 2) params.set('search', searchQuery.trim());
+    if (debouncedSearchQuery.trim().length >= 2) params.set('search', debouncedSearchQuery.trim());
     if (streamFilter !== 'ALL') params.set('stream', streamFilter);
     if (categoryFilter !== 'ALL') params.set('category', categoryFilter);
     if (roundFilter !== 'ALL') params.set('round', roundFilter);
@@ -562,7 +570,7 @@ export default function Dashboard() {
          setDataError(true);
          setDataLoading(false);
       });
-  }, [activeTab, dataSource, searchQuery, streamFilter, categoryFilter, maxBudget, roundFilter, yearFilter, sortConfig, quotaFilter, explorePage]);
+  }, [activeTab, dataSource, debouncedSearchQuery, streamFilter, categoryFilter, maxBudget, roundFilter, yearFilter, sortConfig, quotaFilter, explorePage]);
   
   const filteredDashboardData = apiData; // alias for the rest of the file
   

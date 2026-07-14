@@ -1557,13 +1557,30 @@ export default function Dashboard() {
 
             <div className="field">
               <label>Search Institution</label>
-              <input
-                type="text"
-                list="explore-sidebar-options"
-                placeholder="Name or code..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
+              <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
+                <input
+                  type="text"
+                  list="explore-sidebar-options"
+                  placeholder="Name or code..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  style={{ width: '100%', paddingRight: '36px' }}
+                />
+                {searchQuery && (
+                  <button 
+                    type="button"
+                    onClick={() => setSearchQuery('')}
+                    aria-label="Clear search"
+                    style={{
+                      position: 'absolute', right: '8px',
+                      background: 'none', border: 'none', fontSize: '1.4rem', cursor: 'pointer', color: '#999',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '4px'
+                    }}
+                  >
+                    ×
+                  </button>
+                )}
+              </div>
               <datalist id="explore-sidebar-options">
                 {exploreStreamCollegeNames.map((name) => (
                   <option key={name} value={name} />
@@ -1765,15 +1782,32 @@ export default function Dashboard() {
               <div className="home-search-section">
                 <label className="home-search-label" htmlFor="home-search-input">🔍 Search a college by name or code</label>
                 <div className="home-search-row">
-                  <input
-                    id="home-search-input"
-                    type="text"
-                    list="home-college-options"
-                    placeholder="e.g. Bangalore Medical College, M001MG"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    onKeyDown={(e) => { if (e.key === 'Enter') navigateTo('explore'); }}
-                  />
+                  <div style={{ position: 'relative', flex: 1, display: 'flex', alignItems: 'center' }}>
+                    <input
+                      id="home-search-input"
+                      type="text"
+                      list="home-college-options"
+                      placeholder="e.g. Bangalore Medical College, M001MG"
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      onKeyDown={(e) => { if (e.key === 'Enter') navigateTo('explore'); }}
+                      style={{ width: '100%', paddingRight: '40px' }}
+                    />
+                    {searchQuery && (
+                      <button 
+                        type="button"
+                        onClick={() => setSearchQuery('')}
+                        aria-label="Clear search"
+                        style={{
+                          position: 'absolute', right: '12px',
+                          background: 'none', border: 'none', fontSize: '1.6rem', cursor: 'pointer', color: '#999',
+                          display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '4px'
+                        }}
+                      >
+                        ×
+                      </button>
+                    )}
+                  </div>
                   <datalist id="home-college-options">
                     {allCollegeNames.map((name) => (
                       <option key={name} value={name} />

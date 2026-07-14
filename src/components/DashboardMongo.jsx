@@ -366,6 +366,7 @@ export default function Dashboard() {
   const [explorePage, setExplorePage] = useState(1);
   const [predictedData, setPredictedData] = useState([]);
   const [predictedLoading, setPredictedLoading] = useState(false);
+  const [predictorExtraRange, setPredictorExtraRange] = useState(0);
   const [allCollegeNames, setAllCollegeNames] = useState([]);
 
 
@@ -803,6 +804,11 @@ export default function Dashboard() {
   const exploreStreamCollegeNames = allCollegeNames;
   const predictorStreamCollegeNames = allCollegeNames;
 
+  // Reset extra range when any core predictor filter changes
+  useEffect(() => {
+    setPredictorExtraRange(0);
+  }, [dataSource, debouncedUserRank, debouncedRankRange, predictorCategory, predictorStream, predictorRound, predictorYear, predictorQuota]);
+
   // Fetch Predictor Data
   useEffect(() => {
     if (activeTab !== 'predictor') return;
@@ -814,19 +820,19 @@ export default function Dashboard() {
     setPredictedLoading(true);
     const rankNum = parseInt(debouncedUserRank, 10);
     const rangeVal = parseInt(debouncedRankRange, 10) || 0;
+    const effectiveMaxRange = rangeVal + predictorExtraRange;
     
     const params = new URLSearchParams({
       dataset: dataSource,
       limit: 5000,
     });
     
-    if (rangeVal > 0) {
-      // Range mode: show colleges within ± rankRange of user's rank
+    if (rangeVal > 0 || predictorExtraRange > 0) {
+      // Range mode: show colleges within the effective range
       params.set('minRank', Math.max(1, rankNum - rangeVal));
-      params.set('maxRank', rankNum + rangeVal);
+      params.set('maxRank', rankNum + effectiveMaxRange);
     } else {
-      // Default mode (rankRange=0): show all colleges where cutoff >= user's rank
-      // (i.e., colleges where the user can realistically get a seat)
+      // Default mode (rankRange=0, no extra): show all colleges where cutoff >= user's rank
       params.set('minRank', rankNum);
     }
     
@@ -857,7 +863,7 @@ export default function Dashboard() {
          });
          
          // Sort: range mode by closest rank diff, default mode by rank ascending
-         if (rangeVal > 0) {
+         if (rangeVal > 0 || predictorExtraRange > 0) {
            results.sort((a, b) => Math.abs(a.rankDiff) - Math.abs(b.rankDiff));
          } else {
            results.sort((a, b) => a.rank - b.rank);
@@ -865,7 +871,7 @@ export default function Dashboard() {
          setPredictedData(results);
          setPredictedLoading(false);
       }).catch(() => setPredictedLoading(false));
-  }, [activeTab, dataSource, debouncedUserRank, debouncedRankRange, predictorCategory, predictorStream, predictorRound, predictorYear, predictorQuota]);
+  }, [activeTab, dataSource, debouncedUserRank, debouncedRankRange, predictorCategory, predictorStream, predictorRound, predictorYear, predictorQuota, predictorExtraRange]);
 
   const predictedColleges = predictedData; // alias
   
@@ -2349,8 +2355,8 @@ export default function Dashboard() {
                   )}
                 </div>
                 <p className="predicted-sub">
-                  {rankRange > 0 && userRank && !isNaN(userRank) ? (
-                    <>Colleges where <strong>{predictorYear === 'ALL' ? "any year's" : predictorYear}</strong> <strong>{predictorRound === 'ALL' ? "any round's" : predictorRound}</strong> closing cutoff falls within ranks <strong>{Math.max(1, parseInt(userRank, 10) - rankRange).toLocaleString('en-IN')}</strong> to <strong>{(parseInt(userRank, 10) + rankRange).toLocaleString('en-IN')}</strong> (±{rankRange.toLocaleString('en-IN')} of Rank {userRank}):</>
+                  {(rankRange > 0 || predictorExtraRange > 0) && userRank && !isNaN(userRank) ? (
+                    <>Colleges where <strong>{predictorYear === 'ALL' ? "any year's" : predictorYear}</strong> <strong>{predictorRound === 'ALL' ? "any round's" : predictorRound}</strong> closing cutoff falls within ranks <strong>{Math.max(1, parseInt(userRank, 10) - rankRange).toLocaleString('en-IN')}</strong> to <strong>{(parseInt(userRank, 10) + rankRange + predictorExtraRange).toLocaleString('en-IN')}</strong>{predictorExtraRange > 0 ? ` (expanded +${predictorExtraRange.toLocaleString('en-IN')})` : ` (±${rankRange.toLocaleString('en-IN')} of Rank ${userRank})`}:</>
                   ) : (
                     <>Colleges where <strong>{predictorYear === 'ALL' ? "any year's" : predictorYear}</strong> <strong>{predictorRound === 'ALL' ? "any round's" : predictorRound}</strong> closing cutoff scores matched higher than or equal to Rank <strong>{userRank || '0'}</strong>:</>
                   )}
@@ -2367,6 +2373,22 @@ export default function Dashboard() {
                   onSelectCollege={setSelectedCollege}
                   showFees={dataSource === 'KEA'}
                 />
+
+                {/* Show More button to extend predictor search range */}
+                {predictedColleges.length > 0 && userRank && !isNaN(userRank) && (
+                  <div className="show-more-wrap" style={{ marginTop: '16px' }}>
+                    <p className="truncate-note">
+                      Currently showing {predictedColleges.length.toLocaleString('en-IN')} colleges with cutoffs up to rank {((parseInt(userRank, 10) || 0) + (parseInt(rankRange, 10) || 0) + predictorExtraRange).toLocaleString('en-IN')}.
+                    </p>
+                    <button
+                      className="show-more-btn"
+                      disabled={predictedLoading}
+                      onClick={() => setPredictorExtraRange((prev) => prev + 10000)}
+                    >
+                      {predictedLoading ? 'Loading...' : `Show More (+10,000 Ranks → up to ${((parseInt(userRank, 10) || 0) + (parseInt(rankRange, 10) || 0) + predictorExtraRange + 10000).toLocaleString('en-IN')})`}
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
           )}

@@ -367,6 +367,7 @@ export default function Dashboard() {
   const [predictedData, setPredictedData] = useState([]);
   const [predictedLoading, setPredictedLoading] = useState(false);
   const [predictorExtraRange, setPredictorExtraRange] = useState(0);
+  const [hasSearchedOnce, setHasSearchedOnce] = useState(false);
   const [allCollegeNames, setAllCollegeNames] = useState([]);
 
 
@@ -812,6 +813,10 @@ export default function Dashboard() {
   // Fetch Predictor Data
   useEffect(() => {
     if (activeTab !== 'predictor') return;
+    if (!hasSearchedOnce) {
+      setPredictedData([]);
+      return;
+    }
     if (!debouncedUserRank || isNaN(debouncedUserRank)) {
       setPredictedData([]);
       return;
@@ -871,7 +876,7 @@ export default function Dashboard() {
          setPredictedData(results);
          setPredictedLoading(false);
       }).catch(() => setPredictedLoading(false));
-  }, [activeTab, dataSource, debouncedUserRank, debouncedRankRange, predictorCategory, predictorStream, predictorRound, predictorYear, predictorQuota, predictorExtraRange]);
+  }, [activeTab, dataSource, debouncedUserRank, debouncedRankRange, predictorCategory, predictorStream, predictorRound, predictorYear, predictorQuota, predictorExtraRange, hasSearchedOnce]);
 
   const predictedColleges = predictedData; // alias
   
@@ -2199,16 +2204,51 @@ export default function Dashboard() {
                   </div>
                   
                   {/* Newly added visible Search Button */}
-                  <div className="field">
-                    <label>&nbsp;</label>
-                    <button type="button" className="home-cta primary" style={{ width: '100%', height: '41px' }} onClick={() => {}}>
-                      🔍 Search Matches
-                    </button>
-                  </div>
+                  {!hasSearchedOnce && (
+                    <div className="field">
+                      <label>&nbsp;</label>
+                      <button 
+                        type="button" 
+                        className="home-cta primary" 
+                        style={{ width: '100%', height: '41px' }} 
+                        onClick={() => setHasSearchedOnce(true)}
+                        disabled={!userRank}
+                      >
+                        🔍 Search Matches
+                      </button>
+                    </div>
+                  )}
                 </div>
               </div>
 
-              {desiredCollegeCheck && (
+              {hasSearchedOnce && (
+                <>
+                  {/* Quick Stats for Predictor */}
+                  <div className="dash-panel" style={{ marginBottom: '24px' }}>
+                    <h4 style={{ marginBottom: '16px', color: 'var(--brand-deep)', fontSize: '1.1rem' }}>Quick Stats</h4>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '24px' }}>
+                      <div className="stat-row" style={{ flexDirection: 'column', alignItems: 'flex-start', flex: '1 1 min-content' }}>
+                        <span style={{ fontSize: '0.85rem', color: 'var(--slate)' }}>Total Records</span>
+                        <strong style={{ fontSize: '1.25rem' }}>{(dropdownStats.totalRecords || 0).toLocaleString('en-IN')}</strong>
+                      </div>
+                      <div className="stat-row" style={{ flexDirection: 'column', alignItems: 'flex-start', flex: '1 1 min-content' }}>
+                        <span style={{ fontSize: '0.85rem', color: 'var(--slate)' }}>Predicted Matches</span>
+                        <strong style={{ fontSize: '1.25rem' }}>{predictedColleges.length.toLocaleString('en-IN')}</strong>
+                      </div>
+                      {showFees && (
+                        <div className="stat-row" style={{ flexDirection: 'column', alignItems: 'flex-start', flex: '1 1 min-content' }}>
+                          <span style={{ fontSize: '0.85rem', color: 'var(--slate)' }}>Avg Fees (shown)</span>
+                          <strong style={{ fontSize: '1.25rem' }}>{formatFees(avgFeesShown)}</strong>
+                        </div>
+                      )}
+                      <div className="stat-row" style={{ flexDirection: 'column', alignItems: 'flex-start', flex: '1 1 min-content' }}>
+                        <span style={{ fontSize: '0.85rem', color: 'var(--slate)' }}>Saved</span>
+                        <strong style={{ fontSize: '1.25rem' }}>{savedColleges.length}</strong>
+                      </div>
+                    </div>
+                  </div>
+
+                  {desiredCollegeCheck && (
                 <div className={`desired-college-box ${desiredCollegeCheck.status}`}>
                   {desiredCollegeCheck.status === 'need_rank' && (
                     <p>ℹ️ Enter your NEET rank above to check if <strong>{desiredCollegeName}</strong> is within your reach.</p>
@@ -2390,8 +2430,10 @@ export default function Dashboard() {
                   </div>
                 )}
               </div>
-            </div>
+            </>
           )}
+        </div>
+      )}
 
           {/* --- FEATURE 3: OPTION ENTRY GENERATOR --- */}
           {activeTab === 'options' && (

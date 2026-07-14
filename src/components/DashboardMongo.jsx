@@ -2231,13 +2231,30 @@ export default function Dashboard() {
 
                   <div className="field">
                     <label>🔍 Search a Specific College</label>
-                    <input
-                      type="text"
-                      list="predictor-college-options"
-                      placeholder="Start typing a college name..."
-                      value={desiredCollegeName}
-                      onChange={(e) => setDesiredCollegeName(e.target.value)}
-                    />
+                    <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
+                      <input
+                        type="text"
+                        list="predictor-college-options"
+                        placeholder="Start typing a college name..."
+                        value={desiredCollegeName}
+                        onChange={(e) => setDesiredCollegeName(e.target.value)}
+                        style={{ width: '100%', paddingRight: '36px' }}
+                      />
+                      {desiredCollegeName && (
+                        <button 
+                          type="button"
+                          onClick={() => setDesiredCollegeName('')}
+                          aria-label="Clear search"
+                          style={{
+                            position: 'absolute', right: '8px',
+                            background: 'none', border: 'none', fontSize: '1.4rem', cursor: 'pointer', color: '#999',
+                            display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '4px'
+                          }}
+                        >
+                          ×
+                        </button>
+                      )}
+                    </div>
                     <datalist id="predictor-college-options">
                       {predictorStreamCollegeNames.map((name) => (
                         <option key={name} value={name} />

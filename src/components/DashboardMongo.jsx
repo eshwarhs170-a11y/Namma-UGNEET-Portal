@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useEffect, useRef, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import { 
   Search, Target, Info, AlertTriangle, Lock, Unlock, ScrollText, Mail, 
   Star, Trash2, FileText, MessageCircle, School, User, PenTool, Lightbulb, 
@@ -11,7 +12,7 @@ import { fetchVisitCounts } from '../visitorCounter.js';
 import './Dashboard.css';
 
 // ── Custom autocomplete dropdown (replaces native <datalist> which bounces on mobile) ──
-function CollegeAutocomplete({ value, onChange, suggestions, placeholder, id }) {
+function CollegeAutocomplete({ value, onChange, onCommit, suggestions, placeholder, id }) {
   const [open, setOpen] = useState(false);
   const [rect, setRect] = useState(null);
   const wrapRef = useRef(null);
@@ -23,6 +24,10 @@ function CollegeAutocomplete({ value, onChange, suggestions, placeholder, id }) 
     return suggestions.filter(s => s.toLowerCase().includes(q)).slice(0, 10);
   }, [value, suggestions]);
 
+  const updateRect = () => {
+    if (inputRef.current) setRect(inputRef.current.getBoundingClientRect());
+  };
+
   // Close on outside click/touch
   useEffect(() => {
     const handler = (e) => {
@@ -32,22 +37,39 @@ function CollegeAutocomplete({ value, onChange, suggestions, placeholder, id }) 
     };
     document.addEventListener('mousedown', handler);
     document.addEventListener('touchstart', handler, { passive: true });
+    // Update rect position on scroll so dropdown tracks the input
+    window.addEventListener('scroll', updateRect, { passive: true, capture: true });
     return () => {
       document.removeEventListener('mousedown', handler);
       document.removeEventListener('touchstart', handler);
+      window.removeEventListener('scroll', updateRect, { capture: true });
     };
   }, []);
 
-  // Capture input position to place dropdown with position:fixed (avoids reflow/bounce)
   const handleFocus = () => {
-    if (inputRef.current) setRect(inputRef.current.getBoundingClientRect());
+    updateRect();
     setOpen(true);
   };
 
   const handleChange = (e) => {
     onChange(e.target.value);
-    if (inputRef.current) setRect(inputRef.current.getBoundingClientRect());
+    updateRect();
     setOpen(true);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      setOpen(false);
+      if (onCommit) onCommit(value);
+      if (inputRef.current) {
+        inputRef.current.setAttribute('readonly', 'true');
+        inputRef.current.blur();
+        setTimeout(() => { if (inputRef.current) inputRef.current.removeAttribute('readonly'); }, 100);
+      }
+    }
+    if (e.key === 'Escape') {
+      setOpen(false);
+    }
   };
 
   // The key anti-bounce trick: set readonly BEFORE blur so iOS does not
@@ -55,6 +77,7 @@ function CollegeAutocomplete({ value, onChange, suggestions, placeholder, id }) 
   const handleSelect = (name) => {
     onChange(name);
     setOpen(false);
+    if (onCommit) onCommit(name);
     if (inputRef.current) {
       inputRef.current.setAttribute('readonly', 'true');
       inputRef.current.blur();
@@ -79,20 +102,21 @@ function CollegeAutocomplete({ value, onChange, suggestions, placeholder, id }) 
         value={value}
         onChange={handleChange}
         onFocus={handleFocus}
+        onKeyDown={handleKeyDown}
         style={{ width: '100%' }}
       />
       {value && (
         <button
           type="button"
-          onMouseDown={(e) => { e.preventDefault(); onChange(''); setOpen(false); }}
-          onTouchStart={(e) => { e.preventDefault(); onChange(''); setOpen(false); }}
+          onMouseDown={(e) => { e.preventDefault(); onChange(''); if (onCommit) onCommit(''); setOpen(false); }}
+          onTouchStart={(e) => { e.preventDefault(); onChange(''); if (onCommit) onCommit(''); setOpen(false); }}
           aria-label="Clear search"
           className="autocomplete-clear-btn"
         >
           <X className="lucide-icon" size={16} />
         </button>
       )}
-      {showDropdown && (
+      {showDropdown && typeof document !== 'undefined' && createPortal(
         <ul
           className="college-autocomplete-list"
           style={{
@@ -100,7 +124,7 @@ function CollegeAutocomplete({ value, onChange, suggestions, placeholder, id }) 
             top: rect.bottom + 2,
             left: rect.left,
             width: rect.width,
-            zIndex: 9999,
+            zIndex: 99999,
           }}
         >
           {filtered.map((name) => (
@@ -113,7 +137,8 @@ function CollegeAutocomplete({ value, onChange, suggestions, placeholder, id }) 
               {name}
             </li>
           ))}
-        </ul>
+        </ul>,
+        document.body
       )}
     </div>
   );
@@ -631,14 +656,16 @@ export default function Dashboard() {
   const sidebarWidthPx = viewportWidth <= 420 ? Math.min(viewportWidth * 0.88, 300) : 290;
 
   const [searchQuery, setSearchQuery] = useState('');
+  // committedSearchQuery is what actually gets sent to the API - only updates on selection or Enter
+  const [committedSearchQuery, setCommittedSearchQuery] = useState('');
   const [debouncedSearchQuery, setDebouncedSearchQuery] = useState(searchQuery);
 
   useEffect(() => {
     const handler = setTimeout(() => {
-      setDebouncedSearchQuery(searchQuery);
-    }, 400);
+      setDebouncedSearchQuery(committedSearchQuery);
+    }, 300);
     return () => clearTimeout(handler);
-  }, [searchQuery]);
+  }, [committedSearchQuery]);
   const [streamFilter, setStreamFilter] = useState(() => lsGet(LS_EXPLORE, {}).streamFilter ?? 'MEDICAL');
   const [categoryFilter, setCategoryFilter] = useState(() => lsGet(LS_EXPLORE, {}).categoryFilter ?? 'GM');
   const [quotaFilter, setQuotaFilter] = useState(() => lsGet(LS_EXPLORE, {}).quotaFilter ?? 'ALL');
@@ -1944,6 +1971,7 @@ export default function Dashboard() {
                 id="explore-sidebar-search"
                 value={searchQuery}
                 onChange={setSearchQuery}
+                onCommit={(val) => { setCommittedSearchQuery(val); }}
                 suggestions={exploreStreamCollegeNames}
                 placeholder="Name or code..."
               />
@@ -2306,6 +2334,7 @@ export default function Dashboard() {
                         id="explore-inline-search"
                         value={searchQuery}
                         onChange={setSearchQuery}
+                        onCommit={(val) => { setCommittedSearchQuery(val); }}
                         suggestions={exploreStreamCollegeNames}
                         placeholder="Enter name or code..."
                       />

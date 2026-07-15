@@ -694,9 +694,7 @@ export default function Dashboard() {
     return rows;
   }, [filteredDashboardData, sortConfig]);
 
-  useEffect(() => {
-    setExploreVisibleCount(100);
-  }, [filteredDashboardData]);
+
 
   const handleSort = (key) => {
     setSortConfig((prev) =>

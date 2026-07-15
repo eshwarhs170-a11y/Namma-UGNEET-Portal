@@ -15,6 +15,7 @@ function CollegeAutocomplete({ value, onChange, suggestions, placeholder, id }) 
   const [open, setOpen] = useState(false);
   const [focused, setFocused] = useState(false);
   const wrapRef = useRef(null);
+  const inputRef = useRef(null);
 
   const filtered = useMemo(() => {
     if (!value || value.length < 2) return [];
@@ -42,6 +43,7 @@ function CollegeAutocomplete({ value, onChange, suggestions, placeholder, id }) 
   return (
     <div ref={wrapRef} className="college-autocomplete-wrap" style={{ position: 'relative', width: '100%' }}>
       <input
+        ref={inputRef}
         id={id}
         type="text"
         autoComplete="off"
@@ -59,7 +61,7 @@ function CollegeAutocomplete({ value, onChange, suggestions, placeholder, id }) 
           aria-label="Clear search"
           className="autocomplete-clear-btn"
         >
-          ×
+          <X className="lucide-icon" size={16} />
         </button>
       )}
       {showDropdown && (
@@ -73,12 +75,14 @@ function CollegeAutocomplete({ value, onChange, suggestions, placeholder, id }) 
                 onChange(name);
                 setOpen(false);
                 setFocused(false);
+                inputRef.current?.blur();
               }}
               onTouchEnd={(e) => {
                 e.preventDefault();
                 onChange(name);
                 setOpen(false);
                 setFocused(false);
+                inputRef.current?.blur();
               }}
             >
               {name}
@@ -329,7 +333,7 @@ const PredictedGrid = React.memo(function PredictedGrid({
                   onClick={() => toggleSave(item)}
                   aria-label="Save college"
                 >
-                  {isSaved(item) ? '<Star className="lucide-icon" size={16} fill="currentColor" />' : '<Star className="lucide-icon" size={16} />'}
+                  {isSaved(item) ? <Star className="lucide-icon" size={16} fill="currentColor" /> : <Star className="lucide-icon" size={16} />}
                 </button>
                 <button
                   className={`add-option-btn${isInOptionList(item) ? ' added' : ''}`}
@@ -613,9 +617,9 @@ export default function Dashboard() {
   const [maxBudget, setMaxBudget] = useState(() => lsGet(LS_EXPLORE, {}).maxBudget ?? 1500000);
   // Default to 'R1'; if localStorage had the old 'ALL', fall back to 'R1'
   const [roundFilter, setRoundFilter] = useState(() => lsGet(LS_EXPLORE, {}).roundFilter ?? 'ALL');
-  const [yearFilter, setYearFilter] = useState(() => lsGet(LS_EXPLORE, {}).yearFilter ?? 'ALL');
-  const [exploreVisibleCount, setExploreVisibleCount] = useState(100);
-  const [sortConfig, setSortConfig] = useState(() => lsGet(LS_EXPLORE, {}).sortConfig ?? { key: 'collegeName', direction: 'asc' });
+  const [yearFilter, setYearFilter] = useState(() => lsGet(LS_EXPLORE, {}).yearFilter ?? '2024');
+
+  const [sortConfig, setSortConfig] = useState(() => lsGet(LS_EXPLORE, {}).sortConfig ?? { key: 'rank', direction: 'asc' });
 
   // Persist explore filter settings whenever they change
   useEffect(() => {
@@ -637,8 +641,8 @@ export default function Dashboard() {
     
     const params = new URLSearchParams({
       dataset: dataSource,
-      page: explorePage,
-      limit: 500, // fetch enough rows so all colleges appear after client-side grouping
+      page: 1, // Always fetch the first page, we don't paginate anymore
+      limit: 5000, // fetch enough rows so all colleges appear after client-side grouping
       sort: sortConfig.key,
       order: sortConfig.direction,
     });
@@ -1721,7 +1725,6 @@ export default function Dashboard() {
             <div className="field">
               <label>Allotment Year</label>
               <select value={yearFilter} onChange={(e) => setYearFilter(e.target.value)}>
-                <option value="ALL">All Years</option>
                 {dynamicYears.map((y) => (
                   <option key={y} value={y}>{y}</option>
                 ))}
@@ -2080,7 +2083,6 @@ export default function Dashboard() {
                     <div className="field">
                       <label>Allotment Year</label>
                       <select value={yearFilter} onChange={(e) => setYearFilter(e.target.value)}>
-                        <option value="ALL">All Years</option>
                         {dynamicYears.map((y) => (
                           <option key={y} value={y}>{y}</option>
                         ))}
@@ -2156,7 +2158,7 @@ export default function Dashboard() {
                               onClick={() => toggleSave(item)}
                               aria-label="Save college"
                             >
-                              {isSaved(item) ? '<Star className="lucide-icon" size={16} fill="currentColor" />' : '<Star className="lucide-icon" size={16} />'}
+                              {isSaved(item) ? <Star className="lucide-icon" size={16} fill="currentColor" /> : <Star className="lucide-icon" size={16} />}
                             </button>
                           </td>
                           <td>
@@ -2192,20 +2194,11 @@ export default function Dashboard() {
                   </tbody>
                 </table>
               </div>
-              {apiTotal > filteredDashboardData.length && (
-                <div className="show-more-wrap" style={{ marginTop: '16px' }}>
-                  <p className="truncate-note">
-                    Loaded {filteredDashboardData.length.toLocaleString('en-IN')} of {apiTotal.toLocaleString('en-IN')} records — showing {exploreColleges.length} unique colleges.
-                  </p>
-                  <button
-                    className="show-more-btn"
-                    disabled={dataLoading}
-                    onClick={() => setExplorePage((prev) => prev + 1)}
-                  >
-                    {dataLoading ? 'Loading...' : `Load More`}
-                  </button>
-                </div>
-              )}
+              <div className="show-more-wrap" style={{ marginTop: '16px', textAlign: 'center' }}>
+                <p className="truncate-note">
+                  Loaded {filteredDashboardData.length.toLocaleString('en-IN')} of {apiTotal.toLocaleString('en-IN')} records — showing {exploreColleges.length} unique colleges.
+                </p>
+              </div>
             </div>
           )}
 
@@ -2422,7 +2415,7 @@ export default function Dashboard() {
                               onClick={() => toggleSave(item)}
                               aria-label="Save college"
                             >
-                              {isSaved(item) ? '<Star className="lucide-icon" size={16} fill="currentColor" />' : '<Star className="lucide-icon" size={16} />'}
+                              {isSaved(item) ? <Star className="lucide-icon" size={16} fill="currentColor" /> : <Star className="lucide-icon" size={16} />}
                             </button>
                             <button
                               className={`add-option-btn${isInOptionList(item) ? ' added' : ''}`}

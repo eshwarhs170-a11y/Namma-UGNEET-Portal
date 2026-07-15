@@ -970,6 +970,7 @@ export default function Dashboard() {
     if (predictorYear !== 'ALL') params.set('year', predictorYear);
     if (dataSource === 'AIQ' && predictorQuota !== 'ALL') params.set('quota', predictorQuota);
 
+    setPredictedLoading(true);
     fetch(`/api/allotments?${params.toString()}`)
       .then(r => r.json())
       .then(d => {
@@ -1368,7 +1369,7 @@ export default function Dashboard() {
                   </tr>
                 </thead>
                 <tbody>
-                  {savedColleges.map((s) => (
+                  {[...savedColleges].sort((a, b) => a.rank - b.rank).map((s) => (
                     <tr key={s.id}>
                       <td>
                         <strong className="code-cell">{s.collegeCode}</strong>
@@ -2510,6 +2511,12 @@ export default function Dashboard() {
                   )}
                 </p>
 
+{predictedLoading ? (
+                  <div className="predicted-grid" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '180px', gap: '16px' }}>
+                    <div className="predict-spinner" />
+                    <p style={{ color: 'var(--muted)', fontSize: '0.95rem' }}>Fetching colleges…</p>
+                  </div>
+                ) : (
                 <PredictedGrid
                   predictedColleges={predictedColleges}
                   userRank={debouncedUserRank}
@@ -2521,6 +2528,7 @@ export default function Dashboard() {
                   onSelectCollege={setSelectedCollege}
                   showFees={dataSource === 'KEA'}
                 />
+                )}
 
                 {/* Show More button to extend predictor search range */}
                 {predictedColleges.length > 0 && userRank && !isNaN(userRank) && (

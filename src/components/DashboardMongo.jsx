@@ -286,6 +286,10 @@ const getCategoryMeaning = (code) =>
 const formatFees = (fees) =>
   fees === null || fees === undefined ? 'Not available' : `₹${fees.toLocaleString('en-IN')}`;
 
+// jsPDF helvetica doesn't support ₹, so we use Rs. instead for PDF exports to avoid garbled characters
+const formatFeesPdf = (fees) =>
+  fees === null || fees === undefined ? '—' : `Rs. ${fees.toLocaleString('en-IN')}`;
+
 const formatCategory = (category) => (category === 'UNKNOWN' ? 'Category not recorded' : category);
 
 const OPTIONS_KEY = 'namma_option_entries';
@@ -506,7 +510,8 @@ export default function Dashboard() {
 
 
   const [dataSource, setDataSource] = useState(() => lsGet(LS_DATASRC, 'KEA'));
-  const [dataLoading, setDataLoading] = useState(false);
+  const [initialLoading, setInitialLoading] = useState(false);
+  const [exploreLoading, setExploreLoading] = useState(false);
   const [dataError, setDataError] = useState(false);
   const [dropdownStats, setDropdownStats] = useState({ years: [], streams: [], categories: [], rounds: [], quotas: [] });
   const [apiData, setApiData] = useState([]);
@@ -521,7 +526,7 @@ export default function Dashboard() {
 
   // Fetch dropdown stats and college names
   useEffect(() => {
-    setDataLoading(true);
+    setInitialLoading(true);
     fetch(`/api/stats?dataset=${dataSource}`)
       .then(r => r.json())
       .then(d => {
@@ -530,11 +535,11 @@ export default function Dashboard() {
           const cleanedNames = new Set(d.colleges.map(name => cleanCollegeName(name)));
           setAllCollegeNames(Array.from(cleanedNames).sort());
         }
-        setDataLoading(false);
+        setInitialLoading(false);
       })
       .catch(() => {
         setDataError(true);
-        setDataLoading(false);
+        setInitialLoading(false);
       });
   }, [dataSource]);
   const [showEdgeHint, setShowEdgeHint] = useState(true);
@@ -692,7 +697,7 @@ export default function Dashboard() {
   // Fetch Explore Tab Data
   useEffect(() => {
     if (activeTab !== 'explore') return;
-    setDataLoading(true);
+    setExploreLoading(true);
     
     const params = new URLSearchParams({
       dataset: dataSource,
@@ -715,11 +720,11 @@ export default function Dashboard() {
       .then(d => {
          setApiData(prev => explorePage === 1 ? d.data : [...prev, ...d.data]);
          setApiTotal(d.total);
-         setDataLoading(false);
+         setExploreLoading(false);
       }).catch(err => {
          console.error(err);
          setDataError(true);
-         setDataLoading(false);
+         setExploreLoading(false);
       });
   }, [activeTab, dataSource, debouncedSearchQuery, streamFilter, categoryFilter, maxBudget, roundFilter, yearFilter, sortConfig, quotaFilter, explorePage]);
   
@@ -805,11 +810,13 @@ export default function Dashboard() {
   }, [rankRange]);
 
   useEffect(() => {
-    if (!dataLoading && dropdownStats.years.length > 0 && !yearDefaultSetRef.current) {
+    if (!initialLoading && dropdownStats.years.length > 0 && !yearDefaultSetRef.current) {
+      const maxYear = Math.max(...dropdownStats.years.map(y => parseInt(y, 10)));
+      setYearFilter(maxYear.toString());
+      setPredictorYear('ALL');
       yearDefaultSetRef.current = true;
-      if (dropdownStats.years.length > 0) setPredictorYear(dropdownStats.years.slice(-1)[0]);
     }
-  }, [dataLoading, dropdownStats]);
+  }, [initialLoading, dropdownStats]);
 
   const [savedColleges, setSavedColleges] = useState(() => {
     try {
@@ -998,7 +1005,7 @@ export default function Dashboard() {
     doc.text(`Generated: ${date}  |  Total Colleges: ${optionEntries.length}  |  This list is NOT submitted anywhere automatically.`, margin, 37.5);
 
     // Table header
-    const colX = [margin, margin + 8, margin + 100, margin + 128, margin + 155];
+    const colX = [margin, margin + 8, margin + 100, margin + 120, margin + 144];
     doc.setFillColor(26, 43, 74);
     doc.rect(margin - 2, 42, contentW + 4, 7, 'F');
     doc.setTextColor(255, 255, 255);
@@ -1344,7 +1351,7 @@ export default function Dashboard() {
     doc.text(`Generated: ${date}  |  Colleges shown: ${colleges.length}`, pageW - margin, 43, { align: 'right' });
 
     // Table header
-    const colX = [margin, margin + 8, margin + 100, margin + 122, margin + 144, margin + 163];
+    const colX = [margin, margin + 8, margin + 100, margin + 122, margin + 142, margin + 167];
     doc.setFillColor(26, 43, 74);
     doc.rect(margin - 2, tableStart - 6, contentW + 4, 7, 'F');
     doc.setTextColor(255, 255, 255);
@@ -1422,7 +1429,7 @@ export default function Dashboard() {
       doc.setTextColor(30, 120, 60);
       doc.setFont('helvetica', 'normal');
       doc.setFontSize(8);
-      doc.text(showFees && item.fees ? formatFees(item.fees) : '—', colX[4], y + 5);
+      doc.text(showFees && item.fees ? `Rs. ${item.fees.toLocaleString('en-IN')}` : '—', colX[4], y + 5);
 
       // Round + Year
       doc.setTextColor(60, 80, 130);
@@ -1585,11 +1592,11 @@ export default function Dashboard() {
     );
   }
 
-  if (dataLoading) {
+  if (initialLoading) {
     return (
       <div className={`loading-screen${darkMode ? " dark" : ""}`}>
         <img src={logo} alt="Namma-UGNEET" className="loading-logo" />
-        <p>Loading counselling data…</p>
+        <p>Loading initial data…</p>
       </div>
     );
   }
@@ -2440,7 +2447,14 @@ export default function Dashboard() {
                     </tr>
                   </thead>
                   <tbody>
-                    {exploreColleges.length === 0 ? (
+                    {exploreLoading ? (
+                      <tr className="empty-row">
+                        <td colSpan={showFees ? 9 : 8} style={{ padding: '60px 0' }}>
+                          <RefreshCw className="lucide-icon predict-spinner" size={28} style={{ display: 'block', margin: '0 auto 12px', color: 'var(--brand-deep)' }} />
+                          Fetching latest data...
+                        </td>
+                      </tr>
+                    ) : exploreColleges.length === 0 ? (
                       <tr className="empty-row">
                         <td colSpan={showFees ? 9 : 8}>No colleges found for these filters. Try a different round or category.</td>
                       </tr>

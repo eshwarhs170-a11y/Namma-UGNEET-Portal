@@ -1,4 +1,10 @@
 import React from 'react';
+import { 
+  Search, Target, Info, AlertTriangle, Lock, Unlock, ScrollText, Mail, 
+  Star, Trash2, FileText, MessageCircle, School, User, PenTool, Lightbulb, 
+  Coffee, RefreshCw, Frown, Circle, BarChart3, Check, X
+} from 'lucide-react';
+
 
 // Catches any rendering error in the component tree below it and shows a
 // friendly fallback instead of a blank white screen. Wrap your top-level
@@ -41,7 +47,7 @@ export default class ErrorBoundary extends React.Component {
             padding: '24px',
           }}
         >
-          <h2 style={{ margin: 0 }}>😕 Something went wrong</h2>
+          <h2 style={{ margin: 0 }}><Frown className="lucide-icon" size={24} /> Something went wrong</h2>
           <p style={{ maxWidth: '360px', color: '#5b6472', margin: 0 }}>
             NammaUGNEET hit an unexpected error. Your saved colleges and profiles are safe —
             just refresh to try again.

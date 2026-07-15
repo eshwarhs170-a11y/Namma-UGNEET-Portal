@@ -1,4 +1,10 @@
 import React, { useState, useMemo, useEffect, useRef, useCallback } from 'react';
+import { 
+  Search, Target, Info, AlertTriangle, Lock, Unlock, ScrollText, Mail, 
+  Star, Trash2, FileText, MessageCircle, School, User, PenTool, Lightbulb, 
+  Coffee, RefreshCw, Frown, Circle, BarChart3, Check, X
+} from 'lucide-react';
+
 import jsPDF from 'jspdf';
 import logo from '../assets/namma-ugneet-logo.png';
 import { fetchVisitCounts } from '../visitorCounter.js';
@@ -27,7 +33,7 @@ function lsSet(key, value) {
 
 const LEGAL_CONTENT = {
   about: {
-    title: 'ℹ️ About Us',
+    title: '<Info className="lucide-icon" size={18} /> About Us',
     paragraphs: [
       'NammaUGNEET is an independent, student-built tool created to help Karnataka NEET UG aspirants (and now All India Quota candidates too) explore past counselling cutoffs and estimate realistic college options.',
       'It is not affiliated with, endorsed by, or connected to the Karnataka Examinations Authority (KEA), the Medical Counselling Committee (MCC), or any government body.',
@@ -35,7 +41,7 @@ const LEGAL_CONTENT = {
     ],
   },
   disclaimer: {
-    title: '⚠️ Disclaimer',
+    title: '<AlertTriangle className="lucide-icon" size={18} /> Disclaimer',
     paragraphs: [
       'This tool provides estimates based on historical counselling data. Actual cutoffs change every year based on the number of applicants, seat availability, and policy changes — predictions here are not guarantees of admission.',
       'All cutoff, fee, and allotment data is manually compiled from official KEA and AIQ seat allotment PDFs. Every effort is made to extract this data accurately, but small errors are possible during parsing.',
@@ -44,7 +50,7 @@ const LEGAL_CONTENT = {
     ],
   },
   terms: {
-    title: '📜 Terms & Conditions',
+    title: '<ScrollText className="lucide-icon" size={18} /> Terms & Conditions',
     paragraphs: [
       'By using NammaUGNEET, you agree to the following:',
       '• This site is provided free of charge, for informational and planning purposes only. No account or payment is required to use it.',
@@ -56,7 +62,7 @@ const LEGAL_CONTENT = {
     ],
   },
   privacy: {
-    title: '🔒 Privacy Policy',
+    title: '<Lock className="lucide-icon" size={18} /> Privacy Policy',
     paragraphs: [
       'No account creation is required to use NammaUGNEET, and we do not collect personal information to let you use the core features.',
       'Saved colleges, notes, rank profiles, and filter preferences are stored locally in your own browser (using localStorage) — this data never leaves your device or gets sent to us.',
@@ -67,7 +73,7 @@ const LEGAL_CONTENT = {
     ],
   },
   contact: {
-    title: '✉️ Contact Us',
+    title: '<Mail className="lucide-icon" size={18} /> Contact Us',
     paragraphs: [
       'Found an error in the data, hit a bug, or have a feature suggestion? We\'d genuinely like to hear about it.',
       'This is a small, independently-run project, so replies may take a little time — but every message is read.',
@@ -243,14 +249,14 @@ const PredictedGrid = React.memo(function PredictedGrid({
                   onClick={() => toggleSave(item)}
                   aria-label="Save college"
                 >
-                  {isSaved(item) ? '★' : '☆'}
+                  {isSaved(item) ? '<Star className="lucide-icon" size={16} fill="currentColor" />' : '<Star className="lucide-icon" size={16} />'}
                 </button>
                 <button
                   className={`add-option-btn${isInOptionList(item) ? ' added' : ''}`}
                   onClick={() => addToOptionList(item)}
                   title="Add to Option Entry List"
                 >
-                  {isInOptionList(item) ? '✓ Added' : '+ Add'}
+                  {isInOptionList(item) ? '<Check className="lucide-icon" size={16} /> Added' : '+ Add'}
                 </button>
               </div>
             </div>
@@ -420,11 +426,11 @@ export default function Dashboard() {
 
   const TOUR_KEY = 'namma_tour_seen';
   const tourSteps = [
-    { title: '🎯 Quick Predict', body: 'Enter your NEET rank right on this page to jump straight into the Smart College Predictor.' },
+    { title: '<Target className="lucide-icon" size={24} /> Quick Predict', body: 'Enter your NEET rank right on this page to jump straight into the Smart College Predictor.' },
     { title: '🎚️ Quick Filters', body: 'Search by name, filter by stream, category, round, and year — all update the table live.' },
-    { title: '☆ Save Colleges', body: 'Tap the star on any row or predictor card to bookmark it. Saved colleges show up in the sidebar — save 2+ to unlock the Compare button.' },
-    { title: '🏫 College Details', body: 'Tap any college name to see every category, round, and year cutoff for that college, plus a private notes box just for you.' },
-    { title: '👤 Save Rank Profiles', body: 'Checking ranks for a sibling or friend too? Save each search as a named profile in the sidebar for one-click reloading.' },
+    { title: '<Star className="lucide-icon" size={16} /> Save Colleges', body: 'Tap the star on any row or predictor card to bookmark it. Saved colleges show up in the sidebar — save 2+ to unlock the Compare button.' },
+    { title: '<School className="lucide-icon" size={18} /> College Details', body: 'Tap any college name to see every category, round, and year cutoff for that college, plus a private notes box just for you.' },
+    { title: '<User className="lucide-icon" size={18} /> Save Rank Profiles', body: 'Checking ranks for a sibling or friend too? Save each search as a named profile in the sidebar for one-click reloading.' },
     { title: '☰ Sidebar', body: 'Use the edge handle (top-left) to open the sidebar anytime for live stats, filters, and your saved lists.' },
   ];
   const [tourOpen, setTourOpen] = useState(false);
@@ -743,7 +749,7 @@ export default function Dashboard() {
     const lines = optionEntries.map((o, i) =>
       `Option ${i + 1}: ${o.collegeName} (${o.collegeCode}) — ${o.courseDetails}, ${o.category} [${o.round} ${o.year}]`
     );
-    const text = `📝 NammaUGNEET — My Option Entry Preference List\n\n${lines.join('\n')}\n\nBuild your own list: https://namma-ugneet-portal.vercel.app/`;
+    const text = `<PenTool className="lucide-icon" size={24} /> NammaUGNEET — My Option Entry Preference List\n\n${lines.join('\n')}\n\nBuild your own list: https://namma-ugneet-portal.vercel.app/`;
     window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
   };
 
@@ -936,7 +942,7 @@ export default function Dashboard() {
     const lines = predictedColleges.slice(0, 15).map((item, i) =>
       `${i + 1}. ${item.collegeName} (${item.collegeCode}) — ${item.courseDetails}, ${formatCategory(item.category)}${showFees ? `, ${formatFees(item.fees)}` : ''}, Cutoff ${item.rank.toLocaleString('en-IN')} [${item.round} ${item.year}]`
     );
-    const header = `🎯 NammaUGNEET — Predicted colleges for Rank ${userRank} (${predictorCategory}, ${predictorStream}):\n\n`;
+    const header = `<Target className="lucide-icon" size={24} /> NammaUGNEET — Predicted colleges for Rank ${userRank} (${predictorCategory}, ${predictorStream}):\n\n`;
     const footer = `\n\nCheck your own rank: https://namma-ugneet-portal.vercel.app/`;
     shareOnWhatsApp(header + lines.join('\n') + footer);
   };
@@ -1082,10 +1088,10 @@ export default function Dashboard() {
           
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem', fontSize: '0.9rem' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '0.5rem' }}>
-              <span style={{ color: '#94a3b8' }}>Predictor saved:</span> <strong style={{ color: '#818cf8' }}>{localStorage.getItem('namma_predictor_state') ? '✓' : '–'}</strong>
+              <span style={{ color: '#94a3b8' }}>Predictor saved:</span> <strong style={{ color: '#818cf8' }}>{localStorage.getItem('namma_predictor_state') ? '<Check className="lucide-icon" size={16} />' : '–'}</strong>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '0.5rem' }}>
-              <span style={{ color: '#94a3b8' }}>Explore saved:</span> <strong style={{ color: '#818cf8' }}>{localStorage.getItem('namma_explore_state') ? '✓' : '–'}</strong>
+              <span style={{ color: '#94a3b8' }}>Explore saved:</span> <strong style={{ color: '#818cf8' }}>{localStorage.getItem('namma_explore_state') ? '<Check className="lucide-icon" size={16} />' : '–'}</strong>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '0.5rem' }}>
               <span style={{ color: '#94a3b8' }}>Saved colleges:</span> <strong style={{ color: '#818cf8' }}>{JSON.parse(localStorage.getItem('namma_saved_colleges') || '[]').length}</strong>
@@ -1152,7 +1158,7 @@ export default function Dashboard() {
           <div className="glossary-card" onClick={(e) => e.stopPropagation()}>
             <div className="glossary-header">
               <h3>📖 {dataSource === 'AIQ' ? 'AIQ Guide' : 'Category Guide'}</h3>
-              <button className="modal-close-btn" onClick={() => setGlossaryOpen(false)} aria-label="Close">✕</button>
+              <button className="modal-close-btn" onClick={() => setGlossaryOpen(false)} aria-label="Close"><X className="lucide-icon" size={16} /></button>
             </div>
             {dataSource === 'AIQ' && dynamicQuotas.length > 0 && (
               <>
@@ -1187,7 +1193,7 @@ export default function Dashboard() {
           <div className="compare-card" onClick={(e) => e.stopPropagation()}>
             <div className="glossary-header">
               <h3>⚖️ Compare Saved Colleges</h3>
-              <button className="modal-close-btn" onClick={() => setCompareOpen(false)} aria-label="Close">✕</button>
+              <button className="modal-close-btn" onClick={() => setCompareOpen(false)} aria-label="Close"><X className="lucide-icon" size={16} /></button>
             </div>
             <div className="compare-table-wrap">
               <table className="compare-table">
@@ -1214,7 +1220,7 @@ export default function Dashboard() {
                       <td>{s.year}</td>
                       {showFees && <td className="fees-cell">{formatFees(s.fees)}</td>}
                       <td><span className="rank-pill">{s.rank.toLocaleString('en-IN')}</span></td>
-                      <td><button className="modal-close-btn" onClick={() => removeSaved(s.id)} aria-label="Remove">✕</button></td>
+                      <td><button className="modal-close-btn" onClick={() => removeSaved(s.id)} aria-label="Remove"><X className="lucide-icon" size={16} /></button></td>
                     </tr>
                   ))}
                 </tbody>
@@ -1230,7 +1236,7 @@ export default function Dashboard() {
           <div className="college-detail-card" onClick={(e) => e.stopPropagation()}>
             <div className="glossary-header">
               <h3>{selectedCollege.collegeName}</h3>
-              <button className="modal-close-btn" onClick={() => setSelectedCollege(null)} aria-label="Close">✕</button>
+              <button className="modal-close-btn" onClick={() => setSelectedCollege(null)} aria-label="Close"><X className="lucide-icon" size={16} /></button>
             </div>
             <p className="glossary-intro">{dataSource === 'AIQ' ? 'Reference Code' : 'KEA Code'}: <strong>{selectedCollege.collegeCode}</strong></p>
 
@@ -1280,7 +1286,7 @@ export default function Dashboard() {
                     </table>
                   </div>
 
-                  <h4 className="college-subheading">📝 My Notes</h4>
+                  <h4 className="college-subheading"><PenTool className="lucide-icon" size={24} /> My Notes</h4>
                   <p className="glossary-intro" style={{ marginBottom: '8px' }}>
                     Personal notes only — saved on this device, not shared with anyone.
                   </p>
@@ -1331,7 +1337,7 @@ export default function Dashboard() {
       {supportOpen && (
         <div className="tour-backdrop" onClick={() => setSupportOpen(false)}>
           <div className="tour-card" onClick={(e) => e.stopPropagation()} style={{ textAlign: 'center', maxWidth: '380px' }}>
-            <h3 style={{ fontSize: '1.5rem', marginBottom: '0.5rem', color: '#10b981' }}>Buy Us a Coffee ☕</h3>
+            <h3 style={{ fontSize: '1.5rem', marginBottom: '0.5rem', color: '#10b981' }}>Buy Us a Coffee <Coffee className="lucide-icon" size={24} /></h3>
             <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem', fontSize: '0.95rem' }}>
               If NammaUGNEET helped you find your dream college, consider supporting our work! Your tip helps keep the servers running and the site ad-free.
             </p>
@@ -1411,7 +1417,7 @@ export default function Dashboard() {
             >
               {darkMode ? '☀️' : '🌙'}
             </button>
-            <button className="sidebar-close" onClick={() => { userToggledRef.current = true; setSidebarOpen(false); }} aria-label="Close sidebar">✕</button>
+            <button className="sidebar-close" onClick={() => { userToggledRef.current = true; setSidebarOpen(false); }} aria-label="Close sidebar"><X className="lucide-icon" size={16} /></button>
           </div>
         </div>
 
@@ -1449,7 +1455,7 @@ export default function Dashboard() {
               if (window.matchMedia('(max-width: 880px)').matches) setSidebarOpen(false);
             }}
           >
-            🔍 Explore Cutoffs &amp; Fees
+            <Search className="lucide-icon" size={18} /> Explore Cutoffs &amp; Fees
           </button>
           <button
             className={`predictor${activeTab === 'predictor' ? ' active' : ''}`}
@@ -1458,7 +1464,7 @@ export default function Dashboard() {
               if (window.matchMedia('(max-width: 880px)').matches) setSidebarOpen(false);
             }}
           >
-            🎯 Smart College Predictor
+            <Target className="lucide-icon" size={24} /> Smart College Predictor
           </button>
           <button
             className={activeTab === 'options' ? 'active' : ''}
@@ -1467,7 +1473,7 @@ export default function Dashboard() {
               if (window.matchMedia('(max-width: 880px)').matches) setSidebarOpen(false);
             }}
           >
-            📝 Option Entry List {optionEntries.length > 0 && `(${optionEntries.length})`}
+            <PenTool className="lucide-icon" size={24} /> Option Entry List {optionEntries.length > 0 && `(${optionEntries.length})`}
           </button>
           <button
             className={activeTab === 'contact' ? 'active' : ''}
@@ -1476,7 +1482,7 @@ export default function Dashboard() {
               if (window.matchMedia('(max-width: 880px)').matches) setSidebarOpen(false);
             }}
           >
-            ✉️ Contact &amp; About
+            <Mail className="lucide-icon" size={18} /> Contact &amp; About
           </button>
           <button
             className="support-nav-btn"
@@ -1486,7 +1492,7 @@ export default function Dashboard() {
               if (window.matchMedia('(max-width: 880px)').matches) setSidebarOpen(false);
             }}
           >
-            ☕ Support Us
+            <Coffee className="lucide-icon" size={24} /> Support Us
           </button>
         </nav>
 
@@ -1524,9 +1530,9 @@ export default function Dashboard() {
             <div className="field">
               <label>Course Stream</label>
               <select value={streamFilter} onChange={(e) => setStreamFilter(e.target.value)}>
-                <option value="MEDICAL">🟢 MBBS (Medical)</option>
-                <option value="DENTAL">🔵 BDS (Dental)</option>
-                <option value="AYUSH">🟤 AYUSH Streams</option>
+                <option value="MEDICAL"><Circle className="lucide-icon" size={16} fill="#10b981" color="#10b981" /> MBBS (Medical)</option>
+                <option value="DENTAL"><Circle className="lucide-icon" size={16} fill="#3b82f6" color="#3b82f6" /> BDS (Dental)</option>
+                <option value="AYUSH"><Circle className="lucide-icon" size={16} fill="#d97706" color="#d97706" /> AYUSH Streams</option>
               </select>
             </div>
 
@@ -1587,7 +1593,7 @@ export default function Dashboard() {
         )}
 
         <div className="sidebar-section">
-          <h4>👤 Saved Profiles</h4>
+          <h4><User className="lucide-icon" size={18} /> Saved Profiles</h4>
           <div className="profile-save-row">
             <input
               type="text"
@@ -1615,9 +1621,9 @@ export default function Dashboard() {
         </div>
 
         <div className="sidebar-section saved-section">
-          <h4>⭐ Saved Colleges ({savedColleges.length})</h4>
+          <h4><Star className="lucide-icon" size={18} /> Saved Colleges ({savedColleges.length})</h4>
           {savedColleges.length === 0 ? (
-            <p className="empty-hint">Tap the ☆ on any college to save it here.</p>
+            <p className="empty-hint">Tap the <Star className="lucide-icon" size={16} /> on any college to save it here.</p>
           ) : (
             <ul className="saved-list">
               {savedColleges.map((s) => (
@@ -1678,7 +1684,7 @@ export default function Dashboard() {
           {activeTab === 'home' && (
             <div className="home-view">
               <div className="home-datasource-section">
-                <h3 className="home-section-heading">📊 Choose Your Data Source</h3>
+                <h3 className="home-section-heading"><BarChart3 className="lucide-icon" size={18} /> Choose Your Data Source</h3>
                 <div className="home-datasource-grid">
                   <button
                     className={`home-datasource-card${dataSource === 'KEA' ? ' active' : ''}`}
@@ -1687,7 +1693,7 @@ export default function Dashboard() {
                     <span className="home-datasource-icon">🏛️</span>
                     <strong>KEA (Karnataka)</strong>
                     <p>State counselling — cutoffs, fees &amp; seat allotments across Karnataka's Medical, Dental &amp; AYUSH colleges.</p>
-                    {dataSource === 'KEA' && <span className="home-datasource-badge">✓ Active</span>}
+                    {dataSource === 'KEA' && <span className="home-datasource-badge"><Check className="lucide-icon" size={16} /> Active</span>}
                   </button>
                   <button
                     className={`home-datasource-card${dataSource === 'AIQ' ? ' active' : ''}`}
@@ -1696,7 +1702,7 @@ export default function Dashboard() {
                     <span className="home-datasource-icon">🌐</span>
                     <strong>AIQ (All India)</strong>
                     <p>All India Quota counselling — cutoffs across MBBS &amp; BDS colleges nationwide, final round.</p>
-                    {dataSource === 'AIQ' && <span className="home-datasource-badge">✓ Active</span>}
+                    {dataSource === 'AIQ' && <span className="home-datasource-badge"><Check className="lucide-icon" size={16} /> Active</span>}
                   </button>
                 </div>
               </div>
@@ -1707,13 +1713,13 @@ export default function Dashboard() {
                   <p>Your guide to {dataSource === 'AIQ' ? 'All India Quota' : 'Karnataka'} NEET UG counselling — {dataSource === 'AIQ' ? 'MBBS, BDS & AYUSH' : 'Medical, Dental & AYUSH'}, {dynamicYears.join('–')}.</p>
                 </div>
                 <div className="home-hero-actions">
-                  <button className="home-cta primary" onClick={() => navigateTo('predictor')}>🎯 Predict</button>
-                  <button className="home-cta" onClick={() => navigateTo('explore')}>🔍 Explore</button>
+                  <button className="home-cta primary" onClick={() => navigateTo('predictor')}><Target className="lucide-icon" size={24} /> Predict</button>
+                  <button className="home-cta" onClick={() => navigateTo('explore')}><Search className="lucide-icon" size={18} /> Explore</button>
                 </div>
               </div>
 
               <div className="home-search-section">
-                <label className="home-search-label" htmlFor="home-search-input">🔍 Search a college by name or code</label>
+                <label className="home-search-label" htmlFor="home-search-input"><Search className="lucide-icon" size={18} /> Search a college by name or code</label>
                 <div className="home-search-row">
                   <input
                     id="home-search-input"
@@ -1736,29 +1742,29 @@ export default function Dashboard() {
               <h3 className="home-section-heading">What you can do here</h3>
               <div className="home-feature-grid">
                 <button className="home-feature-card" onClick={() => navigateTo('explore')}>
-                  <span className="home-feature-icon">🔍</span>
+                  <span className="home-feature-icon"><Search className="lucide-icon" size={18} /></span>
                   <strong>Explore Cutoffs &amp; Fees</strong>
                   <p>Search and filter every seat allotment by stream, category, round, year, and budget.</p>
                 </button>
                 <button className="home-feature-card" onClick={() => navigateTo('predictor')}>
-                  <span className="home-feature-icon">🎯</span>
+                  <span className="home-feature-icon"><Target className="lucide-icon" size={24} /></span>
                   <strong>Smart Predictor</strong>
                   <p>Enter your rank to see which colleges you realistically qualify for, with round &amp; year trends.</p>
                 </button>
                 <button className="home-feature-card" onClick={() => navigateTo('options')}>
-                  <span className="home-feature-icon">📝</span>
+                  <span className="home-feature-icon"><PenTool className="lucide-icon" size={24} /></span>
                   <strong>Option Entry Generator</strong>
                   <p>Build and reorder your college preference list, just like the real KEA option entry form.</p>
                 </button>
                 <button className="home-feature-card" onClick={() => { navigateTo('explore'); }}>
-                  <span className="home-feature-icon">☆</span>
+                  <span className="home-feature-icon"><Star className="lucide-icon" size={16} /></span>
                   <strong>Save &amp; Compare</strong>
                   <p>Bookmark colleges as you browse, then compare them side-by-side once you've shortlisted a few.</p>
                 </button>
               </div>
 
               <div className="home-disclaimer">
-                ⚠️ This is an independent, unofficial tool. Always cross-verify with the official{' '}
+                <AlertTriangle className="lucide-icon" size={18} /> This is an independent, unofficial tool. Always cross-verify with the official{' '}
                 <a href="https://kea.kar.nic.in" target="_blank" rel="noopener noreferrer">KEA website</a> before making decisions.
                 See the <button className="inline-link-btn" onClick={() => navigateTo('contact')}>Contact &amp; About</button> page for details.
               </div>
@@ -1828,7 +1834,7 @@ export default function Dashboard() {
             <div>
               <div className="predictor-teaser">
                 <div className="predictor-teaser-text">
-                  <h3>🎯 Not sure where you stand?</h3>
+                  <h3><Target className="lucide-icon" size={24} /> Not sure where you stand?</h3>
                   <p>Enter your NEET rank and jump straight to the Smart College Predictor.</p>
                 </div>
                 <div className="predictor-teaser-action">
@@ -1880,9 +1886,9 @@ export default function Dashboard() {
                     <div className="field">
                       <label>Course Stream</label>
                       <select value={streamFilter} onChange={(e) => setStreamFilter(e.target.value)}>
-                        <option value="MEDICAL">🟢 MBBS (Medical)</option>
-                        <option value="DENTAL">🔵 BDS (Dental)</option>
-                        <option value="AYUSH">🟤 AYUSH Streams</option>
+                        <option value="MEDICAL"><Circle className="lucide-icon" size={16} fill="#10b981" color="#10b981" /> MBBS (Medical)</option>
+                        <option value="DENTAL"><Circle className="lucide-icon" size={16} fill="#3b82f6" color="#3b82f6" /> BDS (Dental)</option>
+                        <option value="AYUSH"><Circle className="lucide-icon" size={16} fill="#d97706" color="#d97706" /> AYUSH Streams</option>
                       </select>
                     </div>
                     {dataSource === 'AIQ' && (
@@ -1940,7 +1946,7 @@ export default function Dashboard() {
               )}
 
               <p className="results-summary">
-                📊 Found <strong>{filteredDashboardData.length}</strong> matching college allotment paths.
+                <BarChart3 className="lucide-icon" size={18} /> Found <strong>{filteredDashboardData.length}</strong> matching college allotment paths.
               </p>
 
               <div className="table-wrap">
@@ -1990,7 +1996,7 @@ export default function Dashboard() {
                               onClick={() => toggleSave(item)}
                               aria-label="Save college"
                             >
-                              {isSaved(item) ? '★' : '☆'}
+                              {isSaved(item) ? '<Star className="lucide-icon" size={16} fill="currentColor" />' : '<Star className="lucide-icon" size={16} />'}
                             </button>
                           </td>
                           <td>
@@ -2000,7 +2006,7 @@ export default function Dashboard() {
                               aria-label="Add to option entry list"
                               title="Add to Option Entry List"
                             >
-                              {isInOptionList(item) ? '✓' : '+'}
+                              {isInOptionList(item) ? '<Check className="lucide-icon" size={16} />' : '+'}
                             </button>
                           </td>
                           <td className="code-cell">{item.collegeCode}</td>
@@ -2051,7 +2057,7 @@ export default function Dashboard() {
               </button>
 
               <div className="ticket-hero">
-                <h3>🎯 Target Seat Predictor Matrix</h3>
+                <h3><Target className="lucide-icon" size={24} /> Target Seat Predictor Matrix</h3>
                 <p className="desc">Enter your parameters below. The algorithm matches your score against previous allotment thresholds to generate target seat listings.</p>
 
                 <div className="predictor-grid">
@@ -2145,7 +2151,7 @@ export default function Dashboard() {
                   </div>
 
                   <div className="field">
-                    <label>🔍 Search a Specific College</label>
+                    <label><Search className="lucide-icon" size={18} /> Search a Specific College</label>
                     <input
                       type="text"
                       list="predictor-college-options"
@@ -2164,7 +2170,7 @@ export default function Dashboard() {
                   <div className="field">
                     <label>&nbsp;</label>
                     <button type="button" className="home-cta primary" style={{ width: '100%', height: '41px' }} onClick={() => {}}>
-                      🔍 Search Matches
+                      <Search className="lucide-icon" size={18} /> Search Matches
                     </button>
                   </div>
                 </div>
@@ -2173,18 +2179,18 @@ export default function Dashboard() {
               {desiredCollegeCheck && (
                 <div className={`desired-college-box ${desiredCollegeCheck.status}`}>
                   {desiredCollegeCheck.status === 'need_rank' && (
-                    <p>ℹ️ Enter your NEET rank above to check if <strong>{desiredCollegeName}</strong> is within your reach.</p>
+                    <p><Info className="lucide-icon" size={18} /> Enter your NEET rank above to check if <strong>{desiredCollegeName}</strong> is within your reach.</p>
                   )}
                   {desiredCollegeCheck.status === 'notfound' && (
-                    <p>🔍 No college matching "<strong>{desiredCollegeName}</strong>" found in the {predictorStream} stream. Check the spelling or try a shorter search term.</p>
+                    <p><Search className="lucide-icon" size={18} /> No college matching "<strong>{desiredCollegeName}</strong>" found in the {predictorStream} stream. Check the spelling or try a shorter search term.</p>
                   )}
                   {desiredCollegeCheck.status === 'notfound_for_filters' && (
-                    <p>🔍 <strong>{desiredCollegeName}</strong> exists in our data, but not under <strong>{predictorCategory}</strong> category for the selected round/year. Try "All Rounds" / "All Years", or a different category.</p>
+                    <p><Search className="lucide-icon" size={18} /> <strong>{desiredCollegeName}</strong> exists in our data, but not under <strong>{predictorCategory}</strong> category for the selected round/year. Try "All Rounds" / "All Years", or a different category.</p>
                   )}
                   {desiredCollegeCheck.status === 'not_attainable' && (
                     <div>
                       <p>
-                        😕 Sorry, <strong>{desiredCollegeCheck.record.collegeName}</strong> was not available for Rank {userRank} under these filters.
+                        <Frown className="lucide-icon" size={24} /> Sorry, <strong>{desiredCollegeCheck.record.collegeName}</strong> was not available for Rank {userRank} under these filters.
                         Its closest cutoff was <strong>{desiredCollegeCheck.record.rank.toLocaleString('en-IN')}</strong> ({desiredCollegeCheck.record.round} {desiredCollegeCheck.record.year}, {desiredCollegeCheck.record.category}) — you'd need a rank at or better than that.
                       </p>
                       {(() => {
@@ -2194,7 +2200,7 @@ export default function Dashboard() {
                         if (alternatives.length === 0) return null;
                         return (
                           <div className="similar-colleges-box">
-                            <p className="similar-colleges-heading">💡 You might be attainable for these instead:</p>
+                            <p className="similar-colleges-heading"><Lightbulb className="lucide-icon" size={18} /> You might be attainable for these instead:</p>
                             <ul className="similar-colleges-list">
                               {alternatives.map((alt, i) => (
                                 <li key={i}>
@@ -2220,21 +2226,21 @@ export default function Dashboard() {
                     return (
                       <div className="result-card searched-result">
                         <div className="result-top">
-                          <span className="result-code">✓ YOUR SEARCH · CODE: {item.collegeCode}</span>
+                          <span className="result-code"><Check className="lucide-icon" size={16} /> YOUR SEARCH · CODE: {item.collegeCode}</span>
                           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                             <button
                               className={`star-btn${isSaved(item) ? ' saved' : ''}`}
                               onClick={() => toggleSave(item)}
                               aria-label="Save college"
                             >
-                              {isSaved(item) ? '★' : '☆'}
+                              {isSaved(item) ? '<Star className="lucide-icon" size={16} fill="currentColor" />' : '<Star className="lucide-icon" size={16} />'}
                             </button>
                             <button
                               className={`add-option-btn${isInOptionList(item) ? ' added' : ''}`}
                               onClick={() => addToOptionList(item)}
                               title="Add to Option Entry List"
                             >
-                              {isInOptionList(item) ? '✓ Added' : '+ Add'}
+                              {isInOptionList(item) ? '<Check className="lucide-icon" size={16} /> Added' : '+ Add'}
                             </button>
                           </div>
                         </div>
@@ -2263,7 +2269,7 @@ export default function Dashboard() {
                     className="category-compare-toggle"
                     onClick={() => setCategoryCompareOpen((prev) => !prev)}
                   >
-                    🔄 {categoryCompareOpen ? 'Hide' : 'Compare'} Across My Eligible Categories
+                    <RefreshCw className="lucide-icon" size={16} /> {categoryCompareOpen ? 'Hide' : 'Compare'} Across My Eligible Categories
                   </button>
                   {categoryCompareOpen && (
                     <div className="category-compare-table-wrap">
@@ -2304,14 +2310,14 @@ export default function Dashboard() {
 
               <div>
                 <div className="predicted-heading-row">
-                  <h3 className="predicted-heading">💡 Predicted Eligible Target Opportunities</h3>
+                  <h3 className="predicted-heading"><Lightbulb className="lucide-icon" size={18} /> Predicted Eligible Target Opportunities</h3>
                   {predictedColleges.length > 0 && (
                     <div style={{ display: 'flex', gap: '8px' }}>
                       <button className="whatsapp-share-btn" onClick={sharePredictedResultsOnWhatsApp}>
-                        💬 Share on WhatsApp
+                        <MessageCircle className="lucide-icon" size={18} /> Share on WhatsApp
                       </button>
                       <button className="pdf-download-btn" onClick={downloadPredictedResultsPDF}>
-                        📄 Download PDF
+                        <FileText className="lucide-icon" size={18} /> Download PDF
                       </button>
                     </div>
                   )}
@@ -2343,7 +2349,7 @@ export default function Dashboard() {
           {activeTab === 'options' && (
             <div>
               <div className="option-intro">
-                <h3>📝 Build Your Option Entry List</h3>
+                <h3><PenTool className="lucide-icon" size={24} /> Build Your Option Entry List</h3>
                 <p>
                   During real KEA counselling, you rank your preferred colleges in order — this is your practice space.
                   Add colleges from the <button className="inline-link-btn" onClick={() => navigateTo('explore')}>Explore</button> or{' '}
@@ -2354,7 +2360,7 @@ export default function Dashboard() {
 
               {optionEntries.length === 0 ? (
                 <div className="option-empty-state">
-                  <span className="option-empty-icon">📝</span>
+                  <span className="option-empty-icon"><PenTool className="lucide-icon" size={24} /></span>
                   <h4>Your preference list starts here</h4>
                   <p>
                     Think of this as a practice run for KEA's real "Option Entry" step — where you'll rank
@@ -2365,8 +2371,8 @@ export default function Dashboard() {
                     then tap the <span className="pill">+ Add</span> button on any college — it'll show up right here, ready to reorder.
                   </p>
                   <div className="option-empty-actions">
-                    <button className="home-cta primary" onClick={() => navigateTo('explore')}>🔍 Go to Explore</button>
-                    <button className="home-cta" onClick={() => navigateTo('predictor')}>🎯 Go to Predictor</button>
+                    <button className="home-cta primary" onClick={() => navigateTo('explore')}><Search className="lucide-icon" size={18} /> Go to Explore</button>
+                    <button className="home-cta" onClick={() => navigateTo('predictor')}><Target className="lucide-icon" size={24} /> Go to Predictor</button>
                   </div>
                 </div>
               ) : (
@@ -2375,10 +2381,10 @@ export default function Dashboard() {
                     <span>{optionEntries.length} college{optionEntries.length !== 1 ? 's' : ''} in your list</span>
                     <div style={{ display: 'flex', gap: '8px' }}>
                       <button className="whatsapp-share-btn" onClick={shareOptionListOnWhatsApp}>
-                        💬 Share on WhatsApp
+                        <MessageCircle className="lucide-icon" size={18} /> Share on WhatsApp
                       </button>
                       <button className="pdf-download-btn" onClick={downloadOptionListPDF}>
-                        📄 Download PDF
+                        <FileText className="lucide-icon" size={18} /> Download PDF
                       </button>
                       <button className="clear-options-btn" onClick={clearOptionList}>🗑 Clear All</button>
                     </div>
@@ -2402,14 +2408,14 @@ export default function Dashboard() {
                         <div className="option-entry-actions">
                           <button onClick={() => moveOption(i, -1)} disabled={i === 0} aria-label="Move up">↑</button>
                           <button onClick={() => moveOption(i, 1)} disabled={i === optionEntries.length - 1} aria-label="Move down">↓</button>
-                          <button onClick={() => removeFromOptionList(o.id)} className="remove-option-btn" aria-label="Remove">✕</button>
+                          <button onClick={() => removeFromOptionList(o.id)} className="remove-option-btn" aria-label="Remove"><X className="lucide-icon" size={16} /></button>
                         </div>
                       </li>
                     ))}
                   </ul>
 
                   <p className="option-disclaimer">
-                    ⚠️ This list is for your own planning only. It is not submitted anywhere — you must still enter your
+                    <AlertTriangle className="lucide-icon" size={18} /> This list is for your own planning only. It is not submitted anywhere — you must still enter your
                     official options on the KEA counselling portal.
                   </p>
                 </>
@@ -2422,7 +2428,7 @@ export default function Dashboard() {
             <div className="contact-view">
               
               <div className="contact-section" style={{ background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%)', border: '1px solid rgba(16, 185, 129, 0.2)', padding: '2rem', borderRadius: '16px', textAlign: 'center', marginBottom: '2rem' }}>
-                <h3 style={{ color: '#10b981', fontSize: '1.6rem', marginBottom: '0.5rem' }}>Buy Us a Coffee ☕</h3>
+                <h3 style={{ color: '#10b981', fontSize: '1.6rem', marginBottom: '0.5rem' }}>Buy Us a Coffee <Coffee className="lucide-icon" size={24} /></h3>
                 <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem', maxWidth: '600px', margin: '0 auto 1.5rem auto' }}>
                   NammaUGNEET is an independent, student-built tool provided completely free of charge and free of ads. 
                   If this tool helped you predict your college or saved you hours of PDF scrolling, consider supporting our work! Your tip helps keep the servers running.

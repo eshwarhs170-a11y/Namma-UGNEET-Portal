@@ -50,7 +50,7 @@ export default async function handler(req, res) {
       years: years.filter(Boolean).sort(),
       streams: streams.filter(Boolean).sort(),
       categories: categories.filter(Boolean).sort(),
-      rounds: rounds.filter(Boolean).sort(),
+      rounds: rounds.filter(r => r && !/stray|vacancy/i.test(r)).sort(),
       quotas: quotas.filter(Boolean).sort(),
       colleges: colleges.filter(Boolean).sort(),
       totalRecords,

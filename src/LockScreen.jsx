@@ -1,4 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { 
+  Search, Target, Info, AlertTriangle, Lock, Unlock, ScrollText, Mail, 
+  Star, Trash2, FileText, MessageCircle, School, User, PenTool, Lightbulb, 
+  Coffee, RefreshCw, Frown, Circle, BarChart3, Check, X
+} from 'lucide-react';
+
 import logo from './assets/namma-ugneet-logo.png';
 
 // ── Password Configuration ────────────────────────────────────────────────────
@@ -130,7 +136,7 @@ function LockScreen({ onUnlock }) {
             NammaUGNEET
           </h1>
           <p style={{ color: '#64748b', fontSize: '0.82rem', marginTop: '0.35rem' }}>
-            🔒 Private Access Only
+            <Lock className="lucide-icon" size={18} /> Private Access Only
           </p>
         </div>
 
@@ -187,7 +193,7 @@ function LockScreen({ onUnlock }) {
               color: '#f87171', fontSize: '0.8rem', margin: '0 0 0.75rem',
               display: 'flex', alignItems: 'center', gap: '0.35rem',
             }}>
-              ⚠️ {error}
+              <AlertTriangle className="lucide-icon" size={18} /> {error}
             </p>
           )}
 
@@ -212,7 +218,7 @@ function LockScreen({ onUnlock }) {
               boxShadow: loading || !password.trim() ? 'none' : '0 4px 20px rgba(99,102,241,0.4)',
             }}
           >
-            {loading ? 'Verifying…' : '🔓 Unlock'}
+            {loading ? 'Verifying…' : '<Unlock className="lucide-icon" size={18} /> Unlock'}
           </button>
         </form>
 

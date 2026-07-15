@@ -1689,6 +1689,16 @@ html, body {
   background: var(--paper);
   color: var(--ink);
 }
+.profile-save-select {
+  flex: 1;
+  min-width: 0;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.82rem;
+  background: var(--paper);
+  color: var(--ink);
+}
 .profile-save-row button {
   padding: 8px 12px;
   border: none;
@@ -1912,6 +1922,22 @@ html, body {
   color: var(--ink);
   font-size: 0.92rem;
 }
+/* Give the autocomplete wrapper flex:1 when inside the home search row */
+.home-search-row .college-autocomplete-wrap {
+  flex: 1;
+  min-width: 0;
+}
+.home-search-row .college-autocomplete-wrap input {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  padding: 12px 36px 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 0.92rem;
+}
 .home-search-row input:focus {
   outline: none;
   border-color: var(--marigold);
@@ -1935,6 +1961,7 @@ html, body {
 @media (max-width: 480px) {
   .home-search-row { flex-direction: column; }
   .home-search-row button { width: 100%; }
+  .home-search-row .college-autocomplete-wrap { width: 100%; }
 }
 
 .home-datasource-grid {
@@ -2234,6 +2261,14 @@ html, body {
   margin-bottom: 14px;
   font-size: 0.85rem;
   color: var(--slate);
+}
+
+.option-toolbar-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  flex: 1 1 auto;
+  justify-content: flex-end;
 }
 
 .clear-options-btn {
@@ -2574,10 +2609,83 @@ html, body {
   border-color: var(--solid-accent-bg);
 }
 
+/* ── CollegeAutocomplete custom dropdown ─────────────────────────────────────── */
+.college-autocomplete-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.autocomplete-clear-btn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  line-height: 1;
+  z-index: 2;
+}
+
+.college-autocomplete-list {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: var(--surface, #fff);
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  max-height: 220px;
+  overflow-y: auto;
+  z-index: 1000;
+  list-style: none;
+  margin: 0;
+  padding: 4px 0;
+}
+
+.college-autocomplete-item {
+  padding: 10px 14px;
+  font-size: 0.88rem;
+  cursor: pointer;
+  color: var(--text, #1a202c);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: background 0.1s;
+}
+.college-autocomplete-item:hover,
+.college-autocomplete-item:active {
+  background: var(--brand-light, rgba(120, 80, 0, 0.08));
+  color: var(--brand-deep, #5c3d11);
+}
+
 @media (max-width: 480px) {
   .teaser-stream-select { min-width: 0; width: 100%; }
   .desired-college-box { font-size: 0.85rem; padding: 12px 14px; }
   .trend-line-with-spark { flex-wrap: wrap; }
   .sparkline-svg { width: 60px; height: 18px; }
-  .pdf-download-btn, .whatsapp-share-btn { font-size: 0.78rem; padding: 6px 11px; }
+  /* Option entry toolbar — stack buttons below the count label */
+  .option-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .option-toolbar-actions {
+    justify-content: stretch;
+  }
+  .whatsapp-share-btn,
+  .pdf-download-btn,
+  .clear-options-btn {
+    flex: 1 1 100%;
+    width: 100%;
+    text-align: center;
+    font-size: 0.82rem;
+    padding: 10px 12px;
+  }
 }

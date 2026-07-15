@@ -117,7 +117,7 @@ function lsSet(key, value) {
 
 const LEGAL_CONTENT = {
   about: {
-    title: '<Info className="lucide-icon" size={18} /> About Us',
+    title: <span><Info className="lucide-icon" size={18} /> About Us</span>,
     paragraphs: [
       'NammaUGNEET is an independent, student-built tool created to help Karnataka NEET UG aspirants (and now All India Quota candidates too) explore past counselling cutoffs and estimate realistic college options.',
       'It is not affiliated with, endorsed by, or connected to the Karnataka Examinations Authority (KEA), the Medical Counselling Committee (MCC), or any government body.',
@@ -125,7 +125,7 @@ const LEGAL_CONTENT = {
     ],
   },
   disclaimer: {
-    title: '<AlertTriangle className="lucide-icon" size={18} /> Disclaimer',
+    title: <span><AlertTriangle className="lucide-icon" size={18} /> Disclaimer</span>,
     paragraphs: [
       'This tool provides estimates based on historical counselling data. Actual cutoffs change every year based on the number of applicants, seat availability, and policy changes — predictions here are not guarantees of admission.',
       'All cutoff, fee, and allotment data is manually compiled from official KEA and AIQ seat allotment PDFs. Every effort is made to extract this data accurately, but small errors are possible during parsing.',
@@ -134,7 +134,7 @@ const LEGAL_CONTENT = {
     ],
   },
   terms: {
-    title: '<ScrollText className="lucide-icon" size={18} /> Terms & Conditions',
+    title: <span><ScrollText className="lucide-icon" size={18} /> Terms & Conditions</span>,
     paragraphs: [
       'By using NammaUGNEET, you agree to the following:',
       '• This site is provided free of charge, for informational and planning purposes only. No account or payment is required to use it.',
@@ -146,7 +146,7 @@ const LEGAL_CONTENT = {
     ],
   },
   privacy: {
-    title: '<Lock className="lucide-icon" size={18} /> Privacy Policy',
+    title: <span><Lock className="lucide-icon" size={18} /> Privacy Policy</span>,
     paragraphs: [
       'No account creation is required to use NammaUGNEET, and we do not collect personal information to let you use the core features.',
       'Saved colleges, notes, rank profiles, and filter preferences are stored locally in your own browser (using localStorage) — this data never leaves your device or gets sent to us.',
@@ -157,7 +157,7 @@ const LEGAL_CONTENT = {
     ],
   },
   contact: {
-    title: '<Mail className="lucide-icon" size={18} /> Contact Us',
+    title: <span><Mail className="lucide-icon" size={18} /> Contact Us</span>,
     paragraphs: [
       'Found an error in the data, hit a bug, or have a feature suggestion? We\'d genuinely like to hear about it.',
       'This is a small, independently-run project, so replies may take a little time — but every message is read.',
@@ -523,11 +523,11 @@ export default function Dashboard() {
 
   const TOUR_KEY = 'namma_tour_seen';
   const tourSteps = [
-    { title: '<Target className="lucide-icon" size={24} /> Quick Predict', body: 'Enter your NEET rank right on this page to jump straight into the Smart College Predictor.' },
+    { title: <span><Target className="lucide-icon" size={24} /> Quick Predict</span>, body: 'Enter your NEET rank right on this page to jump straight into the Smart College Predictor.' },
     { title: '🎚️ Quick Filters', body: 'Search by name, filter by stream, category, round, and year — all update the table live.' },
-    { title: '<Star className="lucide-icon" size={16} /> Save Colleges', body: 'Tap the star on any row or predictor card to bookmark it. Saved colleges show up in the sidebar — save 2+ to unlock the Compare button.' },
-    { title: '<School className="lucide-icon" size={18} /> College Details', body: 'Tap any college name to see every category, round, and year cutoff for that college, plus a private notes box just for you.' },
-    { title: '<User className="lucide-icon" size={18} /> Save Rank Profiles', body: 'Checking ranks for a sibling or friend too? Save each search as a named profile in the sidebar for one-click reloading.' },
+    { title: <span><Star className="lucide-icon" size={16} /> Save Colleges</span>, body: 'Tap the star on any row or predictor card to bookmark it. Saved colleges show up in the sidebar — save 2+ to unlock the Compare button.' },
+    { title: <span><School className="lucide-icon" size={18} /> College Details</span>, body: 'Tap any college name to see every category, round, and year cutoff for that college, plus a private notes box just for you.' },
+    { title: <span><User className="lucide-icon" size={18} /> Save Rank Profiles</span>, body: 'Checking ranks for a sibling or friend too? Save each search as a named profile in the sidebar for one-click reloading.' },
     { title: '☰ Sidebar', body: 'Use the edge handle (top-left) to open the sidebar anytime for live stats, filters, and your saved lists.' },
   ];
   const [tourOpen, setTourOpen] = useState(false);
@@ -1247,10 +1247,10 @@ export default function Dashboard() {
           
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem', fontSize: '0.9rem' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '0.5rem' }}>
-              <span style={{ color: '#94a3b8' }}>Predictor saved:</span> <strong style={{ color: '#818cf8' }}>{localStorage.getItem('namma_predictor_state') ? '<Check className="lucide-icon" size={16} />' : '–'}</strong>
+              <span style={{ color: '#94a3b8' }}>Predictor saved:</span> <strong style={{ color: '#818cf8' }}>{localStorage.getItem('namma_predictor_state') ? <Check className="lucide-icon" size={16} /> : '–'}</strong>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '0.5rem' }}>
-              <span style={{ color: '#94a3b8' }}>Explore saved:</span> <strong style={{ color: '#818cf8' }}>{localStorage.getItem('namma_explore_state') ? '<Check className="lucide-icon" size={16} />' : '–'}</strong>
+              <span style={{ color: '#94a3b8' }}>Explore saved:</span> <strong style={{ color: '#818cf8' }}>{localStorage.getItem('namma_explore_state') ? <Check className="lucide-icon" size={16} /> : '–'}</strong>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '0.5rem' }}>
               <span style={{ color: '#94a3b8' }}>Saved colleges:</span> <strong style={{ color: '#818cf8' }}>{JSON.parse(localStorage.getItem('namma_saved_colleges') || '[]').length}</strong>
@@ -2166,7 +2166,7 @@ export default function Dashboard() {
                               aria-label="Add to option entry list"
                               title="Add to Option Entry List"
                             >
-                              {isInOptionList(item) ? '<Check className="lucide-icon" size={16} />' : '+'}
+                              {isInOptionList(item) ? <Check className="lucide-icon" size={16} /> : '+'}
                             </button>
                           </td>
                           <td className="code-cell">{item.collegeCode}</td>
@@ -2420,7 +2420,7 @@ export default function Dashboard() {
                               onClick={() => addToOptionList(item)}
                               title="Add to Option Entry List"
                             >
-                              {isInOptionList(item) ? '<Check className="lucide-icon" size={16} /> Added' : '+ Add'}
+                              {isInOptionList(item) ? <><Check className="lucide-icon" size={16} /> Added</> : '+ Add'}
                             </button>
                           </div>
                         </div>

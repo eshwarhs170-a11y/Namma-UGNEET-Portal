@@ -888,31 +888,143 @@ export default function Dashboard() {
   };
 
   const downloadOptionListPDF = () => {
-    const doc = new jsPDF();
-    doc.setFontSize(16);
-    doc.text('NammaUGNEET — My Option Entry Preference List', 14, 18);
-    doc.setFontSize(9);
-    doc.setTextColor(120);
-    doc.text('For your own planning only — submit your official options on the KEA portal.', 14, 25);
-    doc.setTextColor(0);
+    const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+    const pageW = doc.internal.pageSize.getWidth();
+    const pageH = doc.internal.pageSize.getHeight();
+    const margin = 14;
+    const contentW = pageW - margin * 2;
 
-    let y = 36;
+    const drawHeader = () => {
+      // Dark header bar
+      doc.setFillColor(26, 43, 74);
+      doc.rect(0, 0, pageW, 28, 'F');
+      // Accent strip
+      doc.setFillColor(212, 160, 70);
+      doc.rect(0, 28, pageW, 2, 'F');
+      // Title
+      doc.setTextColor(255, 255, 255);
+      doc.setFontSize(15);
+      doc.setFont('helvetica', 'bold');
+      doc.text('NammaUGNEET', margin, 12);
+      doc.setFontSize(10);
+      doc.setFont('helvetica', 'normal');
+      doc.text('Option Entry Preference List', margin, 20);
+      // Right side label
+      doc.setFontSize(8);
+      doc.text('namma-ugneet-portal.vercel.app', pageW - margin, 18, { align: 'right' });
+    };
+
+    const drawFooter = (pageNum, totalPages) => {
+      doc.setFillColor(245, 244, 240);
+      doc.rect(0, pageH - 10, pageW, 10, 'F');
+      doc.setTextColor(120, 120, 120);
+      doc.setFontSize(7.5);
+      doc.setFont('helvetica', 'normal');
+      doc.text('For planning only — submit official options on the KEA portal.', margin, pageH - 3.5);
+      doc.text(`Page ${pageNum} of ${totalPages}`, pageW - margin, pageH - 3.5, { align: 'right' });
+    };
+
+    // Calculate total pages first
+    const rowH = 13;
+    const tableStart = 44;
+    const usableH = pageH - 10 - tableStart;
+    const rowsPerPage = Math.floor(usableH / rowH);
+    const totalPages = Math.max(1, Math.ceil(optionEntries.length / rowsPerPage));
+
+    drawHeader();
+
+    // Sub-header info bar
+    doc.setFillColor(240, 238, 232);
+    doc.rect(0, 30, pageW, 12, 'F');
+    doc.setTextColor(60, 60, 60);
+    doc.setFontSize(8);
+    doc.setFont('helvetica', 'normal');
+    const date = new Date().toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
+    doc.text(`Generated: ${date}  |  Total Colleges: ${optionEntries.length}  |  This list is NOT submitted anywhere automatically.`, margin, 37.5);
+
+    // Table header
+    const colX = [margin, margin + 8, margin + 100, margin + 128, margin + 155];
+    doc.setFillColor(26, 43, 74);
+    doc.rect(margin - 2, 42, contentW + 4, 7, 'F');
+    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(7.5);
+    doc.setFont('helvetica', 'bold');
+    doc.text('#', colX[0], 47.2);
+    doc.text('COLLEGE NAME', colX[1], 47.2);
+    doc.text('CATEGORY', colX[2], 47.2);
+    doc.text('CUTOFF', colX[3], 47.2);
+    doc.text('ROUND / YEAR', colX[4], 47.2);
+
+    let y = tableStart;
+    let currentPage = 1;
+    drawFooter(currentPage, totalPages);
+
     optionEntries.forEach((o, i) => {
-      if (y > 275) {
+      if (y + rowH > pageH - 12) {
         doc.addPage();
-        y = 20;
+        currentPage++;
+        drawHeader();
+        y = tableStart - 10;
+        // Redraw table header on new page
+        doc.setFillColor(26, 43, 74);
+        doc.rect(margin - 2, y - 2, contentW + 4, 7, 'F');
+        doc.setTextColor(255, 255, 255);
+        doc.setFontSize(7.5);
+        doc.setFont('helvetica', 'bold');
+        doc.text('#', colX[0], y + 3);
+        doc.text('COLLEGE NAME', colX[1], y + 3);
+        doc.text('CATEGORY', colX[2], y + 3);
+        doc.text('CUTOFF', colX[3], y + 3);
+        doc.text('ROUND / YEAR', colX[4], y + 3);
+        y += rowH - 3;
+        drawFooter(currentPage, totalPages);
       }
-      doc.setFontSize(11);
-      doc.setFont(undefined, 'bold');
-      doc.text(`${i + 1}. ${o.collegeName} (${o.collegeCode})`, 14, y);
-      doc.setFont(undefined, 'normal');
-      doc.setFontSize(9);
-      doc.text(
-        `${o.courseDetails}  |  Category: ${formatCategory(o.category)}${showFees ? `  |  Fees: ${formatFees(o.fees)}` : ''}  |  Cutoff: ${o.rank.toLocaleString('en-IN')}  |  ${o.round} ${o.year}`,
-        14,
-        y + 6
-      );
-      y += 14;
+
+      // Alternating row background
+      if (i % 2 === 0) {
+        doc.setFillColor(252, 251, 248);
+      } else {
+        doc.setFillColor(244, 242, 236);
+      }
+      doc.rect(margin - 2, y - 1, contentW + 4, rowH, 'F');
+
+      // Row number
+      doc.setTextColor(180, 140, 60);
+      doc.setFontSize(8);
+      doc.setFont('helvetica', 'bold');
+      doc.text(String(i + 1), colX[0], y + 5);
+
+      // College name (bold)
+      doc.setTextColor(26, 43, 74);
+      doc.setFontSize(8.5);
+      doc.setFont('helvetica', 'bold');
+      const nameLines = doc.splitTextToSize(`${o.collegeName} (${o.collegeCode})`, 88);
+      doc.text(nameLines[0], colX[1], y + 4);
+
+      // Course details (small)
+      doc.setTextColor(100, 100, 100);
+      doc.setFontSize(7);
+      doc.setFont('helvetica', 'normal');
+      doc.text(o.courseDetails || '', colX[1], y + 9.5);
+
+      // Category
+      doc.setTextColor(50, 50, 50);
+      doc.setFontSize(8);
+      doc.text(formatCategory(o.category), colX[2], y + 5);
+
+      // Cutoff rank
+      doc.setTextColor(180, 60, 60);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(8.5);
+      doc.text(o.rank.toLocaleString('en-IN'), colX[3], y + 5);
+
+      // Round + Year
+      doc.setTextColor(60, 100, 60);
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(8);
+      doc.text(`${o.round} / ${o.year}`, colX[4], y + 5);
+
+      y += rowH;
     });
 
     doc.save('nammaugneet-option-entry-list.pdf');
@@ -1108,39 +1220,152 @@ export default function Dashboard() {
   };
 
   const downloadPredictedResultsPDF = () => {
-    const doc = new jsPDF();
-    doc.setFontSize(16);
-    doc.text('NammaUGNEET — Predicted Colleges', 14, 18);
-    doc.setFontSize(10);
-    doc.setTextColor(90);
-    doc.text(
-      `Rank: ${userRank}  |  Category: ${predictorCategory}  |  Stream: ${predictorStream}  |  Round: ${predictorRound}  |  Year: ${predictorYear}`,
-      14,
-      26
-    );
-    doc.setTextColor(0);
+    const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+    const pageW = doc.internal.pageSize.getWidth();
+    const pageH = doc.internal.pageSize.getHeight();
+    const margin = 14;
+    const contentW = pageW - margin * 2;
 
-    let y = 38;
-    predictedColleges.slice(0, 40).forEach((item, i) => {
-      if (y > 275) {
+    const drawHeader = () => {
+      doc.setFillColor(26, 43, 74);
+      doc.rect(0, 0, pageW, 28, 'F');
+      doc.setFillColor(212, 160, 70);
+      doc.rect(0, 28, pageW, 2, 'F');
+      doc.setTextColor(255, 255, 255);
+      doc.setFontSize(15);
+      doc.setFont('helvetica', 'bold');
+      doc.text('NammaUGNEET', margin, 12);
+      doc.setFontSize(10);
+      doc.setFont('helvetica', 'normal');
+      doc.text('Predicted Eligible Colleges Report', margin, 20);
+      doc.setFontSize(8);
+      doc.text('namma-ugneet-portal.vercel.app', pageW - margin, 18, { align: 'right' });
+    };
+
+    const drawFooter = (pageNum, totalPages) => {
+      doc.setFillColor(245, 244, 240);
+      doc.rect(0, pageH - 10, pageW, 10, 'F');
+      doc.setTextColor(120, 120, 120);
+      doc.setFontSize(7.5);
+      doc.setFont('helvetica', 'normal');
+      doc.text('Estimates only — verify with official KEA / MCC allotment data before making decisions.', margin, pageH - 3.5);
+      doc.text(`Page ${pageNum} of ${totalPages}`, pageW - margin, pageH - 3.5, { align: 'right' });
+    };
+
+    const rowH = 13;
+    const tableStart = 50;
+    const usableH = pageH - 10 - tableStart;
+    const rowsPerPage = Math.floor(usableH / rowH);
+    const colleges = predictedColleges.slice(0, 60);
+    const totalPages = Math.max(1, Math.ceil(colleges.length / rowsPerPage));
+
+    drawHeader();
+
+    // Sub-header info bar
+    doc.setFillColor(240, 238, 232);
+    doc.rect(0, 30, pageW, 16, 'F');
+    doc.setTextColor(60, 60, 60);
+    doc.setFontSize(8);
+    doc.setFont('helvetica', 'bold');
+    doc.text('SEARCH PARAMETERS', margin, 37);
+    doc.setFont('helvetica', 'normal');
+    const params = `Rank: ${userRank}  |  Category: ${predictorCategory}  |  Stream: ${predictorStream}  |  Round: ${predictorRound}  |  Year: ${predictorYear}`;
+    doc.text(params, margin, 43);
+    const date = new Date().toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
+    doc.text(`Generated: ${date}  |  Colleges shown: ${colleges.length}`, pageW - margin, 43, { align: 'right' });
+
+    // Table header
+    const colX = [margin, margin + 8, margin + 100, margin + 122, margin + 144, margin + 163];
+    doc.setFillColor(26, 43, 74);
+    doc.rect(margin - 2, tableStart - 6, contentW + 4, 7, 'F');
+    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(7.5);
+    doc.setFont('helvetica', 'bold');
+    doc.text('#', colX[0], tableStart - 1.2);
+    doc.text('COLLEGE NAME', colX[1], tableStart - 1.2);
+    doc.text('CATEGORY', colX[2], tableStart - 1.2);
+    doc.text('CUTOFF', colX[3], tableStart - 1.2);
+    doc.text('FEES', colX[4], tableStart - 1.2);
+    doc.text('ROUND / YEAR', colX[5], tableStart - 1.2);
+
+    let y = tableStart;
+    let currentPage = 1;
+    drawFooter(currentPage, totalPages);
+
+    colleges.forEach((item, i) => {
+      if (y + rowH > pageH - 12) {
         doc.addPage();
-        y = 20;
+        currentPage++;
+        drawHeader();
+        y = tableStart - 10;
+        doc.setFillColor(26, 43, 74);
+        doc.rect(margin - 2, y - 6, contentW + 4, 7, 'F');
+        doc.setTextColor(255, 255, 255);
+        doc.setFontSize(7.5);
+        doc.setFont('helvetica', 'bold');
+        doc.text('#', colX[0], y - 1.2);
+        doc.text('COLLEGE NAME', colX[1], y - 1.2);
+        doc.text('CATEGORY', colX[2], y - 1.2);
+        doc.text('CUTOFF', colX[3], y - 1.2);
+        doc.text('FEES', colX[4], y - 1.2);
+        doc.text('ROUND / YEAR', colX[5], y - 1.2);
+        drawFooter(currentPage, totalPages);
       }
-      doc.setFontSize(11);
-      doc.setFont(undefined, 'bold');
-      doc.text(`${i + 1}. ${item.collegeName} (${item.collegeCode})`, 14, y);
-      doc.setFont(undefined, 'normal');
-      doc.setFontSize(9);
-      doc.text(
-        `${item.courseDetails}  |  Category: ${formatCategory(item.category)}${showFees ? `  |  Fees: ${formatFees(item.fees)}` : ''}  |  Cutoff: ${item.rank.toLocaleString('en-IN')}  |  ${item.round} ${item.year}`,
-        14,
-        y + 6
-      );
-      y += 14;
+
+      if (i % 2 === 0) {
+        doc.setFillColor(252, 251, 248);
+      } else {
+        doc.setFillColor(244, 242, 236);
+      }
+      doc.rect(margin - 2, y - 1, contentW + 4, rowH, 'F');
+
+      // Row number
+      doc.setTextColor(180, 140, 60);
+      doc.setFontSize(8);
+      doc.setFont('helvetica', 'bold');
+      doc.text(String(i + 1), colX[0], y + 5);
+
+      // College name
+      doc.setTextColor(26, 43, 74);
+      doc.setFontSize(8.5);
+      doc.setFont('helvetica', 'bold');
+      const nameLines = doc.splitTextToSize(`${item.collegeName} (${item.collegeCode})`, 88);
+      doc.text(nameLines[0], colX[1], y + 4);
+
+      // Course
+      doc.setTextColor(100, 100, 100);
+      doc.setFontSize(7);
+      doc.setFont('helvetica', 'normal');
+      doc.text(item.courseDetails || '', colX[1], y + 9.5);
+
+      // Category
+      doc.setTextColor(50, 50, 50);
+      doc.setFontSize(8);
+      doc.text(formatCategory(item.category), colX[2], y + 5);
+
+      // Cutoff
+      doc.setTextColor(180, 60, 60);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(8.5);
+      doc.text(item.rank.toLocaleString('en-IN'), colX[3], y + 5);
+
+      // Fees
+      doc.setTextColor(30, 120, 60);
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(8);
+      doc.text(showFees && item.fees ? formatFees(item.fees) : '—', colX[4], y + 5);
+
+      // Round + Year
+      doc.setTextColor(60, 80, 130);
+      doc.setFontSize(8);
+      doc.text(`${item.round} / ${item.year}`, colX[5], y + 5);
+
+      y += rowH;
     });
 
     doc.save('nammaugneet-predicted-colleges.pdf');
   };
+
 
   // ── HIDDEN ADMIN PANEL ────────────────────────────────────────────────────
   if (activeTab === ADMIN_HASH) {
@@ -1497,7 +1722,7 @@ export default function Dashboard() {
       {supportOpen && (
         <div className="tour-backdrop" onClick={() => setSupportOpen(false)}>
           <div className="tour-card" onClick={(e) => e.stopPropagation()} style={{ textAlign: 'center', maxWidth: '380px' }}>
-            <h3 style={{ fontSize: '1.5rem', marginBottom: '0.5rem', color: '#10b981' }}>Buy Us a Coffee <Coffee className="lucide-icon" size={24} /></h3>
+            <h3 style={{ fontSize: '1.5rem', marginBottom: '0.5rem', color: '#10b981', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}><Coffee className="lucide-icon" size={24} /> Buy Us a Coffee</h3>
             <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem', fontSize: '0.95rem' }}>
               If NammaUGNEET helped you find your dream college, consider supporting our work! Your tip helps keep the servers running and the site ad-free.
             </p>
@@ -2632,7 +2857,7 @@ export default function Dashboard() {
             <div className="contact-view">
               
               <div className="contact-section" style={{ background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%)', border: '1px solid rgba(16, 185, 129, 0.2)', padding: '2rem', borderRadius: '16px', textAlign: 'center', marginBottom: '2rem' }}>
-                <h3 style={{ color: '#10b981', fontSize: '1.6rem', marginBottom: '0.5rem' }}>Buy Us a Coffee <Coffee className="lucide-icon" size={24} /></h3>
+                <h3 style={{ color: '#10b981', fontSize: '1.6rem', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}><Coffee className="lucide-icon" size={24} /> Buy Us a Coffee</h3>
                 <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem', maxWidth: '600px', margin: '0 auto 1.5rem auto' }}>
                   NammaUGNEET is an independent, student-built tool provided completely free of charge and free of ads. 
                   If this tool helped you predict your college or saved you hours of PDF scrolling, consider supporting our work! Your tip helps keep the servers running.

@@ -13,17 +13,17 @@ import './Dashboard.css';
 // ── Custom autocomplete dropdown (replaces native <datalist> which bounces on mobile) ──
 function CollegeAutocomplete({ value, onChange, suggestions, placeholder, id }) {
   const [open, setOpen] = useState(false);
-  const [focused, setFocused] = useState(false);
+  const [rect, setRect] = useState(null);
   const wrapRef = useRef(null);
   const inputRef = useRef(null);
 
   const filtered = useMemo(() => {
     if (!value || value.length < 2) return [];
     const q = value.toLowerCase();
-    return suggestions.filter(s => s.toLowerCase().includes(q)).slice(0, 8);
+    return suggestions.filter(s => s.toLowerCase().includes(q)).slice(0, 10);
   }, [value, suggestions]);
 
-  // Close on outside click
+  // Close on outside click/touch
   useEffect(() => {
     const handler = (e) => {
       if (wrapRef.current && !wrapRef.current.contains(e.target)) {
@@ -31,14 +31,38 @@ function CollegeAutocomplete({ value, onChange, suggestions, placeholder, id }) 
       }
     };
     document.addEventListener('mousedown', handler);
-    document.addEventListener('touchstart', handler);
+    document.addEventListener('touchstart', handler, { passive: true });
     return () => {
       document.removeEventListener('mousedown', handler);
       document.removeEventListener('touchstart', handler);
     };
   }, []);
 
-  const showDropdown = open && focused && filtered.length > 0;
+  // Capture input position to place dropdown with position:fixed (avoids reflow/bounce)
+  const handleFocus = () => {
+    if (inputRef.current) setRect(inputRef.current.getBoundingClientRect());
+    setOpen(true);
+  };
+
+  const handleChange = (e) => {
+    onChange(e.target.value);
+    if (inputRef.current) setRect(inputRef.current.getBoundingClientRect());
+    setOpen(true);
+  };
+
+  // The key anti-bounce trick: set readonly BEFORE blur so iOS does not
+  // dismiss the keyboard via a full viewport-resize animation
+  const handleSelect = (name) => {
+    onChange(name);
+    setOpen(false);
+    if (inputRef.current) {
+      inputRef.current.setAttribute('readonly', 'true');
+      inputRef.current.blur();
+      setTimeout(() => { if (inputRef.current) inputRef.current.removeAttribute('readonly'); }, 100);
+    }
+  };
+
+  const showDropdown = open && filtered.length > 0 && rect;
 
   return (
     <div ref={wrapRef} className="college-autocomplete-wrap" style={{ position: 'relative', width: '100%' }}>
@@ -47,17 +71,21 @@ function CollegeAutocomplete({ value, onChange, suggestions, placeholder, id }) 
         id={id}
         type="text"
         autoComplete="off"
+        autoCorrect="off"
+        autoCapitalize="off"
+        spellCheck="false"
+        inputMode="search"
         placeholder={placeholder || 'Name or code...'}
         value={value}
-        onChange={(e) => { onChange(e.target.value); setOpen(true); }}
-        onFocus={() => { setFocused(true); setOpen(true); }}
-        onBlur={() => setTimeout(() => setFocused(false), 150)}
+        onChange={handleChange}
+        onFocus={handleFocus}
         style={{ width: '100%' }}
       />
       {value && (
         <button
           type="button"
-          onClick={() => { onChange(''); setOpen(false); }}
+          onMouseDown={(e) => { e.preventDefault(); onChange(''); setOpen(false); }}
+          onTouchStart={(e) => { e.preventDefault(); onChange(''); setOpen(false); }}
           aria-label="Clear search"
           className="autocomplete-clear-btn"
         >
@@ -65,25 +93,22 @@ function CollegeAutocomplete({ value, onChange, suggestions, placeholder, id }) 
         </button>
       )}
       {showDropdown && (
-        <ul className="college-autocomplete-list">
+        <ul
+          className="college-autocomplete-list"
+          style={{
+            position: 'fixed',
+            top: rect.bottom + 2,
+            left: rect.left,
+            width: rect.width,
+            zIndex: 9999,
+          }}
+        >
           {filtered.map((name) => (
             <li
               key={name}
               className="college-autocomplete-item"
-              onMouseDown={(e) => {
-                e.preventDefault();
-                onChange(name);
-                setOpen(false);
-                setFocused(false);
-                inputRef.current?.blur();
-              }}
-              onTouchEnd={(e) => {
-                e.preventDefault();
-                onChange(name);
-                setOpen(false);
-                setFocused(false);
-                inputRef.current?.blur();
-              }}
+              onMouseDown={(e) => { e.preventDefault(); handleSelect(name); }}
+              onTouchStart={(e) => { e.preventDefault(); handleSelect(name); }}
             >
               {name}
             </li>
@@ -93,6 +118,9 @@ function CollegeAutocomplete({ value, onChange, suggestions, placeholder, id }) 
     </div>
   );
 }
+
+
+
 
 const SAVED_KEY = 'namma_saved_colleges';
 const PROFILES_KEY = 'namma_saved_profiles';
@@ -1036,9 +1064,23 @@ export default function Dashboard() {
   const dynamicRounds = (dropdownStats.rounds || []).filter(r => !/stray|vacancy/i.test(r));
   const dynamicYears = dropdownStats.years;
 
-  // --- AUTO-COMPLETE LISTS (use allCollegeNames from initial fetch) ---
-  const exploreStreamCollegeNames = allCollegeNames;
-  const predictorStreamCollegeNames = allCollegeNames;
+  // --- AUTO-COMPLETE LISTS: filtered by active stream to avoid showing irrelevant colleges ---
+  const exploreStreamCollegeNames = useMemo(() => {
+    if (!streamFilter || streamFilter === 'ALL') return allCollegeNames;
+    // Filter college names visible in the current explore API results (already stream-filtered)
+    const nameSet = new Set(filteredDashboardData.map(item => cleanCollegeName(item.collegeName)));
+    if (nameSet.size > 10) return Array.from(nameSet).sort();
+    return allCollegeNames; // fallback if data not yet loaded
+  }, [allCollegeNames, streamFilter, filteredDashboardData]);
+
+  const predictorStreamCollegeNames = useMemo(() => {
+    if (!predictorStream || predictorStream === 'ALL') return allCollegeNames;
+    const nameSet = new Set(apiData
+      .filter(item => item.stream === predictorStream)
+      .map(item => cleanCollegeName(item.collegeName)));
+    if (nameSet.size > 10) return Array.from(nameSet).sort();
+    return allCollegeNames; // fallback
+  }, [allCollegeNames, predictorStream, apiData]);
 
   // Reset extra range when any core predictor filter changes
   useEffect(() => {

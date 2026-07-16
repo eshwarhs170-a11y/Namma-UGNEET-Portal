@@ -2896,8 +2896,7 @@ export default function Dashboard() {
 
               {optionEntries.length === 0 ? (
                 <div className="option-empty-state">
-                  <span className="option-empty-icon"><PenTool className="lucide-icon" size={24} /></span>
-                  <h4>Your preference list starts here</h4>
+                  <h4><PenTool className="lucide-icon" size={24} /> Your preference list starts here</h4>
                   <p>
                     Think of this as a practice run for KEA's real "Option Entry" step — where you'll rank
                     every college you'd accept, in order of preference, before the actual counselling round.

@@ -2251,7 +2251,15 @@ html, body {
   padding: 18px 20px;
   margin-bottom: 20px;
 }
-.option-intro h3 { margin: 0 0 8px; font-family: var(--font-display); color: var(--ink); font-size: 1.05rem; }
+.option-intro h3 {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  color: var(--ink);
+  font-size: 1.05rem;
+}
 .option-intro p { margin: 0; font-size: 0.85rem; color: var(--slate); line-height: 1.5; }
 
 /* ---------- Option Entry empty state ---------- */
@@ -2268,6 +2276,10 @@ html, body {
   margin-bottom: 12px;
 }
 .option-empty-state h4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   font-family: var(--font-display);
   font-size: 1.15rem;
   color: var(--ink);

@@ -1121,6 +1121,9 @@ html, body {
 }
 
 .ticket-hero h3 {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   margin: 0 0 6px;
   font-family: var(--font-display);
   font-size: 1.25rem;

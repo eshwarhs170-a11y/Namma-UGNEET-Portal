@@ -4,7 +4,7 @@ import {
   Search, Target, Info, AlertTriangle, Lock, Unlock, ScrollText, Mail, 
   Star, Trash2, FileText, MessageCircle, School, User, PenTool, Lightbulb, 
   Coffee, RefreshCw, Frown, Circle, BarChart3, Check, X,
-  Sun, Moon, Home, Download
+  Sun, Moon, Home, Download, Landmark, Globe
 } from 'lucide-react';
 
 import jsPDF from 'jspdf';
@@ -1912,14 +1912,14 @@ export default function Dashboard() {
             onClick={() => setDataSource('KEA')}
             title="KEA — Karnataka state counselling"
           >
-            🏛️ KEA
+            <Landmark className="lucide-icon" size={16} /> KEA
           </button>
           <button
             className={dataSource === 'AIQ' ? 'active' : ''}
             onClick={() => setDataSource('AIQ')}
             title="AIQ — All India Quota counselling"
           >
-            🌐 AIQ
+            <Globe className="lucide-icon" size={16} /> AIQ
           </button>
         </div>
 
@@ -2188,7 +2188,7 @@ export default function Dashboard() {
                     className={`home-datasource-card${dataSource === 'KEA' ? ' active' : ''}`}
                     onClick={() => setDataSource('KEA')}
                   >
-                    <span className="home-datasource-icon">🏛️</span>
+                    <span className="home-datasource-icon"><Landmark className="lucide-icon" size={24} /></span>
                     <strong>KEA (Karnataka)</strong>
                     <p>State counselling — cutoffs, fees &amp; seat allotments across Karnataka's Medical, Dental &amp; AYUSH colleges.</p>
                     {dataSource === 'KEA' && <span className="home-datasource-badge"><Check className="lucide-icon" size={16} /> Active</span>}
@@ -2197,7 +2197,7 @@ export default function Dashboard() {
                     className={`home-datasource-card${dataSource === 'AIQ' ? ' active' : ''}`}
                     onClick={() => setDataSource('AIQ')}
                   >
-                    <span className="home-datasource-icon">🌐</span>
+                    <span className="home-datasource-icon"><Globe className="lucide-icon" size={24} /></span>
                     <strong>AIQ (All India)</strong>
                     <p>All India Quota counselling — cutoffs across MBBS &amp; BDS colleges nationwide, final round.</p>
                     {dataSource === 'AIQ' && <span className="home-datasource-badge"><Check className="lucide-icon" size={16} /> Active</span>}

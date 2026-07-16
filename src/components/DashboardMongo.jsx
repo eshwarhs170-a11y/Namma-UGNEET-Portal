@@ -677,28 +677,6 @@ export default function Dashboard() {
 
     return cleaned.trim();
   };
-    cleaned = cleaned.replace(/Did not opt for Upgradati\s*on\.?\s*\d+\s*-+\s*/gi, '');
-    cleaned = cleaned.replace(/Did not opt for Upgradation\.?\s*\d+\s*-+\s*/gi, '');
-    cleaned = cleaned.replace(/Did not fill up fresh choices\.?\s*\d+\s*-+\s*/gi, '');
-    cleaned = cleaned.replace(/Not Reported\.?\s*\d+\s*-+\s*/gi, '');
-    
-    const quotas = [
-      'Deemed/ Paid Seats Quota', 'Deemed / Paid Seats Quota', 'Jain Minority Quota',
-      'Muslim Minority Quota', 'Open Seat Quota', 'All India Quota Government',
-      'All India', 'Delhi University Quota', 'IP University Quota',
-      'Management/Paid Seats Quota', 'Management/ Paid Seats Quota', 'All India Quota Govt Aided',
-      'Central Universites / National Institutions', 'Self Finance', 'Linguistic Minority',
-      'Employee s State Insurance Scheme\\( ESI\\)', 'Foreign Country Quota',
-      'Aligarh Muslim University \\(AMU\\) Quota', 'Non- Resident Indian',
-      'NonResident Indian', 'B.Sc Nursing All India Quota', 'Jamia Internal Quota'
-    ];
-    quotas.forEach(quota => {
-      const regex = new RegExp('^' + quota + '\\s*-*\\s*', 'i');
-      cleaned = cleaned.replace(regex, '');
-    });
-
-    return cleaned.trim();
-  };
 
   // Auto-complete list of all college names (cleaned)
   

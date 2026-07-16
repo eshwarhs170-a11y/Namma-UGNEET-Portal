@@ -2041,7 +2041,7 @@ export default function Dashboard() {
               <select value={roundFilter} onChange={(e) => setRoundFilter(e.target.value)}>
                 <option value="ALL"><Star className="lucide-icon" size={18} /> All Rounds (Best Cutoff)</option>
                 {dynamicRounds.filter(r => r !== 'FINAL' && !r.toLowerCase().includes('all rounds')).map((r) => (
-                  <option key={r} value={r}>{r === 'R3' ? 'R3 (Includes All Previous Rounds Info)' : r}</option>
+                  <option key={r} value={r}>{r}</option>
                 ))}
               </select>
             </div>
@@ -2401,7 +2401,7 @@ export default function Dashboard() {
                       <select value={roundFilter} onChange={(e) => setRoundFilter(e.target.value)}>
                         <option value="ALL"><Star className="lucide-icon" size={18} /> All Rounds (Best Cutoff)</option>
                         {dynamicRounds.filter(r => r !== 'FINAL' && !r.toLowerCase().includes('all rounds')).map((r) => (
-                          <option key={r} value={r}>{r === 'R3' ? 'R3 (Includes All Previous Rounds Info)' : r}</option>
+                          <option key={r} value={r}>{r}</option>
                         ))}
                       </select>
                     </div>
@@ -2620,7 +2620,7 @@ export default function Dashboard() {
                     <select value={predictorRound} onChange={(e) => setPredictorRound(e.target.value)}>
                       <option value="ALL"><Star className="lucide-icon" size={18} /> All Rounds (Best Cutoff)</option>
                       {dynamicRounds.filter(r => r !== 'FINAL' && !r.toLowerCase().includes('all rounds')).map((r) => (
-                        <option key={r} value={r}>{r === 'R3' ? 'R3 (Includes All Previous Rounds Info)' : r}</option>
+                        <option key={r} value={r}>{r}</option>
                       ))}
                     </select>
                   </div>
@@ -2635,7 +2635,7 @@ export default function Dashboard() {
                   </div>
 
                   <div className="field">
-                    <label><Search className="lucide-icon" size={18} /> Search a Specific College</label>
+                    <label style={{ display: 'flex', alignItems: 'center', gap: '4px' }}><Search className="lucide-icon" size={18} /> Search a Specific College</label>
                     <CollegeAutocomplete
                       id="predictor-college-search"
                       value={desiredCollegeName}

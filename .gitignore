@@ -29,3 +29,5 @@ dist-ssr
 # Exclude raw source documents
 *.pdf
 dataprocessing/AIQ-2025/*.txt
+
+.vercel

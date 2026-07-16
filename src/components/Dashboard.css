@@ -1909,6 +1909,9 @@ html, body {
 }
 
 .home-section-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-family: var(--font-display);
   font-size: clamp(1rem, 3vw, 1.1rem);
   color: var(--ink);
@@ -2029,7 +2032,9 @@ html, body {
 }
 
 .home-datasource-card strong {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 8px;
   color: var(--ink);
   font-family: var(--font-display);
   font-size: 1.02rem;

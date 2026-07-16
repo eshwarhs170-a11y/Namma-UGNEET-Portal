@@ -2188,8 +2188,7 @@ export default function Dashboard() {
                     className={`home-datasource-card${dataSource === 'KEA' ? ' active' : ''}`}
                     onClick={() => setDataSource('KEA')}
                   >
-                    <span className="home-datasource-icon"><Landmark className="lucide-icon" size={24} /></span>
-                    <strong>KEA (Karnataka)</strong>
+                    <strong><Landmark className="lucide-icon" size={24} /> KEA (Karnataka)</strong>
                     <p>State counselling — cutoffs, fees &amp; seat allotments across Karnataka's Medical, Dental &amp; AYUSH colleges.</p>
                     {dataSource === 'KEA' && <span className="home-datasource-badge"><Check className="lucide-icon" size={16} /> Active</span>}
                   </button>
@@ -2197,8 +2196,7 @@ export default function Dashboard() {
                     className={`home-datasource-card${dataSource === 'AIQ' ? ' active' : ''}`}
                     onClick={() => setDataSource('AIQ')}
                   >
-                    <span className="home-datasource-icon"><Globe className="lucide-icon" size={24} /></span>
-                    <strong>AIQ (All India)</strong>
+                    <strong><Globe className="lucide-icon" size={24} /> AIQ (All India)</strong>
                     <p>All India Quota counselling — cutoffs across MBBS &amp; BDS colleges nationwide, final round.</p>
                     {dataSource === 'AIQ' && <span className="home-datasource-badge"><Check className="lucide-icon" size={16} /> Active</span>}
                   </button>

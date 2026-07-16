@@ -457,6 +457,10 @@ html, body {
 }
 .data-source-toggle button {
   flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
   padding: 8px 10px;
   border: none;
   background: transparent;

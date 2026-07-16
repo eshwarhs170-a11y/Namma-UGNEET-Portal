@@ -31,3 +31,4 @@ dist-ssr
 dataprocessing/AIQ-2025/*.txt
 
 .vercel
+.env*

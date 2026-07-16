@@ -484,10 +484,30 @@ export default function Dashboard() {
   }, []);
 
   // Utility to normalize college names (remove newlines, extra spaces)
-  const cleanCollegeName = (name) =>
-    name.replace(/\r?\n/g, ' ') // replace line breaks with space
-      .replace(/\s+/g, ' ') // collapse multiple whitespace
-      .trim();
+  const cleanCollegeName = (name) => {
+    let cleaned = name.replace(/\r?\n/g, ' ').replace(/\s+/g, ' ').trim();
+    cleaned = cleaned.replace(/Did not opt for Upgradati\s*on\.?\s*\d+\s*-+\s*/gi, '');
+    cleaned = cleaned.replace(/Did not opt for Upgradation\.?\s*\d+\s*-+\s*/gi, '');
+    cleaned = cleaned.replace(/Did not fill up fresh choices\.?\s*\d+\s*-+\s*/gi, '');
+    cleaned = cleaned.replace(/Not Reported\.?\s*\d+\s*-+\s*/gi, '');
+    
+    const quotas = [
+      'Deemed/ Paid Seats Quota', 'Deemed / Paid Seats Quota', 'Jain Minority Quota',
+      'Muslim Minority Quota', 'Open Seat Quota', 'All India Quota Government',
+      'All India', 'Delhi University Quota', 'IP University Quota',
+      'Management/Paid Seats Quota', 'Management/ Paid Seats Quota', 'All India Quota Govt Aided',
+      'Central Universites / National Institutions', 'Self Finance', 'Linguistic Minority',
+      'Employee s State Insurance Scheme\\( ESI\\)', 'Foreign Country Quota',
+      'Aligarh Muslim University \\(AMU\\) Quota', 'Non- Resident Indian',
+      'NonResident Indian', 'B.Sc Nursing All India Quota', 'Jamia Internal Quota'
+    ];
+    quotas.forEach(quota => {
+      const regex = new RegExp('^' + quota + '\\s*-*\\s*', 'i');
+      cleaned = cleaned.replace(regex, '');
+    });
+
+    return cleaned.trim();
+  };
 
   // Auto-complete list of all college names (cleaned)
   const allCollegeNames = useMemo(() => {
@@ -571,7 +591,7 @@ export default function Dashboard() {
   const [predictorQuota, setPredictorQuota] = useState(() => lsGet(LS_PREDICTOR, {}).predictorQuota ?? 'ALL');
   const [predictorStream, setPredictorStream] = useState(() => lsGet(LS_PREDICTOR, {}).predictorStream ?? 'MEDICAL');
   const [predictorRound, setPredictorRound] = useState(() => lsGet(LS_PREDICTOR, {}).predictorRound ?? 'ALL');
-  const [predictorYear, setPredictorYear] = useState(() => lsGet(LS_PREDICTOR, {}).predictorYear ?? 'ALL');
+  const [predictorYear, setPredictorYear] = useState(() => lsGet(LS_PREDICTOR, {}).predictorYear ?? '2025');
   const [rankRange, setRankRange] = useState(() => lsGet(LS_PREDICTOR, {}).rankRange ?? 0);
 
   // Persist predictor inputs whenever they change
@@ -749,7 +769,7 @@ export default function Dashboard() {
     const lines = optionEntries.map((o, i) =>
       `Option ${i + 1}: ${o.collegeName} (${o.collegeCode}) — ${o.courseDetails}, ${o.category} [${o.round} ${o.year}]`
     );
-    const text = `<PenTool className="lucide-icon" size={24} /> NammaUGNEET — My Option Entry Preference List\n\n${lines.join('\n')}\n\nBuild your own list: https://namma-ugneet-portal.vercel.app/`;
+    const text = `📝 *NammaUGNEET* — My Option Entry Preference List\n\n${lines.join('\n')}\n\nBuild your own list: https://namma-ugneet-portal.vercel.app/`;
     window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
   };
 
@@ -942,7 +962,7 @@ export default function Dashboard() {
     const lines = predictedColleges.slice(0, 15).map((item, i) =>
       `${i + 1}. ${item.collegeName} (${item.collegeCode}) — ${item.courseDetails}, ${formatCategory(item.category)}${showFees ? `, ${formatFees(item.fees)}` : ''}, Cutoff ${item.rank.toLocaleString('en-IN')} [${item.round} ${item.year}]`
     );
-    const header = `<Target className="lucide-icon" size={24} /> NammaUGNEET — Predicted colleges for Rank ${userRank} (${predictorCategory}, ${predictorStream}):\n\n`;
+    const header = `🎯 *NammaUGNEET* — Predicted colleges for Rank ${userRank} (${predictorCategory}, ${predictorStream}):\n\n`;
     const footer = `\n\nCheck your own rank: https://namma-ugneet-portal.vercel.app/`;
     shareOnWhatsApp(header + lines.join('\n') + footer);
   };
@@ -1561,7 +1581,7 @@ export default function Dashboard() {
               <select value={roundFilter} onChange={(e) => setRoundFilter(e.target.value)}>
                 <option value="ALL">All Rounds</option>
                 {dynamicRounds.map((r) => (
-                  <option key={r} value={r}>{r}</option>
+                  <option key={r} value={r}>{r === 'R3' ? 'R3 (Includes All Previous Rounds Info)' : r}</option>
                 ))}
               </select>
             </div>
@@ -1570,7 +1590,7 @@ export default function Dashboard() {
               <label>Allotment Year</label>
               <select value={yearFilter} onChange={(e) => setYearFilter(e.target.value)}>
                 <option value="ALL">All Years</option>
-                {dynamicYears.map((y) => (
+                {dynamicYears.filter(y => y === '2025' || y === '2024').map((y) => (
                   <option key={y} value={y}>{y}</option>
                 ))}
               </select>
@@ -1915,7 +1935,7 @@ export default function Dashboard() {
                       <select value={roundFilter} onChange={(e) => setRoundFilter(e.target.value)}>
                         <option value="ALL">All Rounds</option>
                         {dynamicRounds.map((r) => (
-                          <option key={r} value={r}>{r}</option>
+                          <option key={r} value={r}>{r === 'R3' ? 'R3 (Includes All Previous Rounds Info)' : r}</option>
                         ))}
                       </select>
                     </div>
@@ -1923,7 +1943,7 @@ export default function Dashboard() {
                       <label>Allotment Year</label>
                       <select value={yearFilter} onChange={(e) => setYearFilter(e.target.value)}>
                         <option value="ALL">All Years</option>
-                        {dynamicYears.map((y) => (
+                        {dynamicYears.filter(y => y === '2025' || y === '2024').map((y) => (
                           <option key={y} value={y}>{y}</option>
                         ))}
                       </select>
@@ -2135,7 +2155,7 @@ export default function Dashboard() {
                     <select value={predictorRound} onChange={(e) => setPredictorRound(e.target.value)}>
                       <option value="ALL">All Rounds</option>
                       {dynamicRounds.map((r) => (
-                        <option key={r} value={r}>{r}</option>
+                        <option key={r} value={r}>{r === 'R3' ? 'R3 (Includes All Previous Rounds Info)' : r}</option>
                       ))}
                     </select>
                   </div>
@@ -2144,7 +2164,7 @@ export default function Dashboard() {
                     <label>Allotment Year</label>
                     <select value={predictorYear} onChange={(e) => setPredictorYear(e.target.value)}>
                       <option value="ALL">All Years</option>
-                      {dynamicYears.map((y) => (
+                      {dynamicYears.filter(y => y === '2025' || y === '2024').map((y) => (
                         <option key={y} value={y}>{y}</option>
                       ))}
                     </select>

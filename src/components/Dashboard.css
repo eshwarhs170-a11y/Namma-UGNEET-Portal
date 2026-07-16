@@ -1942,6 +1942,8 @@ html, body {
   min-width: 0;
 }
 .home-search-row .college-autocomplete-wrap input {
+  padding-right: 32px;
+  padding-right: 32px;
   flex: 1;
   min-width: 0;
   width: 100%;

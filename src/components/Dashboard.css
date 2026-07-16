@@ -2439,10 +2439,18 @@ html, body {
   padding: 18px 20px;
 }
 .contact-section h3 {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   margin: 0 0 8px;
   font-family: var(--font-display);
   font-size: 1rem;
   color: var(--ink);
+}
+.contact-section h3 span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 .contact-section p {
   margin: 0 0 8px;

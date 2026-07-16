@@ -1932,7 +1932,9 @@ html, body {
   margin-bottom: 24px;
 }
 .home-search-label {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 6px;
   font-family: var(--font-display);
   font-size: 0.95rem;
   color: var(--ink);
@@ -2086,10 +2088,13 @@ html, body {
   box-shadow: 0 8px 20px var(--shadow);
 }
 .home-feature-icon { font-size: 1.5rem; display: block; margin-bottom: 8px; }
-.home-feature-card strong { display: block; color: var(--ink); font-size: 0.95rem; margin-bottom: 6px; }
+.home-feature-card strong { display: flex; align-items: center; gap: 6px; color: var(--ink); font-size: 0.95rem; margin-bottom: 6px; }
 .home-feature-card p { margin: 0; color: var(--slate); font-size: 0.83rem; line-height: 1.4; }
 
 .home-disclaimer {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
   background: rgba(232, 163, 61, 0.1);
   border: 1px solid rgba(232, 163, 61, 0.35);
   border-radius: 8px;

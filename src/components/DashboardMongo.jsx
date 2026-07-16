@@ -2231,31 +2231,30 @@ export default function Dashboard() {
               <h3 className="home-section-heading">What you can do here</h3>
               <div className="home-feature-grid">
                 <button className="home-feature-card" onClick={() => navigateTo('explore')}>
-                  <span className="home-feature-icon"><Search className="lucide-icon" size={18} /></span>
-                  <strong>Explore Cutoffs &amp; Fees</strong>
+                  <strong><Search className="lucide-icon" size={18} /> Explore Cutoffs &amp; Fees</strong>
                   <p>Search and filter every seat allotment by stream, category, round, year, and budget.</p>
                 </button>
                 <button className="home-feature-card" onClick={() => navigateTo('predictor')}>
-                  <span className="home-feature-icon"><Target className="lucide-icon" size={24} /></span>
-                  <strong>Smart Predictor</strong>
+                  <strong><Target className="lucide-icon" size={18} /> Smart Predictor</strong>
                   <p>Enter your rank to see which colleges you realistically qualify for, with round &amp; year trends.</p>
                 </button>
                 <button className="home-feature-card" onClick={() => navigateTo('options')}>
-                  <span className="home-feature-icon"><PenTool className="lucide-icon" size={24} /></span>
-                  <strong>Option Entry Generator</strong>
+                  <strong><PenTool className="lucide-icon" size={18} /> Option Entry Generator</strong>
                   <p>Build and reorder your college preference list, just like the real KEA option entry form.</p>
                 </button>
                 <button className="home-feature-card" onClick={() => { navigateTo('explore'); }}>
-                  <span className="home-feature-icon"><Star className="lucide-icon" size={16} /></span>
-                  <strong>Save &amp; Compare</strong>
+                  <strong><Star className="lucide-icon" size={18} /> Save &amp; Compare</strong>
                   <p>Bookmark colleges as you browse, then compare them side-by-side once you've shortlisted a few.</p>
                 </button>
               </div>
 
               <div className="home-disclaimer">
-                <AlertTriangle className="lucide-icon" size={18} /> This is an independent, unofficial tool. Always cross-verify with the official{' '}
-                <a href="https://kea.kar.nic.in" target="_blank" rel="noopener noreferrer">KEA website</a> before making decisions.
-                See the <button className="inline-link-btn" onClick={() => navigateTo('contact')}>Contact &amp; About</button> page for details.
+                <AlertTriangle className="lucide-icon" size={18} style={{ flexShrink: 0, marginTop: '2px' }} />
+                <div>
+                  This is an independent, unofficial tool. Always cross-verify with the official{' '}
+                  <a href="https://kea.kar.nic.in" target="_blank" rel="noopener noreferrer">KEA website</a> before making decisions.
+                  See the <button className="inline-link-btn" onClick={() => navigateTo('contact')}>Contact &amp; About</button> page for details.
+                </div>
               </div>
 
               <p className="home-closing-quote">

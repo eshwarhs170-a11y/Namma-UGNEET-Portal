@@ -2077,6 +2077,9 @@ html, body {
   padding: 3px 9px;
   border-radius: 20px;
   letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 @media (max-width: 600px) {

@@ -490,6 +490,31 @@ export default function Dashboard() {
     cleaned = cleaned.replace(/Did not opt for Upgradation\.?\s*\d+\s*-+\s*/gi, '');
     cleaned = cleaned.replace(/Did not fill up fresh choices\.?\s*\d+\s*-+\s*/gi, '');
     cleaned = cleaned.replace(/Not Reported\.?\s*\d+\s*-+\s*/gi, '');
+    cleaned = cleaned.replace(/^[\s-]+/g, ''); // Remove leading dashes and spaces
+    
+    const quotas = [
+      'Deemed/ Paid Seats Quota', 'Deemed / Paid Seats Quota', 'Jain Minority Quota',
+      'Muslim Minority Quota', 'Open Seat Quota', 'All India Quota Government',
+      'All India', 'Delhi University Quota', 'IP University Quota',
+      'Management/Paid Seats Quota', 'Management/ Paid Seats Quota', 'All India Quota Govt Aided',
+      'Central Universites / National Institutions', 'Self Finance', 'Linguistic Minority',
+      'Employee s State Insurance Scheme\\( ESI\\)', 'Foreign Country Quota',
+      'Aligarh Muslim University \\(AMU\\) Quota', 'Non- Resident Indian',
+      'NonResident Indian', 'B.Sc Nursing All India Quota', 'Jamia Internal Quota'
+    ];
+    quotas.forEach(quota => {
+      const regex = new RegExp('^[\\s\\-]*' + quota + '\\s*-*\\s*', 'i');
+      cleaned = cleaned.replace(regex, '');
+    });
+    
+    cleaned = cleaned.replace(/^[\s-]+/g, ''); // Remove any remaining leading dashes
+
+    return cleaned.trim();
+  };
+    cleaned = cleaned.replace(/Did not opt for Upgradati\s*on\.?\s*\d+\s*-+\s*/gi, '');
+    cleaned = cleaned.replace(/Did not opt for Upgradation\.?\s*\d+\s*-+\s*/gi, '');
+    cleaned = cleaned.replace(/Did not fill up fresh choices\.?\s*\d+\s*-+\s*/gi, '');
+    cleaned = cleaned.replace(/Not Reported\.?\s*\d+\s*-+\s*/gi, '');
     
     const quotas = [
       'Deemed/ Paid Seats Quota', 'Deemed / Paid Seats Quota', 'Jain Minority Quota',
@@ -1589,7 +1614,6 @@ export default function Dashboard() {
             <div className="field">
               <label>Allotment Year</label>
               <select value={yearFilter} onChange={(e) => setYearFilter(e.target.value)}>
-                <option value="ALL">All Years</option>
                 {dynamicYears.filter(y => y === '2025' || y === '2024').map((y) => (
                   <option key={y} value={y}>{y}</option>
                 ))}
@@ -1942,7 +1966,6 @@ export default function Dashboard() {
                     <div className="field">
                       <label>Allotment Year</label>
                       <select value={yearFilter} onChange={(e) => setYearFilter(e.target.value)}>
-                        <option value="ALL">All Years</option>
                         {dynamicYears.filter(y => y === '2025' || y === '2024').map((y) => (
                           <option key={y} value={y}>{y}</option>
                         ))}
@@ -2163,7 +2186,6 @@ export default function Dashboard() {
                   <div className="field">
                     <label>Allotment Year</label>
                     <select value={predictorYear} onChange={(e) => setPredictorYear(e.target.value)}>
-                      <option value="ALL">All Years</option>
                       {dynamicYears.filter(y => y === '2025' || y === '2024').map((y) => (
                         <option key={y} value={y}>{y}</option>
                       ))}

@@ -1942,8 +1942,8 @@ html, body {
   min-width: 0;
 }
 .home-search-row .college-autocomplete-wrap input {
-  padding-right: 32px;
-  padding-right: 32px;
+  padding-right: 40px;
+  padding-right: 40px;
   flex: 1;
   min-width: 0;
   width: 100%;
@@ -2633,18 +2633,19 @@ html, body {
 
 .autocomplete-clear-btn {
   position: absolute;
-  right: 8px;
+  right: 12px;
   top: 50%;
   transform: translateY(-50%);
-  background: none;
+  background: rgba(255, 255, 255, 0.8);
   border: none;
   font-size: 1.3rem;
   cursor: pointer;
-  color: #999;
+  color: #666;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 4px;
+  border-radius: 50%;
   line-height: 1;
   z-index: 10;
 }

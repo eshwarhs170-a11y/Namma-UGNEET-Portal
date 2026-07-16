@@ -2062,7 +2062,7 @@ export default function Dashboard() {
               <label>Counselling Round</label>
               <select value={roundFilter} onChange={(e) => setRoundFilter(e.target.value)}>
                 <option value="ALL"><Star className="lucide-icon" size={18} /> All Rounds (Best Cutoff)</option>
-                {dynamicRounds.filter(r => r !== 'FINAL').map((r) => (
+                {dynamicRounds.filter(r => r !== 'FINAL' && !r.toLowerCase().includes('all rounds')).map((r) => (
                   <option key={r} value={r}>{r === 'R3' ? 'R3 (Includes All Previous Rounds Info)' : r}</option>
                 ))}
               </select>
@@ -2422,7 +2422,7 @@ export default function Dashboard() {
                       <label>Counselling Round</label>
                       <select value={roundFilter} onChange={(e) => setRoundFilter(e.target.value)}>
                         <option value="ALL"><Star className="lucide-icon" size={18} /> All Rounds (Best Cutoff)</option>
-                        {dynamicRounds.filter(r => r !== 'FINAL').map((r) => (
+                        {dynamicRounds.filter(r => r !== 'FINAL' && !r.toLowerCase().includes('all rounds')).map((r) => (
                           <option key={r} value={r}>{r === 'R3' ? 'R3 (Includes All Previous Rounds Info)' : r}</option>
                         ))}
                       </select>
@@ -2641,7 +2641,7 @@ export default function Dashboard() {
                     <label>Counselling Round</label>
                     <select value={predictorRound} onChange={(e) => setPredictorRound(e.target.value)}>
                       <option value="ALL"><Star className="lucide-icon" size={18} /> All Rounds (Best Cutoff)</option>
-                      {dynamicRounds.filter(r => r !== 'FINAL').map((r) => (
+                      {dynamicRounds.filter(r => r !== 'FINAL' && !r.toLowerCase().includes('all rounds')).map((r) => (
                         <option key={r} value={r}>{r === 'R3' ? 'R3 (Includes All Previous Rounds Info)' : r}</option>
                       ))}
                     </select>

@@ -244,6 +244,9 @@ html, body {
 }
 
 .tour-fab {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   background: var(--solid-accent-bg);
   color: var(--accent-text);
   border: none;
@@ -1433,6 +1436,9 @@ html, body {
   top: 70px;
   right: 22px;
   z-index: 30; /* Stays below the mobile sidebar (z-index 50) and backdrop (z-index 40) */
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   background: var(--sage);
   color: var(--accent-text);
   border: none;

@@ -2016,15 +2016,34 @@ export default function Dashboard() {
               If NammaUGNEET helped you find your dream college, consider supporting our work! Your tip helps keep the servers running and the site ad-free.
             </p>
             
-            <div style={{ background: '#ffffff', padding: '1rem', borderRadius: '12px', display: 'inline-block', marginBottom: '1.5rem', boxShadow: '0 4px 15px rgba(0,0,0,0.1)' }}>
-              <img src="/upi-qr.png" alt="UPI QR Code" style={{ width: '200px', height: '200px', display: 'block', margin: '0 auto' }} />
-              <div style={{ marginTop: '1rem', color: '#333', fontWeight: 'bold', fontSize: '1.1rem', letterSpacing: '0.5px' }}>
-                eshwarhs170@oksbi
+            <a
+              href="upi://pay?pa=eshwarhs170@oksbi&pn=Eshwar%20HS&tn=NammaUGNEET%20Support&cu=INR"
+              title="Tap to pay via GPay / PhonePe / Paytm"
+              style={{ textDecoration: 'none', display: 'inline-block', marginBottom: '1.5rem' }}
+            >
+              <div style={{ background: '#ffffff', padding: '1rem', borderRadius: '12px', boxShadow: '0 4px 15px rgba(0,0,0,0.1)', cursor: 'pointer', transition: 'transform 0.15s ease, box-shadow 0.15s ease' }}
+                onMouseEnter={e => { e.currentTarget.style.transform = 'scale(1.03)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(16,185,129,0.25)'; }}
+                onMouseLeave={e => { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.boxShadow = '0 4px 15px rgba(0,0,0,0.1)'; }}
+              >
+                <img src="/upi-qr.png" alt="Tap to pay via UPI" style={{ width: '200px', height: '200px', display: 'block', margin: '0 auto' }} />
+                <div style={{ marginTop: '0.75rem', color: '#10b981', fontWeight: 'bold', fontSize: '1rem', letterSpacing: '0.5px', textAlign: 'center' }}>
+                  eshwarhs170@oksbi
+                </div>
+                <div style={{ fontSize: '0.75rem', color: '#888', marginTop: '4px', textAlign: 'center' }}>Tap QR or ID to open payment app</div>
               </div>
+            </a>
+
+            <div style={{ marginBottom: '1.5rem' }}>
+              <a
+                href="upi://pay?pa=eshwarhs170@oksbi&pn=Eshwar%20HS&tn=NammaUGNEET%20Support&cu=INR"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'linear-gradient(135deg, #10b981, #059669)', color: '#fff', fontWeight: '700', fontSize: '0.95rem', padding: '12px 28px', borderRadius: '10px', textDecoration: 'none', boxShadow: '0 4px 14px rgba(16,185,129,0.35)' }}
+              >
+                💳 Pay via GPay / PhonePe / UPI
+              </a>
             </div>
 
             <p style={{ fontSize: '0.85rem', color: 'var(--text-tertiary)', marginBottom: '1.5rem' }}>
-              Scan to pay with Google Pay, PhonePe, Paytm, or any UPI app.
+              Scan the QR code <strong>or</strong> tap any link above to open your UPI app directly.
             </p>
 
             <div className="tour-actions" style={{ justifyContent: 'center' }}>
@@ -3156,14 +3175,32 @@ export default function Dashboard() {
                   NammaUGNEET is an independent, student-built tool provided completely free of charge and free of ads. 
                   If this tool helped you predict your college or saved you hours of PDF scrolling, consider supporting our work! Your tip helps keep the servers running.
                 </p>
-                <div style={{ background: '#ffffff', padding: '1rem', borderRadius: '12px', display: 'inline-block', boxShadow: '0 4px 15px rgba(0,0,0,0.1)' }}>
-                  <img src="/upi-qr.png" alt="UPI QR Code" style={{ width: '200px', height: '200px', display: 'block', margin: '0 auto' }} />
-                  <div style={{ marginTop: '1rem', color: '#333', fontWeight: 'bold', fontSize: '1.1rem', letterSpacing: '0.5px' }}>
-                    eshwarhs170@oksbi
+                <a
+                  href="upi://pay?pa=eshwarhs170@oksbi&pn=Eshwar%20HS&tn=NammaUGNEET%20Support&cu=INR"
+                  title="Tap to pay via GPay / PhonePe / Paytm"
+                  style={{ textDecoration: 'none', display: 'inline-block', marginBottom: '1rem' }}
+                >
+                  <div style={{ background: '#ffffff', padding: '1rem', borderRadius: '12px', boxShadow: '0 4px 15px rgba(0,0,0,0.1)', cursor: 'pointer', transition: 'transform 0.15s ease, box-shadow 0.15s ease' }}
+                    onMouseEnter={e => { e.currentTarget.style.transform = 'scale(1.03)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(16,185,129,0.25)'; }}
+                    onMouseLeave={e => { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.boxShadow = '0 4px 15px rgba(0,0,0,0.1)'; }}
+                  >
+                    <img src="/upi-qr.png" alt="Tap to pay via UPI" style={{ width: '200px', height: '200px', display: 'block', margin: '0 auto' }} />
+                    <div style={{ marginTop: '0.75rem', color: '#10b981', fontWeight: 'bold', fontSize: '1rem', letterSpacing: '0.5px', textAlign: 'center' }}>
+                      eshwarhs170@oksbi
+                    </div>
+                    <div style={{ fontSize: '0.75rem', color: '#888', marginTop: '4px', textAlign: 'center' }}>Tap QR or ID to open payment app</div>
                   </div>
+                </a>
+                <div style={{ marginBottom: '0.5rem' }}>
+                  <a
+                    href="upi://pay?pa=eshwarhs170@oksbi&pn=Eshwar%20HS&tn=NammaUGNEET%20Support&cu=INR"
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'linear-gradient(135deg, #10b981, #059669)', color: '#fff', fontWeight: '700', fontSize: '0.95rem', padding: '12px 28px', borderRadius: '10px', textDecoration: 'none', boxShadow: '0 4px 14px rgba(16,185,129,0.35)' }}
+                  >
+                    💳 Pay via GPay / PhonePe / UPI
+                  </a>
                 </div>
-                <p style={{ fontSize: '0.9rem', color: 'var(--text-tertiary)', marginTop: '1.5rem' }}>
-                  Scan to pay with Google Pay, PhonePe, Paytm, or any UPI app.
+                <p style={{ fontSize: '0.9rem', color: 'var(--text-tertiary)', marginTop: '1rem' }}>
+                  Scan the QR code <strong>or</strong> tap any link above to open your UPI app directly.
                 </p>
               </div>
 

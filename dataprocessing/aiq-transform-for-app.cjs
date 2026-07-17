@@ -103,14 +103,23 @@ function cleanCollegeName(name) {
     /^Foreign Country Quota\s+/i,
     /^Muslim\s+\w+\s+Quota\s+/i,
     /^Delhi NCR[^)]*Quota\s+/i,
+    // Garbled PDF artifacts: "(Ja mia)Quot a", "(A MU)Quot a"
+    /^\([A-Za-z\s]+\)Quot\s*a\s+/i,
+    /^\([A-Za-z\s]+\)Self\s+finance[^)]*\s*/i,
+    /^\([A-Za-z\s\-]+\)\s*/i,
+    /^\(A MU\)Quot\s*a\s*/i,
+    /^\(Ja mia\)Quot\s*a\s*/i,
+    /^\(G ovt Aided\)\s*/i,
+    /^\(Govt Aided\)\s*/i,
+    /^\(ESI-IP Quota Nursing\)\s*/i,
   ];
   
   for (const prefix of quotaPrefixes) {
     cleaned = cleaned.replace(prefix, '');
   }
   
-  // Remove any remaining leading dashes/spaces
-  cleaned = cleaned.replace(/^[\s\-]+/, '');
+  // Remove any remaining leading dashes/spaces/commas/dots
+  cleaned = cleaned.replace(/^[\s\-,.]+/g, '');
   
   // Collapse multiple spaces and trim
   cleaned = cleaned.replace(/\s+/g, ' ').trim();
@@ -161,6 +170,7 @@ function transform() {
     if (/candidate category/i.test(name)) return true;
     if (/counselling seats allotment/i.test(name)) return true;
     if (/neet-ug counselling/i.test(name)) return true;
+    if (/nursing/i.test(name)) return true; // remove nursing colleges
     if (/\bsno\b.*\brank\b/i.test(name)) return true; // header row
     if (/^\d*\.\d+\s/i.test(name)) return true; // decimal rank prefix like "1.02 Open Seat..." or ".02 Open..."
     if (/^[\d\s.\-]+$/i.test(name)) return true; // pure numbers/dashes
@@ -169,6 +179,9 @@ function transform() {
     if (/^Non-Resident\s/i.test(name)) return true; // quota leaked into name
     if (/^All India\s/i.test(name) && name.length < 30) return true; // "All India Government..." as name
     if (/^- - - -/i.test(name)) return true; // dash block artifacts
+    if (/Maharashtra, 415110/i.test(name)) return true;
+    if (/Wardha, Maharashtra State/i.test(name)) return true;
+    if (/Rushikonda, Visakhapatnam/i.test(name)) return true;
     return false;
   }
 
@@ -196,7 +209,7 @@ function transform() {
         dataset: 'AIQ',
       };
     })
-    .filter((r) => !isGarbageName(r.collegeName));
+    .filter((r) => !isGarbageName(r.collegeName) && !/nursing|b\.?sc\.?/i.test(r.courseDetails));
 
 
   const outputDir = path.dirname(OUTPUT_FILE);

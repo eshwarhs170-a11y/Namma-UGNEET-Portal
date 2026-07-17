@@ -701,7 +701,7 @@ export default function Dashboard() {
   const [maxBudget, setMaxBudget] = useState(() => lsGet(LS_EXPLORE, {}).maxBudget ?? 1500000);
   // Default to 'R1'; if localStorage had the old 'ALL', fall back to 'R1'
   const [roundFilter, setRoundFilter] = useState(() => lsGet(LS_EXPLORE, {}).roundFilter ?? 'ALL');
-  const [yearFilter, setYearFilter] = useState(() => lsGet(LS_EXPLORE, {}).yearFilter ?? '2024');
+  const [yearFilter, setYearFilter] = useState(() => lsGet(LS_EXPLORE, {}).yearFilter ?? '2025');
 
   const [sortConfig, setSortConfig] = useState(() => lsGet(LS_EXPLORE, {}).sortConfig ?? { key: 'rank', direction: 'asc' });
 

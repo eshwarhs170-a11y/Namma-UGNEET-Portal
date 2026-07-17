@@ -537,6 +537,8 @@ export default function Dashboard() {
           const cleanName = (name) => {
             if (!name) return '';
             let cleaned = name.replace(/\r?\n/g, ' ').replace(/\s+/g, ' ').trim();
+            // Remove notes from KEA data like "(Note : Admission...)"
+            cleaned = cleaned.replace(/\s*\(Note\s*:.*?\)/gi, '');
             cleaned = cleaned.replace(/^\d+\s*[-\s]+/g, '');
             cleaned = cleaned.replace(/^[\s\-,.]+/, '');
             cleaned = cleaned.replace(/^\([A-Za-z\s\-\.]+\)\s*(Quot\s*a\s*)?/i, '');
@@ -721,6 +723,9 @@ export default function Dashboard() {
   const cleanCollegeName = (name) => {
     if (!name) return '';
     let cleaned = name.replace(/\r?\n/g, ' ').replace(/\s+/g, ' ').trim();
+
+    // Remove notes from KEA data like "(Note : Admission...)"
+    cleaned = cleaned.replace(/\s*\(Note\s*:.*?\)/gi, '');
 
     // Remove common garbage prefixes from PDF parsing artifacts
     cleaned = cleaned.replace(/Did not opt for Upgradati\s*on\.?\s*\d+\s*[-\s]*/gi, '');

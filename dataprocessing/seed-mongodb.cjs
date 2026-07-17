@@ -1,6 +1,10 @@
 const fs = require('fs');
 const path = require('path');
+const dns = require('dns');
 const { MongoClient } = require('mongodb');
+
+// Force Google DNS to fix ISP DNS blocks on SRV record lookups (needed for mongodb+srv://)
+dns.setServers(['8.8.8.8', '1.1.1.1', '8.8.4.4']);
 
 // Require MONGODB_URI to be passed as environment variable
 const uri = process.env.MONGODB_URI;

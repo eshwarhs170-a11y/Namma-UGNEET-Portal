@@ -35,8 +35,11 @@ export default async function handler(req, res) {
     // Cache the stats for 12 hours since they rarely change
     res.setHeader('Cache-Control', 's-maxage=43200, stale-while-revalidate=86400');
 
+    const streams = ['MEDICAL', 'DENTAL', 'AYUSH'];
+
     // Fetch distinct values for dropdowns in parallel
-    const [years, streams, categories, rounds, quotas, colleges, totalRecords] = await Promise.all([
+    const [years, allStreams, categories, rounds, quotas, colleges, totalRecords,
+           medicalColleges, dentalColleges, ayushColleges] = await Promise.all([
       collection.distinct('year', { dataset }),
       collection.distinct('stream', { dataset }),
       collection.distinct('category', { dataset }),
@@ -44,15 +47,24 @@ export default async function handler(req, res) {
       dataset === 'AIQ' ? collection.distinct('quota', { dataset }) : Promise.resolve([]),
       collection.distinct('collegeName', { dataset }),
       collection.countDocuments({ dataset }),
+      collection.distinct('collegeName', { dataset, stream: 'MEDICAL' }),
+      collection.distinct('collegeName', { dataset, stream: 'DENTAL' }),
+      collection.distinct('collegeName', { dataset, stream: 'AYUSH' }),
     ]);
 
     return res.status(200).json({
       years: years.filter(Boolean).sort(),
-      streams: streams.filter(Boolean).sort(),
+      streams: allStreams.filter(Boolean).sort(),
       categories: categories.filter(Boolean).sort(),
       rounds: rounds.filter(r => r && !/stray|vacancy/i.test(r)).sort(),
       quotas: quotas.filter(Boolean).sort(),
       colleges: colleges.filter(Boolean).sort(),
+      // Per-stream college lists for autocomplete filtering
+      collegesByStream: {
+        MEDICAL: medicalColleges.filter(Boolean).sort(),
+        DENTAL: dentalColleges.filter(Boolean).sort(),
+        AYUSH: ayushColleges.filter(Boolean).sort(),
+      },
       totalRecords,
     });
   } catch (err) {
@@ -60,3 +72,4 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: 'Internal server error' });
   }
 };
+

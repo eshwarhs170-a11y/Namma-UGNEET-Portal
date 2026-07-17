@@ -523,6 +523,7 @@ export default function Dashboard() {
   const [predictorExtraRange, setPredictorExtraRange] = useState(0);
   const [hasSearchedOnce, setHasSearchedOnce] = useState(false);
   const [allCollegeNames, setAllCollegeNames] = useState([]);
+  const [collegesByStream, setCollegesByStream] = useState({ MEDICAL: [], DENTAL: [], AYUSH: [] });
 
 
   // Fetch dropdown stats and college names
@@ -533,56 +534,58 @@ export default function Dashboard() {
       .then(d => {
         setDropdownStats(d);
         if (d.colleges) {
-          const cleanedNames = new Set(
-            d.colleges
-              .map(name => {
-                if (!name) return '';
-                let cleaned = name.replace(/\r?\n/g, ' ').replace(/\s+/g, ' ').trim();
-                // Remove leading numbers+dashes
-                cleaned = cleaned.replace(/^\d+\s*[-\s]+/g, '');
-                cleaned = cleaned.replace(/^[\s\-,.]+/, '');
-                // Remove bracket garbage prefixes like "(G ovt Aided)"
-                cleaned = cleaned.replace(/^\([A-Za-z\s\-\.]+\)\s*(Quot\s*a\s*)?/i, '');
-                // Remove known quota prefixes
-                const qps = [
-                  /^All India Quota Govt(?:ernment)?\s+Aided\s+/i,
-                  /^All India Quota Govt(?:ernment)?\s+/i,
-                  /^All India Quota\s+/i,
-                  /^Open Seat Quota\s+/i,
-                  /^Management\s*\/?\s*Paid?\s*Seats Quota\s+/i,
-                  /^Managemen\s*t\s*\/?\s*Paid\s*Seats\s*Quota\s+/i,
-                  /^Non-?\s*Resident Indian[^)]*\)?\s*/i,
-                  /^NonResident Indian\s*/i,
-                  /^Self Finance\s+/i,
-                  /^Muslim Minority Quota[^)]*\)?\s*/i,
-                  /^Deemed\s*\/?\s*Paid Seats Quota\s+/i,
-                  /^Linguistic Minority\s+/i,
-                  /^Jain Minority Quota\s+/i,
-                  /^Delhi University Quota\s+/i,
-                  /^IP University Quota\s+/i,
-                  /^Foreign Country Quota\s+/i,
-                ];
-                for (const p of qps) cleaned = cleaned.replace(p, '');
-                cleaned = cleaned.replace(/^[\s\-,.]+/, '').replace(/\s+/g, ' ').trim();
-                return cleaned;
-              })
-              .filter(name => {
-                if (!name || name.length < 5) return false;
-                if (name.length > 160) return false;
-                if (/^\d+\s*[-–]/.test(name)) return false;
-                if (/^[^a-zA-Z(]/.test(name)) return false;
-                if (/^(Maharashtra|Rushikonda|Wardha|Visakhapatnam)/i.test(name)) return false;
-                if (/NonResident Indian/i.test(name)) return false;
-                if (/Non-Resident Indian/i.test(name)) return false;
-                if (/Open Seat Quota/i.test(name)) return false;
-                if (/^- - -/.test(name)) return false;
-                if (/^All India\s/i.test(name) && name.length < 30) return false;
-                if (/abbreviat/i.test(name)) return false;
-                if (/counselling seats allotment/i.test(name)) return false;
-                return true;
-              })
-          );
-          setAllCollegeNames(Array.from(cleanedNames).sort());
+          const cleanName = (name) => {
+            if (!name) return '';
+            let cleaned = name.replace(/\r?\n/g, ' ').replace(/\s+/g, ' ').trim();
+            cleaned = cleaned.replace(/^\d+\s*[-\s]+/g, '');
+            cleaned = cleaned.replace(/^[\s\-,.]+/, '');
+            cleaned = cleaned.replace(/^\([A-Za-z\s\-\.]+\)\s*(Quot\s*a\s*)?/i, '');
+            const qps = [
+              /^All India Quota Govt(?:ernment)?\s+Aided\s+/i,
+              /^All India Quota Govt(?:ernment)?\s+/i,
+              /^All India Quota\s+/i,
+              /^Open Seat Quota\s+/i,
+              /^Management\s*\/?\s*Paid?\s*Seats Quota\s+/i,
+              /^Managemen\s*t\s*\/?\s*Paid\s*Seats\s*Quota\s+/i,
+              /^Non-?\s*Resident Indian[^)]*\)?\s*/i,
+              /^NonResident Indian\s*/i,
+              /^Self Finance\s+/i,
+              /^Muslim Minority Quota[^)]*\)?\s*/i,
+              /^Deemed\s*\/?\s*Paid Seats Quota\s+/i,
+              /^Linguistic Minority\s+/i,
+              /^Jain Minority Quota\s+/i,
+              /^Delhi University Quota\s+/i,
+              /^IP University Quota\s+/i,
+              /^Foreign Country Quota\s+/i,
+            ];
+            for (const p of qps) cleaned = cleaned.replace(p, '');
+            cleaned = cleaned.replace(/^[\s\-,.]+/, '').replace(/\s+/g, ' ').trim();
+            return cleaned;
+          };
+          const filterGarbage = (name) => {
+            if (!name || name.length < 5) return false;
+            if (name.length > 160) return false;
+            if (/^\d+\s*[-–]/.test(name)) return false;
+            if (/^[^a-zA-Z(]/.test(name)) return false;
+            if (/^(Maharashtra|Rushikonda|Wardha|Visakhapatnam)/i.test(name)) return false;
+            if (/NonResident Indian/i.test(name)) return false;
+            if (/Non-Resident Indian/i.test(name)) return false;
+            if (/Open Seat Quota/i.test(name)) return false;
+            if (/^- - -/.test(name)) return false;
+            if (/^All India\s/i.test(name) && name.length < 30) return false;
+            if (/abbreviat/i.test(name)) return false;
+            if (/counselling seats allotment/i.test(name)) return false;
+            return true;
+          };
+          const buildList = (raw) => Array.from(new Set(raw.map(cleanName).filter(filterGarbage))).sort();
+          setAllCollegeNames(buildList(d.colleges));
+          if (d.collegesByStream) {
+            setCollegesByStream({
+              MEDICAL: buildList(d.collegesByStream.MEDICAL || []),
+              DENTAL: buildList(d.collegesByStream.DENTAL || []),
+              AYUSH: buildList(d.collegesByStream.AYUSH || []),
+            });
+          }
         }
         setInitialLoading(false);
       })
@@ -1233,25 +1236,32 @@ export default function Dashboard() {
   // --- AUTO-COMPLETE LISTS: filtered by active stream to avoid showing irrelevant colleges ---
   const exploreStreamCollegeNames = useMemo(() => {
     if (!streamFilter || streamFilter === 'ALL') return allCollegeNames;
-    // Filter college names visible in the current explore API results (already stream-filtered)
+    // Use per-stream list from API if available
+    const streamList = collegesByStream[streamFilter];
+    if (streamList && streamList.length > 5) return streamList;
+    // Fallback: filter from current page data
     const nameSet = new Set(
       filteredDashboardData
         .map(item => cleanCollegeName(item.collegeName))
         .filter(n => !isGarbageCollegeName(n))
     );
-    if (nameSet.size > 10) return Array.from(nameSet).sort();
-    return allCollegeNames; // fallback if data not yet loaded
-  }, [allCollegeNames, streamFilter, filteredDashboardData]);
+    if (nameSet.size > 5) return Array.from(nameSet).sort();
+    return allCollegeNames;
+  }, [allCollegeNames, collegesByStream, streamFilter, filteredDashboardData]);
 
   const predictorStreamCollegeNames = useMemo(() => {
     if (!predictorStream || predictorStream === 'ALL') return allCollegeNames;
+    // Use per-stream list from API if available
+    const streamList = collegesByStream[predictorStream];
+    if (streamList && streamList.length > 5) return streamList;
+    // Fallback: filter from predictor API results
     const nameSet = new Set(apiData
       .filter(item => item.stream === predictorStream)
       .map(item => cleanCollegeName(item.collegeName))
       .filter(n => !isGarbageCollegeName(n)));
-    if (nameSet.size > 10) return Array.from(nameSet).sort();
-    return allCollegeNames; // fallback
-  }, [allCollegeNames, predictorStream, apiData]);
+    if (nameSet.size > 5) return Array.from(nameSet).sort();
+    return allCollegeNames;
+  }, [allCollegeNames, collegesByStream, predictorStream, apiData]);
 
   // Reset extra range when any core predictor filter changes
   useEffect(() => {

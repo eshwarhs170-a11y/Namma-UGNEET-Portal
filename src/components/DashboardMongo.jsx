@@ -2394,7 +2394,7 @@ export default function Dashboard() {
                     suggestions={allCollegeNames}
                     placeholder="e.g. Bangalore Medical College, M001MG"
                   />
-                  <button onClick={() => navigateTo('explore')}>Search</button>
+                  <button onClick={() => { setCommittedSearchQuery(searchQuery); navigateTo('explore'); }}>Search</button>
                 </div>
               </div>
 

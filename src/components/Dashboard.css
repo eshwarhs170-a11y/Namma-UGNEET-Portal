@@ -2025,7 +2025,7 @@ html, body {
 
 @media (max-width: 480px) {
   .home-search-row { flex-direction: column; }
-  .home-search-row button { width: 100%; }
+  .home-search-row > button { width: 100%; }
   .home-search-row .college-autocomplete-wrap { width: 100%; }
 }
 

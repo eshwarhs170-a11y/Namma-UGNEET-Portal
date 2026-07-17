@@ -889,6 +889,17 @@ export default function Dashboard() {
     fetch(`/api/allotments?${params.toString()}`)
       .then(r => r.json())
       .then(d => {
+         if (d.data.length === 0 && debouncedSearchQuery.trim().length >= 2) {
+           if (typeof window !== 'undefined' && window.gtag) {
+             window.gtag('event', 'search_no_results', {
+               search_term: debouncedSearchQuery.trim(),
+               stream: streamFilter,
+               category: categoryFilter,
+               round: roundFilter,
+               dataset: dataSource
+             });
+           }
+         }
          setApiData(prev => explorePage === 1 ? d.data : [...prev, ...d.data]);
          setApiTotal(d.total);
          setExploreLoading(false);

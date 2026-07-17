@@ -23,6 +23,13 @@ export default class ErrorBoundary extends React.Component {
     // Logs to the browser console so you can still debug in production.
     // Swap this for a real error-tracking service (e.g. Sentry) later if you want.
     console.error('NammaUGNEET crashed:', error, errorInfo);
+
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'app_crash', {
+        error_message: error ? error.toString() : 'Unknown error',
+        component_stack: errorInfo ? errorInfo.componentStack : '',
+      });
+    }
   }
 
   handleReload = () => {

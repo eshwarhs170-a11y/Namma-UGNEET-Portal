@@ -161,17 +161,22 @@ export default async function handler(req, res) {
     // Text search on college name / code
     const safeSearch = sanitizeString(search, 100);
     if (safeSearch && safeSearch.length >= 2) {
-      // Use regex for partial matching (text indexes only do full-word)
-      const escapedSearch = safeSearch.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-      filter.$and = [
-        ...(filter.$and || []),
-        {
-          $or: [
-            { collegeName: { $regex: escapedSearch, $options: 'i' } },
-            { collegeCode: { $regex: escapedSearch, $options: 'i' } },
-          ],
-        },
-      ];
+      const searchTerms = safeSearch.split(/[\s,]+/).filter(t => t.length > 0);
+      if (searchTerms.length > 0) {
+        const termConditions = searchTerms.map(term => {
+          const escapedSearch = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+          return {
+            $or: [
+              { collegeName: { $regex: escapedSearch, $options: 'i' } },
+              { collegeCode: { $regex: escapedSearch, $options: 'i' } },
+            ]
+          };
+        });
+        filter.$and = [
+          ...(filter.$and || []),
+          ...termConditions
+        ];
+      }
     }
 
     // Sorting

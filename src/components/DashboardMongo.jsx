@@ -4,7 +4,7 @@ import {
   Search, Target, Info, AlertTriangle, Lock, Unlock, ScrollText, Mail, 
   Star, Trash2, FileText, MessageCircle, School, User, PenTool, Lightbulb, 
   Coffee, RefreshCw, Frown, Circle, BarChart3, Check, X,
-  Sun, Moon, Home, Download, Landmark, Globe
+  Sun, Moon, Home, Download, Landmark, Globe, Wallet
 } from 'lucide-react';
 
 import jsPDF from 'jspdf';
@@ -2038,8 +2038,8 @@ export default function Dashboard() {
                 href="upi://pay?pa=eshwarhs170@oksbi&pn=Eshwar%20HS&tn=NammaUGNEET%20Support&cu=INR"
                 style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'linear-gradient(135deg, #10b981, #059669)', color: '#fff', fontWeight: '700', fontSize: '0.95rem', padding: '12px 28px', borderRadius: '10px', textDecoration: 'none', boxShadow: '0 4px 14px rgba(16,185,129,0.35)' }}
               >
-                💳 Pay via GPay / PhonePe / UPI
-              </a>
+                    <Wallet className="lucide-icon" size={18} /> Pay via GPay / PhonePe / UPI
+                  </a>
             </div>
 
             <p style={{ fontSize: '0.85rem', color: 'var(--text-tertiary)', marginBottom: '1.5rem' }}>

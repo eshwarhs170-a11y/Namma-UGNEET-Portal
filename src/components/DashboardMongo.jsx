@@ -927,13 +927,17 @@ export default function Dashboard() {
   
   const filteredDashboardData = apiData; // alias for the rest of the file
   
-  // Explore table: one row per college, showing the LAST (highest rank) cutoff for the selected round/category.
-  // "Last cutoff" = the highest rank number admitted = last student who got a seat = tightest cutoff for the round.
+  // Explore table: one row per college+course combo, showing the highest rank
+  // cutoff across all rounds (worst-case = last seat = most informative).
+  // Grouping by collegeCode+course prevents the same college appearing twice
+  // for MBBS-GOVT vs MBBS-MGMT, and prevents round-to-round flicker.
   const exploreColleges = useMemo(() => {
     if (!filteredDashboardData.length) return [];
     const map = new Map();
     filteredDashboardData.forEach(item => {
-      const key = item.collegeCode;
+      // Key = collegeCode + course so MBBS-GOVT and MBBS-MGMT are separate rows,
+      // but R1/R2/R3 of the same course are collapsed to the worst (highest) rank.
+      const key = `${item.collegeCode}||${item.course || ''}`;
       if (!map.has(key) || item.rank > map.get(key).rank) {
         map.set(key, item);
       }

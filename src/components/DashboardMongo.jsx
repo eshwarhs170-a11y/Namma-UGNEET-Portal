@@ -7,7 +7,7 @@ import {
   Sun, Moon, Home, Download, Landmark, Globe, Wallet
 } from 'lucide-react';
 
-import jsPDF from 'jspdf';
+// jsPDF loaded on-demand (lazy) to keep initial bundle small
 import logo from '../assets/namma-ugneet-logo.png';
 import { fetchVisitCounts } from '../visitorCounter.js';
 import './Dashboard.css';
@@ -1150,7 +1150,8 @@ export default function Dashboard() {
     window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
   };
 
-  const downloadOptionListPDF = () => {
+  const downloadOptionListPDF = async () => {
+    const { default: jsPDF } = await import('jspdf');
     const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
     const pageW = doc.internal.pageSize.getWidth();
     const pageH = doc.internal.pageSize.getHeight();
@@ -1508,7 +1509,8 @@ export default function Dashboard() {
     shareOnWhatsApp(header + lines.join('\n') + footer);
   };
 
-  const downloadPredictedResultsPDF = () => {
+  const downloadPredictedResultsPDF = async () => {
+    const { default: jsPDF } = await import('jspdf');
     const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
     const pageW = doc.internal.pageSize.getWidth();
     const pageH = doc.internal.pageSize.getHeight();
@@ -2218,7 +2220,7 @@ export default function Dashboard() {
 
             <div className="field">
               <label>Course Stream</label>
-              <select value={streamFilter} onChange={(e) => setStreamFilter(e.target.value)}>
+              <select aria-label="Course Stream" value={streamFilter} onChange={(e) => setStreamFilter(e.target.value)}>
                 <option value="MEDICAL"><Circle className="lucide-icon" size={16} fill="#10b981" color="#10b981" /> MBBS (Medical)</option>
                 <option value="DENTAL"><Circle className="lucide-icon" size={16} fill="#3b82f6" color="#3b82f6" /> BDS (Dental)</option>
                 <option value="AYUSH"><Circle className="lucide-icon" size={16} fill="#d97706" color="#d97706" /> AYUSH Streams</option>
@@ -2228,7 +2230,7 @@ export default function Dashboard() {
             {dataSource === 'AIQ' && (
               <div className="field">
                 <label>AIQ Seat Quota <button type="button" className="glossary-btn" onClick={() => setGlossaryOpen(true)} aria-label="What do these mean?">ⓘ</button></label>
-                <select value={quotaFilter} onChange={(e) => setQuotaFilter(e.target.value)}>
+                <select aria-label="AIQ Seat Quota" value={quotaFilter} onChange={(e) => setQuotaFilter(e.target.value)}>
                   <option value="ALL">All Quotas</option>
                   {dynamicQuotas.map((q) => (
                     <option key={q} value={q}>{q}</option>
@@ -2238,7 +2240,7 @@ export default function Dashboard() {
             )}
             <div className="field">
               <label>{dataSource === 'KEA' ? 'KEA Quota Category' : 'AIQ Seat Category'} <button type="button" className="glossary-btn" onClick={() => setGlossaryOpen(true)} aria-label="What do these mean?">ⓘ</button></label>
-              <select value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)}>
+              <select aria-label="Quota Category" value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)}>
                 {dynamicCategories.map((cat) => (
                   <option key={cat} value={cat}>{cat}</option>
                 ))}
@@ -2247,7 +2249,7 @@ export default function Dashboard() {
 
             <div className="field">
               <label>Counselling Round</label>
-              <select value={roundFilter} onChange={(e) => setRoundFilter(e.target.value)}>
+              <select aria-label="Counselling Round" value={roundFilter} onChange={(e) => setRoundFilter(e.target.value)}>
                 <option value="ALL"><Star className="lucide-icon" size={18} /> All Rounds (Best Cutoff)</option>
                 {dynamicRounds.filter(r => r !== 'FINAL' && !r.toLowerCase().includes('all rounds')).map((r) => (
                   <option key={r} value={r}>{r}</option>
@@ -2257,7 +2259,7 @@ export default function Dashboard() {
 
             <div className="field">
               <label>Allotment Year</label>
-              <select value={yearFilter} onChange={(e) => setYearFilter(e.target.value)}>
+              <select aria-label="Allotment Year" value={yearFilter} onChange={(e) => setYearFilter(e.target.value)}>
                 {dynamicYears.filter(y => y === '2025' || y === '2024').map((y) => (
                   <option key={y} value={y}>{y}</option>
                 ))}
@@ -2578,7 +2580,7 @@ export default function Dashboard() {
                     </div>
                     <div className="field">
                       <label>Course Stream</label>
-                      <select value={streamFilter} onChange={(e) => setStreamFilter(e.target.value)}>
+                      <select aria-label="Course Stream" value={streamFilter} onChange={(e) => setStreamFilter(e.target.value)}>
                         <option value="MEDICAL"><Circle className="lucide-icon" size={16} fill="#10b981" color="#10b981" /> MBBS (Medical)</option>
                         <option value="DENTAL"><Circle className="lucide-icon" size={16} fill="#3b82f6" color="#3b82f6" /> BDS (Dental)</option>
                         <option value="AYUSH"><Circle className="lucide-icon" size={16} fill="#d97706" color="#d97706" /> AYUSH Streams</option>
@@ -2587,7 +2589,7 @@ export default function Dashboard() {
                     {dataSource === 'AIQ' && (
                       <div className="field">
                         <label>AIQ Seat Quota <button type="button" className="glossary-btn" onClick={() => setGlossaryOpen(true)} aria-label="What do these mean?">ⓘ</button></label>
-                        <select value={quotaFilter} onChange={(e) => setQuotaFilter(e.target.value)}>
+                        <select aria-label="AIQ Seat Quota" value={quotaFilter} onChange={(e) => setQuotaFilter(e.target.value)}>
                           <option value="ALL">All Quotas</option>
                           {dynamicQuotas.map((q) => (
                             <option key={q} value={q}>{q}</option>
@@ -2597,7 +2599,7 @@ export default function Dashboard() {
                     )}
                     <div className="field">
                       <label>{dataSource === 'KEA' ? 'KEA Quota Category' : 'AIQ Seat Category'} <button type="button" className="glossary-btn" onClick={() => setGlossaryOpen(true)} aria-label="What do these mean?">ⓘ</button></label>
-                      <select value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)}>
+                      <select aria-label="Quota Category" value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)}>
                         {dynamicCategories.map((cat) => (
                           <option key={cat} value={cat}>{cat}</option>
                         ))}
@@ -2605,7 +2607,7 @@ export default function Dashboard() {
                     </div>
                     <div className="field">
                       <label>Counselling Round</label>
-                      <select value={roundFilter} onChange={(e) => setRoundFilter(e.target.value)}>
+                      <select aria-label="Counselling Round" value={roundFilter} onChange={(e) => setRoundFilter(e.target.value)}>
                         <option value="ALL"><Star className="lucide-icon" size={18} /> All Rounds (Best Cutoff)</option>
                         {dynamicRounds.filter(r => r !== 'FINAL' && !r.toLowerCase().includes('all rounds')).map((r) => (
                           <option key={r} value={r}>{r}</option>
@@ -2614,7 +2616,7 @@ export default function Dashboard() {
                     </div>
                     <div className="field">
                       <label>Allotment Year</label>
-                      <select value={yearFilter} onChange={(e) => setYearFilter(e.target.value)}>
+                      <select aria-label="Allotment Year" value={yearFilter} onChange={(e) => setYearFilter(e.target.value)}>
                         {dynamicYears.filter(y => y === '2025' || y === '2024').map((y) => (
                           <option key={y} value={y}>{y}</option>
                         ))}
@@ -2795,7 +2797,7 @@ export default function Dashboard() {
 
                   <div className="field">
                     <label>Stream Target</label>
-                    <select value={predictorStream} onChange={(e) => setPredictorStream(e.target.value)}>
+                    <select aria-label="Stream Target" value={predictorStream} onChange={(e) => setPredictorStream(e.target.value)}>
                       <option value="MEDICAL">MBBS (Medical)</option>
                       <option value="DENTAL">BDS (Dental)</option>
                       <option value="AYUSH">AYUSH Courses</option>
@@ -2805,7 +2807,7 @@ export default function Dashboard() {
                   {dataSource === 'AIQ' && (
                     <div className="field">
                       <label>AIQ Seat Quota <button type="button" className="glossary-btn" onClick={() => setGlossaryOpen(true)} aria-label="What do these mean?">ⓘ</button></label>
-                      <select value={predictorQuota} onChange={(e) => setPredictorQuota(e.target.value)}>
+                      <select aria-label="AIQ Seat Quota" value={predictorQuota} onChange={(e) => setPredictorQuota(e.target.value)}>
                         <option value="ALL">All Quotas</option>
                         {dynamicQuotas.map((q) => (
                           <option key={q} value={q}>{q}</option>
@@ -2815,7 +2817,7 @@ export default function Dashboard() {
                   )}
                   <div className="field">
                     <label>{dataSource === 'KEA' ? 'Reservation Category' : 'AIQ Seat Category'} <button type="button" className="glossary-btn" onClick={() => setGlossaryOpen(true)} aria-label="What do these mean?">ⓘ</button></label>
-                    <select value={predictorCategory} onChange={(e) => setPredictorCategory(e.target.value)}>
+                    <select aria-label="Reservation Category" value={predictorCategory} onChange={(e) => setPredictorCategory(e.target.value)}>
                       {dynamicCategories.map((cat) => (
                         <option key={cat} value={cat}>{cat}</option>
                       ))}
@@ -2824,7 +2826,7 @@ export default function Dashboard() {
 
                   <div className="field">
                     <label>Counselling Round</label>
-                    <select value={predictorRound} onChange={(e) => setPredictorRound(e.target.value)}>
+                    <select aria-label="Counselling Round" value={predictorRound} onChange={(e) => setPredictorRound(e.target.value)}>
                       <option value="ALL"><Star className="lucide-icon" size={18} /> All Rounds (Best Cutoff)</option>
                       {dynamicRounds.filter(r => r !== 'FINAL' && !r.toLowerCase().includes('all rounds')).map((r) => (
                         <option key={r} value={r}>{r}</option>
@@ -2834,7 +2836,7 @@ export default function Dashboard() {
 
                   <div className="field">
                     <label>Allotment Year</label>
-                    <select value={predictorYear} onChange={(e) => setPredictorYear(e.target.value)}>
+                    <select aria-label="Allotment Year" value={predictorYear} onChange={(e) => setPredictorYear(e.target.value)}>
                       {dynamicYears.filter(y => y === '2025' || y === '2024').map((y) => (
                         <option key={y} value={y}>{y}</option>
                       ))}

@@ -1136,12 +1136,16 @@ html, body {
 
 .ticket-hero h3 {
   display: flex;
-  align-items: center;
-  gap: 6px;
+  align-items: flex-start;
+  gap: 8px;
   margin: 0 0 6px;
   font-family: var(--font-display);
   font-size: 1.25rem;
   color: var(--sage);
+}
+.ticket-hero h3 .lucide-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
 .ticket-hero p.desc {
@@ -1219,6 +1223,7 @@ html, body {
   justify-content: space-between;
   border: 1px solid var(--border);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
+  min-width: 0;
 }
 
 .result-card:hover {
@@ -1275,6 +1280,9 @@ html, body {
   font-size: 1.02rem;
   line-height: 1.4;
   color: var(--ink);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 
 .result-meta {

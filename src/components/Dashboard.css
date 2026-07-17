@@ -1239,7 +1239,9 @@ html, body {
 .result-top {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
   margin-bottom: 10px;
 }
 
@@ -1626,6 +1628,10 @@ html, body {
   cursor: pointer;
   white-space: nowrap;
   transition: filter 0.15s ease, transform 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
 }
 .whatsapp-share-btn:hover { filter: brightness(1.05); transform: translateY(-1px); }
 .whatsapp-share-btn:focus-visible { outline: 2px solid var(--marigold); outline-offset: 2px; }
@@ -1642,6 +1648,10 @@ html, body {
   cursor: pointer;
   white-space: nowrap;
   transition: filter 0.15s ease, transform 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
 }
 .pdf-download-btn:hover { filter: brightness(1.1); transform: translateY(-1px); }
 .pdf-download-btn:focus-visible { outline: 2px solid var(--marigold); outline-offset: 2px; }
@@ -1697,10 +1707,15 @@ html, body {
   color: var(--ink-soft);
   font-weight: 600;
   font-size: 0.85rem;
-  padding: 9px 16px;
+  padding: 8px 14px;
   border-radius: 8px;
   cursor: pointer;
   transition: background 0.15s ease;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
 }
 .category-compare-toggle:hover { background: var(--paper); }
 .category-compare-toggle:focus-visible { outline: 2px solid var(--marigold); outline-offset: 2px; }

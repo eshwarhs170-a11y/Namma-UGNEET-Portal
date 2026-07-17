@@ -384,7 +384,7 @@ const PredictedGrid = React.memo(function PredictedGrid({
           <div key={idx} className="result-card">
             <div className="result-top">
               <span className="result-code">CODE: {item.collegeCode}</span>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', justifyContent: 'flex-end' }}>
                 <span className={`stamp ${stampClass}`}>{badgeText}</span>
                 <button
                   className={`star-btn${isSaved(item) ? ' saved' : ''}`}
@@ -842,6 +842,21 @@ export default function Dashboard() {
     }, 300);
     return () => clearTimeout(handler);
   }, [committedSearchQuery]);
+
+  const handleHomeSearch = (val) => {
+    let foundStream = null;
+    if (collegesByStream.MEDICAL && collegesByStream.MEDICAL.includes(val)) foundStream = 'MEDICAL';
+    else if (collegesByStream.DENTAL && collegesByStream.DENTAL.includes(val)) foundStream = 'DENTAL';
+    else if (collegesByStream.AYUSH && collegesByStream.AYUSH.includes(val)) foundStream = 'AYUSH';
+
+    if (foundStream) {
+      setStreamFilter(foundStream);
+    }
+    setSearchQuery(val);
+    setCommittedSearchQuery(val);
+    navigateTo('explore');
+  };
+
   const [streamFilter, setStreamFilter] = useState(() => lsGet(LS_EXPLORE, {}).streamFilter ?? 'MEDICAL');
   const [categoryFilter, setCategoryFilter] = useState(() => lsGet(LS_EXPLORE, {}).categoryFilter ?? 'GM');
   const [quotaFilter, setQuotaFilter] = useState(() => lsGet(LS_EXPLORE, {}).quotaFilter ?? 'ALL');
@@ -2391,10 +2406,11 @@ export default function Dashboard() {
                     id="home-search-input"
                     value={searchQuery}
                     onChange={(val) => { setSearchQuery(val); }}
+                    onCommit={handleHomeSearch}
                     suggestions={allCollegeNames}
                     placeholder="e.g. Bangalore Medical College, M001MG"
                   />
-                  <button onClick={() => { setCommittedSearchQuery(searchQuery); navigateTo('explore'); }}>Search</button>
+                  <button onClick={() => { handleHomeSearch(searchQuery); }}>Search</button>
                 </div>
               </div>
 
@@ -2908,7 +2924,7 @@ export default function Dashboard() {
                       <div className="result-card searched-result">
                         <div className="result-top">
                           <span className="result-code"><Check className="lucide-icon" size={16} /> YOUR SEARCH · CODE: {item.collegeCode}</span>
-                          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', justifyContent: 'flex-end' }}>
                             <button
                               className={`star-btn${isSaved(item) ? ' saved' : ''}`}
                               onClick={() => toggleSave(item)}

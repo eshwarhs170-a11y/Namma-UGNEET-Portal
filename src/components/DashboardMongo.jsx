@@ -560,6 +560,22 @@ export default function Dashboard() {
             ];
             for (const p of qps) cleaned = cleaned.replace(p, '');
             cleaned = cleaned.replace(/^[\s\-,.]+/, '').replace(/\s+/g, ' ').trim();
+
+            if (cleaned.includes(',')) {
+              const parts = cleaned.split(',');
+              const uniqueParts = [];
+              for (const p of parts) {
+                const trimmed = p.trim();
+                if (trimmed && !/^\d+$/.test(trimmed)) {
+                  const lower = trimmed.toLowerCase();
+                  if (!uniqueParts.some(up => up.toLowerCase() === lower)) {
+                    uniqueParts.push(trimmed);
+                  }
+                }
+              }
+              if (uniqueParts.length > 0) cleaned = uniqueParts.slice(0, 2).join(', ');
+            }
+
             return cleaned;
           };
           const filterGarbage = (name) => {
@@ -764,6 +780,21 @@ export default function Dashboard() {
 
     // Collapse extra spaces
     cleaned = cleaned.replace(/\s+/g, ' ').trim();
+
+    if (cleaned.includes(',')) {
+      const parts = cleaned.split(',');
+      const uniqueParts = [];
+      for (const p of parts) {
+        const trimmed = p.trim();
+        if (trimmed && !/^\d+$/.test(trimmed)) {
+          const lower = trimmed.toLowerCase();
+          if (!uniqueParts.some(up => up.toLowerCase() === lower)) {
+            uniqueParts.push(trimmed);
+          }
+        }
+      }
+      if (uniqueParts.length > 0) cleaned = uniqueParts.slice(0, 2).join(', ');
+    }
 
     return cleaned;
   };

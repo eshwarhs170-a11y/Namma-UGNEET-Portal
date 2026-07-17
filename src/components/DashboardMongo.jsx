@@ -533,7 +533,55 @@ export default function Dashboard() {
       .then(d => {
         setDropdownStats(d);
         if (d.colleges) {
-          const cleanedNames = new Set(d.colleges.map(name => cleanCollegeName(name)));
+          const cleanedNames = new Set(
+            d.colleges
+              .map(name => {
+                if (!name) return '';
+                let cleaned = name.replace(/\r?\n/g, ' ').replace(/\s+/g, ' ').trim();
+                // Remove leading numbers+dashes
+                cleaned = cleaned.replace(/^\d+\s*[-\s]+/g, '');
+                cleaned = cleaned.replace(/^[\s\-,.]+/, '');
+                // Remove bracket garbage prefixes like "(G ovt Aided)"
+                cleaned = cleaned.replace(/^\([A-Za-z\s\-\.]+\)\s*(Quot\s*a\s*)?/i, '');
+                // Remove known quota prefixes
+                const qps = [
+                  /^All India Quota Govt(?:ernment)?\s+Aided\s+/i,
+                  /^All India Quota Govt(?:ernment)?\s+/i,
+                  /^All India Quota\s+/i,
+                  /^Open Seat Quota\s+/i,
+                  /^Management\s*\/?\s*Paid?\s*Seats Quota\s+/i,
+                  /^Managemen\s*t\s*\/?\s*Paid\s*Seats\s*Quota\s+/i,
+                  /^Non-?\s*Resident Indian[^)]*\)?\s*/i,
+                  /^NonResident Indian\s*/i,
+                  /^Self Finance\s+/i,
+                  /^Muslim Minority Quota[^)]*\)?\s*/i,
+                  /^Deemed\s*\/?\s*Paid Seats Quota\s+/i,
+                  /^Linguistic Minority\s+/i,
+                  /^Jain Minority Quota\s+/i,
+                  /^Delhi University Quota\s+/i,
+                  /^IP University Quota\s+/i,
+                  /^Foreign Country Quota\s+/i,
+                ];
+                for (const p of qps) cleaned = cleaned.replace(p, '');
+                cleaned = cleaned.replace(/^[\s\-,.]+/, '').replace(/\s+/g, ' ').trim();
+                return cleaned;
+              })
+              .filter(name => {
+                if (!name || name.length < 5) return false;
+                if (name.length > 160) return false;
+                if (/^\d+\s*[-–]/.test(name)) return false;
+                if (/^[^a-zA-Z(]/.test(name)) return false;
+                if (/^(Maharashtra|Rushikonda|Wardha|Visakhapatnam)/i.test(name)) return false;
+                if (/NonResident Indian/i.test(name)) return false;
+                if (/Non-Resident Indian/i.test(name)) return false;
+                if (/Open Seat Quota/i.test(name)) return false;
+                if (/^- - -/.test(name)) return false;
+                if (/^All India\s/i.test(name) && name.length < 30) return false;
+                if (/abbreviat/i.test(name)) return false;
+                if (/counselling seats allotment/i.test(name)) return false;
+                return true;
+              })
+          );
           setAllCollegeNames(Array.from(cleanedNames).sort());
         }
         setInitialLoading(false);
@@ -652,31 +700,91 @@ export default function Dashboard() {
 
   // Utility to normalize college names (remove newlines, extra spaces)
   const cleanCollegeName = (name) => {
+    if (!name) return '';
     let cleaned = name.replace(/\r?\n/g, ' ').replace(/\s+/g, ' ').trim();
-    cleaned = cleaned.replace(/Did not opt for Upgradati\s*on\.?\s*\d+\s*-+\s*/gi, '');
-    cleaned = cleaned.replace(/Did not opt for Upgradation\.?\s*\d+\s*-+\s*/gi, '');
-    cleaned = cleaned.replace(/Did not fill up fresh choices\.?\s*\d+\s*-+\s*/gi, '');
-    cleaned = cleaned.replace(/Not Reported\.?\s*\d+\s*-+\s*/gi, '');
-    cleaned = cleaned.replace(/^[\s-]+/g, ''); // Remove leading dashes and spaces
-    
-    const quotas = [
-      'Deemed/ Paid Seats Quota', 'Deemed / Paid Seats Quota', 'Jain Minority Quota',
-      'Muslim Minority Quota', 'Open Seat Quota', 'All India Quota Government',
-      'All India', 'Delhi University Quota', 'IP University Quota',
-      'Management/Paid Seats Quota', 'Management/ Paid Seats Quota', 'All India Quota Govt Aided',
-      'Central Universites / National Institutions', 'Self Finance', 'Linguistic Minority',
-      'Employee s State Insurance Scheme\\( ESI\\)', 'Foreign Country Quota',
-      'Aligarh Muslim University \\(AMU\\) Quota', 'Non- Resident Indian',
-      'NonResident Indian', 'B.Sc Nursing All India Quota', 'Jamia Internal Quota'
-    ];
-    quotas.forEach(quota => {
-      const regex = new RegExp('^[\\s\\-]*' + quota + '\\s*-*\\s*', 'i');
-      cleaned = cleaned.replace(regex, '');
-    });
-    
-    cleaned = cleaned.replace(/^[\s-]+/g, ''); // Remove any remaining leading dashes
 
-    return cleaned.trim();
+    // Remove common garbage prefixes from PDF parsing artifacts
+    cleaned = cleaned.replace(/Did not opt for Upgradati\s*on\.?\s*\d+\s*[-\s]*/gi, '');
+    cleaned = cleaned.replace(/Did not opt for Upgradation\.?\s*\d+\s*[-\s]*/gi, '');
+    cleaned = cleaned.replace(/Did not fill up fresh choices\.?\s*\d+\s*[-\s]*/gi, '');
+    cleaned = cleaned.replace(/Not Reported\.?\s*\d+\s*[-\s]*/gi, '');
+    cleaned = cleaned.replace(/Not Allotted\.?\s*/gi, '');
+    cleaned = cleaned.replace(/Seat Surrendered\.?\s*/gi, '');
+    cleaned = cleaned.replace(/Reported\.?\s*/gi, '');
+    cleaned = cleaned.replace(/No Upgradation\.?\s*/gi, '');
+    cleaned = cleaned.replace(/Upgraded\.?\s*/gi, '');
+
+    // Remove leading number sequences like "1004147 - - - - "
+    cleaned = cleaned.replace(/^\d+\s*[-\s]+/g, '');
+
+    // Remove leading dashes and spaces
+    cleaned = cleaned.replace(/^[\s\-,.]+/, '');
+
+    // Remove garbled bracket prefixes like "(G ovt Aided)", "(Govt Aided)", "(A MU)Quota"
+    cleaned = cleaned.replace(/^\([A-Za-z\s\-\.]+\)\s*(Quot\s*a\s*)?/i, '');
+    cleaned = cleaned.replace(/^\([A-Za-z\s\-\.]+\)\s*Self\s+finance[^)]*\s*/i, '');
+
+    const quotaPatterns = [
+      /^All India Quota Govt(?:ernment)?\s+Aided\s+/i,
+      /^All India Quota Govt(?:ernment)?\s+/i,
+      /^All India Quota\s+/i,
+      /^Central Universites\s*\/?s*National Institutions\s+/i,
+      /^Deemed\s*\/?\s*Paid Seats Quota\s+/i,
+      /^Open Seat Quota\s+/i,
+      /^Delhi University Quota\s+/i,
+      /^IP University Quota\s+/i,
+      /^Employee\s*s?\s*State Insurance Scheme[^)]*\)?\s*/i,
+      /^Aligarh Muslim University \(AMU\) Quota\s+/i,
+      /^B\.?Sc Nursing All India\s+/i,
+      /^Muslim Quota\s+/i,
+      /^Muslim Minority Quota[^)]*\)?\s*/i,
+      /^Management\s*\/?\s*Paid?\s*Seats Quota\s+/i,
+      /^Linguistic Minority\s+/i,
+      /^Jain Minority Quota\s+/i,
+      /^Self Finance\s+/i,
+      /^Non-?\s*Resident Indian[^)]*\)?\s*/i,
+      /^NonResident Indian\s*/i,
+      /^Jamia Internal Quota\s+/i,
+      /^Internal\s*-?\s*Puducherry\s+UT\s+Domicile\s+/i,
+      /^Foreign Country Quota\s+/i,
+      /^Delhi NCR[^)]*Quota\s+/i,
+      /^Muslim\s+\w+\s+Quota\s+/i,
+      /^Managemen\s*t\s*\/?\s*Paid\s*Seats\s*Quota\s+/i,
+      /^Manageme\s*nt\s*\/?\s*Paid\s*Seats\s*Quota\s+/i,
+    ];
+    for (const p of quotaPatterns) {
+      cleaned = cleaned.replace(p, '');
+    }
+
+    // Remove remaining leading dashes/spaces/commas/dots
+    cleaned = cleaned.replace(/^[\s\-,.]+/, '');
+
+    // Collapse extra spaces
+    cleaned = cleaned.replace(/\s+/g, ' ').trim();
+
+    return cleaned;
+  };
+
+  // Returns true if a college name is garbage/invalid and should be hidden from autocomplete
+  const isGarbageCollegeName = (name) => {
+    if (!name || name.length < 5) return true;
+    if (name.length > 160) return true;
+    if (/abbreviat/i.test(name)) return true;
+    if (/allotted category/i.test(name)) return true;
+    if (/counselling seats allotment/i.test(name)) return true;
+    if (/neet-ug counselling/i.test(name)) return true;
+    if (/\bsno\b.*\brank\b/i.test(name)) return true;
+    if (/^[\d\s.\-]+$/.test(name)) return true; // pure numbers/dashes
+    if (/^\d+\s*[-–]+/.test(name)) return true;  // starts with number then dashes like "1040567 - - -"
+    if (/^[^a-zA-Z(]/.test(name)) return true;   // doesn't start with a letter or bracket
+    if (/^(Maharashtra|Rushikonda|Wardha|Visakhapatnam)/i.test(name)) return true; // address fragments
+    if (/^\d{6,}/.test(name)) return true; // starts with long number
+    if (/NonResident Indian/i.test(name)) return true; // quota leaked in
+    if (/Non-Resident Indian/i.test(name)) return true;
+    if (/Open Seat Quota/i.test(name)) return true;
+    if (/^All India\s/i.test(name) && name.length < 30) return true;
+    if (/^- - -/i.test(name)) return true;
+    return false;
   };
 
   // Auto-complete list of all college names (cleaned)
@@ -1126,7 +1234,11 @@ export default function Dashboard() {
   const exploreStreamCollegeNames = useMemo(() => {
     if (!streamFilter || streamFilter === 'ALL') return allCollegeNames;
     // Filter college names visible in the current explore API results (already stream-filtered)
-    const nameSet = new Set(filteredDashboardData.map(item => cleanCollegeName(item.collegeName)));
+    const nameSet = new Set(
+      filteredDashboardData
+        .map(item => cleanCollegeName(item.collegeName))
+        .filter(n => !isGarbageCollegeName(n))
+    );
     if (nameSet.size > 10) return Array.from(nameSet).sort();
     return allCollegeNames; // fallback if data not yet loaded
   }, [allCollegeNames, streamFilter, filteredDashboardData]);
@@ -1135,7 +1247,8 @@ export default function Dashboard() {
     if (!predictorStream || predictorStream === 'ALL') return allCollegeNames;
     const nameSet = new Set(apiData
       .filter(item => item.stream === predictorStream)
-      .map(item => cleanCollegeName(item.collegeName)));
+      .map(item => cleanCollegeName(item.collegeName))
+      .filter(n => !isGarbageCollegeName(n)));
     if (nameSet.size > 10) return Array.from(nameSet).sort();
     return allCollegeNames; // fallback
   }, [allCollegeNames, predictorStream, apiData]);

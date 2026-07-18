@@ -1834,7 +1834,14 @@ html, body {
   .compare-fab { top: 54px; right: 10px; }
   .glossary-row { grid-template-columns: 1fr; gap: 4px; }
   .glossary-code { font-size: 0.9rem; }
-  .college-stat-row { grid-template-columns: 1fr; }
+  .college-stat-row { 
+    grid-template-columns: 1fr 1fr; 
+    gap: 10px;
+    padding: 12px;
+  }
+  .college-stat-row > div:first-child {
+    grid-column: span 2;
+  }
   .compare-table { font-size: 0.78rem; }
   .compare-table thead th, .compare-table tbody td { padding: 7px 8px; }
 }

@@ -124,6 +124,12 @@ export default async function handler(req, res) {
       filter.category = safeCategory;
     }
 
+    // College code exact match (for college detail modal)
+    const safeCollegeCode = sanitizeString(req.query.collegeCode, 20);
+    if (safeCollegeCode) {
+      filter.collegeCode = safeCollegeCode;
+    }
+
     const safeYear = sanitizeString(year);
     if (safeYear && /^\d{4}$/.test(safeYear)) {
       filter.year = safeYear;

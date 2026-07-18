@@ -1299,10 +1299,14 @@ export default function Dashboard() {
 
             {(() => {
               const records = getCollegeRecords(selectedCollege.stream, selectedCollege.collegeCode);
-              const targetYear = activeTab === '#predictor' ? predictorYear : yearFilter !== 'ALL' ? yearFilter : (Array.from(new Set(records.map(r => r.year))).sort().pop() || '2024');
-              const yearRecords = records.filter(r => r.year === targetYear);
+              const targetYear = activeTab === '#predictor' ? predictorYear : yearFilter !== 'ALL' ? yearFilter : (Array.from(new Set(records.map(r => String(r.year)))).sort().pop() || '2024');
+              const yearRecords = records.filter(r => String(r.year) === String(targetYear));
 
               const courseTypes = Array.from(new Set(yearRecords.map((r) => r.courseDetails))).sort();
+
+              // Find the latest round available for this year
+              const allRounds = Array.from(new Set(yearRecords.map(r => r.round))).sort();
+              const latestRound = allRounds.length ? allRounds[allRounds.length - 1] : null;
 
               const courseSummaries = courseTypes.map(course => {
                 const courseRecords = yearRecords.filter(r => r.courseDetails === course);
@@ -1310,14 +1314,9 @@ export default function Dashboard() {
                 const minFee = fees.length ? Math.min(...fees) : null;
                 const maxFee = fees.length ? Math.max(...fees) : null;
                 
-                // Estimate seats by finding the max allotments in any single round for the selected year
-                const byRound = {};
-                courseRecords.forEach(r => {
-                  if (!r.round) return;
-                  byRound[r.round] = (byRound[r.round] || 0) + 1;
-                });
-                const counts = Object.values(byRound);
-                const seats = counts.length ? Math.max(...counts) : courseRecords.length;
+                // Count seats from the latest round only (each record = 1 seat allotted)
+                const latestRoundRecords = latestRound ? courseRecords.filter(r => r.round === latestRound) : courseRecords;
+                const seats = latestRoundRecords.length;
 
                 return { course, minFee, maxFee, seats };
               });
@@ -1335,41 +1334,36 @@ export default function Dashboard() {
                       <div className="college-stat-row" key={idx} style={{ marginBottom: idx < courseSummaries.length - 1 ? '10px' : '0' }}>
                         <div>
                           <span className="stat-label">Course / Seat Type</span><br />
-{
-  "result": "                          <strong>{summary.course}</strong>
+                          <strong>{summary.course}</strong>
                         </div>
                         {showFees && (
                           <div>
-                            <span className=\"stat-label\">Fee Range</span><br />
+                            <span className="stat-label">Fee Range</span><br />
                             <strong>{summary.minFee === null ? 'Not available' : summary.minFee === summary.maxFee ? `₹${summary.minFee.toLocaleString('en-IN')}` : `₹${summary.minFee.toLocaleString('en-IN')} – ₹${summary.maxFee.toLocaleString('en-IN')}`}</strong>
                           </div>
                         )}
                         <div>
-                          <span className=\"stat-label\">Seats (Est.)</span><br />
+                          <span className="stat-label">Seats (Est.)</span><br />
                           <strong>{summary.seats}</strong>
                         </div>
                       </div>
                     ))
                   )}
 
-                  <h4 className=\"college-subheading\">Cutoffs & Seat Matrix ({activeTab === '#predictor' ? predictorYear : yearFilter !== 'ALL' ? yearFilter : (Array.from(new Set(records.map(r => r.year))).sort().pop() || '2024')})</h4>
-                  <div className=\"compare-table-wrap\" style={{ maxHeight: '260px' }}>
-                    <table className=\"compare-table\">
+                  <h4 className="college-subheading">Category-wise Cutoffs ({targetYear})</h4>
+                  <div className="compare-table-wrap" style={{ maxHeight: '260px' }}>
+                    <table className="compare-table">
                       <thead>
                         <tr>
                           <th>Category</th>
                           <th>Seat Type</th>
-                          <th>Seats</th>
-                          <th>Latest Cutoff</th>
+                          <th>Last Cutoff</th>
                           <th>Round</th>
                           {showFees && <th>Fees</th>}
                         </tr>
                       </thead>
                       <tbody>
                         {(() => {
-                          const targetYear = activeTab === '#predictor' ? predictorYear : yearFilter !== 'ALL' ? yearFilter : (Array.from(new Set(records.map(r => r.year))).sort().pop() || '2024');
-                          const yearRecords = records.filter(r => r.year === targetYear);
-                          
                           const grouped = {};
                           yearRecords.forEach(r => {
                             const key = `${r.category}|${r.courseDetails}`;
@@ -1378,12 +1372,6 @@ export default function Dashboard() {
                           });
 
                           const summaryRows = Object.values(grouped).map(groupRecords => {
-                            const byRound = {};
-                            groupRecords.forEach(r => {
-                              byRound[r.round] = (byRound[r.round] || 0) + 1;
-                            });
-                            const totalSeats = Math.max(...Object.values(byRound));
-
                             let maxRankRecord = groupRecords[0];
                             groupRecords.forEach(r => {
                               if (r.rank > maxRankRecord.rank) {
@@ -1394,7 +1382,6 @@ export default function Dashboard() {
                             return {
                               category: maxRankRecord.category,
                               course: maxRankRecord.courseDetails,
-                              totalSeats,
                               cutoffRank: maxRankRecord.rank,
                               round: maxRankRecord.round,
                               fees: maxRankRecord.fees,
@@ -1406,8 +1393,8 @@ export default function Dashboard() {
                           if (summaryRows.length === 0) {
                             return (
                               <tr>
-                                <td colSpan={showFees ? 6 : 5} style={{ textAlign: 'center', padding: '15px' }}>
-                                  No records found for the selected year ({targetYear}).
+                                <td colSpan={showFees ? 5 : 4} style={{ textAlign: 'center', padding: '15px' }}>
+                                  No records found for {targetYear}.
                                 </td>
                               </tr>
                             );
@@ -1417,10 +1404,9 @@ export default function Dashboard() {
                             <tr key={i}>
                               <td><strong>{formatCategory(r.category)}</strong></td>
                               <td>{r.course}</td>
-                              <td><strong>{r.totalSeats}</strong></td>
-                              <td><span className=\"rank-pill\">{r.cutoffRank.toLocaleString('en-IN')}</span></td>
-                              <td><span className=\"pill\">{r.round}</span></td>
-                              {showFees && <td className=\"fees-cell\">{formatFees(r.fees)}</td>}
+                              <td><span className="rank-pill">{r.cutoffRank.toLocaleString('en-IN')}</span></td>
+                              <td><span className="pill">{r.round}</span></td>
+                              {showFees && <td className="fees-cell">{formatFees(r.fees)}</td>}
                             </tr>
                           ));
                         })()}

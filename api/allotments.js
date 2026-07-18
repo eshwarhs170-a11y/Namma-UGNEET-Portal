@@ -130,6 +130,14 @@ export default async function handler(req, res) {
       filter.collegeCode = safeCollegeCode;
     }
 
+    // College base code match (for KEA to get all seat types e.g. M002 for M002MG, M002MP)
+    const safeBaseCollegeCode = sanitizeString(req.query.baseCollegeCode, 20);
+    if (safeBaseCollegeCode) {
+      // Escape it just in case, though it should be alphanumeric
+      const escapedBase = safeBaseCollegeCode.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      filter.collegeCode = { $regex: `^${escapedBase}`, $options: 'i' };
+    }
+
     const safeYear = sanitizeString(year);
     if (safeYear && /^\d{4}$/.test(safeYear)) {
       filter.year = safeYear;

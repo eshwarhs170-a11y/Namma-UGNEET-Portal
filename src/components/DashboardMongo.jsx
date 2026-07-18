@@ -1057,7 +1057,17 @@ export default function Dashboard() {
   useEffect(() => {
     if (selectedCollege) {
       setLoadingCollegeDetails(true);
-      fetch(`/api/allotments?dataset=${dataSource}&collegeCode=${selectedCollege.collegeCode}&stream=${selectedCollege.stream}&limit=5000`)
+      let fetchUrl = `/api/allotments?dataset=${dataSource}&stream=${selectedCollege.stream}&limit=5000`;
+      
+      if (dataSource === 'KEA' && selectedCollege.collegeCode && selectedCollege.collegeCode.length === 6) {
+        // Use first 4 chars to get all seat types (M002MG -> M002)
+        const baseCode = selectedCollege.collegeCode.substring(0, 4);
+        fetchUrl += `&baseCollegeCode=${baseCode}`;
+      } else {
+        fetchUrl += `&collegeCode=${selectedCollege.collegeCode}`;
+      }
+
+      fetch(fetchUrl)
         .then(r => r.json())
         .then(d => {
           setSelectedCollegeRecords(d.data || []);

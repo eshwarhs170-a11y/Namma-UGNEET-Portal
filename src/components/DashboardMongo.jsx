@@ -1930,20 +1930,55 @@ export default function Dashboard() {
 
             {(() => {
               const records = getCollegeRecords(selectedCollege.stream, selectedCollege.collegeCode);
-              const courses = Array.from(new Set(records.map((r) => r.courseDetails))).sort();
-              const fees = records.map((r) => r.fees).filter((f) => f !== null && f !== undefined);
-              const minFee = fees.length ? Math.min(...fees) : null;
-              const maxFee = fees.length ? Math.max(...fees) : null;
+              const courseTypes = Array.from(new Set(records.map((r) => r.courseDetails))).sort();
+
+              const courseSummaries = courseTypes.map(course => {
+                const courseRecords = records.filter(r => r.courseDetails === course);
+                const fees = Array.from(new Set(courseRecords.map((r) => r.fees).filter((f) => f !== null && f !== undefined)));
+                const minFee = fees.length ? Math.min(...fees) : null;
+                const maxFee = fees.length ? Math.max(...fees) : null;
+                
+                // Estimate seats by finding the max allotments in any single year+round
+                const byYearRound = {};
+                courseRecords.forEach(r => {
+                  if (!r.year || !r.round) return;
+                  const key = `${r.year}_${r.round}`;
+                  byYearRound[key] = (byYearRound[key] || 0) + 1;
+                });
+                const counts = Object.values(byYearRound);
+                const seats = counts.length ? Math.max(...counts) : courseRecords.length;
+
+                return { course, minFee, maxFee, seats };
+              });
 
               return (
                 <>
-                  <div className="college-stat-row">
-                    <div><span className="stat-label">Courses Offered</span><br /><strong>{courses.join(', ') || '—'}</strong></div>
-                    {showFees && (
-                      <div><span className="stat-label">Fee Range</span><br /><strong>{minFee === null ? 'Not available' : `₹${minFee.toLocaleString('en-IN')} – ₹${maxFee.toLocaleString('en-IN')}`}</strong></div>
-                    )}
-                    <div><span className="stat-label">Total Records</span><br /><strong>{records.length}</strong></div>
-                  </div>
+                  {courseSummaries.length === 0 ? (
+                    <div className="college-stat-row">
+                      <div><span className="stat-label">Courses Offered</span><br /><strong>—</strong></div>
+                      {showFees && <div><span className="stat-label">Fee Range</span><br /><strong>Not available</strong></div>}
+                      <div><span className="stat-label">Seats (Est.)</span><br /><strong>0</strong></div>
+                    </div>
+                  ) : (
+                    courseSummaries.map((summary, idx) => (
+                      <div className="college-stat-row" key={idx} style={{ marginBottom: idx < courseSummaries.length - 1 ? '10px' : '0' }}>
+                        <div>
+                          <span className="stat-label">Course / Seat Type</span><br />
+                          <strong>{summary.course}</strong>
+                        </div>
+                        {showFees && (
+                          <div>
+                            <span className="stat-label">Fee Range</span><br />
+                            <strong>{summary.minFee === null ? 'Not available' : summary.minFee === summary.maxFee ? `₹${summary.minFee.toLocaleString('en-IN')}` : `₹${summary.minFee.toLocaleString('en-IN')} – ₹${summary.maxFee.toLocaleString('en-IN')}`}</strong>
+                          </div>
+                        )}
+                        <div>
+                          <span className="stat-label">Seats (Est.)</span><br />
+                          <strong>{summary.seats}</strong>
+                        </div>
+                      </div>
+                    ))
+                  )}
 
                   <h4 className="college-subheading">Cutoffs across categories, rounds &amp; years</h4>
                   <div className="compare-table-wrap" style={{ maxHeight: '260px' }}>

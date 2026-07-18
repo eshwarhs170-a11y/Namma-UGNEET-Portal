@@ -2005,31 +2005,78 @@ export default function Dashboard() {
                     ))
                   )}
 
-                  <h4 className="college-subheading">Cutoffs across categories, rounds &amp; years</h4>
+                  <h4 className="college-subheading">Cutoffs & Seat Matrix ({activeTab === '#predictor' ? predictorYear : yearFilter !== 'ALL' ? yearFilter : (Array.from(new Set(records.map(r => r.year))).sort().pop() || '2024')})</h4>
                   <div className="compare-table-wrap" style={{ maxHeight: '260px' }}>
                     <table className="compare-table">
                       <thead>
                         <tr>
                           <th>Category</th>
+                          <th>Seat Type</th>
+                          <th>Seats</th>
+                          <th>Latest Cutoff</th>
                           <th>Round</th>
-                          <th>Year</th>
-                          <th>Cutoff Rank</th>
                           {showFees && <th>Fees</th>}
                         </tr>
                       </thead>
                       <tbody>
-                        {records
-                          .slice()
-                          .sort((a, b) => a.year.localeCompare(b.year) || a.round.localeCompare(b.round) || a.rank - b.rank)
-                          .map((r, i) => (
+                        {(() => {
+                          const targetYear = activeTab === '#predictor' ? predictorYear : yearFilter !== 'ALL' ? yearFilter : (Array.from(new Set(records.map(r => r.year))).sort().pop() || '2024');
+                          const yearRecords = records.filter(r => r.year === targetYear);
+                          
+                          const grouped = {};
+                          yearRecords.forEach(r => {
+                            const key = `${r.category}|${r.courseDetails}`;
+                            if (!grouped[key]) grouped[key] = [];
+                            grouped[key].push(r);
+                          });
+
+                          const summaryRows = Object.values(grouped).map(groupRecords => {
+                            const byRound = {};
+                            groupRecords.forEach(r => {
+                              byRound[r.round] = (byRound[r.round] || 0) + 1;
+                            });
+                            const totalSeats = Math.max(...Object.values(byRound));
+
+                            let maxRankRecord = groupRecords[0];
+                            groupRecords.forEach(r => {
+                              if (r.rank > maxRankRecord.rank) {
+                                maxRankRecord = r;
+                              }
+                            });
+
+                            return {
+                              category: maxRankRecord.category,
+                              course: maxRankRecord.courseDetails,
+                              totalSeats,
+                              cutoffRank: maxRankRecord.rank,
+                              round: maxRankRecord.round,
+                              fees: maxRankRecord.fees,
+                            };
+                          });
+
+                          summaryRows.sort((a, b) => a.course.localeCompare(b.course) || a.category.localeCompare(b.category));
+
+                          if (summaryRows.length === 0) {
+                            return (
+                              <tr>
+                                <td colSpan={showFees ? 6 : 5} style={{ textAlign: 'center', padding: '15px' }}>
+                                  No records found for the selected year ({targetYear}).
+                                </td>
+                              </tr>
+                            );
+                          }
+
+                          return summaryRows.map((r, i) => (
                             <tr key={i}>
-                              <td>{formatCategory(r.category)}</td>
+                              <td><strong>{formatCategory(r.category)}</strong></td>
+                              <td>{r.course}</td>
+                              <td><strong>{r.totalSeats}</strong></td>
+                              <td><span className="rank-pill">{r.cutoffRank.toLocaleString('en-IN')}</span></td>
                               <td><span className="pill">{r.round}</span></td>
-                              <td><span className="pill">{r.year}</span></td>
-                              <td><span className="rank-pill">{r.rank.toLocaleString('en-IN')}</span></td>
                               {showFees && <td className="fees-cell">{formatFees(r.fees)}</td>}
                             </tr>
-                          ))}
+                          ));
+                        })()}
                       </tbody>
                     </table>
                   </div>

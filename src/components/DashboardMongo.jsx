@@ -1051,6 +1051,27 @@ export default function Dashboard() {
   const [compareOpen, setCompareOpen] = useState(false);
 
   const [selectedCollege, setSelectedCollege] = useState(null); 
+  const [selectedCollegeRecords, setSelectedCollegeRecords] = useState([]);
+  const [loadingCollegeDetails, setLoadingCollegeDetails] = useState(false);
+
+  useEffect(() => {
+    if (selectedCollege) {
+      setLoadingCollegeDetails(true);
+      fetch(`/api/allotments?dataset=${dataSource}&collegeCode=${selectedCollege.collegeCode}&stream=${selectedCollege.stream}&limit=5000`)
+        .then(r => r.json())
+        .then(d => {
+          setSelectedCollegeRecords(d.data || []);
+          setLoadingCollegeDetails(false);
+        })
+        .catch(e => {
+          console.error(e);
+          setLoadingCollegeDetails(false);
+        });
+    } else {
+      setSelectedCollegeRecords([]);
+    }
+  }, [selectedCollege, dataSource]);
+
   const NOTES_KEY = 'namma_college_notes';
   const [collegeNotes, setCollegeNotes] = useState(() => {
     try {
@@ -1929,7 +1950,11 @@ export default function Dashboard() {
             </p>
 
             {(() => {
-              const records = getCollegeRecords(selectedCollege.stream, selectedCollege.collegeCode);
+              if (loadingCollegeDetails) {
+                return <div style={{ padding: '20px', textAlign: 'center', color: 'var(--muted)' }}>Loading details...</div>;
+              }
+
+              const records = selectedCollegeRecords;
               const courseTypes = Array.from(new Set(records.map((r) => r.courseDetails))).sort();
 
               const courseSummaries = courseTypes.map(course => {

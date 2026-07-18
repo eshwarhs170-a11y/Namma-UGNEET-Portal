@@ -1283,7 +1283,19 @@ export default function Dashboard() {
               <h3>{selectedCollege.collegeName}</h3>
               <button className="modal-close-btn" onClick={() => setSelectedCollege(null)} aria-label="Close"><X className="lucide-icon" size={16} /></button>
             </div>
-            <p className="glossary-intro">{dataSource === 'AIQ' ? 'Reference Code' : 'KEA Code'}: <strong>{selectedCollege.collegeCode}</strong></p>
+            <p className="glossary-intro">
+              {dataSource === 'AIQ' ? 'Reference Code' : 'KEA Code'}: <strong>{selectedCollege.collegeCode}</strong>
+              <a 
+                href={`https://www.google.com/search?q=${encodeURIComponent(selectedCollege.collegeName + ' ' + (dataSource === 'AIQ' ? 'Medical College' : 'Karnataka'))}`} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{ marginLeft: '15px', fontSize: '13px', color: '#2563eb', textDecoration: 'none', fontWeight: '500' }}
+                onMouseOver={(e) => e.target.style.textDecoration = 'underline'}
+                onMouseOut={(e) => e.target.style.textDecoration = 'none'}
+              >
+                Search College Info ↗
+              </a>
+            </p>
 
             {(() => {
               const records = getCollegeRecords(selectedCollege.stream, selectedCollege.collegeCode);

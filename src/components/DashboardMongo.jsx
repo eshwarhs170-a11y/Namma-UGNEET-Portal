@@ -1993,7 +1993,13 @@ export default function Dashboard() {
                     <div className="college-stat-row">
                       <div><span className="stat-label">Courses Offered</span><br /><strong>—</strong></div>
                       {showFees && <div><span className="stat-label">Fee Range</span><br /><strong>Not available</strong></div>}
-                      <div><span className="stat-label">Seats (Est.)</span><br /><strong>0</strong></div>
+                      <div>
+                        <span className="stat-label" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                          Seats (Est.) 
+                          <span title="Based on actual state quota allotments. Excludes 15% All India Quota (AIQ) seats." style={{ cursor: 'help', color: '#64748b', display: 'flex' }}><Info size={12} /></span>
+                        </span><br />
+                        <strong>0</strong>
+                      </div>
                     </div>
                   ) : (
                     courseSummaries.map((summary, idx) => (
@@ -2009,7 +2015,10 @@ export default function Dashboard() {
                           </div>
                         )}
                         <div>
-                          <span className="stat-label">Seats (Est.)</span><br />
+                          <span className="stat-label" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                            Seats (Est.) 
+                            <span title="Based on actual state quota allotments. Excludes 15% All India Quota (AIQ) seats." style={{ cursor: 'help', color: '#64748b', display: 'flex' }}><Info size={12} /></span>
+                          </span><br />
                           <strong>{summary.seats}</strong>
                         </div>
                       </div>
@@ -2081,7 +2090,7 @@ export default function Dashboard() {
                     </table>
                   </div>
 
-                  <h4 className="college-subheading"><PenTool className="lucide-icon" size={24} /> My Notes</h4>
+                  <h4 className="college-subheading" style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}><PenTool className="lucide-icon" size={20} /> My Notes</h4>
                   <p className="glossary-intro" style={{ marginBottom: '8px' }}>
                     Personal notes only — saved on this device, not shared with anyone.
                   </p>

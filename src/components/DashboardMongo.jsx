@@ -4,7 +4,7 @@ import {
   Search, Target, Info, AlertTriangle, Lock, Unlock, ScrollText, Mail, 
   Star, Trash2, FileText, MessageCircle, School, User, PenTool, Lightbulb, 
   Coffee, RefreshCw, Frown, Circle, BarChart3, Check, X,
-  Sun, Moon, Home, Download, Landmark, Globe, Wallet
+  Sun, Moon, Home, Download, Landmark, Globe, Wallet, ExternalLink
 } from 'lucide-react';
 
 // jsPDF loaded on-demand (lazy) to keep initial bundle small
@@ -1935,17 +1935,17 @@ export default function Dashboard() {
               <h3>{selectedCollege.collegeName}</h3>
               <button className="modal-close-btn" onClick={() => setSelectedCollege(null)} aria-label="Close"><X className="lucide-icon" size={16} /></button>
             </div>
-            <p className="glossary-intro">
-              {dataSource === 'AIQ' ? 'Reference Code' : 'KEA Code'}: <strong>{selectedCollege.collegeCode}</strong>
+            <p className="glossary-intro" style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '10px' }}>
+              <span>{dataSource === 'AIQ' ? 'Reference Code' : 'KEA Code'}: <strong>{selectedCollege.collegeCode}</strong></span>
               <a 
                 href={`https://www.google.com/search?q=${encodeURIComponent(selectedCollege.collegeName + ' ' + (dataSource === 'AIQ' ? 'Medical College' : 'Karnataka'))}`} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                style={{ marginLeft: '15px', fontSize: '13px', color: '#2563eb', textDecoration: 'none', fontWeight: '500' }}
-                onMouseOver={(e) => e.target.style.textDecoration = 'underline'}
-                onMouseOut={(e) => e.target.style.textDecoration = 'none'}
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', fontSize: '13px', color: '#2563eb', textDecoration: 'none', fontWeight: '500', padding: '4px 8px', backgroundColor: '#eff6ff', borderRadius: '4px' }}
+                onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#dbeafe'}
+                onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#eff6ff'}
               >
-                Search College Info ↗
+                Search College Info <ExternalLink size={14} />
               </a>
             </p>
 
@@ -1955,22 +1955,23 @@ export default function Dashboard() {
               }
 
               const records = selectedCollegeRecords;
-              const courseTypes = Array.from(new Set(records.map((r) => r.courseDetails))).sort();
+              const targetYear = activeTab === '#predictor' ? predictorYear : yearFilter !== 'ALL' ? yearFilter : (Array.from(new Set(records.map(r => r.year))).sort().pop() || '2024');
+              const yearRecords = records.filter(r => r.year === targetYear);
+
+              const courseTypes = Array.from(new Set(yearRecords.map((r) => r.courseDetails))).sort();
 
               const courseSummaries = courseTypes.map(course => {
-                const courseRecords = records.filter(r => r.courseDetails === course);
+                const courseRecords = yearRecords.filter(r => r.courseDetails === course);
                 const fees = Array.from(new Set(courseRecords.map((r) => r.fees).filter((f) => f !== null && f !== undefined)));
                 const minFee = fees.length ? Math.min(...fees) : null;
                 const maxFee = fees.length ? Math.max(...fees) : null;
                 
-                // Estimate seats by finding the max allotments in any single year+round
-                const byYearRound = {};
+                const byRound = {};
                 courseRecords.forEach(r => {
-                  if (!r.year || !r.round) return;
-                  const key = `${r.year}_${r.round}`;
-                  byYearRound[key] = (byYearRound[key] || 0) + 1;
+                  if (!r.round) return;
+                  byRound[r.round] = (byRound[r.round] || 0) + 1;
                 });
-                const counts = Object.values(byYearRound);
+                const counts = Object.values(byRound);
                 const seats = counts.length ? Math.max(...counts) : courseRecords.length;
 
                 return { course, minFee, maxFee, seats };

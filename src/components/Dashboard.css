@@ -2448,6 +2448,9 @@ html, body {
 
 /* "+ Add" button used in table rows and predictor cards */
 .add-option-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   background: none;
   border: 1px solid var(--sage);
   color: var(--sage);
@@ -2457,6 +2460,7 @@ html, body {
   padding: 2px 8px;
   cursor: pointer;
   line-height: 1.4;
+  white-space: nowrap;
 }
 .add-option-btn:hover:not(:disabled) { background: rgba(76, 122, 99, 0.1); }
 .add-option-btn.added { border-color: var(--slate); color: var(--slate); }

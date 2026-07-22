@@ -77,7 +77,7 @@ export function OptionEntryList({ optionEntries, setOptionEntries, formatCategor
   const handleDragEnd = (event) => {
     const { active, over } = event;
 
-    if (active.id !== over.id) {
+    if (over && active.id !== over.id) {
       setOptionEntries((items) => {
         const oldIndex = items.findIndex((i) => i.id === active.id);
         const newIndex = items.findIndex((i) => i.id === over.id);

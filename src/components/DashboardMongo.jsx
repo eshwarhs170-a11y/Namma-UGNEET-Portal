@@ -400,7 +400,7 @@ const PredictedGrid = React.memo(function PredictedGrid({
                   onClick={() => addToOptionList(item)}
                   title="Add to Option Entry List"
                 >
-                  {isInOptionList(item) ? '<Check className="lucide-icon" size={16} /> Added' : '+ Add'}
+                  {isInOptionList(item) ? <><Check className="lucide-icon" size={16} /> Added</> : '+ Add'}
                 </button>
               </div>
             </div>
@@ -1016,7 +1016,7 @@ export default function Dashboard() {
     if (!initialLoading && dropdownStats.years.length > 0 && !yearDefaultSetRef.current) {
       const maxYear = Math.max(...dropdownStats.years.map(y => parseInt(y, 10)));
       setYearFilter(maxYear.toString());
-      setPredictorYear('ALL');
+      setPredictorYear('2025');
       yearDefaultSetRef.current = true;
     }
   }, [initialLoading, dropdownStats]);
@@ -3267,6 +3267,10 @@ export default function Dashboard() {
                       <button className="clear-options-btn" onClick={clearOptionList}>🗑 Clear All</button>
                     </div>
                   </div>
+
+                  <p style={{ fontSize: '0.8rem', color: 'var(--muted)', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    ☰ Hold and drag any row to reorder your priority list.
+                  </p>
 
                   <OptionEntryList
                     optionEntries={optionEntries}

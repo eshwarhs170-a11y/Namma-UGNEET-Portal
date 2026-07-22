@@ -24,32 +24,35 @@ function SortableItem({ id, option, index, formatCategory, formatFees, showFees,
     setNodeRef,
     transform,
     transition,
+    isDragging,
   } = useSortable({ id });
 
   const style = {
     transform: CSS.Transform.toString(transform),
     transition,
     display: 'flex',
-    alignItems: 'flex-start',
+    alignItems: 'center',
     gap: '12px',
-    backgroundColor: '#fff',
-    border: '1px solid var(--border)',
+    backgroundColor: isDragging ? '#f0f4ff' : '#fff',
+    border: isDragging ? '1px solid #818cf8' : '1px solid var(--border)',
     borderRadius: '8px',
     padding: '12px 16px',
     marginBottom: '8px',
-    boxShadow: '0 1px 3px rgba(0,0,0,0.05)',
+    boxShadow: isDragging ? '0 8px 24px rgba(99,102,241,0.2)' : '0 1px 3px rgba(0,0,0,0.05)',
+    cursor: 'grab',
+    userSelect: 'none',
+    touchAction: 'none',
   };
 
   return (
-    <li ref={setNodeRef} style={style} className="option-entry-row">
-      <div {...attributes} {...listeners} style={{ cursor: 'grab', display: 'flex', alignItems: 'center', height: '100%', padding: '0 4px' }}>
-        <GripVertical size={20} color="#a0aec0" />
-      </div>
-      <span className="option-number" style={{ marginTop: '2px' }}>{index + 1}</span>
-      <div className="option-entry-info" style={{ flex: 1 }}>
+    <li ref={setNodeRef} style={style} className="option-entry-row" {...attributes} {...listeners} title="Hold and drag to reorder">
+      <GripVertical size={18} color="#c0c0c0" style={{ flexShrink: 0 }} />
+      <span className="option-number" style={{ flexShrink: 0 }}>{index + 1}</span>
+      <div className="option-entry-info" style={{ flex: 1, minWidth: 0 }}>
         <button
           className="college-name-link"
-          onClick={() => setSelectedCollege({ collegeCode: option.collegeCode, stream: option.stream, collegeName: option.collegeName })}
+          onPointerDown={(e) => e.stopPropagation()}
+          onClick={(e) => { e.stopPropagation(); setSelectedCollege({ collegeCode: option.collegeCode, stream: option.stream, collegeName: option.collegeName }); }}
         >
           {option.collegeName}
         </button>
@@ -57,8 +60,14 @@ function SortableItem({ id, option, index, formatCategory, formatFees, showFees,
           {option.collegeCode} · {option.courseDetails} · {formatCategory(option.category)} · {option.round} {option.year}{showFees ? ` · ${formatFees(option.fees)}` : ''} · Cutoff {option.rank.toLocaleString('en-IN')}
         </span>
       </div>
-      <div className="option-entry-actions">
-        <button onClick={() => removeFromOptionList(option.id)} className="remove-option-btn" aria-label="Remove" style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--slate)', padding: '4px' }}>
+      <div className="option-entry-actions" style={{ flexShrink: 0 }}>
+        <button
+          onPointerDown={(e) => e.stopPropagation()}
+          onClick={(e) => { e.stopPropagation(); removeFromOptionList(option.id); }}
+          className="remove-option-btn"
+          aria-label="Remove"
+          style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--slate)', padding: '4px' }}
+        >
           <X className="lucide-icon" size={18} />
         </button>
       </div>

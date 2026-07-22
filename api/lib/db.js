@@ -21,34 +21,44 @@ if (!MONGODB_URI) {
   );
 }
 
-/** @type {MongoClient} */
-let cachedClient = null;
-/** @type {import('mongodb').Db} */
-let cachedDb = null;
+/**
+ * Global is used here to maintain a cached connection across hot reloads
+ * in development. This prevents connections growing exponentially
+ * during local development and API Route usage.
+ */
+let cached = global._mongoCache;
+
+if (!cached) {
+  cached = global._mongoCache = { client: null, db: null, promise: null };
+}
 
 /**
  * Returns a reusable { client, db } pair.
  * On cold start, connects and caches. On warm invocations, returns cached.
  */
 async function connectToDatabase() {
-  if (cachedClient && cachedDb) {
-    return { client: cachedClient, db: cachedDb };
+  if (cached.client && cached.db) {
+    return { client: cached.client, db: cached.db };
   }
 
-  const client = new MongoClient(MONGODB_URI, {
-    // Serverless-friendly pool settings
-    maxPoolSize: 10,
-    minPoolSize: 0,
-    maxIdleTimeMS: 10000,
-    serverSelectionTimeoutMS: 5000,
-    connectTimeoutMS: 5000,
-  });
+  if (!cached.promise) {
+    const client = new MongoClient(MONGODB_URI, {
+      // Serverless-friendly pool settings
+      maxPoolSize: 10,
+      minPoolSize: 0,
+      maxIdleTimeMS: 10000,
+      serverSelectionTimeoutMS: 5000,
+      connectTimeoutMS: 5000,
+    });
 
-  await client.connect();
+    cached.promise = client.connect();
+  }
+
+  const client = await cached.promise;
   const db = client.db(DB_NAME);
 
-  cachedClient = client;
-  cachedDb = db;
+  cached.client = client;
+  cached.db = db;
 
   return { client, db };
 }

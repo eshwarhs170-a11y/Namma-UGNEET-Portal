@@ -11,6 +11,8 @@ import {
 import logo from '../assets/namma-ugneet-logo.png';
 import { fetchVisitCounts } from '../visitorCounter.js';
 import './Dashboard.css';
+import { CollegeTrendChart } from './CollegeTrendChart';
+import { OptionEntryList } from './OptionEntryList';
 
 // ── Custom autocomplete dropdown (replaces native <datalist> which bounces on mobile) ──
 function CollegeAutocomplete({ value, onChange, onCommit, suggestions, placeholder, id }) {
@@ -2090,6 +2092,8 @@ export default function Dashboard() {
                     </table>
                   </div>
 
+                  <CollegeTrendChart records={records} targetYear={targetYear} />
+
                   <h4 className="college-subheading" style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}><PenTool className="lucide-icon" size={20} /> My Notes</h4>
                   <p className="glossary-intro" style={{ marginBottom: '8px' }}>
                     Personal notes only — saved on this device, not shared with anyone.
@@ -3264,27 +3268,15 @@ export default function Dashboard() {
                     </div>
                   </div>
 
-                  <ul className="option-entry-list">
-                    {optionEntries.map((o, i) => (
-                      <li key={o.id} className="option-entry-row">
-                        <span className="option-number">{i + 1}</span>
-                        <div className="option-entry-info">
-                          <button
-                            className="college-name-link"
-                            onClick={() => setSelectedCollege({ collegeCode: o.collegeCode, stream: o.stream, collegeName: o.collegeName })}
-                          >
-                            {o.collegeName}
-                          </button>
-                          <span className="option-entry-meta">
-                            {o.collegeCode} · {o.courseDetails} · {formatCategory(o.category)} · {o.round} {o.year}{showFees ? ` · ${formatFees(o.fees)}` : ''} · Cutoff {o.rank.toLocaleString('en-IN')}
-                          </span>
-                        </div>
-                        <div className="option-entry-actions">
-                          <button onClick={() => removeFromOptionList(o.id)} className="remove-option-btn" aria-label="Remove"><X className="lucide-icon" size={16} /></button>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
+                  <OptionEntryList
+                    optionEntries={optionEntries}
+                    setOptionEntries={setOptionEntries}
+                    formatCategory={formatCategory}
+                    formatFees={formatFees}
+                    showFees={showFees}
+                    setSelectedCollege={setSelectedCollege}
+                    removeFromOptionList={removeFromOptionList}
+                  />
 
                   <p className="option-disclaimer">
                     <AlertTriangle className="lucide-icon" size={18} /> This list is for your own planning only. It is not submitted anywhere — you must still enter your

@@ -1,0 +1,118 @@
+import React from 'react';
+import {
+  DndContext,
+  closestCenter,
+  KeyboardSensor,
+  PointerSensor,
+  useSensor,
+  useSensors,
+} from '@dnd-kit/core';
+import {
+  arrayMove,
+  SortableContext,
+  sortableKeyboardCoordinates,
+  verticalListSortingStrategy,
+  useSortable
+} from '@dnd-kit/sortable';
+import { CSS } from '@dnd-kit/utilities';
+import { X, GripVertical } from 'lucide-react';
+
+function SortableItem({ id, option, index, formatCategory, formatFees, showFees, setSelectedCollege, removeFromOptionList }) {
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+  } = useSortable({ id });
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+    display: 'flex',
+    alignItems: 'flex-start',
+    gap: '12px',
+    backgroundColor: '#fff',
+    border: '1px solid var(--border)',
+    borderRadius: '8px',
+    padding: '12px 16px',
+    marginBottom: '8px',
+    boxShadow: '0 1px 3px rgba(0,0,0,0.05)',
+  };
+
+  return (
+    <li ref={setNodeRef} style={style} className="option-entry-row">
+      <div {...attributes} {...listeners} style={{ cursor: 'grab', display: 'flex', alignItems: 'center', height: '100%', padding: '0 4px' }}>
+        <GripVertical size={20} color="#a0aec0" />
+      </div>
+      <span className="option-number" style={{ marginTop: '2px' }}>{index + 1}</span>
+      <div className="option-entry-info" style={{ flex: 1 }}>
+        <button
+          className="college-name-link"
+          onClick={() => setSelectedCollege({ collegeCode: option.collegeCode, stream: option.stream, collegeName: option.collegeName })}
+        >
+          {option.collegeName}
+        </button>
+        <span className="option-entry-meta" style={{ display: 'block', color: 'var(--slate)', fontSize: '0.85rem', marginTop: '4px' }}>
+          {option.collegeCode} · {option.courseDetails} · {formatCategory(option.category)} · {option.round} {option.year}{showFees ? ` · ${formatFees(option.fees)}` : ''} · Cutoff {option.rank.toLocaleString('en-IN')}
+        </span>
+      </div>
+      <div className="option-entry-actions">
+        <button onClick={() => removeFromOptionList(option.id)} className="remove-option-btn" aria-label="Remove" style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--slate)', padding: '4px' }}>
+          <X className="lucide-icon" size={18} />
+        </button>
+      </div>
+    </li>
+  );
+}
+
+export function OptionEntryList({ optionEntries, setOptionEntries, formatCategory, formatFees, showFees, setSelectedCollege, removeFromOptionList }) {
+  const sensors = useSensors(
+    useSensor(PointerSensor),
+    useSensor(KeyboardSensor, {
+      coordinateGetter: sortableKeyboardCoordinates,
+    })
+  );
+
+  const handleDragEnd = (event) => {
+    const { active, over } = event;
+
+    if (active.id !== over.id) {
+      setOptionEntries((items) => {
+        const oldIndex = items.findIndex((i) => i.id === active.id);
+        const newIndex = items.findIndex((i) => i.id === over.id);
+        
+        return arrayMove(items, oldIndex, newIndex);
+      });
+    }
+  };
+
+  return (
+    <DndContext 
+      sensors={sensors}
+      collisionDetection={closestCenter}
+      onDragEnd={handleDragEnd}
+    >
+      <SortableContext 
+        items={optionEntries.map(o => o.id)}
+        strategy={verticalListSortingStrategy}
+      >
+        <ul className="option-entry-list" style={{ padding: 0, listStyle: 'none' }}>
+          {optionEntries.map((o, i) => (
+            <SortableItem 
+              key={o.id} 
+              id={o.id}
+              option={o}
+              index={i}
+              formatCategory={formatCategory}
+              formatFees={formatFees}
+              showFees={showFees}
+              setSelectedCollege={setSelectedCollege}
+              removeFromOptionList={removeFromOptionList}
+            />
+          ))}
+        </ul>
+      </SortableContext>
+    </DndContext>
+  );
+}

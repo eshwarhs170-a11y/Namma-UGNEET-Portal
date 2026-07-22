@@ -11,7 +11,6 @@ import {
 import logo from '../assets/namma-ugneet-logo.png';
 import { fetchVisitCounts } from '../visitorCounter.js';
 import './Dashboard.css';
-import { CollegeTrendChart } from './CollegeTrendChart';
 import { OptionEntryList } from './OptionEntryList';
 
 // ── Custom autocomplete dropdown (replaces native <datalist> which bounces on mobile) ──
@@ -2091,8 +2090,6 @@ export default function Dashboard() {
                       </tbody>
                     </table>
                   </div>
-
-                  <CollegeTrendChart records={records} targetYear={targetYear} />
 
                   <h4 className="college-subheading" style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}><PenTool className="lucide-icon" size={20} /> My Notes</h4>
                   <p className="glossary-intro" style={{ marginBottom: '8px' }}>

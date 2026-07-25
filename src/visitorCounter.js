@@ -56,3 +56,42 @@ export async function fetchVisitCounts() {
   }
 }
 
+const LS_HAS_INSTALLED = 'namma_has_installed';
+
+export async function pingInstall() {
+  try {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'app_installed', {
+        event_category: 'engagement'
+      });
+    }
+    
+    if (localStorage.getItem(LS_HAS_INSTALLED)) return;
+
+    const res = await fetch('/api/installs', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' }
+    });
+
+    if (res.ok) {
+      localStorage.setItem(LS_HAS_INSTALLED, 'true');
+    }
+  } catch {
+    // silently ignore
+  }
+}
+
+export async function fetchInstallCounts() {
+  try {
+    const res = await fetch('/api/installs');
+    if (!res.ok) throw new Error('API failed');
+
+    const json = await res.json();
+    return {
+      total: typeof json.total === 'number' ? json.total : null
+    };
+  } catch {
+    return { total: null };
+  }
+}
+

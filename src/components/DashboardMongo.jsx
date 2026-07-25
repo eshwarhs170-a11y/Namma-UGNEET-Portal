@@ -9,7 +9,7 @@ import {
 
 // jsPDF loaded on-demand (lazy) to keep initial bundle small
 import logo from '../assets/namma-ugneet-logo.png';
-import { fetchVisitCounts } from '../visitorCounter.js';
+import { fetchVisitCounts, pingInstall, fetchInstallCounts } from '../visitorCounter.js';
 import './Dashboard.css';
 import { OptionEntryList } from './OptionEntryList';
 
@@ -499,13 +499,18 @@ export default function Dashboard() {
   // ── ADMIN PANEL STATE (hidden, developer-only) ────────────────────────────
   const ADMIN_HASH = 'admin-nammaugneet-dev';
   const [adminVisitCount, setAdminVisitCount] = useState({ total: null, today: null });
+  const [adminInstallCount, setAdminInstallCount] = useState({ total: null });
   const [adminLoading, setAdminLoading] = useState(false);
 
   useEffect(() => {
     if (activeTab !== ADMIN_HASH) return;
     setAdminLoading(true);
-    fetchVisitCounts().then((counts) => {
-      setAdminVisitCount(counts);
+    Promise.all([
+      fetchVisitCounts(),
+      fetchInstallCounts()
+    ]).then(([vCounts, iCounts]) => {
+      setAdminVisitCount(vCounts);
+      setAdminInstallCount(iCounts);
       setAdminLoading(false);
     });
   }, [activeTab]);
@@ -631,6 +636,7 @@ export default function Dashboard() {
     const onAppInstalled = () => {
       setInstallPromptEvent(null);
       setIsAppInstalled(true);
+      pingInstall();
     };
     window.addEventListener('beforeinstallprompt', onBeforeInstallPrompt);
     window.addEventListener('appinstalled', onAppInstalled);
@@ -646,6 +652,7 @@ export default function Dashboard() {
     const { outcome } = await installPromptEvent.userChoice;
     if (outcome === 'accepted') {
       setIsAppInstalled(true);
+      pingInstall();
     }
     setInstallPromptEvent(null);
   };
@@ -1747,7 +1754,7 @@ export default function Dashboard() {
           boxShadow: '0 25px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04) inset',
           marginBottom: '1.5rem'
         }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: '2rem' }}>
             <div>
               <p style={{ color: '#94a3b8', fontSize: '0.75rem', marginBottom: '0.5rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em' }}>All-Time Visits</p>
               {adminLoading ? (
@@ -1770,6 +1777,21 @@ export default function Dashboard() {
               ) : adminVisitCount.today !== null ? (
                 <p style={{ fontSize: '3rem', fontWeight: 800, color: '#38bdf8', lineHeight: 1, margin: '0.5rem 0', textShadow: '0 0 20px rgba(56,189,248,0.4)' }}>
                   {adminVisitCount.today.toLocaleString('en-IN')}
+                </p>
+              ) : (
+                <p style={{ color: '#94a3b8', fontSize: '0.8rem', margin: '1rem 0', background: 'rgba(255,255,255,0.05)', padding: '0.5rem', borderRadius: '8px' }}>
+                  Live deployment required
+                </p>
+              )}
+            </div>
+
+            <div style={{ borderLeft: '1px solid rgba(255,255,255,0.1)' }}>
+              <p style={{ color: '#94a3b8', fontSize: '0.75rem', marginBottom: '0.5rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em' }}>App Installs</p>
+              {adminLoading ? (
+                <p style={{ fontSize: '2.5rem', fontWeight: 700, color: '#34d399', margin: '0.5rem 0' }}>…</p>
+              ) : adminInstallCount.total !== null ? (
+                <p style={{ fontSize: '3rem', fontWeight: 800, color: '#34d399', lineHeight: 1, margin: '0.5rem 0', textShadow: '0 0 20px rgba(52,211,153,0.4)' }}>
+                  {adminInstallCount.total.toLocaleString('en-IN')}
                 </p>
               ) : (
                 <p style={{ color: '#94a3b8', fontSize: '0.8rem', margin: '1rem 0', background: 'rgba(255,255,255,0.05)', padding: '0.5rem', borderRadius: '8px' }}>

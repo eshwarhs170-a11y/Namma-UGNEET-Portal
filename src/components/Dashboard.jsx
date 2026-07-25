@@ -7,7 +7,7 @@ import {
 
 import jsPDF from 'jspdf';
 import logo from '../assets/namma-ugneet-logo.png';
-import { fetchVisitCounts } from '../visitorCounter.js';
+import { fetchVisitCounts, pingInstall, fetchInstallCounts } from '../visitorCounter.js';
 import './Dashboard.css';
 
 const SAVED_KEY = 'namma_saved_colleges';
@@ -340,6 +340,200 @@ export default function Dashboard() {
     setActiveTab(initialTab);
     window.history.replaceState({ tab: initialTab }, '', `#${initialTab}`);
 
+const formatFees = (fees) =>
+  fees === null || fees === undefined ? 'Not available' : `₹${fees.toLocaleString('en-IN')}`;
+
+const formatCategory = (category) => (category === 'UNKNOWN' ? 'Category not recorded' : category);
+
+const OPTIONS_KEY = 'namma_option_entries';
+const makeOptionId = (item) => `${item.year}-${item.stream}-${item.round}-${item.serialNo}-${item.category}`;
+
+function RankSparkline({ points }) {
+  if (!points || points.length < 2) return null;
+
+  const width = 100;
+  const height = 28;
+  const padX = 8;
+  const padY = 6;
+
+  const ranks = points.map((p) => p.rank);
+  const maxRank = Math.max(...ranks);
+  const minRank = Math.min(...ranks);
+  const range = maxRank - minRank || 1;
+
+  const coords = points.map((p, i) => {
+    const x = padX + (i * (width - padX * 2)) / (points.length - 1);
+    const normalized = (p.rank - minRank) / range;
+    const y = padY + normalized * (height - padY * 2);
+    return { x, y, rank: p.rank };
+  });
+
+  const pathD = coords.map((c, i) => `${i === 0 ? 'M' : 'L'} ${c.x.toFixed(1)} ${c.y.toFixed(1)}`).join(' ');
+
+  return (
+    <svg viewBox={`0 0 ${width} ${height}`} className="sparkline-svg" preserveAspectRatio="xMidYMid meet">
+      <path d={pathD} className="sparkline-line" fill="none" />
+      {coords.map((c, i) => (
+        <circle
+          key={i}
+          cx={c.x}
+          cy={c.y}
+          r={c.rank === minRank ? 3 : 2}
+          className={c.rank === minRank ? 'sparkline-dot sparkline-dot-best' : 'sparkline-dot'}
+        />
+      ))}
+    </svg>
+  );
+}
+
+const PredictedGrid = React.memo(function PredictedGrid({
+  predictedColleges,
+  userRank,
+  isSaved,
+  toggleSave,
+  isInOptionList,
+  addToOptionList,
+  getTrends,
+  onSelectCollege,
+  showFees,
+}) {
+  const CARD_RENDER_LIMIT = 150;
+  const [visibleCount, setVisibleCount] = useState(CARD_RENDER_LIMIT);
+
+  useEffect(() => {
+    setVisibleCount(CARD_RENDER_LIMIT);
+  }, [predictedColleges]);
+
+  if (predictedColleges.length === 0) {
+    return (
+      <div className="predicted-grid">
+        <div className="empty-predict">
+          Enter your exact NEET Rank above to populate your custom eligible target mapping list.
+        </div>
+      </div>
+    );
+  }
+
+  const visibleColleges = predictedColleges.slice(0, visibleCount);
+
+  return (
+    <div className="predicted-grid-wrap">
+      <div className="predicted-grid">
+        {visibleColleges.map((item, idx) => {
+        const safetyMargin = item.rank - parseInt(userRank, 10);
+        let stampClass = 'safe';
+        let badgeText = 'Safe Match';
+
+        if (safetyMargin < 2000) {
+          stampClass = 'borderline';
+          badgeText = 'Borderline Chance';
+        } else if (safetyMargin < 8000) {
+          stampClass = 'moderate';
+          badgeText = 'Moderate Chance';
+        }
+
+        return (
+          <div key={idx} className="result-card">
+            <div className="result-top">
+              <span className="result-code">CODE: {item.collegeCode}</span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <span className={`stamp ${stampClass}`}>{badgeText}</span>
+                <button
+                  className={`star-btn${isSaved(item) ? ' saved' : ''}`}
+                  onClick={() => toggleSave(item)}
+                  aria-label="Save college"
+                >
+                  {isSaved(item) ? '<Star className="lucide-icon" size={16} fill="currentColor" />' : '<Star className="lucide-icon" size={16} />'}
+                </button>
+                <button
+                  className={`add-option-btn${isInOptionList(item) ? ' added' : ''}`}
+                  onClick={() => addToOptionList(item)}
+                  title="Add to Option Entry List"
+                >
+                  {isInOptionList(item) ? '<Check className="lucide-icon" size={16} /> Added' : '+ Add'}
+                </button>
+              </div>
+            </div>
+            <h4
+              className="result-name college-name-link"
+              onClick={() => onSelectCollege({ collegeCode: item.collegeCode, stream: item.stream, collegeName: item.collegeName })}
+            >
+              {item.collegeName}
+            </h4>
+            <p className="result-meta">Course: <strong>{item.courseDetails}</strong></p>
+            <p className="result-meta">Round: <strong>{item.round}</strong> · Year: <strong>{item.year}</strong></p>
+            {showFees && <p className="result-meta">Annual Cost: <strong>{formatFees(item.fees)}</strong></p>}
+
+            {(() => {
+              const { roundsThisYear, otherYearSameRound } = getTrends(item);
+              const uniqueRounds = Array.from(new Map(roundsThisYear.map((r) => [r.round, r])).values());
+              const otherYear = otherYearSameRound[0];
+              if (uniqueRounds.length <= 1 && !otherYear) return null;
+              return (
+                <div className="trend-box">
+                  {uniqueRounds.length > 1 && (
+                    <div className="trend-line trend-line-with-spark">
+                      <div>
+                        <span className="trend-label">This year:</span>
+                        {uniqueRounds.map((r) => (
+                          <span key={r.round} className="trend-chip">{r.round} {r.rank.toLocaleString('en-IN')}</span>
+                        ))}
+                      </div>
+                      <RankSparkline points={uniqueRounds} />
+                    </div>
+                  )}
+                  {otherYear && (
+                    <div className="trend-line">
+                      <span className="trend-label">vs {otherYear.year}:</span>
+                      <span className="trend-chip">
+                        {otherYear.rank.toLocaleString('en-IN')}
+                        {otherYear.rank > item.rank ? ' (tighter now)' : otherYear.rank < item.rank ? ' (looser now)' : ' (same)'}
+                      </span>
+                    </div>
+                  )}
+                </div>
+              );
+            })()}
+
+            <div className="result-footer">
+              <span>Last Cutoff</span>
+              <span className="val">{item.rank.toLocaleString('en-IN')}</span>
+            </div>
+          </div>
+        );
+        })}
+      </div>
+      {predictedColleges.length > visibleCount && (
+        <div className="show-more-wrap">
+          <p className="truncate-note">
+            Showing top {visibleCount.toLocaleString('en-IN')} of {predictedColleges.length.toLocaleString('en-IN')} matches (closest cutoffs first).
+          </p>
+          <button
+            className="show-more-btn"
+            onClick={() => setVisibleCount((prev) => prev + CARD_RENDER_LIMIT)}
+          >
+            Show {Math.min(CARD_RENDER_LIMIT, predictedColleges.length - visibleCount).toLocaleString('en-IN')} More
+          </button>
+        </div>
+      )}
+    </div>
+  );
+});
+
+export default function Dashboard() {
+  const [activeTab, setActiveTab] = useState('home');
+
+  const navigateTo = (tab) => {
+    if (tab === activeTab) return;
+    window.history.pushState({ tab }, '', `#${tab}`);
+    setActiveTab(tab);
+  };
+
+  useEffect(() => {
+    const initialTab = window.location.hash.replace('#', '') || 'home';
+    setActiveTab(initialTab);
+    window.history.replaceState({ tab: initialTab }, '', `#${initialTab}`);
+
     const onPopState = (e) => {
       const tab = (e.state && e.state.tab) || window.location.hash.replace('#', '') || 'home';
       setActiveTab(tab);
@@ -351,13 +545,18 @@ export default function Dashboard() {
   // ── ADMIN PANEL STATE (hidden, developer-only) ────────────────────────────
   const ADMIN_HASH = 'admin-nammaugneet-dev';
   const [adminVisitCount, setAdminVisitCount] = useState({ total: null, today: null });
+  const [adminInstallCount, setAdminInstallCount] = useState({ total: null });
   const [adminLoading, setAdminLoading] = useState(false);
 
   useEffect(() => {
     if (activeTab !== ADMIN_HASH) return;
     setAdminLoading(true);
-    fetchVisitCounts().then((counts) => {
-      setAdminVisitCount(counts);
+    Promise.all([
+      fetchVisitCounts(),
+      fetchInstallCounts()
+    ]).then(([vCounts, iCounts]) => {
+      setAdminVisitCount(vCounts);
+      setAdminInstallCount(iCounts);
       setAdminLoading(false);
     });
   }, [activeTab]);
@@ -405,6 +604,7 @@ export default function Dashboard() {
     const onAppInstalled = () => {
       setInstallPromptEvent(null);
       setIsAppInstalled(true);
+      pingInstall();
     };
     window.addEventListener('beforeinstallprompt', onBeforeInstallPrompt);
     window.addEventListener('appinstalled', onAppInstalled);
@@ -420,6 +620,7 @@ export default function Dashboard() {
     const { outcome } = await installPromptEvent.userChoice;
     if (outcome === 'accepted') {
       setIsAppInstalled(true);
+      pingInstall();
     }
     setInstallPromptEvent(null);
   };
@@ -511,607 +712,6 @@ export default function Dashboard() {
 
     return cleaned.trim();
   };
-    cleaned = cleaned.replace(/Did not opt for Upgradati\s*on\.?\s*\d+\s*-+\s*/gi, '');
-    cleaned = cleaned.replace(/Did not opt for Upgradation\.?\s*\d+\s*-+\s*/gi, '');
-    cleaned = cleaned.replace(/Did not fill up fresh choices\.?\s*\d+\s*-+\s*/gi, '');
-    cleaned = cleaned.replace(/Not Reported\.?\s*\d+\s*-+\s*/gi, '');
-    
-    const quotas = [
-      'Deemed/ Paid Seats Quota', 'Deemed / Paid Seats Quota', 'Jain Minority Quota',
-      'Muslim Minority Quota', 'Open Seat Quota', 'All India Quota Government',
-      'All India', 'Delhi University Quota', 'IP University Quota',
-      'Management/Paid Seats Quota', 'Management/ Paid Seats Quota', 'All India Quota Govt Aided',
-      'Central Universites / National Institutions', 'Self Finance', 'Linguistic Minority',
-      'Employee s State Insurance Scheme\\( ESI\\)', 'Foreign Country Quota',
-      'Aligarh Muslim University \\(AMU\\) Quota', 'Non- Resident Indian',
-      'NonResident Indian', 'B.Sc Nursing All India Quota', 'Jamia Internal Quota'
-    ];
-    quotas.forEach(quota => {
-      const regex = new RegExp('^' + quota + '\\s*-*\\s*', 'i');
-      cleaned = cleaned.replace(regex, '');
-    });
-
-    return cleaned.trim();
-  };
-
-  // Auto-complete list of all college names (cleaned)
-  const allCollegeNames = useMemo(() => {
-    const names = new Set(
-      medicalData.map((item) => cleanCollegeName(item.collegeName))
-    );
-    return Array.from(names).sort();
-  }, [medicalData]);
-
-  const sidebarWidthPx = viewportWidth <= 420 ? Math.min(viewportWidth * 0.88, 300) : 290;
-
-  const [searchQuery, setSearchQuery] = useState('');
-  const [streamFilter, setStreamFilter] = useState(() => lsGet(LS_EXPLORE, {}).streamFilter ?? 'MEDICAL');
-  const [categoryFilter, setCategoryFilter] = useState(() => lsGet(LS_EXPLORE, {}).categoryFilter ?? 'GM');
-  const [quotaFilter, setQuotaFilter] = useState(() => lsGet(LS_EXPLORE, {}).quotaFilter ?? 'ALL');
-  const [maxBudget, setMaxBudget] = useState(() => lsGet(LS_EXPLORE, {}).maxBudget ?? 1500000);
-  const [roundFilter, setRoundFilter] = useState(() => lsGet(LS_EXPLORE, {}).roundFilter ?? 'ALL');
-  const [yearFilter, setYearFilter] = useState(() => lsGet(LS_EXPLORE, {}).yearFilter ?? 'ALL');
-  const [exploreVisibleCount, setExploreVisibleCount] = useState(100);
-  const [sortConfig, setSortConfig] = useState(() => lsGet(LS_EXPLORE, {}).sortConfig ?? { key: 'rank', direction: 'asc' });
-
-  // Persist explore filter settings whenever they change
-  useEffect(() => {
-    lsSet(LS_EXPLORE, { streamFilter, categoryFilter, quotaFilter, maxBudget, roundFilter, yearFilter, sortConfig });
-  }, [streamFilter, categoryFilter, quotaFilter, maxBudget, roundFilter, yearFilter, sortConfig]);
-
-  // Persist dataSource
-  useEffect(() => { lsSet(LS_DATASRC, dataSource); }, [dataSource]);
-
-  const filteredDashboardData = useMemo(() => {
-    return medicalData
-      .filter((item) => {
-        const cleanedName = cleanCollegeName(item.collegeName).toLowerCase();
-        const cleanedQuery = searchQuery.replace(/\s+/g, ' ').toLowerCase().trim();
-        const matchSearch =
-          cleanedName.includes(cleanedQuery) ||
-          item.collegeCode.toLowerCase().includes(cleanedQuery);
-        const matchStream = item.stream === streamFilter;
-        const matchCategory = item.category === categoryFilter;
-        const matchBudget = item.fees === null || item.fees === undefined || item.fees <= maxBudget;
-        const matchRound = roundFilter === 'ALL' || item.round === roundFilter;
-        const matchYear = yearFilter === 'ALL' || item.year === yearFilter;
-        const matchQuota = dataSource !== 'AIQ' || quotaFilter === 'ALL' || item.quota === quotaFilter;
-        return (
-          matchSearch &&
-          matchStream &&
-          matchCategory &&
-          matchBudget &&
-          matchRound &&
-          matchYear &&
-          matchQuota
-        );
-      })
-      .sort((a, b) => {
-        let av = a[sortConfig.key];
-        let bv = b[sortConfig.key];
-        if (typeof av === 'string') {
-          av = av.toLowerCase();
-          bv = bv.toLowerCase();
-        }
-        if (av < bv) return sortConfig.direction === 'asc' ? -1 : 1;
-        if (av > bv) return sortConfig.direction === 'asc' ? 1 : -1;
-        return 0;
-      });
-  }, [medicalData, searchQuery, streamFilter, categoryFilter, maxBudget, roundFilter, yearFilter, sortConfig, dataSource, quotaFilter]);
-
-  useEffect(() => {
-    setExploreVisibleCount(100);
-  }, [filteredDashboardData]);
-
-  const handleSort = (key) => {
-    setSortConfig((prev) =>
-      prev.key === key
-        ? { key, direction: prev.direction === 'asc' ? 'desc' : 'asc' }
-        : { key, direction: 'asc' }
-    );
-  };
-
-  const [userRank, setUserRank] = useState(() => lsGet(LS_PREDICTOR, {}).userRank ?? '');
-  const [predictorCategory, setPredictorCategory] = useState(() => lsGet(LS_PREDICTOR, {}).predictorCategory ?? 'GM');
-  const [predictorQuota, setPredictorQuota] = useState(() => lsGet(LS_PREDICTOR, {}).predictorQuota ?? 'ALL');
-  const [predictorStream, setPredictorStream] = useState(() => lsGet(LS_PREDICTOR, {}).predictorStream ?? 'MEDICAL');
-  const [predictorRound, setPredictorRound] = useState(() => lsGet(LS_PREDICTOR, {}).predictorRound ?? 'ALL');
-  const [predictorYear, setPredictorYear] = useState(() => lsGet(LS_PREDICTOR, {}).predictorYear ?? '2025');
-  const [rankRange, setRankRange] = useState(() => lsGet(LS_PREDICTOR, {}).rankRange ?? 0);
-
-  // Persist predictor inputs whenever they change
-  useEffect(() => {
-    lsSet(LS_PREDICTOR, { userRank, predictorCategory, predictorQuota, predictorStream, predictorRound, predictorYear, rankRange });
-  }, [userRank, predictorCategory, predictorQuota, predictorStream, predictorRound, predictorYear, rankRange]);
-
-  useEffect(() => {
-    if (dataSource === 'AIQ') {
-      setCategoryFilter('Open');
-      setPredictorCategory('Open');
-      setRoundFilter('ALL');
-      setPredictorRound('ALL');
-      setQuotaFilter('ALL');
-      setPredictorQuota('ALL');
-    } else {
-      setCategoryFilter('GM');
-      setPredictorCategory('GM');
-      setRoundFilter('ALL');
-      setPredictorRound('ALL');
-      setQuotaFilter('ALL');
-      setPredictorQuota('ALL');
-    }
-  }, [dataSource]);
-
-  const yearDefaultSetRef = useRef(false);
-
-  const [debouncedUserRank, setDebouncedUserRank] = useState(userRank);
-  const [debouncedRankRange, setDebouncedRankRange] = useState(rankRange);
-  useEffect(() => {
-    const timer = setTimeout(() => setDebouncedUserRank(userRank), 250);
-    return () => clearTimeout(timer);
-  }, [userRank]);
-  useEffect(() => {
-    const timer = setTimeout(() => setDebouncedRankRange(rankRange), 250);
-    return () => clearTimeout(timer);
-  }, [rankRange]);
-
-  useEffect(() => {
-    if (!dataLoading && medicalData.length > 0 && !yearDefaultSetRef.current) {
-      yearDefaultSetRef.current = true;
-      const years = Array.from(new Set(medicalData.map((item) => item.year).filter(Boolean))).sort();
-      if (years.length > 0) setPredictorYear(years.slice(-1)[0]);
-    }
-  }, [dataLoading, medicalData]);
-
-  const [savedColleges, setSavedColleges] = useState(() => {
-    try {
-      const raw = localStorage.getItem(SAVED_KEY);
-      return raw ? JSON.parse(raw) : [];
-    } catch {
-      return [];
-    }
-  });
-
-  useEffect(() => {
-    try {
-      localStorage.setItem(SAVED_KEY, JSON.stringify(savedColleges));
-    } catch { }
-  }, [savedColleges]);
-
-  const isSaved = useCallback((item) => savedColleges.some((s) => s.id === makeId(item)), [savedColleges]);
-
-  const toggleSave = useCallback((item) => {
-    const id = makeId(item);
-    setSavedColleges((prev) =>
-      prev.some((s) => s.id === id)
-        ? prev.filter((s) => s.id !== id)
-        : [...prev, { id, ...item }]
-    );
-  }, []);
-
-  const removeSaved = (id) => setSavedColleges((prev) => prev.filter((s) => s.id !== id));
-
-  const [glossaryOpen, setGlossaryOpen] = useState(false);
-  const [compareOpen, setCompareOpen] = useState(false);
-
-  const [selectedCollege, setSelectedCollege] = useState(null); 
-  const NOTES_KEY = 'namma_college_notes';
-  const [collegeNotes, setCollegeNotes] = useState(() => {
-    try {
-      const raw = localStorage.getItem(NOTES_KEY);
-      return raw ? JSON.parse(raw) : {};
-    } catch {
-      return {};
-    }
-  });
-  useEffect(() => {
-    try { localStorage.setItem(NOTES_KEY, JSON.stringify(collegeNotes)); } catch { }
-  }, [collegeNotes]);
-
-  const [profiles, setProfiles] = useState(() => {
-    try {
-      const raw = localStorage.getItem(PROFILES_KEY);
-      return raw ? JSON.parse(raw) : [];
-    } catch {
-      return [];
-    }
-  });
-  const [newProfileName, setNewProfileName] = useState('');
-
-  useEffect(() => {
-    try { localStorage.setItem(PROFILES_KEY, JSON.stringify(profiles)); } catch { }
-  }, [profiles]);
-
-  const saveCurrentAsProfile = () => {
-    if (!newProfileName.trim() || !userRank) return;
-    const profile = {
-      id: Date.now().toString(),
-      name: newProfileName.trim(),
-      rank: userRank,
-      category: predictorCategory,
-      stream: predictorStream,
-      round: predictorRound,
-      year: predictorYear,
-    };
-    setProfiles((prev) => [...prev, profile]);
-    setNewProfileName('');
-  };
-
-  const loadProfile = (p) => {
-    setUserRank(p.rank);
-    setPredictorCategory(p.category);
-    setPredictorStream(p.stream);
-    setPredictorRound(p.round);
-    setPredictorYear(p.year);
-    navigateTo('predictor');
-  };
-
-  const deleteProfile = (id) => setProfiles((prev) => prev.filter((p) => p.id !== id));
-
-  const [optionEntries, setOptionEntries] = useState(() => {
-    try {
-      const raw = localStorage.getItem(OPTIONS_KEY);
-      return raw ? JSON.parse(raw) : [];
-    } catch {
-      return [];
-    }
-  });
-
-  useEffect(() => {
-    try { localStorage.setItem(OPTIONS_KEY, JSON.stringify(optionEntries)); } catch { }
-  }, [optionEntries]);
-
-  const isInOptionList = useCallback((item) => optionEntries.some((o) => o.id === makeOptionId(item)), [optionEntries]);
-
-  const addToOptionList = useCallback((item) => {
-    const id = makeOptionId(item);
-    setOptionEntries((prev) =>
-      prev.some((o) => o.id === id)
-        ? prev.filter((o) => o.id !== id)
-        : [...prev, { id, ...item }]
-    );
-  }, []);
-
-  const removeFromOptionList = (id) => setOptionEntries((prev) => prev.filter((o) => o.id !== id));
-
-  const moveOption = (index, direction) => {
-    setOptionEntries((prev) => {
-      const next = [...prev];
-      const target = index + direction;
-      if (target < 0 || target >= next.length) return prev;
-      [next[index], next[target]] = [next[target], next[index]];
-      return next;
-    });
-  };
-
-  const clearOptionList = () => {
-    if (window.confirm('Clear your entire option entry list? This cannot be undone.')) {
-      setOptionEntries([]);
-    }
-  };
-
-  const shareOptionListOnWhatsApp = () => {
-    const lines = optionEntries.map((o, i) =>
-      `Option ${i + 1}: ${o.collegeName} (${o.collegeCode}) — ${o.courseDetails}, ${o.category} [${o.round} ${o.year}]`
-    );
-    const text = `📝 *NammaUGNEET* — My Option Entry Preference List\n\n${lines.join('\n')}\n\nBuild your own list: https://namma-ugneet-portal.vercel.app/`;
-    window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
-  };
-
-  const downloadOptionListPDF = () => {
-    const doc = new jsPDF();
-    doc.setFontSize(16);
-    doc.text('NammaUGNEET — My Option Entry Preference List', 14, 18);
-    doc.setFontSize(9);
-    doc.setTextColor(120);
-    doc.text('For your own planning only — submit your official options on the KEA portal.', 14, 25);
-    doc.setTextColor(0);
-
-    let y = 36;
-    optionEntries.forEach((o, i) => {
-      if (y > 275) {
-        doc.addPage();
-        y = 20;
-      }
-      doc.setFontSize(11);
-      doc.setFont(undefined, 'bold');
-      doc.text(`${i + 1}. ${o.collegeName} (${o.collegeCode})`, 14, y);
-      doc.setFont(undefined, 'normal');
-      doc.setFontSize(9);
-      doc.text(
-        `${o.courseDetails}  |  Category: ${formatCategory(o.category)}${showFees ? `  |  Fees: ${formatFees(o.fees)}` : ''}  |  Cutoff: ${o.rank.toLocaleString('en-IN')}  |  ${o.round} ${o.year}`,
-        14,
-        y + 6
-      );
-      y += 14;
-    });
-
-    doc.save('nammaugneet-option-entry-list.pdf');
-  };
-
-  const dynamicCategories = useMemo(() => {
-    const categoriesSet = new Set(medicalData.map((item) => item.category));
-    return Array.from(categoriesSet).sort();
-  }, [medicalData]);
-
-  const dynamicQuotas = useMemo(() => {
-    const quotasSet = new Set(medicalData.map((item) => item.quota).filter(Boolean));
-    return Array.from(quotasSet).sort();
-  }, [medicalData]);
-
-  const dynamicRounds = useMemo(() => {
-    const roundsSet = new Set(medicalData.map((item) => item.round));
-    return Array.from(roundsSet).sort();
-  }, [medicalData]);
-
-  const dynamicYears = useMemo(() => {
-    const yearsSet = new Set(medicalData.map((item) => item.year).filter(Boolean));
-    return Array.from(yearsSet).sort();
-  }, [medicalData]);
-
-  // --- AUTO-COMPLETE LISTS ---
-  const exploreStreamCollegeNames = useMemo(() => {
-    const names = new Set(
-      medicalData.filter((item) => item.stream === streamFilter).map((item) => cleanCollegeName(item.collegeName))
-    );
-    return Array.from(names).sort();
-  }, [medicalData, streamFilter]);
-
-  const predictorStreamCollegeNames = useMemo(() => {
-    const names = new Set(
-      medicalData.filter((item) => item.stream === predictorStream).map((item) => cleanCollegeName(item.collegeName))
-    );
-    return Array.from(names).sort();
-  }, [medicalData, predictorStream]);
-
-  const predictedColleges = useMemo(() => {
-    if (!debouncedUserRank || isNaN(debouncedUserRank)) return [];
-    const targetRank = parseInt(debouncedUserRank, 10);
-    const rangeVal = parseInt(debouncedRankRange, 10) || 0;
-
-    return medicalData
-      .filter((item) => {
-        const matchStream = item.stream === predictorStream;
-        const matchCategory = item.category === predictorCategory;
-        const matchRound = predictorRound === 'ALL' || item.round === predictorRound;
-        const matchYear = predictorYear === 'ALL' || item.year === predictorYear;
-        const matchRankScope = rangeVal > 0
-          ? item.rank >= Math.max(1, targetRank - rangeVal) && item.rank <= targetRank + rangeVal
-          : item.rank >= targetRank;
-        const matchQuota = dataSource !== 'AIQ' || predictorQuota === 'ALL' || item.quota === predictorQuota;
-
-        return matchStream && matchCategory && matchRound && matchYear && matchRankScope && matchQuota;
-      })
-      .sort((a, b) => a.rank - b.rank);
-  }, [medicalData, debouncedUserRank, debouncedRankRange, predictorCategory, predictorStream, predictorRound, predictorYear, dataSource, predictorQuota]);
-
-  const [categoryCompareOpen, setCategoryCompareOpen] = useState(false);
-  const categoryComparison = useMemo(() => {
-    if (!categoryCompareOpen) return [];
-    if (!debouncedUserRank || isNaN(debouncedUserRank)) return [];
-    const targetRank = parseInt(debouncedUserRank, 10);
-
-    return dynamicCategories
-      .map((cat) => {
-        const matches = medicalData
-          .filter((item) => {
-            const matchStream = item.stream === predictorStream;
-            const matchCategory = item.category === cat;
-            const matchRound = predictorRound === 'ALL' || item.round === predictorRound;
-            const matchYear = predictorYear === 'ALL' || item.year === predictorYear;
-            const matchRankScope = item.rank >= targetRank;
-            return matchStream && matchCategory && matchRound && matchYear && matchRankScope;
-          })
-          .sort((a, b) => a.rank - b.rank);
-        return { category: cat, count: matches.length, best: matches[0] || null };
-      })
-      .sort((a, b) => b.count - a.count);
-  }, [categoryCompareOpen, medicalData, debouncedUserRank, predictorStream, predictorRound, predictorYear, dynamicCategories]);
-
-  const [desiredCollegeName, setDesiredCollegeName] = useState('');
-
-  const desiredCollegeCheck = useMemo(() => {
-    const query = desiredCollegeName.trim().toLowerCase();
-    if (!query) return null;
-
-    const candidates = medicalData.filter(
-      (item) => item.stream === predictorStream && item.collegeName.toLowerCase().includes(query)
-    );
-    if (candidates.length === 0) return { status: 'notfound' };
-
-    const scoped = candidates.filter(
-      (item) =>
-        item.category === predictorCategory &&
-        (predictorRound === 'ALL' || item.round === predictorRound) &&
-        (predictorYear === 'ALL' || item.year === predictorYear)
-    );
-    if (scoped.length === 0) return { status: 'notfound_for_filters' };
-
-    if (!debouncedUserRank || isNaN(debouncedUserRank)) return { status: 'need_rank' };
-    const targetRank = parseInt(debouncedUserRank, 10);
-
-    const easiest = [...scoped].sort((a, b) => b.rank - a.rank)[0];
-
-    if (easiest.rank >= targetRank) {
-      return { status: 'attainable', record: easiest };
-    }
-    return { status: 'not_attainable', record: easiest };
-  }, [desiredCollegeName, medicalData, predictorStream, predictorCategory, predictorRound, predictorYear, debouncedUserRank]);
-
-  const showFees = dataSource === 'KEA';
-
-  const avgFeesShown = useMemo(() => {
-    const list = activeTab === 'predictor' ? predictedColleges : filteredDashboardData;
-    const withFees = list.filter((item) => item.fees !== null && item.fees !== undefined);
-    if (withFees.length === 0) return null; 
-    const total = withFees.reduce((sum, item) => sum + item.fees, 0);
-    return Math.round(total / withFees.length);
-  }, [filteredDashboardData, predictedColleges, activeTab]);
-
-  const trendIndex = useMemo(() => {
-    const map = {};
-    medicalData.forEach((item) => {
-      const key = `${item.stream}|${item.category}|${item.collegeCode}`;
-      if (!map[key]) map[key] = [];
-      map[key].push({ round: item.round, year: item.year, rank: item.rank });
-    });
-    return map;
-  }, [medicalData]);
-
-  const getTrends = useCallback((item) => {
-    const key = `${item.stream}|${item.category}|${item.collegeCode}`;
-    const entries = trendIndex[key] || [];
-    const roundsThisYear = entries.filter((e) => e.year === item.year);
-    const otherYearSameRound = entries.filter((e) => e.round === item.round && e.year !== item.year);
-    return { roundsThisYear, otherYearSameRound };
-  }, [trendIndex]);
-
-  const collegeCodeIndex = useMemo(() => {
-    const map = {};
-    medicalData.forEach((item) => {
-      const key = `${item.stream}|${item.collegeCode}`;
-      if (!map[key]) map[key] = [];
-      map[key].push(item);
-    });
-    return map;
-  }, [medicalData]);
-
-  const getCollegeRecords = (stream, collegeCode) => collegeCodeIndex[`${stream}|${collegeCode}`] || [];
-
-  const shareOnWhatsApp = (text) => {
-    const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
-    window.open(url, '_blank', 'noopener,noreferrer');
-  };
-
-  const sharePredictedResultsOnWhatsApp = () => {
-    const lines = predictedColleges.slice(0, 15).map((item, i) =>
-      `${i + 1}. ${item.collegeName} (${item.collegeCode}) — ${item.courseDetails}, ${formatCategory(item.category)}${showFees ? `, ${formatFees(item.fees)}` : ''}, Cutoff ${item.rank.toLocaleString('en-IN')} [${item.round} ${item.year}]`
-    );
-    const header = `🎯 *NammaUGNEET* — Predicted colleges for Rank ${userRank} (${predictorCategory}, ${predictorStream}):\n\n`;
-    const footer = `\n\nCheck your own rank: https://namma-ugneet-portal.vercel.app/`;
-    shareOnWhatsApp(header + lines.join('\n') + footer);
-  };
-
-  const downloadPredictedResultsPDF = () => {
-    const doc = new jsPDF();
-    doc.setFontSize(16);
-    doc.text('NammaUGNEET — Predicted Colleges', 14, 18);
-    doc.setFontSize(10);
-    doc.setTextColor(90);
-    doc.text(
-      `Rank: ${userRank}  |  Category: ${predictorCategory}  |  Stream: ${predictorStream}  |  Round: ${predictorRound}  |  Year: ${predictorYear}`,
-      14,
-      26
-    );
-    doc.setTextColor(0);
-
-    let y = 38;
-    predictedColleges.slice(0, 40).forEach((item, i) => {
-      if (y > 275) {
-        doc.addPage();
-        y = 20;
-      }
-      doc.setFontSize(11);
-      doc.setFont(undefined, 'bold');
-      doc.text(`${i + 1}. ${item.collegeName} (${item.collegeCode})`, 14, y);
-      doc.setFont(undefined, 'normal');
-      doc.setFontSize(9);
-      doc.text(
-        `${item.courseDetails}  |  Category: ${formatCategory(item.category)}${showFees ? `  |  Fees: ${formatFees(item.fees)}` : ''}  |  Cutoff: ${item.rank.toLocaleString('en-IN')}  |  ${item.round} ${item.year}`,
-        14,
-        y + 6
-      );
-      y += 14;
-    });
-
-    doc.save('nammaugneet-predicted-colleges.pdf');
-  };
-
-  // ── HIDDEN ADMIN PANEL ────────────────────────────────────────────────────
-  if (activeTab === ADMIN_HASH) {
-    return (
-      <div style={{
-        minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        background: 'linear-gradient(135deg, #0a0f1e 0%, #0f172a 50%, #0a0f1e 100%)',
-        fontFamily: "'Inter', 'Segoe UI', system-ui, sans-serif",
-        color: '#e2e8f0',
-        padding: '2rem',
-        position: 'relative',
-        overflow: 'hidden',
-      }}>
-        {/* Ambient glow effects */}
-        <div style={{
-          position: 'absolute', top: '20%', left: '50%', transform: 'translateX(-50%)',
-          width: 400, height: 400, borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%)',
-          pointerEvents: 'none',
-        }} />
-
-        <div style={{ zIndex: 1, textAlign: 'center', marginBottom: '2rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <img 
-            src={logo} 
-            alt="NammaUGNEET" 
-            style={{ 
-              width: 80, 
-              height: 80, 
-              marginBottom: '1rem', 
-              borderRadius: '50%',
-              objectFit: 'contain',
-              backgroundColor: '#ffffff',
-              boxShadow: '0 0 20px rgba(99,102,241,0.4)',
-              border: '2px solid rgba(255,255,255,0.1)',
-              display: 'block'
-            }} 
-          />
-          <h1 style={{ fontSize: '1.75rem', fontWeight: 700, margin: 0, color: '#e2e8f0' }}>Admin Panel</h1>
-          <p style={{ color: '#64748b', fontSize: '0.85rem', marginTop: '0.35rem' }}>Developer-only view — do not share this URL.</p>
-        </div>
-
-        <div style={{
-          zIndex: 1,
-          background: 'rgba(15,23,42,0.85)',
-          border: '1px solid rgba(99,102,241,0.25)',
-          borderRadius: '20px',
-          padding: '2.5rem',
-          textAlign: 'center',
-          width: '100%',
-          maxWidth: 600,
-          backdropFilter: 'blur(20px)',
-          boxShadow: '0 25px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04) inset',
-          marginBottom: '1.5rem'
-        }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
-            <div>
-              <p style={{ color: '#94a3b8', fontSize: '0.75rem', marginBottom: '0.5rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em' }}>All-Time Visits</p>
-              {adminLoading ? (
-                <p style={{ fontSize: '2.5rem', fontWeight: 700, color: '#818cf8', margin: '0.5rem 0' }}>…</p>
-              ) : adminVisitCount.total !== null ? (
-                <p style={{ fontSize: '3rem', fontWeight: 800, color: '#818cf8', lineHeight: 1, margin: '0.5rem 0', textShadow: '0 0 20px rgba(129,140,248,0.4)' }}>
-                  {adminVisitCount.total.toLocaleString('en-IN')}
-                </p>
-              ) : (
-                <p style={{ color: '#94a3b8', fontSize: '0.8rem', margin: '1rem 0', background: 'rgba(255,255,255,0.05)', padding: '0.5rem', borderRadius: '8px' }}>
-                  Live deployment required
-                </p>
-              )}
-            </div>
-            
-            <div style={{ borderLeft: '1px solid rgba(255,255,255,0.1)' }}>
-              <p style={{ color: '#94a3b8', fontSize: '0.75rem', marginBottom: '0.5rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em' }}>Today's Visits</p>
-              {adminLoading ? (
-                <p style={{ fontSize: '2.5rem', fontWeight: 700, color: '#38bdf8', margin: '0.5rem 0' }}>…</p>
-              ) : adminVisitCount.today !== null ? (
-                <p style={{ fontSize: '3rem', fontWeight: 800, color: '#38bdf8', lineHeight: 1, margin: '0.5rem 0', textShadow: '0 0 20px rgba(56,189,248,0.4)' }}>
-                  {adminVisitCount.today.toLocaleString('en-IN')}
-                </p>
-              ) : (
-                <p style={{ color: '#94a3b8', fontSize: '0.8rem', margin: '1rem 0', background: 'rgba(255,255,255,0.05)', padding: '0.5rem', borderRadius: '8px' }}>
-                  Live deployment required
-                </p>
               )}
             </div>
           </div>

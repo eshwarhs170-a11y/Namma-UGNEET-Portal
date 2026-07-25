@@ -1,9 +1,9 @@
 import { connectToDatabase } from './lib/db.js';
 import crypto from 'crypto';
 
-// Hash function to protect user privacy (MD5 is fast and sufficient for hashing IP + date)
-function hashIpDate(ip, dateStr) {
-  return crypto.createHash('md5').update(`${ip}-${dateStr}`).digest('hex');
+// Hash function to protect user privacy (MD5 is fast and sufficient for hashing IP)
+function hashIp(ip) {
+  return crypto.createHash('md5').update(ip).digest('hex');
 }
 
 function getTodayStr() {
@@ -32,7 +32,7 @@ export default async function handler(req, res) {
     const today = getTodayStr();
 
     if (req.method === 'POST') {
-      const hash = hashIpDate(clientIp, today);
+      const hash = hashIp(clientIp);
       
       try {
         // Attempt to insert. If hash already exists, it throws a duplicate key error

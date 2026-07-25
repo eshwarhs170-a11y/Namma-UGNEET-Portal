@@ -1115,7 +1115,7 @@ export default function Dashboard() {
               )}
             </div>
           </div>
-          <p style={{ color: '#475569', fontSize: '0.75rem', margin: '1.5rem 0 0 0' }}>Counted once per device per day</p>
+          <p style={{ color: '#475569', fontSize: '0.75rem', margin: '1.5rem 0 0 0' }}>Counted once per device ever</p>
         </div>
 
         <div style={{

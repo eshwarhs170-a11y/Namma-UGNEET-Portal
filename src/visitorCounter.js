@@ -8,22 +8,20 @@
  * PRIVATE — this file is only used internally and the admin route is hidden.
  */
 
-// Once-per-day dedup so page refreshes don't inflate the count
-const LS_LAST_PING = 'namma_last_ping_day';
+// Once-ever dedup so page refreshes don't inflate the count
+const LS_HAS_PINGED = 'namma_has_pinged_ever';
 
 function todayStr() {
   return new Date().toISOString().slice(0, 10); // "YYYY-MM-DD"
 }
 
 /**
- * Increments the counter by 1 (once per calendar day per device).
+ * Increments the counter by 1 (once per device ever).
  * Fires silently — errors are swallowed so they never affect the app.
  */
 export async function pingVisit() {
   try {
-    const today = todayStr();
-    const last  = localStorage.getItem(LS_LAST_PING);
-    if (last === today) return; // already pinged today
+    if (localStorage.getItem(LS_HAS_PINGED)) return; // already pinged ever on this device
 
     // Ping our API to register the visit
     const res = await fetch('/api/visits', {
@@ -32,7 +30,7 @@ export async function pingVisit() {
     });
 
     if (res.ok) {
-      localStorage.setItem(LS_LAST_PING, today);
+      localStorage.setItem(LS_HAS_PINGED, 'true');
     }
   } catch {
     // silently ignore — counter is non-critical

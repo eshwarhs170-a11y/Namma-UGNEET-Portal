@@ -8,15 +8,8 @@ import {
 import logo from './assets/namma-ugneet-logo.png';
 
 // ── Password Configuration ────────────────────────────────────────────────────
-// The password is stored as a SHA-256 hash so it's not visible as plain text
-// in the source. To change your password:
-//   1. Run this in browser console: crypto.subtle.digest('SHA-256', new TextEncoder().encode('YOUR_NEW_PASSWORD')).then(b => [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')).then(console.log)
-//   2. Paste the result below.
-//
-// Current password hash — DO NOT SHARE THIS FILE PUBLICLY:
-const PASSWORD_HASH = 'd0954c356ca3cf9b9645199cc896207a0427a7ad829e94b134b3129f1855f810'; // = "NammaUG2025!"
+const PASSWORD_HASH = 'd0954c356ca3cf9b9645199cc896207a0427a7ad829e94b134b3129f1855f810';
 
-// Auth token stored in localStorage (expires after 30 days)
 const AUTH_KEY   = 'namma_auth_token';
 const AUTH_EXPIRY_DAYS = 30;
 

@@ -4,8 +4,6 @@
  * Tracks unique daily visitors by contacting our secure MongoDB-backed backend
  * API (/api/visits). This ensures CORS compliance and completely bypasses adblockers
  * since it's hosted on our own domain.
- *
- * PRIVATE — this file is only used internally and the admin route is hidden.
  */
 
 // Once-ever dedup so page refreshes don't inflate the count

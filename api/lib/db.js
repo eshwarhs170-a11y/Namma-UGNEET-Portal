@@ -43,10 +43,13 @@ async function connectToDatabase() {
 
   if (!cached.promise) {
     const client = new MongoClient(MONGODB_URI, {
-      // Serverless-friendly pool settings
-      maxPoolSize: 10,
+      // ── M0 Free Tier + Vercel Serverless safe settings ──────────────────
+      // M0 has a 500-connection limit. With many parallel Vercel instances,
+      // a maxPoolSize of 10 can quickly exhaust it. Keep it at 1 per instance.
+      maxPoolSize: 1,
       minPoolSize: 0,
-      maxIdleTimeMS: 10000,
+      maxIdleTimeMS: 5000,       // Close idle connections fast (5s)
+      socketTimeoutMS: 10000,    // Abort stalled sockets quickly
       serverSelectionTimeoutMS: 5000,
       connectTimeoutMS: 5000,
     });

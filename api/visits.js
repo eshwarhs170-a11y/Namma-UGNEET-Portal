@@ -30,9 +30,8 @@ export default async function handler(req, res) {
     const { db } = await connectToDatabase();
     const visitsCollection = db.collection('visits');
 
-    // Ensure unique index on hash to prevent duplicate entries
-    await visitsCollection.createIndex({ hash: 1 }, { unique: true });
-    await visitsCollection.createIndex({ date: 1 });
+    // Note: Indexes are created once at DB setup, not on every request.
+    // If running fresh, create them manually in Atlas or via a one-time script.
 
     const clientIp = req.headers['x-forwarded-for']?.split(',')[0]?.trim() || req.socket?.remoteAddress || 'unknown';
     const today = getTodayStr();

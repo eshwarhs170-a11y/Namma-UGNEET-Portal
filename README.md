@@ -1,5 +1,6 @@
+<img src="https://raw.githubusercontent.com/eshwarhs170-a11y/Namma-UGNEET-Portal/main/public/favicon.png" alt="NammaUGNEET Logo" width="140" align="right" />
+
 <div align="center">
-  <img src="https://raw.githubusercontent.com/eshwarhs170-a11y/Namma-UGNEET-Portal/main/public/favicon.ico" alt="Logo" width="120" align="right" />
 
 ```
  ███╗   ██╗ █████╗ ███╗   ███╗███╗   ███╗ █████╗ 

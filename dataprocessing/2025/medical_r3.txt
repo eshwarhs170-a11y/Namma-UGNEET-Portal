@@ -1,53 +1,7201 @@
-SL.NO All India
-Rank Course Code Name of the College Allotted. Course Name Allotted
-Category Course_fees Status
-1 173538 M042MQ
-Mahadevappa Rampure
-Medical College,Mahadevappa
-Rampure Marg,Kalaburgi
-MBBSOTHERS OTH 3911950 Allotted
-2 693848 M036MQ
-SDM College of Medical
-Sciences and
-Hospital,Manjushree Nagar, PB
-ROAD,Dharwad
-MBBSOTHERS OTH 3515000 Allotted
-3 720252 M042MQ
-Mahadevappa Rampure
-Medical College,Mahadevappa
-Rampure Marg,Kalaburgi
-MBBSOTHERS OTH 3911950 Allotted
-4 753330 M008MQ
-M.V.J.Medical College and
-Research Hospital,NH-4,
-Dandupalya, Kolathur
--,Channasandra, Bangalore
-MBBSOTHERS OTH 4011950 Allotted
-5 945958 M008MQ
-M.V.J.Medical College and
-Research Hospital,NH-4,
-Dandupalya, Kolathur
--,Channasandra, Bangalore
-MBBSOTHERS OTH 4011950 Allotted
-6 1022800 M008MQ
-M.V.J.Medical College and
-Research Hospital,NH-4,
-Dandupalya, Kolathur
--,Channasandra, Bangalore
-MBBSOTHERS OTH 4011950 Allotted
-7 1062973 M008MQ
-M.V.J.Medical College and
-Research Hospital,NH-4,
-Dandupalya, Kolathur
--,Channasandra, Bangalore
-MBBSOTHERS OTH 4011950 Allotted
-8 1182389 M008MQ
-M.V.J.Medical College and
-Research Hospital,NH-4,
-Dandupalya, Kolathur
--,Channasandra, Bangalore
-MBBSOTHERS OTH 4011950 Allotted
-UGNEET -2025 MEDICAL Stray-3 Round Final Seat Allotment List
-B£eLBVĸsďe¤eÎĩe\
+
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+13478M001MG
+Bangalore Medical College,NO-
+2, Fort , K R ROAD,Bangalore
+MBBS-GOVT.GM64350Allotted
+210468M082MG
+Shri Atal Bihari Vajpayee 
+Institute of Medical 
+Science,,Bengaluru
+MBBS-GOVT.GM64350Allotted
+321922M082MG
+Shri Atal Bihari Vajpayee 
+Institute of Medical 
+Science,,Bengaluru
+MBBS-GOVT.GM64350Allotted
+429482M003MP
+Kempegowda Institute of 
+Medical Sciences,B.S.K II 
+Stage,,Bangalore
+MBBS-PRIV.OPN1200117Allotted
+530115M003MP
+Kempegowda Institute of 
+Medical Sciences,B.S.K II 
+Stage,,Bangalore
+MBBS-PRIV.OPN1200117Allotted
+630129M021MG
+Mysore Medical College,Irwin 
+Road,,Mysore
+MBBS-GOVT.GM64350Allotted
+732055M003MP
+Kempegowda Institute of 
+Medical Sciences,B.S.K II 
+Stage,,Bangalore
+MBBS-PRIV.OPN1200117Allotted
+833999M003MP
+Kempegowda Institute of 
+Medical Sciences,B.S.K II 
+Stage,,Bangalore
+MBBS-PRIV.OPN1200117Allotted
+936379M010MG
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-GOVT.GM153571Allotted
+1040653M002MP
+Dr. B.R. Ambedkar Medical 
+College,Kadugondanahalli,,Ban
+galore
+MBBS-PRIV.OPN1200117Allotted
+1141216M010MG
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-GOVT.GM153571Allotted
+1241774M044MG
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-GOVT.GM64350Allotted
+1342574M095MG
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-GOVT.GM156621Allotted
+1442725M010MG
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-GOVT.GM153571Allotted
+1543243M010MG
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-GOVT.GM153571Allotted
+1647180M010MG
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-GOVT.GM153571Allotted
+1747549M002MP
+Dr. B.R. Ambedkar Medical 
+College,Kadugondanahalli,,Ban
+galore
+MBBS-PRIV.OPN1200117Allotted
+1848594M082MG
+Shri Atal Bihari Vajpayee 
+Institute of Medical 
+Science,,Bengaluru
+MBBS-GOVT.GM64350Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
 Karnataka Examinations Authority
-PUBLISHED ON [29-12-2025]
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+1948881M002MP
+Dr. B.R. Ambedkar Medical 
+College,Kadugondanahalli,,Ban
+galore
+MBBS-PRIV.OPN1200117Allotted
+2050727M061MP
+Jaya Jagadguru 
+Murugharajendra Medical 
+College,,Davangere District
+MBBS-PRIV.OPN1200117Allotted
+2152049M044MG
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-GOVT.GM64350Allotted
+2252630M068MP
+BGS Global Institute of Medical 
+Sciences,# 67, BGS Health & 
+Education,Kengeri, Bangalore
+MBBS-PRIV.OPN1200117Allotted
+2353382M044MG
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-GOVT.GM64350Allotted
+2453748M044MG
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-GOVT.GM64350Allotted
+2553782M044MG
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-GOVT.GM64350Allotted
+2654305M024MG
+Mandya Institute of Medical 
+Sciences,District 
+Hospital,,Mandya
+MBBS-GOVT.GM64350Allotted
+2754717M062MG
+Shymanuru Shivashankarappa 
+Institute Of Medical 
+Sciences,Jnanashankara, NH-
+4,Davangere
+MBBS-GOVT.GM153571Allotted
+2855082M010MP
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-PRIV.OPN1200117Allotted
+2958192M095MG
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-GOVT.GM156621Allotted
+3058227M010MG
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-GOVT.2BG153571Allotted
+3158767M077MG
+Kodagu Institute of Medical 
+Sciences,,MADIKERI
+MBBS-GOVT.GM64350Allotted
+3258928M044MG
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-GOVT.2BG64350Allotted
+3359470M008MP
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-PRIV.OPN1200117Allotted
+3459847M044MG
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-GOVT.GMR64350Allotted
+3560316M010MP
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-PRIV.OPN1200117Allotted
+3660456M067MG
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-GOVT.GM153571Allotted
+3760728M008MG
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-GOVT.GM153571Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+3860852M067MG
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-GOVT.GM153571Allotted
+3961027M078MP
+Akash Institute of Medical 
+Sciences and Research 
+Centre,DEVANAHALLI,,BANGA
+LORE
+MBBS-PRIV.OPN1200117Allotted
+4061125M095MG
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-GOVT.GM156621Allotted
+4161685M004MG
+M.S.Ramaiah Medical 
+College,MSR Nagar, MSRIT 
+Post,Bangalore
+MBBS-GOVT.GM156621Allotted
+4262389M085MG
+Chikkamagaluru Institute of 
+Medical 
+Sciences,,Chikkamagaluru
+MBBS-GOVT.GM64350Allotted
+4362554M008MG
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-GOVT.GM153571Allotted
+4462630M095MG
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-GOVT.GM156621Allotted
+4562809M008MP
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-PRIV.OPN1200117Allotted
+4662858M095MG
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-GOVT.GM156621Allotted
+4763155M044MG
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-GOVT.2AG64350Allotted
+4863162M095MG
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-GOVT.GM156621Allotted
+4963403M067MG
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-GOVT.GM153571Allotted
+5063478M095MG
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-GOVT.GM156621Allotted
+5163542M067MG
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-GOVT.GM153571Allotted
+5263581M008MG
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-GOVT.GM153571Allotted
+5363749M067MG
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-GOVT.GM153571Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+5463990M008MG
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-GOVT.GM153571Allotted
+5564359M069MG
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-GOVT.GM153571Allotted
+5664525M010MP
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-PRIV.OPN1200117Allotted
+5764821M092MG
+Chitradurga Medical College 
+and Research 
+Institute,,Chitradurga
+MBBS-GOVT.GM64350Allotted
+5865543M035MG
+S. Nijalingappa Medical College 
+and Research Centre,,Bagalkot
+MBBS-GOVT.GM153571Allotted
+5965627M010MP
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-PRIV.OPN1200117Allotted
+6066060M008MG
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-GOVT.3BG153571Allotted
+6166133M010MP
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-PRIV.OPN1200117Allotted
+6266155M010MP
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-PRIV.OPN1200117Allotted
+6366713M095MG
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-GOVT.3AG156621Allotted
+6467376M042MG
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-GOVT.GM153571Allotted
+6567796M069MG
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-GOVT.GM153571Allotted
+6667981M069MG
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-GOVT.GM153571Allotted
+6768009M044MG
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-GOVT.GMH64350Allotted
+6868080M008MP
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-PRIV.OPN1200117Allotted
+6968416M062MG
+Shymanuru Shivashankarappa 
+Institute Of Medical 
+Sciences,Jnanashankara, NH-
+4,Davangere
+MBBS-GOVT.GM153571Allotted
+7068724M095MG
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-GOVT.3BG156621Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+7168792M044MG
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-GOVT.GMH64350Allotted
+7269155M044MG
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-GOVT.GMH64350Allotted
+7369352M069MG
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-GOVT.GM153571Allotted
+7469775M067MG
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-GOVT.3AG153571Allotted
+7569960M069MG
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-GOVT.GM153571Allotted
+7670086M054MG
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-GOVT.GM153571Allotted
+7770113M044MG
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-GOVT.GMH64350Allotted
+7870160M044MG
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-GOVT.GMH64350Allotted
+7970162M054MG
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-GOVT.GM153571Allotted
+8070332M069MG
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-GOVT.GM153571Allotted
+8170337M069MG
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-GOVT.GM153571Allotted
+8270390M091MG
+SRI CHAMUNDESHWARI 
+MEDICAL COLLEGE, 
+HOSPITAL AND RESEARCH 
+INST,,CHANNAPATNA, 
+RAMANAGARA
+MBBS-GOVT.GM153571Allotted
+8370476M092MG
+Chitradurga Medical College 
+and Research 
+Institute,,Chitradurga
+MBBS-GOVT.GM64350Allotted
+8470485M069MG
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-GOVT.GM153571Allotted
+8570502M069MG
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-GOVT.GM153571Allotted
+8670627M092MG
+Chitradurga Medical College 
+and Research 
+Institute,,Chitradurga
+MBBS-GOVT.GM64350Allotted
+8770743M069MG
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-GOVT.3AG153571Allotted
+8871051M069MG
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-GOVT.3BG153571Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+8971309M010MG
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-GOVT.GMR153571Allotted
+9071507M044MG
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-GOVT.GMH64350Allotted
+9171867M064MG
+Sapthagiri Institute of Medical 
+Sciences,No.15, 
+chikkasandra,,Bangalore
+MBBS-GOVT.GM182371Allotted
+9271976M054MG
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-GOVT.GM153571Allotted
+9371995M008MP
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-PRIV.OPN1200117Allotted
+9472124M062MG
+Shymanuru Shivashankarappa 
+Institute Of Medical 
+Sciences,Jnanashankara, NH-
+4,Davangere
+MBBS-GOVT.GM153571Allotted
+9572137M054MG
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-GOVT.GM153571Allotted
+9672303M065MG
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-GOVT.GM166621Allotted
+9772375M062MP
+Shymanuru Shivashankarappa 
+Institute Of Medical 
+Sciences,Jnanashankara, NH-
+4,Davangere
+MBBS-PRIV.OPN1200117Allotted
+9872675M044MG
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-GOVT.GMH64350Allotted
+9972679M054MG
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-GOVT.GM153571Allotted
+10072776M054MG
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-GOVT.GM153571Allotted
+10172779M008MG
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-GOVT.2BG153571Allotted
+10272854M054MG
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-GOVT.GM153571Allotted
+10372954M081MG
+East Point College of Medical 
+Sciences and Research 
+Center,,Bangalore
+MBBS-GOVT.GM153571Allotted
+10472969M054MG
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-GOVT.GM153571Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+10573039M042MG
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-GOVT.GM153571Allotted
+10673149M065MG
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-GOVT.GM166621Allotted
+10773393M044MG
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-GOVT.GMH64350Allotted
+10873488M020MG
+Sri Basaveshwara Medical 
+College and Hospital,NH-4, 
+S.J.M.I.T  Campus,,Chitradurga
+MBBS-GOVT.GM153571Allotted
+10973521M054MG
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-GOVT.3AG153571Allotted
+11073545M073MG
+Koppal Institute of Medical 
+Sciences,GANGAVATI ROAD, 
+KIDDIDAL GATE,,KOPPAL
+MBBS-GOVT.2AG64350Allotted
+11173559M097MG
+Farookh Academy of Medical 
+Education Hospital and 
+Research Institute, Mysore 
+Madikeri Road, Near Illavala 
+Hunsur Taluk, Mysore District
+MBBS-GOVT.GM153571Allotted
+11273588M065MG
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-GOVT.GM166621Allotted
+11373645M035MG
+S. Nijalingappa Medical College 
+and Research Centre,,Bagalkot
+MBBS-GOVT.GM153571Allotted
+11473735M042MG
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-GOVT.GM153571Allotted
+11573808M065MG
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-GOVT.GM166621Allotted
+11673875M071MG
+The Oxford Medical College 
+Hospital and Research 
+Center,Yadavanahalli, Attibele 
+Hobli,Bangalore
+MBBS-GOVT.GM153571Allotted
+11773958M065MG
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-GOVT.GM166621Allotted
+11874011M071MG
+The Oxford Medical College 
+Hospital and Research 
+Center,Yadavanahalli, Attibele 
+Hobli,Bangalore
+MBBS-GOVT.GM153571Allotted
+11974105M081MG
+East Point College of Medical 
+Sciences and Research 
+Center,,Bangalore
+MBBS-GOVT.GM153571Allotted
+12074169M071MG
+The Oxford Medical College 
+Hospital and Research 
+Center,Yadavanahalli, Attibele 
+Hobli,Bangalore
+MBBS-GOVT.3AG153571Allotted
+12174200M081MG
+East Point College of Medical 
+Sciences and Research 
+Center,,Bangalore
+MBBS-GOVT.GM153571Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+12274229M065MG
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-GOVT.GM166621Allotted
+12374263M062MP
+Shymanuru Shivashankarappa 
+Institute Of Medical 
+Sciences,Jnanashankara, NH-
+4,Davangere
+MBBS-PRIV.OPN1200117Allotted
+12474270M044MG
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-GOVT.GMH64350Allotted
+12574304M096MG
+S R Patil Medical College 
+Hospital and Research 
+Center,Badagandi,BAGALKOT
+MBBS-GOVT.GM153571Allotted
+12674462M043MG
+Navodaya Medical College,PB 
+No.26, Navodaya 
+Nagar,Raichur
+MBBS-GOVT.GM153571Allotted
+12774554M065MG
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-GOVT.GM166621Allotted
+12874702M081MP
+East Point College of Medical 
+Sciences and Research 
+Center,,Bangalore
+MBBS-PRIV.OPN1200117Allotted
+12974708M065MG
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-GOVT.GM166621Allotted
+13074727M079MG
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-GOVT.GM153571Allotted
+13174736M096MG
+S R Patil Medical College 
+Hospital and Research 
+Center,Badagandi,BAGALKOT
+MBBS-GOVT.GM153571Allotted
+13274919M065MG
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-GOVT.GM166621Allotted
+13375089M079MG
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-GOVT.GM153571Allotted
+13475149M065MG
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-GOVT.GM166621Allotted
+13575251M092MG
+Chitradurga Medical College 
+and Research 
+Institute,,Chitradurga
+MBBS-GOVT.GMR64350Allotted
+13675410M065MG
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-GOVT.3AG166621Allotted
+13775476M096MG
+S R Patil Medical College 
+Hospital and Research 
+Center,Badagandi,BAGALKOT
+MBBS-GOVT.GM153571Allotted
+13875498M096MG
+S R Patil Medical College 
+Hospital and Research 
+Center,Badagandi,BAGALKOT
+MBBS-GOVT.GM153571Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+13975560M081MP
+East Point College of Medical 
+Sciences and Research 
+Center,,Bangalore
+MBBS-PRIV.OPN1200117Allotted
+14075568M096MG
+S R Patil Medical College 
+Hospital and Research 
+Center,Badagandi,BAGALKOT
+MBBS-GOVT.GM153571Allotted
+14175580M005MG
+Khaja Bande Navaz Institute Of 
+Medical Sciences,Rouza 
+Buzurq,,Gulbarga
+MBBS-GOVT.GM156621Allotted
+14275652M033MG
+Al-Ameen Medical 
+College,ADMINISTRATIVE 
+BLOCK,VIJAYAPUR
+MBBS-GOVT.GM153571Allotted
+14375737M033MG
+Al-Ameen Medical 
+College,ADMINISTRATIVE 
+BLOCK,VIJAYAPUR
+MBBS-GOVT.GM153571Allotted
+14475755M033MG
+Al-Ameen Medical 
+College,ADMINISTRATIVE 
+BLOCK,VIJAYAPUR
+MBBS-GOVT.GM153571Allotted
+14575863M044MG
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-GOVT.3BH64350Allotted
+14675900M089MG
+Jagadguru Gangadhar 
+Mahaswamigalu 
+Moorusavirmath Medical 
+College,,Dharward
+MBBS-GOVT.GM609084Allotted
+14775976M096MG
+S R Patil Medical College 
+Hospital and Research 
+Center,Badagandi,BAGALKOT
+MBBS-GOVT.3AG153571Allotted
+14876952M089MG
+Jagadguru Gangadhar 
+Mahaswamigalu 
+Moorusavirmath Medical 
+College,,Dharward
+MBBS-GOVT.GM609084Allotted
+14977300M089MG
+Jagadguru Gangadhar 
+Mahaswamigalu 
+Moorusavirmath Medical 
+College,,Dharward
+MBBS-GOVT.GM609084Allotted
+15077734M096MG
+S R Patil Medical College 
+Hospital and Research 
+Center,Badagandi,BAGALKOT
+MBBS-GOVT.3AG153571Allotted
+15177912M079MG
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-GOVT.3AG153571Allotted
+15277943M089MG
+Jagadguru Gangadhar 
+Mahaswamigalu 
+Moorusavirmath Medical 
+College,,Dharward
+MBBS-GOVT.GM609084Allotted
+15377989M054MG
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-GOVT.3BG153571Allotted
+15478113M089MG
+Jagadguru Gangadhar 
+Mahaswamigalu 
+Moorusavirmath Medical 
+College,,Dharward
+MBBS-GOVT.GM609084Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+15578126M008MG
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-GOVT.GMR153571Allotted
+15678231M054MG
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-GOVT.3BG153571Allotted
+15778595M092MG
+Chitradurga Medical College 
+and Research 
+Institute,,Chitradurga
+MBBS-GOVT.3BG64350Allotted
+15878637M033MG
+Al-Ameen Medical 
+College,ADMINISTRATIVE 
+BLOCK,VIJAYAPUR
+MBBS-GOVT.3AG153571Allotted
+15979056M089MG
+Jagadguru Gangadhar 
+Mahaswamigalu 
+Moorusavirmath Medical 
+College,,Dharward
+MBBS-GOVT.GM609084Allotted
+16079075M069MG
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-GOVT.2BG153571Allotted
+16179106M033MG
+Al-Ameen Medical 
+College,ADMINISTRATIVE 
+BLOCK,VIJAYAPUR
+MBBS-GOVT.3BG153571Allotted
+16279158M010MP
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-PRIV.GMP1200117Allotted
+16379194M090MP
+Siddaganga Medical College 
+and Research 
+Institute,,Tumakuru
+MBBS-PRIV.OPN1200117Allotted
+16479231M071MG
+The Oxford Medical College 
+Hospital and Research 
+Center,Yadavanahalli, Attibele 
+Hobli,Bangalore
+MBBS-GOVT.2BG153571Allotted
+16579508M087MG
+Yadgiri Institute of Medical 
+Sciences,,Yadgiri
+MBBS-GOVT.GMH64350Allotted
+16679520M044MG
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-GOVT.2BH64350Allotted
+16779565M020MG
+Sri Basaveshwara Medical 
+College and Hospital,NH-4, 
+S.J.M.I.T  Campus,,Chitradurga
+MBBS-GOVT.3BG153571Allotted
+16879636M067MG
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-GOVT.GMR153571Allotted
+16979869M069MG
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-GOVT.2AG153571Allotted
+17080138M065MG
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-GOVT.2BG166621Allotted
+17180276M010MG
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-GOVT.1G153571Allotted
+17280365M003MP
+Kempegowda Institute of 
+Medical Sciences,B.S.K II 
+Stage,,Bangalore
+MBBS-PRIV.GMP1200117Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+17380581M084MG
+Chikkaballapura Institute of 
+Medical 
+Science,,Chikkaballapura
+MBBS-GOVT.3BH64350Allotted
+17481100M010MG
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-GOVT.2AG153571Allotted
+17581143M044MG
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-GOVT.1G64350Allotted
+17681730M044MG
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-GOVT.GMRH64350Allotted
+17781864M054MG
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-GOVT.2BG153571Allotted
+17882063M095MG
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-GOVT.2AG156621Allotted
+17982306M003MP
+Kempegowda Institute of 
+Medical Sciences,B.S.K II 
+Stage,,Bangalore
+MBBS-PRIV.GMP1200117Allotted
+18082423M095MG
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-GOVT.GMR156621Allotted
+18182466M008MG
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-GOVT.2AG153571Allotted
+18282851M042MG
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-GOVT.GMH153571Allotted
+18383057M093MG
+Sri Madhusudan Sai Institute of 
+Medical Sciences and 
+Research,,Muddenahalli,CHIKK
+ABALLAPURA
+MBBS-GOVT.2BG0Allotted
+18483118M071MP
+The Oxford Medical College 
+Hospital and Research 
+Center,Yadavanahalli, Attibele 
+Hobli,Bangalore
+MBBS-PRIV.OPN1200117Allotted
+18583291M009MP
+Vydehi Institute of Medical 
+Science and Research 
+Centre,No. 82,EPIP Area, 
+Nallurahalli,Bangalore
+MBBS-PRIV.GMP1200117Allotted
+18683397M010MP
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-PRIV.GMP1200117Allotted
+18783515M020MG
+Sri Basaveshwara Medical 
+College and Hospital,NH-4, 
+S.J.M.I.T  Campus,,Chitradurga
+MBBS-GOVT.GMR153571Allotted
+18883731M044MG
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-GOVT.3AH64350Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+18983777M008MG
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-GOVT.GMH153571Allotted
+19083949M095MG
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-GOVT.GMH156621Allotted
+19184002M067MG
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-GOVT.2AG153571Allotted
+19284042M095MG
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-GOVT.2AG156621Allotted
+19384232M042MG
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-GOVT.GMH153571Allotted
+19484272M069MG
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-GOVT.2AG153571Allotted
+19584310M065MG
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-GOVT.GMR166621Allotted
+19684503M054MG
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-GOVT.GMR153571Allotted
+19784580M009MP
+Vydehi Institute of Medical 
+Science and Research 
+Centre,No. 82,EPIP Area, 
+Nallurahalli,Bangalore
+MBBS-PRIV.GMP1200117Allotted
+19884715M069MG
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-GOVT.GMR153571Allotted
+19984735M069MG
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-GOVT.3BR153571Allotted
+20084802M042MG
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-GOVT.GMH153571Allotted
+20184946M003MP
+Kempegowda Institute of 
+Medical Sciences,B.S.K II 
+Stage,,Bangalore
+MBBS-PRIV.GMP1200117Allotted
+20285294M097MG
+Farookh Academy of Medical 
+Education Hospital and 
+Research Institute, Mysore 
+Madikeri Road, Near Illavala 
+Hunsur Taluk, Mysore District
+MBBS-GOVT.GMR153571Allotted
+20385357M044MG
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-GOVT.GMRH64350Allotted
+20485377M044MG
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-GOVT.1H64350Allotted
+20585575M042MG
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-GOVT.GMR153571Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+20685841M065MG
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-GOVT.3BR166621Allotted
+20785938M061MP
+Jaya Jagadguru 
+Murugharajendra Medical 
+College,,Davangere District
+MBBS-PRIV.GMP1200117Allotted
+20885941M079MG
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-GOVT.GMR153571Allotted
+20986032M067MG
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-GOVT.2AG153571Allotted
+21086607M042MG
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-GOVT.GMH153571Allotted
+21186635M042MG
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-GOVT.GMH153571Allotted
+21286682M069MG
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-GOVT.GMH153571Allotted
+21387131M042MG
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-GOVT.GMH153571Allotted
+21487142M054MG
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-GOVT.2AG153571Allotted
+21587165M042MP
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-PRIV.OPN1200117Allotted
+21687728M068MP
+BGS Global Institute of Medical 
+Sciences,# 67, BGS Health & 
+Education,Kengeri, Bangalore
+MBBS-PRIV.GMP1200117Allotted
+21787819M095MP
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-PRIV.OPN2215000Allotted
+21887920M071MG
+The Oxford Medical College 
+Hospital and Research 
+Center,Yadavanahalli, Attibele 
+Hobli,Bangalore
+MBBS-GOVT.GMR153571Allotted
+21987964M067MG
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-GOVT.GMH153571Allotted
+22088169M044MG
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-GOVT.2AH64350Allotted
+22188187M079MG
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-GOVT.GMR153571Allotted
+22288485M042MG
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-GOVT.3AH153571Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+22388497M095MG
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-GOVT.2AG156621Allotted
+22488626M065MG
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-GOVT.GMH166621Allotted
+22588641M087MG
+Yadgiri Institute of Medical 
+Sciences,,Yadgiri
+MBBS-GOVT.GMH64350Allotted
+22688702M020MP
+Sri Basaveshwara Medical 
+College and Hospital,NH-4, 
+S.J.M.I.T  Campus,,Chitradurga
+MBBS-PRIV.OPN1200117Allotted
+22788770M079MG
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-GOVT.GMR153571Allotted
+22889108M035MP
+S. Nijalingappa Medical College 
+and Research Centre,,Bagalkot
+MBBS-PRIV.OPN1200117Allotted
+22989193M092MG
+Chitradurga Medical College 
+and Research 
+Institute,,Chitradurga
+MBBS-GOVT.GMH64350Allotted
+23089369M081MP
+East Point College of Medical 
+Sciences and Research 
+Center,,Bangalore
+MBBS-PRIV.OPN1200117Allotted
+23189664M071MG
+The Oxford Medical College 
+Hospital and Research 
+Center,Yadavanahalli, Attibele 
+Hobli,Bangalore
+MBBS-GOVT.GMR153571Allotted
+23289705M042MG
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-GOVT.3BH153571Allotted
+23390044M071MP
+The Oxford Medical College 
+Hospital and Research 
+Center,Yadavanahalli, Attibele 
+Hobli,Bangalore
+MBBS-PRIV.OPN1200117Allotted
+23490233M042MG
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-GOVT.2BH153571Allotted
+23590339M020MP
+Sri Basaveshwara Medical 
+College and Hospital,NH-4, 
+S.J.M.I.T  Campus,,Chitradurga
+MBBS-PRIV.OPN1200117Allotted
+23690509M089MG
+Jagadguru Gangadhar 
+Mahaswamigalu 
+Moorusavirmath Medical 
+College,,Dharward
+MBBS-GOVT.GMR609084Allotted
+23790769M044MG
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-GOVT.GMKH64350Allotted
+23890789M008MG
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-GOVT.2AG153571Allotted
+23990854M069MG
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-GOVT.2AR153571Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+24090857M081MG
+East Point College of Medical 
+Sciences and Research 
+Center,,Bangalore
+MBBS-GOVT.2AG153571Allotted
+24190884M042MP
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-PRIV.OPN1200117Allotted
+24290941M005MG
+Khaja Bande Navaz Institute Of 
+Medical Sciences,Rouza 
+Buzurq,,Gulbarga
+MBBS-GOVT.GMH156621Allotted
+24390990M077MG
+Kodagu Institute of Medical 
+Sciences,,MADIKERI
+MBBS-GOVT.GMH64350Allotted
+24491204M043MG
+Navodaya Medical College,PB 
+No.26, Navodaya 
+Nagar,Raichur
+MBBS-GOVT.GMH153571Allotted
+24591238M071MP
+The Oxford Medical College 
+Hospital and Research 
+Center,Yadavanahalli, Attibele 
+Hobli,Bangalore
+MBBS-PRIV.OPN1200117Allotted
+24691342M044MG
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-GOVT.2AH64350Allotted
+24791433M008MP
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-PRIV.GMP1200117Allotted
+24891495M067MG
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-GOVT.1G153571Allotted
+24991687M035MP
+S. Nijalingappa Medical College 
+and Research Centre,,Bagalkot
+MBBS-PRIV.OPN1200117Allotted
+25091735M092MG
+Chitradurga Medical College 
+and Research 
+Institute,,Chitradurga
+MBBS-GOVT.GMH64350Allotted
+25191742M054MG
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-GOVT.2AG153571Allotted
+25291917M054MG
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-GOVT.2AG153571Allotted
+25392129M023MG
+Adichunchanagiri Institute of 
+Medical Sciences,B.G 
+Nagar,,Bellur, Mandya Dist.
+MBBS-GOVT.GMH156621Allotted
+25492247M054MG
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-GOVT.2AG153571Allotted
+25592264M044MG
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-GOVT.2AH64350Allotted
+25692300M061MP
+Jaya Jagadguru 
+Murugharajendra Medical 
+College,,Davangere District
+MBBS-PRIV.GMP1200117Allotted
+25792347M051MG
+Kasturba Medical College,PB 
+No -
+53,,Hampanakatta,Mangalore.
+MBBS-GOVT.GMH153571Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+25892397M042MG
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-GOVT.2AR153571Allotted
+25992534M042MP
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-PRIV.OPN1200117Allotted
+26092825M065MG
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-GOVT.2AG166621Allotted
+26192905M020MG
+Sri Basaveshwara Medical 
+College and Hospital,NH-4, 
+S.J.M.I.T  Campus,,Chitradurga
+MBBS-GOVT.2AG153571Allotted
+26292961M033MG
+Al-Ameen Medical 
+College,ADMINISTRATIVE 
+BLOCK,VIJAYAPUR
+MBBS-GOVT.GMH153571Allotted
+26393032M042MG
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-GOVT.GMKH153571Allotted
+26493141M089MG
+Jagadguru Gangadhar 
+Mahaswamigalu 
+Moorusavirmath Medical 
+College,,Dharward
+MBBS-GOVT.GMR609084Allotted
+26593185M062MP
+Shymanuru Shivashankarappa 
+Institute Of Medical 
+Sciences,Jnanashankara, NH-
+4,Davangere
+MBBS-PRIV.GMP1200117Allotted
+26693187M005MG
+Khaja Bande Navaz Institute Of 
+Medical Sciences,Rouza 
+Buzurq,,Gulbarga
+MBBS-GOVT.3BH156621Allotted
+26793353M043MG
+Navodaya Medical College,PB 
+No.26, Navodaya 
+Nagar,Raichur
+MBBS-GOVT.GMH153571Allotted
+26893568M052MG
+Yenepoya Medical 
+College,University Road, 
+Nithyanandar,Mangalore
+MBBS-GOVT.3BH156621Allotted
+26993583M035MP
+S. Nijalingappa Medical College 
+and Research Centre,,Bagalkot
+MBBS-PRIV.OPN1200117Allotted
+27093612M033MG
+Al-Ameen Medical 
+College,ADMINISTRATIVE 
+BLOCK,VIJAYAPUR
+MBBS-GOVT.GMH153571Allotted
+27193665M010MP
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-PRIV.GMP1200117Allotted
+27293984M042MP
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-PRIV.OPN1200117Allotted
+27394028M069MP
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-PRIV.OPN1200117Allotted
+27494231M081MG
+East Point College of Medical 
+Sciences and Research 
+Center,,Bangalore
+MBBS-GOVT.2AG153571Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+27594290M079MG
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-GOVT.GMH153571Allotted
+27694496M090MG
+Siddaganga Medical College 
+and Research 
+Institute,,Tumakuru
+MBBS-GOVT.2AG153571Allotted
+27794557M097MG
+Farookh Academy of Medical 
+Education Hospital and 
+Research Institute, Mysore 
+Madikeri Road, Near Illavala 
+Hunsur Taluk, Mysore District
+MBBS-GOVT.2AG153571Allotted
+27894742M065MG
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-GOVT.2AG166621Allotted
+27994791M044MG
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-GOVT.2ARH64350Allotted
+28095024M069MG
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-GOVT.GMK153571Allotted
+28195163M069MG
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-GOVT.3AH153571Allotted
+28295305M064MG
+Sapthagiri Institute of Medical 
+Sciences,No.15, 
+chikkasandra,,Bangalore
+MBBS-GOVT.3AH182371Allotted
+28395321M005MG
+Khaja Bande Navaz Institute Of 
+Medical Sciences,Rouza 
+Buzurq,,Gulbarga
+MBBS-GOVT.3AH156621Allotted
+28495410M071MG
+The Oxford Medical College 
+Hospital and Research 
+Center,Yadavanahalli, Attibele 
+Hobli,Bangalore
+MBBS-GOVT.2AG153571Allotted
+28595448M065MG
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-GOVT.2AG166621Allotted
+28695682M008MP
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-PRIV.GMP1200117Allotted
+28795767M033MG
+Al-Ameen Medical 
+College,ADMINISTRATIVE 
+BLOCK,VIJAYAPUR
+MBBS-GOVT.2AG153571Allotted
+28895905M065MG
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-GOVT.2AG166621Allotted
+28995918M079MP
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-PRIV.OPN1200117Allotted
+29095963M079MG
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-GOVT.2AG153571Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+29196066M079MG
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-GOVT.2AG153571Allotted
+29296446M010MP
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-PRIV.GMP1200117Allotted
+29396604M043MG
+Navodaya Medical College,PB 
+No.26, Navodaya 
+Nagar,Raichur
+MBBS-GOVT.2BH153571Allotted
+29496678M005MG
+Khaja Bande Navaz Institute Of 
+Medical Sciences,Rouza 
+Buzurq,,Gulbarga
+MBBS-GOVT.2AG156621Allotted
+29596808M094MG
+PES University Institute of 
+Medical Sceinces and 
+Research,Electronic 
+city,BANGALORE
+MBBS-GOVT.1G156621Allotted
+29697016M065MG
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-GOVT.1G166621Allotted
+29797030M005MG
+Khaja Bande Navaz Institute Of 
+Medical Sciences,Rouza 
+Buzurq,,Gulbarga
+MBBS-GOVT.2AG156621Allotted
+29897108M042MP
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-PRIV.GMP1200117Allotted
+29997505M042MG
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-GOVT.GMKH153571Allotted
+30097558M089MG
+Jagadguru Gangadhar 
+Mahaswamigalu 
+Moorusavirmath Medical 
+College,,Dharward
+MBBS-GOVT.3AR609084Allotted
+30197979M033MP
+Al-Ameen Medical 
+College,ADMINISTRATIVE 
+BLOCK,VIJAYAPUR
+MBBS-PRIV.OPN1200117Allotted
+30298063M067MP
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-PRIV.OPN1200117Allotted
+30398133M093MG
+Sri Madhusudan Sai Institute of 
+Medical Sciences and 
+Research,,Muddenahalli,CHIKK
+ABALLAPURA
+MBBS-GOVT.2AG0Allotted
+30498449M035MP
+S. Nijalingappa Medical College 
+and Research Centre,,Bagalkot
+MBBS-PRIV.OPN1200117Allotted
+30598704M054MG
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-GOVT.1G153571Allotted
+30698890M089MG
+Jagadguru Gangadhar 
+Mahaswamigalu 
+Moorusavirmath Medical 
+College,,Dharward
+MBBS-GOVT.2AG609084Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+30799168M071MP
+The Oxford Medical College 
+Hospital and Research 
+Center,Yadavanahalli, Attibele 
+Hobli,Bangalore
+MBBS-PRIV.GMP1200117Allotted
+30899251M042MG
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-GOVT.GMRH153571Allotted
+30999335M062MP
+Shymanuru Shivashankarappa 
+Institute Of Medical 
+Sciences,Jnanashankara, NH-
+4,Davangere
+MBBS-PRIV.GMP1200117Allotted
+31099395M035MP
+S. Nijalingappa Medical College 
+and Research Centre,,Bagalkot
+MBBS-PRIV.OPN1200117Allotted
+31199604M090MP
+Siddaganga Medical College 
+and Research 
+Institute,,Tumakuru
+MBBS-PRIV.GMP1200117Allotted
+31299605M008MP
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-PRIV.GMP1200117Allotted
+31399640M008MP
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-PRIV.GMP1200117Allotted
+31499642M069MP
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-PRIV.OPN1200117Allotted
+315100154M079MG
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-GOVT.1G153571Allotted
+316100337M096MP
+S R Patil Medical College 
+Hospital and Research 
+Center,Badagandi,BAGALKOT
+MBBS-PRIV.OPN1200117Allotted
+317100486M054MP
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-PRIV.OPN1200117Allotted
+318100552M081MP
+East Point College of Medical 
+Sciences and Research 
+Center,,Bangalore
+MBBS-PRIV.GMP1200117Allotted
+319100826M054MG
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-GOVT.1R153571Allotted
+320101455M042MG
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-GOVT.2AH153571Allotted
+321101580M069MP
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-PRIV.OPN1200117Allotted
+322102228M042MP
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-PRIV.GMP1200117Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+323102283M069MP
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-PRIV.OPN1200117Allotted
+324102289M091MP
+SRI CHAMUNDESHWARI 
+MEDICAL COLLEGE, 
+HOSPITAL AND RESEARCH 
+INST,,CHANNAPATNA, 
+RAMANAGARA
+MBBS-PRIV.OPN1200117Allotted
+325102349M067MP
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-PRIV.OPN1200117Allotted
+326103054M042MG
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-GOVT.2AH153571Allotted
+327103176M067MP
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-PRIV.OPN1200117Allotted
+328103226M069MP
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-PRIV.OPN1200117Allotted
+329103351M087MG
+Yadgiri Institute of Medical 
+Sciences,,Yadgiri
+MBBS-GOVT.GMRH64350Allotted
+330103581M069MP
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-PRIV.OPN1200117Allotted
+331103666M067MP
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-PRIV.OPN1200117Allotted
+332104024M065MG
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-GOVT.1R166621Allotted
+333104256M069MP
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-PRIV.OPN1200117Allotted
+334104305M097MP
+Farookh Academy of Medical 
+Education Hospital and 
+Research Institute, Mysore 
+Madikeri Road, Near Illavala 
+Hunsur Taluk, Mysore District
+MBBS-PRIV.OPN1200117Allotted
+335104338M073MG
+Koppal Institute of Medical 
+Sciences,GANGAVATI ROAD, 
+KIDDIDAL GATE,,KOPPAL
+MBBS-GOVT.3BRH64350Allotted
+336104507M087MG
+Yadgiri Institute of Medical 
+Sciences,,Yadgiri
+MBBS-GOVT.GMRH64350Allotted
+337105141M069MP
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-PRIV.OPN1200117Allotted
+338105225M020MG
+Sri Basaveshwara Medical 
+College and Hospital,NH-4, 
+S.J.M.I.T  Campus,,Chitradurga
+MBBS-GOVT.2AH153571Allotted
+339105818M042MP
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-PRIV.GMP1200117Allotted
+340106022M069MP
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-PRIV.OPN1200117Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+341106131M090MG
+Siddaganga Medical College 
+and Research 
+Institute,,Tumakuru
+MBBS-GOVT.2AH153571Allotted
+342106278M067MP
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-PRIV.OPN1200117Allotted
+343106404M042MP
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-PRIV.GMPH1200117Allotted
+344106457M095MG
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-GOVT.2AH156621Allotted
+345106534M069MP
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-PRIV.OPN1200117Allotted
+346106652M067MP
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-PRIV.GMP1200117Allotted
+347107053M091MP
+SRI CHAMUNDESHWARI 
+MEDICAL COLLEGE, 
+HOSPITAL AND RESEARCH 
+INST,,CHANNAPATNA, 
+RAMANAGARA
+MBBS-PRIV.OPN1200117Allotted
+348107205M075MG
+Chamarajanagar Institute of 
+Medical Science,SURVEY NO 
+124, 
+YADAPURA,CHAMARAJANAG
+AR
+MBBS-GOVT.1H64350Allotted
+349107383M005MG
+Khaja Bande Navaz Institute Of 
+Medical Sciences,Rouza 
+Buzurq,,Gulbarga
+MBBS-GOVT.2AH156621Allotted
+350107588M069MP
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-PRIV.OPN1200117Allotted
+351107682M054MP
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-PRIV.OPN1200117Allotted
+352107720M091MP
+SRI CHAMUNDESHWARI 
+MEDICAL COLLEGE, 
+HOSPITAL AND RESEARCH 
+INST,,CHANNAPATNA, 
+RAMANAGARA
+MBBS-PRIV.OPN1200117Allotted
+353107775M079MP
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-PRIV.OPN1200117Allotted
+354107902M069MP
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-PRIV.GMP1200117Allotted
+355108000M043MG
+Navodaya Medical College,PB 
+No.26, Navodaya 
+Nagar,Raichur
+MBBS-GOVT.2AH153571Allotted
+356108184M054MP
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-PRIV.OPN1200117Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+357108689M054MP
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-PRIV.OPN1200117Allotted
+358108713M092MG
+Chitradurga Medical College 
+and Research 
+Institute,,Chitradurga
+MBBS-GOVT.1H64350Allotted
+359108919M091MG
+SRI CHAMUNDESHWARI 
+MEDICAL COLLEGE, 
+HOSPITAL AND RESEARCH 
+INST,,CHANNAPATNA, 
+RAMANAGARA
+MBBS-GOVT.2AH153571Allotted
+360109065M068MG
+BGS Global Institute of Medical 
+Sciences,# 67, BGS Health & 
+Education,Kengeri, Bangalore
+MBBS-GOVT.2ARH153571Allotted
+361109071M079MP
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-PRIV.OPN1200117Allotted
+362109216M054MP
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-PRIV.OPN1200117Allotted
+363109239M067MP
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-PRIV.GMP1200117Allotted
+364109275M054MG
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-GOVT.1H153571Allotted
+365109348M067MP
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-PRIV.GMP1200117Allotted
+366109556M054MP
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-PRIV.OPN1200117Allotted
+367109806M054MP
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-PRIV.OPN1200117Allotted
+368109855M054MP
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-PRIV.OPN1200117Allotted
+369110439M089MG
+Jagadguru Gangadhar 
+Mahaswamigalu 
+Moorusavirmath Medical 
+College,,Dharward
+MBBS-GOVT.2AH609084Allotted
+370111042M054MP
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-PRIV.OPN1200117Allotted
+371111304M042MP
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-PRIV.GMPH1200117Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+372112438M079MP
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-PRIV.OPN1200117Allotted
+373112916M079MP
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-PRIV.OPN1200117Allotted
+374113183M079MP
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-PRIV.OPN1200117Allotted
+375115135M054MP
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-PRIV.OPN1200117Allotted
+376115192M054MP
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-PRIV.OPN1200117Allotted
+377115782M069MP
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-PRIV.GMP1200117Allotted
+378115960M067MP
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-PRIV.GMP1200117Allotted
+379116672M069MP
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-PRIV.GMP1200117Allotted
+380117193M054MP
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-PRIV.OPN1200117Allotted
+381117218M054MP
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-PRIV.OPN1200117Allotted
+382117671M089MG
+Jagadguru Gangadhar 
+Mahaswamigalu 
+Moorusavirmath Medical 
+College,,Dharward
+MBBS-GOVT.1R609084Allotted
+383117739M043MP
+Navodaya Medical College,PB 
+No.26, Navodaya 
+Nagar,Raichur
+MBBS-PRIV.GMP1200117Allotted
+384117882M002MG
+Dr. B.R. Ambedkar Medical 
+College,Kadugondanahalli,,Ban
+galore
+MBBS-GOVT.GMK153571Allotted
+385117892M020MP
+Sri Basaveshwara Medical 
+College and Hospital,NH-4, 
+S.J.M.I.T  Campus,,Chitradurga
+MBBS-PRIV.GMP1200117Allotted
+386117899M054MP
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-PRIV.OPN1200117Allotted
+387119015M043MP
+Navodaya Medical College,PB 
+No.26, Navodaya 
+Nagar,Raichur
+MBBS-PRIV.GMP1200117Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+388119484M033MP
+Al-Ameen Medical 
+College,ADMINISTRATIVE 
+BLOCK,VIJAYAPUR
+MBBS-PRIV.GMP1200117Allotted
+389119687M097MP
+Farookh Academy of Medical 
+Education Hospital and 
+Research Institute, Mysore 
+Madikeri Road, Near Illavala 
+Hunsur Taluk, Mysore District
+MBBS-PRIV.OPN1200117Allotted
+390120886M069MP
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-PRIV.GMP1200117Allotted
+391121089M097MP
+Farookh Academy of Medical 
+Education Hospital and 
+Research Institute, Mysore 
+Madikeri Road, Near Illavala 
+Hunsur Taluk, Mysore District
+MBBS-PRIV.OPN1200117Allotted
+392121658M069MP
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-PRIV.GMP1200117Allotted
+393121898M054MP
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-PRIV.GMP1200117Allotted
+394122249M065MG
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-GOVT.GMK166621Allotted
+395122569M097MG
+Farookh Academy of Medical 
+Education Hospital and 
+Research Institute, Mysore 
+Madikeri Road, Near Illavala 
+Hunsur Taluk, Mysore District
+MBBS-GOVT.GMK153571Allotted
+396122959M079MG
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-GOVT.GMK153571Allotted
+397123024M069MP
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-PRIV.GMP1200117Allotted
+398123531M097MP
+Farookh Academy of Medical 
+Education Hospital and 
+Research Institute, Mysore 
+Madikeri Road, Near Illavala 
+Hunsur Taluk, Mysore District
+MBBS-PRIV.OPN1200117Allotted
+399123624M054MP
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-PRIV.GMP1200117Allotted
+400123759M069MP
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-PRIV.GMP1200117Allotted
+401123795M069MP
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-PRIV.GMP1200117Allotted
+402124084M069MP
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-PRIV.GMP1200117Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+403124610M097MP
+Farookh Academy of Medical 
+Education Hospital and 
+Research Institute, Mysore 
+Madikeri Road, Near Illavala 
+Hunsur Taluk, Mysore District
+MBBS-PRIV.OPN1200117Allotted
+404124901M090MG
+Siddaganga Medical College 
+and Research 
+Institute,,Tumakuru
+MBBS-GOVT.GMKH153571Allotted
+405125040M097MP
+Farookh Academy of Medical 
+Education Hospital and 
+Research Institute, Mysore 
+Madikeri Road, Near Illavala 
+Hunsur Taluk, Mysore District
+MBBS-PRIV.OPN1200117Allotted
+406125447M054MP
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-PRIV.GMP1200117Allotted
+407125727M010MP
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-PRIV.GMPH1200117Allotted
+408125760M005MG
+Khaja Bande Navaz Institute Of 
+Medical Sciences,Rouza 
+Buzurq,,Gulbarga
+MBBS-GOVT.GMK156621Allotted
+409126359M069MP
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-PRIV.GMPH1200117Allotted
+410126467M054MP
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-PRIV.GMP1200117Allotted
+411127024M020MP
+Sri Basaveshwara Medical 
+College and Hospital,NH-4, 
+S.J.M.I.T  Campus,,Chitradurga
+MBBS-PRIV.GMP1200117Allotted
+412127271M054MP
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-PRIV.GMP1200117Allotted
+413127326M020MP
+Sri Basaveshwara Medical 
+College and Hospital,NH-4, 
+S.J.M.I.T  Campus,,Chitradurga
+MBBS-PRIV.GMP1200117Allotted
+414127594M054MP
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-PRIV.GMP1200117Allotted
+415128019M054MP
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-PRIV.GMP1200117Allotted
+416128199M054MP
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-PRIV.GMP1200117Allotted
+417128363M095MG
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-GOVT.2AK156621Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+418128413M097MP
+Farookh Academy of Medical 
+Education Hospital and 
+Research Institute, Mysore 
+Madikeri Road, Near Illavala 
+Hunsur Taluk, Mysore District
+MBBS-PRIV.OPN1200117Allotted
+419128626M079MP
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-PRIV.GMP1200117Allotted
+420129260M054MP
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-PRIV.GMP1200117Allotted
+421129344M054MP
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-PRIV.GMP1200117Allotted
+422129558M054MP
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-PRIV.GMP1200117Allotted
+423129738M054MP
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-PRIV.GMP1200117Allotted
+424130008M033MP
+Al-Ameen Medical 
+College,ADMINISTRATIVE 
+BLOCK,VIJAYAPUR
+MBBS-PRIV.GMP1200117Allotted
+425130037M054MP
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-PRIV.GMP1200117Allotted
+426130180M096MP
+S R Patil Medical College 
+Hospital and Research 
+Center,Badagandi,BAGALKOT
+MBBS-PRIV.GMP1200117Allotted
+427130411M096MP
+S R Patil Medical College 
+Hospital and Research 
+Center,Badagandi,BAGALKOT
+MBBS-PRIV.GMP1200117Allotted
+428131152M097MP
+Farookh Academy of Medical 
+Education Hospital and 
+Research Institute, Mysore 
+Madikeri Road, Near Illavala 
+Hunsur Taluk, Mysore District
+MBBS-PRIV.OPN1200117Allotted
+429131431M096MP
+S R Patil Medical College 
+Hospital and Research 
+Center,Badagandi,BAGALKOT
+MBBS-PRIV.GMP1200117Allotted
+430131586M096MP
+S R Patil Medical College 
+Hospital and Research 
+Center,Badagandi,BAGALKOT
+MBBS-PRIV.GMP1200117Allotted
+431131680M096MP
+S R Patil Medical College 
+Hospital and Research 
+Center,Badagandi,BAGALKOT
+MBBS-PRIV.GMP1200117Allotted
+432132323M096MP
+S R Patil Medical College 
+Hospital and Research 
+Center,Badagandi,BAGALKOT
+MBBS-PRIV.GMP1200117Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+433132328M079MP
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-PRIV.GMP1200117Allotted
+434132373M096MP
+S R Patil Medical College 
+Hospital and Research 
+Center,Badagandi,BAGALKOT
+MBBS-PRIV.GMP1200117Allotted
+435132379M079MP
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-PRIV.GMP1200117Allotted
+436132483M097MP
+Farookh Academy of Medical 
+Education Hospital and 
+Research Institute, Mysore 
+Madikeri Road, Near Illavala 
+Hunsur Taluk, Mysore District
+MBBS-PRIV.GMP1200117Allotted
+437132898M079MP
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-PRIV.GMP1200117Allotted
+438133279M093MP
+Sri Madhusudan Sai Institute of 
+Medical Sciences and 
+Research,,Muddenahalli,CHIKK
+ABALLAPURA
+MBBS-PRIV.OPN2200000Allotted
+439133315M079MP
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-PRIV.GMP1200117Allotted
+440134274M079MP
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-PRIV.GMP1200117Allotted
+441135917M079MP
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-PRIV.MM1200117Allotted
+442135955M042MP
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-PRIV.GMPH1200117Allotted
+443136489M042MP
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-PRIV.GMPH1200117Allotted
+444137110M036MP
+SDM College of Medical 
+Sciences and 
+Hospital,Manjushree Nagar, PB 
+ROAD,Dharwad
+MBBS-PRIV.OPN2015000Allotted
+445137867M005MP
+Khaja Bande Navaz Institute Of 
+Medical Sciences,Rouza 
+Buzurq,,Gulbarga
+MBBS-PRIV.OPN1629965Allotted
+446138839M036MP
+SDM College of Medical 
+Sciences and 
+Hospital,Manjushree Nagar, PB 
+ROAD,Dharwad
+MBBS-PRIV.GMP2015000Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+447139076M036MP
+SDM College of Medical 
+Sciences and 
+Hospital,Manjushree Nagar, PB 
+ROAD,Dharwad
+MBBS-PRIV.GMP2015000Allotted
+448143243M042MP
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-PRIV.GMPH1200117Allotted
+449144372M005MP
+Khaja Bande Navaz Institute Of 
+Medical Sciences,Rouza 
+Buzurq,,Gulbarga
+MBBS-PRIV.OPN1629965Allotted
+450144379M010MP
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-PRIV.GMPH1200117Allotted
+451145559M042MP
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-PRIV.GMPH1200117Allotted
+452147541M042MP
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-PRIV.GMPH1200117Allotted
+453148875M020MP
+Sri Basaveshwara Medical 
+College and Hospital,NH-4, 
+S.J.M.I.T  Campus,,Chitradurga
+MBBS-PRIV.GMPH1200117Allotted
+454149059M095MP
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-PRIV.OPN2215000Allotted
+455149193M083MP
+Dr. Chandramma Dayananda 
+Sagar Institute of Medical 
+Education,,Harohalli hobli, 
+Kanakapura Rd
+MBBS-PRIV.OPN2215000Allotted
+456149320M042MP
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-PRIV.GMPH1200117Allotted
+457150925M042MP
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-PRIV.GMPH1200117Allotted
+458151706M008MP
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-PRIV.GMPH1200117Allotted
+459152589M042MP
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-PRIV.GMPH1200117Allotted
+460154234M042MP
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-PRIV.GMPH1200117Allotted
+461155535M005MP
+Khaja Bande Navaz Institute Of 
+Medical Sciences,Rouza 
+Buzurq,,Gulbarga
+MBBS-PRIV.GMP1629965Allotted
+462155937M042MP
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-PRIV.GMPH1200117Allotted
+463156006M042MP
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-PRIV.GMPH1200117Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+464156466M042MP
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-PRIV.GMPH1200117Allotted
+465159066M010MP
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-PRIV.GMPH1200117Allotted
+466159408M069MP
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-PRIV.GMPH1200117Allotted
+467161043M008MP
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-PRIV.GMPH1200117Allotted
+468161794M071MP
+The Oxford Medical College 
+Hospital and Research 
+Center,Yadavanahalli, Attibele 
+Hobli,Bangalore
+MBBS-PRIV.GMPH1200117Allotted
+469162080M094MP
+PES University Institute of 
+Medical Sceinces and 
+Research,Electronic 
+city,BANGALORE
+MBBS-PRIV.OPN2215000Allotted
+470162287M083MP
+Dr. Chandramma Dayananda 
+Sagar Institute of Medical 
+Education,,Harohalli hobli, 
+Kanakapura Rd
+MBBS-PRIV.GMP2215000Allotted
+471163709M096MP
+S R Patil Medical College 
+Hospital and Research 
+Center,Badagandi,BAGALKOT
+MBBS-PRIV.GMPH1200117Allotted
+472169744M071MP
+The Oxford Medical College 
+Hospital and Research 
+Center,Yadavanahalli, Attibele 
+Hobli,Bangalore
+MBBS-PRIV.GMPH1200117Allotted
+473170947M096MP
+S R Patil Medical College 
+Hospital and Research 
+Center,Badagandi,BAGALKOT
+MBBS-PRIV.GMPH1200117Allotted
+474171482M067MP
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-PRIV.GMPH1200117Allotted
+475173033M083MP
+Dr. Chandramma Dayananda 
+Sagar Institute of Medical 
+Education,,Harohalli hobli, 
+Kanakapura Rd
+MBBS-PRIV.GMP2215000Allotted
+476173409M095MP
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-PRIV.OPN2215000Allotted
+477173826M067MP
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-PRIV.GMPH1200117Allotted
+478174009M044MG
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-GOVT.SCG64350Allotted
+479174089M067MG
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-GOVT.SCG153571Allotted
+480174599M067MP
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-PRIV.GMPH1200117Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+481175120M025MG
+Hassan Institute of Medical 
+Sciences,Near Chamarajendra 
+Hospital,Hassan
+MBBS-GOVT.SCG64350Allotted
+482179823M084MQ
+Chikkaballapura Institute of 
+Medical 
+Science,,Chikkaballapura
+MBBS-
+OTHERS
+OTH2509350Allotted
+483180761M079MP
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-PRIV.GMPH1200117Allotted
+484186420M054MP
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-PRIV.GMPH1200117Allotted
+485187448M067MP
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-PRIV.GMPH1200117Allotted
+486188972M054MP
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-PRIV.GMPH1200117Allotted
+487189430M067MP
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-PRIV.GMPH1200117Allotted
+488192236M044MG
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-GOVT.STG64350Allotted
+489192402M054MP
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-PRIV.GMPH1200117Allotted
+490192550M044MG
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-GOVT.SCH64350Allotted
+491192713M023MP
+Adichunchanagiri Institute of 
+Medical Sciences,B.G 
+Nagar,,Bellur, Mandya Dist.
+MBBS-PRIV.OPN2215000Allotted
+492193443M044MG
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-GOVT.STG64350Allotted
+493194564M044MG
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-GOVT.SCH64350Allotted
+494195020M044MG
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-GOVT.STH64350Allotted
+495195136M044MG
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-GOVT.STRH64350Allotted
+496195339M004MP
+M.S.Ramaiah Medical 
+College,MSR Nagar, MSRIT 
+Post,Bangalore
+MBBS-PRIV.GMP2515000Allotted
+497197201M033MP
+Al-Ameen Medical 
+College,ADMINISTRATIVE 
+BLOCK,VIJAYAPUR
+MBBS-PRIV.GMPH1200117Allotted
+498197423M033MP
+Al-Ameen Medical 
+College,ADMINISTRATIVE 
+BLOCK,VIJAYAPUR
+MBBS-PRIV.GMPH1200117Allotted
+499197977M083MP
+Dr. Chandramma Dayananda 
+Sagar Institute of Medical 
+Education,,Harohalli hobli, 
+Kanakapura Rd
+MBBS-PRIV.GMP2215000Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+500200102M044MG
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-GOVT.SCH64350Allotted
+501201573M042MG
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-GOVT.SCG153571Allotted
+502202596M095MG
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-GOVT.STG156621Allotted
+503204165M064MP
+Sapthagiri Institute of Medical 
+Sciences,No.15, 
+chikkasandra,,Bangalore
+MBBS-PRIV.OPN2240750Allotted
+504205702M079MP
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-PRIV.GMPH1200117Allotted
+505205710M044MG
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-GOVT.SCRH64350Allotted
+506207509M010MG
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-GOVT.SCG153571Allotted
+507210755M021MG
+Mysore Medical College,Irwin 
+Road,,Mysore
+MBBS-GOVT.SCH64350Allotted
+508210918M010MG
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-GOVT.SCG153571Allotted
+509211032M094MP
+PES University Institute of 
+Medical Sceinces and 
+Research,Electronic 
+city,BANGALORE
+MBBS-PRIV.GMP2215000Allotted
+510212423M067MG
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-GOVT.STG153571Allotted
+511213459M067MG
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-GOVT.STG153571Allotted
+512213485M008MG
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-GOVT.SCG153571Allotted
+513213615M065MG
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-GOVT.SCG166621Allotted
+514214020M042MG
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-GOVT.SCH153571Allotted
+515214196M082MG
+Shri Atal Bihari Vajpayee 
+Institute of Medical 
+Science,,Bengaluru
+MBBS-GOVT.SCG64350Allotted
+516214498M008MG
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-GOVT.STG153571Allotted
+517215603M010MG
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-GOVT.SCH153571Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+518216076M095MG
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-GOVT.SCG156621Allotted
+519216219M095MG
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-GOVT.SCG156621Allotted
+520217226M037MG
+Belgaum Institute of Medical 
+Sciences,Dr B R Ambedkar 
+Road,,Belgaum
+MBBS-GOVT.STG64350Allotted
+521217404M010MG
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-GOVT.STG153571Allotted
+522217471M067MG
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-GOVT.SCG153571Allotted
+523218641M009MQ
+Vydehi Institute of Medical 
+Science and Research 
+Centre,No. 82,EPIP Area, 
+Nallurahalli,Bangalore
+MBBS-
+OTHERS
+OTH4411950Allotted
+524219268M079MP
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-PRIV.GMPH1200117Allotted
+525219567M008MG
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-GOVT.SCG153571Allotted
+526219621M069MG
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-GOVT.SCG153571Allotted
+527219776M050MG
+Father Muller Institute of Med. 
+Education & Research,Father 
+Muller Road,,Mangalore
+MBBS-GOVT.STG153571Allotted
+528220268M065MG
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-GOVT.STG166621Allotted
+529221329M069MG
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-GOVT.SCG153571Allotted
+530221454M065MG
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-GOVT.STG166621Allotted
+531222418M054MG
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-GOVT.STH153571Allotted
+532223023M090MG
+Siddaganga Medical College 
+and Research 
+Institute,,Tumakuru
+MBBS-GOVT.STG153571Allotted
+533223243M025MG
+Hassan Institute of Medical 
+Sciences,Near Chamarajendra 
+Hospital,Hassan
+MBBS-GOVT.SCG64350Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+534223250M052MG
+Yenepoya Medical 
+College,University Road, 
+Nithyanandar,Mangalore
+MBBS-GOVT.STG156621Allotted
+535224247M069MG
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-GOVT.SCG153571Allotted
+536224710M073MG
+Koppal Institute of Medical 
+Sciences,GANGAVATI ROAD, 
+KIDDIDAL GATE,,KOPPAL
+MBBS-GOVT.SCH64350Allotted
+537224821M042MG
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-GOVT.SCH153571Allotted
+538225235M069MG
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-GOVT.SCG153571Allotted
+539225296M087MG
+Yadgiri Institute of Medical 
+Sciences,,Yadgiri
+MBBS-GOVT.SCH64350Allotted
+540225379M033MG
+Al-Ameen Medical 
+College,ADMINISTRATIVE 
+BLOCK,VIJAYAPUR
+MBBS-GOVT.STG153571Allotted
+541225742M054MG
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-GOVT.SCG153571Allotted
+542226624M024MG
+Mandya Institute of Medical 
+Sciences,District 
+Hospital,,Mandya
+MBBS-GOVT.SCG64350Allotted
+543226772M054MG
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-GOVT.SCG153571Allotted
+544227728M097MG
+Farookh Academy of Medical 
+Education Hospital and 
+Research Institute, Mysore 
+Madikeri Road, Near Illavala 
+Hunsur Taluk, Mysore District
+MBBS-GOVT.STG153571Allotted
+545228162M067MG
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-GOVT.SCH153571Allotted
+546228572M024MG
+Mandya Institute of Medical 
+Sciences,District 
+Hospital,,Mandya
+MBBS-GOVT.SCG64350Allotted
+547228628M081MG
+East Point College of Medical 
+Sciences and Research 
+Center,,Bangalore
+MBBS-GOVT.SCG153571Allotted
+548228829M004MG
+M.S.Ramaiah Medical 
+College,MSR Nagar, MSRIT 
+Post,Bangalore
+MBBS-GOVT.SCG156621Allotted
+549229033M087MG
+Yadgiri Institute of Medical 
+Sciences,,Yadgiri
+MBBS-GOVT.SCH64350Allotted
+550229374M097MP
+Farookh Academy of Medical 
+Education Hospital and 
+Research Institute, Mysore 
+Madikeri Road, Near Illavala 
+Hunsur Taluk, Mysore District
+MBBS-PRIV.GMPH1200117Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+551229378M081MG
+East Point College of Medical 
+Sciences and Research 
+Center,,Bangalore
+MBBS-GOVT.SCG153571Allotted
+552229799M020MG
+Sri Basaveshwara Medical 
+College and Hospital,NH-4, 
+S.J.M.I.T  Campus,,Chitradurga
+MBBS-GOVT.SCG153571Allotted
+553229811M065MG
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-GOVT.SCG166621Allotted
+554229815M087MG
+Yadgiri Institute of Medical 
+Sciences,,Yadgiri
+MBBS-GOVT.SCH64350Allotted
+555229829M020MG
+Sri Basaveshwara Medical 
+College and Hospital,NH-4, 
+S.J.M.I.T  Campus,,Chitradurga
+MBBS-GOVT.SCG153571Allotted
+556229839M095MG
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-GOVT.SCR156621Allotted
+557229864M079MG
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-GOVT.SCG153571Allotted
+558230103M035MG
+S. Nijalingappa Medical College 
+and Research Centre,,Bagalkot
+MBBS-GOVT.SCG153571Allotted
+559230273M023MG
+Adichunchanagiri Institute of 
+Medical Sciences,B.G 
+Nagar,,Bellur, Mandya Dist.
+MBBS-GOVT.SCH156621Allotted
+560230921M054MG
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-GOVT.SCG153571Allotted
+561230982M054MG
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-GOVT.SCG153571Allotted
+562231092M079MG
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-GOVT.SCG153571Allotted
+563231129M065MG
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-GOVT.SCG166621Allotted
+564231180M033MP
+Al-Ameen Medical 
+College,ADMINISTRATIVE 
+BLOCK,VIJAYAPUR
+MBBS-PRIV.GMPH1200117Allotted
+565231214M079MG
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-GOVT.SCG153571Allotted
+566231384M033MP
+Al-Ameen Medical 
+College,ADMINISTRATIVE 
+BLOCK,VIJAYAPUR
+MBBS-PRIV.GMPH1200117Allotted
+567231399M096MG
+S R Patil Medical College 
+Hospital and Research 
+Center,Badagandi,BAGALKOT
+MBBS-GOVT.SCG153571Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+568231642M085MG
+Chikkamagaluru Institute of 
+Medical 
+Sciences,,Chikkamagaluru
+MBBS-GOVT.SCRH64350Allotted
+569231946M079MG
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-GOVT.SCG153571Allotted
+570231995M005MG
+Khaja Bande Navaz Institute Of 
+Medical Sciences,Rouza 
+Buzurq,,Gulbarga
+MBBS-GOVT.SCH156621Allotted
+571232347M079MG
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-GOVT.SCG153571Allotted
+572232400M079MG
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-GOVT.SCG153571Allotted
+573233194M065MG
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-GOVT.SCG166621Allotted
+574233221M005MG
+Khaja Bande Navaz Institute Of 
+Medical Sciences,Rouza 
+Buzurq,,Gulbarga
+MBBS-GOVT.STH156621Allotted
+575233354M097MG
+Farookh Academy of Medical 
+Education Hospital and 
+Research Institute, Mysore 
+Madikeri Road, Near Illavala 
+Hunsur Taluk, Mysore District
+MBBS-GOVT.SCG153571Allotted
+576233366M042MG
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-GOVT.SCR153571Allotted
+577233474M054MG
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-GOVT.SCR153571Allotted
+578234353M033MG
+Al-Ameen Medical 
+College,ADMINISTRATIVE 
+BLOCK,VIJAYAPUR
+MBBS-GOVT.SCG153571Allotted
+579235065M097MG
+Farookh Academy of Medical 
+Education Hospital and 
+Research Institute, Mysore 
+Madikeri Road, Near Illavala 
+Hunsur Taluk, Mysore District
+MBBS-GOVT.SCG153571Allotted
+580235100M097MG
+Farookh Academy of Medical 
+Education Hospital and 
+Research Institute, Mysore 
+Madikeri Road, Near Illavala 
+Hunsur Taluk, Mysore District
+MBBS-GOVT.SCG153571Allotted
+581235168M065MG
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-GOVT.SCH166621Allotted
+582235603M065MG
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-GOVT.SCH166621Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+583235878M042MG
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-GOVT.SCRH153571Allotted
+584235914M079MG
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-GOVT.SCR153571Allotted
+585236976M079MG
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-GOVT.SCRH153571Allotted
+586239235M089MG
+Jagadguru Gangadhar 
+Mahaswamigalu 
+Moorusavirmath Medical 
+College,,Dharward
+MBBS-GOVT.SCR609084Allotted
+587239435M065MG
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-GOVT.STR166621Allotted
+588240007M005MP
+Khaja Bande Navaz Institute Of 
+Medical Sciences,Rouza 
+Buzurq,,Gulbarga
+MBBS-PRIV.GMPH1629965Allotted
+589240993M035MG
+S. Nijalingappa Medical College 
+and Research Centre,,Bagalkot
+MBBS-GOVT.STR153571Allotted
+590247229M005MP
+Khaja Bande Navaz Institute Of 
+Medical Sciences,Rouza 
+Buzurq,,Gulbarga
+MBBS-PRIV.MMH1629965Allotted
+591247773M036MP
+SDM College of Medical 
+Sciences and 
+Hospital,Manjushree Nagar, PB 
+ROAD,Dharwad
+MBBS-PRIV.GMPH2015000Allotted
+592256231M010MG
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-GOVT.SCK153571Allotted
+593263485M094MP
+PES University Institute of 
+Medical Sceinces and 
+Research,Electronic 
+city,BANGALORE
+MBBS-PRIV.GMP2215000Allotted
+594272587M023MP
+Adichunchanagiri Institute of 
+Medical Sciences,B.G 
+Nagar,,Bellur, Mandya Dist.
+MBBS-PRIV.OPN2215000Allotted
+595275464M045MQ
+Raichur Institute of Medical 
+Sciences,Sy No.307 & 
+308,,Raichur
+MBBS-
+OTHERS
+OTH2509350Allotted
+596275869M004MQ
+M.S.Ramaiah Medical 
+College,MSR Nagar, MSRIT 
+Post,Bangalore
+MBBS-
+OTHERS
+OTH4515000Allotted
+597285930M050MP
+Father Muller Institute of Med. 
+Education & Research,Father 
+Muller Road,,Mangalore
+MBBS-PRIV.MC1200117Allotted
+598294829M033MQ
+Al-Ameen Medical 
+College,ADMINISTRATIVE 
+BLOCK,VIJAYAPUR
+MBBS-
+OTHERS
+OTH2711950Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+599299569M095MP
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-PRIV.OPN2215000Allotted
+600307278M095MP
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-PRIV.OPN2215000Allotted
+601309555M095MP
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-PRIV.OPN2215000Allotted
+602314018M093MP
+Sri Madhusudan Sai Institute of 
+Medical Sciences and 
+Research,,Muddenahalli,CHIKK
+ABALLAPURA
+MBBS-PRIV.GMP2200000Allotted
+603321158M095MP
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-PRIV.OPN2215000Allotted
+604324487M064MP
+Sapthagiri Institute of Medical 
+Sciences,No.15, 
+chikkasandra,,Bangalore
+MBBS-PRIV.OPN2240750Allotted
+605325218M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.OPN2225000Allotted
+606325840M067MP
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-PRIV.ME1200117Allotted
+607332584M068MQ
+BGS Global Institute of Medical 
+Sciences,# 67, BGS Health & 
+Education,Kengeri, Bangalore
+MBBS-
+OTHERS
+OTH4286950Allotted
+608343527M095MP
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-PRIV.OPN2215000Allotted
+609345678M095MP
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-PRIV.OPN2215000Allotted
+610346823M095MP
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-PRIV.OPN2215000Allotted
+611347641M095MP
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-PRIV.OPN2215000Allotted
+612348230M008MP
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-PRIV.MA1200117Allotted
+613353852M010MQ
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-
+OTHERS
+OTH4011950Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+614361383M023MP
+Adichunchanagiri Institute of 
+Medical Sciences,B.G 
+Nagar,,Bellur, Mandya Dist.
+MBBS-PRIV.OPN2215000Allotted
+615361634M067MP
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-PRIV.ME1200117Allotted
+616361885M008MP
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-PRIV.MA1200117Allotted
+617367960M064MP
+Sapthagiri Institute of Medical 
+Sciences,No.15, 
+chikkasandra,,Bangalore
+MBBS-PRIV.OPN2240750Allotted
+618368144M067MP
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-PRIV.ME1200117Allotted
+619371329M008MP
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-PRIV.MA1200117Allotted
+620376770M064MP
+Sapthagiri Institute of Medical 
+Sciences,No.15, 
+chikkasandra,,Bangalore
+MBBS-PRIV.OPN2240750Allotted
+621379521M033MQ
+Al-Ameen Medical 
+College,ADMINISTRATIVE 
+BLOCK,VIJAYAPUR
+MBBS-
+OTHERS
+OTH2711950Allotted
+622382260M079MQ
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-
+OTHERS
+OTH3211950Allotted
+623385210M023MP
+Adichunchanagiri Institute of 
+Medical Sciences,B.G 
+Nagar,,Bellur, Mandya Dist.
+MBBS-PRIV.GMP2215000Allotted
+624388972M010MP
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-PRIV.MU1200117Allotted
+625393328M008MP
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-PRIV.MA1200117Allotted
+626394544M095MP
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-PRIV.OPN2215000Allotted
+627395111M095MP
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-PRIV.OPN2215000Allotted
+628397208M067MP
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-PRIV.ME1200117Allotted
+629399528M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.OPN2225000Allotted
+630401380M095MP
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-PRIV.OPN2215000Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+631405639M010MP
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-PRIV.MU1200117Allotted
+632406430M071MP
+The Oxford Medical College 
+Hospital and Research 
+Center,Yadavanahalli, Attibele 
+Hobli,Bangalore
+MBBS-PRIV.ME1200117Allotted
+633407062M078MP
+Akash Institute of Medical 
+Sciences and Research 
+Centre,DEVANAHALLI,,BANGA
+LORE
+MBBS-PRIV.ME1200117Allotted
+634407085M067MP
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-PRIV.ME1200117Allotted
+635408137M067MP
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-PRIV.ME1200117Allotted
+636408617M010MP
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-PRIV.MU1200117Allotted
+637408652M067MP
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-PRIV.ME1200117Allotted
+638411542M067MP
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-PRIV.ME1200117Allotted
+639413273M084MQ
+Chikkaballapura Institute of 
+Medical 
+Science,,Chikkaballapura
+MBBS-
+OTHERS
+OTH2509350Allotted
+640415565M064MP
+Sapthagiri Institute of Medical 
+Sciences,No.15, 
+chikkasandra,,Bangalore
+MBBS-PRIV.OPN2240750Allotted
+641415678M010MP
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-PRIV.MU1200117Allotted
+642418145M010MP
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-PRIV.MU1200117Allotted
+643418211M067MP
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-PRIV.ME1200117Allotted
+644418543M067MP
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-PRIV.ME1200117Allotted
+645419975M009MQ
+Vydehi Institute of Medical 
+Science and Research 
+Centre,No. 82,EPIP Area, 
+Nallurahalli,Bangalore
+MBBS-
+OTHERS
+OTH4411950Allotted
+646421423M095MP
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-PRIV.OPN2215000Allotted
+647421433M010MP
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-PRIV.MU1200117Allotted
+648421737M067MP
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-PRIV.ME1200117Allotted
+649426245M067MP
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-PRIV.ME1200117Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+650427012M036MQ
+SDM College of Medical 
+Sciences and 
+Hospital,Manjushree Nagar, PB 
+ROAD,Dharwad
+MBBS-
+OTHERS
+OTH3515000Allotted
+651428318M067MP
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-PRIV.ME1200117Allotted
+652428753M067MP
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-PRIV.ME1200117Allotted
+653429546M095MP
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-PRIV.OPN2215000Allotted
+654430781M010MP
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-PRIV.MU1200117Allotted
+655433256M008MP
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-PRIV.MA1200117Allotted
+656433409M095MP
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-PRIV.GMP2215000Allotted
+657433779M095MP
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-PRIV.GMP2215000Allotted
+658433821M067MP
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-PRIV.ME1200117Allotted
+659433854M067MQ
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-
+OTHERS
+OTH2911950Allotted
+660434406M010MP
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-PRIV.MU1200117Allotted
+661434845M067MP
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-PRIV.ME1200117Allotted
+662435232M008MP
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-PRIV.MA1200117Allotted
+663436705M064MP
+Sapthagiri Institute of Medical 
+Sciences,No.15, 
+chikkasandra,,Bangalore
+MBBS-PRIV.OPN2240750Allotted
+664438321M067MP
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-PRIV.ME1200117Allotted
+665439568M009MQ
+Vydehi Institute of Medical 
+Science and Research 
+Centre,No. 82,EPIP Area, 
+Nallurahalli,Bangalore
+MBBS-
+OTHERS
+OTH4411950Allotted
+666443601M095MP
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-PRIV.GMP2215000Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+667444950M095MP
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-PRIV.GMP2215000Allotted
+668447301M010MP
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-PRIV.MU1200117Allotted
+669448505M008MP
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-PRIV.MA1200117Allotted
+670448939M010MP
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-PRIV.MU1200117Allotted
+671449153M064MP
+Sapthagiri Institute of Medical 
+Sciences,No.15, 
+chikkasandra,,Bangalore
+MBBS-PRIV.OPN2240750Allotted
+672451351M023MP
+Adichunchanagiri Institute of 
+Medical Sciences,B.G 
+Nagar,,Bellur, Mandya Dist.
+MBBS-PRIV.GMP2215000Allotted
+673451763M095MP
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-PRIV.GMP2215000Allotted
+674452196M023MP
+Adichunchanagiri Institute of 
+Medical Sciences,B.G 
+Nagar,,Bellur, Mandya Dist.
+MBBS-PRIV.GMP2215000Allotted
+675453251M095MP
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-PRIV.GMP2215000Allotted
+676457124M095MP
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-PRIV.GMP2215000Allotted
+677459875M093MP
+Sri Madhusudan Sai Institute of 
+Medical Sciences and 
+Research,,Muddenahalli,CHIKK
+ABALLAPURA
+MBBS-PRIV.GMP2200000Allotted
+678460082M095MP
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-PRIV.GMP2215000Allotted
+679460219M095MP
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-PRIV.GMP2215000Allotted
+680461050M064MP
+Sapthagiri Institute of Medical 
+Sciences,No.15, 
+chikkasandra,,Bangalore
+MBBS-PRIV.OPN2240750Allotted
+681461709M010MP
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-PRIV.MU1200117Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+682462872M008MP
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-PRIV.MA1200117Allotted
+683463136M095MP
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-PRIV.GMP2215000Allotted
+684463245M010MP
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-PRIV.MU1200117Allotted
+685464209M064MP
+Sapthagiri Institute of Medical 
+Sciences,No.15, 
+chikkasandra,,Bangalore
+MBBS-PRIV.GMP2240750Allotted
+686464985M064MP
+Sapthagiri Institute of Medical 
+Sciences,No.15, 
+chikkasandra,,Bangalore
+MBBS-PRIV.GMP2240750Allotted
+687465221M095MP
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-PRIV.GMP2215000Allotted
+688466155M095MP
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-PRIV.GMP2215000Allotted
+689468574M095MP
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-PRIV.GMP2215000Allotted
+690468656M064MP
+Sapthagiri Institute of Medical 
+Sciences,No.15, 
+chikkasandra,,Bangalore
+MBBS-PRIV.GMP2240750Allotted
+691472185M023MP
+Adichunchanagiri Institute of 
+Medical Sciences,B.G 
+Nagar,,Bellur, Mandya Dist.
+MBBS-PRIV.GMP2215000Allotted
+692472326M095MP
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-PRIV.GMP2215000Allotted
+693476889M095MP
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-PRIV.GMP2215000Allotted
+694477354M095MP
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-PRIV.GMP2215000Allotted
+695477437M093MP
+Sri Madhusudan Sai Institute of 
+Medical Sciences and 
+Research,,Muddenahalli,CHIKK
+ABALLAPURA
+MBBS-PRIV.GMP2200000Allotted
+696481439M042MQ
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-
+OTHERS
+OTH3911950Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+697481571M023MP
+Adichunchanagiri Institute of 
+Medical Sciences,B.G 
+Nagar,,Bellur, Mandya Dist.
+MBBS-PRIV.GMP2215000Allotted
+698481822M095MP
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-PRIV.GMP2215000Allotted
+699483824M064MP
+Sapthagiri Institute of Medical 
+Sciences,No.15, 
+chikkasandra,,Bangalore
+MBBS-PRIV.GMP2240750Allotted
+700484786M095MP
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-PRIV.GMP2215000Allotted
+701485180M010MP
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-PRIV.MU1200117Allotted
+702487011M064MP
+Sapthagiri Institute of Medical 
+Sciences,No.15, 
+chikkasandra,,Bangalore
+MBBS-PRIV.GMP2240750Allotted
+703489526M008MP
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-PRIV.MA1200117Allotted
+704492633M008MP
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-PRIV.MA1200117Allotted
+705493311M010MP
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-PRIV.MU1200117Allotted
+706493822M095MP
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-PRIV.GMP2215000Allotted
+707493910M023MP
+Adichunchanagiri Institute of 
+Medical Sciences,B.G 
+Nagar,,Bellur, Mandya Dist.
+MBBS-PRIV.GMP2215000Allotted
+708499564M010MP
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-PRIV.MU1200117Allotted
+709502115M008MP
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-PRIV.MA1200117Allotted
+710502375M083MQ
+Dr. Chandramma Dayananda 
+Sagar Institute of Medical 
+Education,,Harohalli hobli, 
+Kanakapura Rd
+MBBS-
+OTHERS
+OTH3815000Allotted
+711502421M008MP
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-PRIV.MA1200117Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+712505360M036MQ
+SDM College of Medical 
+Sciences and 
+Hospital,Manjushree Nagar, PB 
+ROAD,Dharwad
+MBBS-
+OTHERS
+OTH3515000Allotted
+713505496M095MQ
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-
+OTHERS
+OTH3515000Allotted
+714508018M003MQ
+Kempegowda Institute of 
+Medical Sciences,B.S.K II 
+Stage,,Bangalore
+MBBS-
+OTHERS
+OTH4311950Allotted
+715508866M010MP
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-PRIV.MU1200117Allotted
+716509632M064MP
+Sapthagiri Institute of Medical 
+Sciences,No.15, 
+chikkasandra,,Bangalore
+MBBS-PRIV.GMP2240750Allotted
+717509735M033MQ
+Al-Ameen Medical 
+College,ADMINISTRATIVE 
+BLOCK,VIJAYAPUR
+MBBS-
+OTHERS
+OTH2711950Allotted
+718512954M050MQ
+Father Muller Institute of Med. 
+Education & Research,Father 
+Muller Road,,Mangalore
+MBBS-
+OTHERS
+OTH3511950Allotted
+719513398M064MP
+Sapthagiri Institute of Medical 
+Sciences,No.15, 
+chikkasandra,,Bangalore
+MBBS-PRIV.GMP2240750Allotted
+720514703M045MQ
+Raichur Institute of Medical 
+Sciences,Sy No.307 & 
+308,,Raichur
+MBBS-
+OTHERS
+OTH2509350Allotted
+721515174M025MN
+Hassan Institute of Medical 
+Sciences,Near Chamarajendra 
+Hospital,Hassan
+MBBS-NRINRI2509350Allotted
+722520164M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.OPN2225000Allotted
+723521981M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.OPN2225000Allotted
+724529780M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.OPN2225000Allotted
+725529855M008MP
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-PRIV.MA1200117Allotted
+726531428M090MQ
+Siddaganga Medical College 
+and Research 
+Institute,,Tumakuru
+MBBS-
+OTHERS
+OTH2861950Allotted
+727531655M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.OPN2225000Allotted
+728533935M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.OPN2225000Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+729534329M035MQ
+S. Nijalingappa Medical College 
+and Research Centre,,Bagalkot
+MBBS-
+OTHERS
+OTH4011950Allotted
+730536763M050MQ
+Father Muller Institute of Med. 
+Education & Research,Father 
+Muller Road,,Mangalore
+MBBS-
+OTHERS
+OTH3511950Allotted
+731537208M042MQ
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-
+OTHERS
+OTH3911950Allotted
+732538229M045MQ
+Raichur Institute of Medical 
+Sciences,Sy No.307 & 
+308,,Raichur
+MBBS-
+OTHERS
+OTH2509350Allotted
+733540517M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.OPN2225000Allotted
+734540734M079MQ
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-
+OTHERS
+OTH3211950Allotted
+735541252M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.OPN2225000Allotted
+736543006M094MQ
+PES University Institute of 
+Medical Sceinces and 
+Research,Electronic 
+city,BANGALORE
+MBBS-
+OTHERS
+OTH3915000Allotted
+737543693M095MP
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-PRIV.GMPH2215000Allotted
+738545562M095MP
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-PRIV.GMPH2215000Allotted
+739546492M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.OPN2225000Allotted
+740546736M037MQ
+Belgaum Institute of Medical 
+Sciences,Dr B R Ambedkar 
+Road,,Belgaum
+MBBS-
+OTHERS
+OTH2509350Allotted
+741547159M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.OPN2225000Allotted
+742547232M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.OPN2225000Allotted
+743549306M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.OPN2225000Allotted
+744550728M095MP
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-PRIV.GMPH2215000Allotted
+745551286M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.OPN2225000Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+746552403M010MQ
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-
+OTHERS
+OTH4011950Allotted
+747553463M008MP
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-PRIV.MA1200117Allotted
+748555458M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.OPN2225000Allotted
+749555696M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.OPN2225000Allotted
+750556245M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.OPN2225000Allotted
+751557043M002MQ
+Dr. B.R. Ambedkar Medical 
+College,Kadugondanahalli,,Ban
+galore
+MBBS-
+OTHERS
+OTH3511950Allotted
+752557416M008MP
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-PRIV.MA1200117Allotted
+753560494M064MP
+Sapthagiri Institute of Medical 
+Sciences,No.15, 
+chikkasandra,,Bangalore
+MBBS-PRIV.GMPH2240750Allotted
+754561036M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.OPN2225000Allotted
+755562524M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.OPN2225000Allotted
+756563508M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.OPN2225000Allotted
+757565488M008MP
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-PRIV.MA1200117Allotted
+758566730M008MP
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-PRIV.MA1200117Allotted
+759568177M009MQ
+Vydehi Institute of Medical 
+Science and Research 
+Centre,No. 82,EPIP Area, 
+Nallurahalli,Bangalore
+MBBS-
+OTHERS
+OTH4411950Allotted
+760571347M010MP
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-PRIV.MU1200117Allotted
+761574379M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.OPN2225000Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+762577413M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.OPN2225000Allotted
+763577786M067MQ
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-
+OTHERS
+OTH2911950Allotted
+764579295M044MQ
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-
+OTHERS
+OTH2500000Allotted
+765579993M093MP
+Sri Madhusudan Sai Institute of 
+Medical Sciences and 
+Research,,Muddenahalli,CHIKK
+ABALLAPURA
+MBBS-PRIV.GMPH2200000Allotted
+766581641M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.OPN2225000Allotted
+767581696M008MP
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-PRIV.MA1200117Allotted
+768584493M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.OPN2225000Allotted
+769587327M033MQ
+Al-Ameen Medical 
+College,ADMINISTRATIVE 
+BLOCK,VIJAYAPUR
+MBBS-
+OTHERS
+OTH2711950Allotted
+770587923M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.OPN2225000Allotted
+771589468M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.OPN2225000Allotted
+772591069M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.OPN2225000Allotted
+773592135M069MQ
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-
+OTHERS
+OTH3861950Allotted
+774593003M091MP
+SRI CHAMUNDESHWARI 
+MEDICAL COLLEGE, 
+HOSPITAL AND RESEARCH 
+INST,,CHANNAPATNA, 
+RAMANAGARA
+MBBS-PRIV.MA1200117Allotted
+775595585M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.OPN2225000Allotted
+776595929M002MQ
+Dr. B.R. Ambedkar Medical 
+College,Kadugondanahalli,,Ban
+galore
+MBBS-
+OTHERS
+OTH3511950Allotted
+777596029M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.OPN2225000Allotted
+778597637M067MQ
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-
+OTHERS
+OTH2911950Allotted
+779598863M090MQ
+Siddaganga Medical College 
+and Research 
+Institute,,Tumakuru
+MBBS-
+OTHERS
+OTH2861950Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+780600868M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.OPN2225000Allotted
+781601874M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.OPN2225000Allotted
+782603267M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.OPN2225000Allotted
+783603452M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.OPN2225000Allotted
+784604931M083MQ
+Dr. Chandramma Dayananda 
+Sagar Institute of Medical 
+Education,,Harohalli hobli, 
+Kanakapura Rd
+MBBS-
+OTHERS
+OTH3815000Allotted
+785605443M044MQ
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-
+OTHERS
+OTH2500000Allotted
+786606804M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.OPN2225000Allotted
+787610009M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.OPN2225000Allotted
+788610980M078MQ
+Akash Institute of Medical 
+Sciences and Research 
+Centre,DEVANAHALLI,,BANGA
+LORE
+MBBS-
+OTHERS
+OTH3611950Allotted
+789612057M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.GMP2225000Allotted
+790612357M002MQ
+Dr. B.R. Ambedkar Medical 
+College,Kadugondanahalli,,Ban
+galore
+MBBS-
+OTHERS
+OTH3511950Allotted
+791612792M042MQ
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-
+OTHERS
+OTH3911950Allotted
+792613502M003MQ
+Kempegowda Institute of 
+Medical Sciences,B.S.K II 
+Stage,,Bangalore
+MBBS-
+OTHERS
+OTH4311950Allotted
+793613966M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.GMP2225000Allotted
+794614720M090MQ
+Siddaganga Medical College 
+and Research 
+Institute,,Tumakuru
+MBBS-
+OTHERS
+OTH2861950Allotted
+795616779M003MQ
+Kempegowda Institute of 
+Medical Sciences,B.S.K II 
+Stage,,Bangalore
+MBBS-
+OTHERS
+OTH4311950Allotted
+796617200M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.GMP2225000Allotted
+797618977M002MQ
+Dr. B.R. Ambedkar Medical 
+College,Kadugondanahalli,,Ban
+galore
+MBBS-
+OTHERS
+OTH3511950Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+798620026M091MP
+SRI CHAMUNDESHWARI 
+MEDICAL COLLEGE, 
+HOSPITAL AND RESEARCH 
+INST,,CHANNAPATNA, 
+RAMANAGARA
+MBBS-PRIV.MA1200117Allotted
+799620858M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.GMP2225000Allotted
+800622484M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.GMP2225000Allotted
+801623573M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.GMP2225000Allotted
+802624401M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.GMP2225000Allotted
+803625247M095MQ
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-
+OTHERS
+OTH3515000Allotted
+804625853M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.GMP2225000Allotted
+805626673M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.GMP2225000Allotted
+806627848M091MP
+SRI CHAMUNDESHWARI 
+MEDICAL COLLEGE, 
+HOSPITAL AND RESEARCH 
+INST,,CHANNAPATNA, 
+RAMANAGARA
+MBBS-PRIV.MA1200117Allotted
+807628575M095MQ
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-
+OTHERS
+OTH3515000Allotted
+808630526M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.GMP2225000Allotted
+809630919M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.GMP2225000Allotted
+810633161M091MP
+SRI CHAMUNDESHWARI 
+MEDICAL COLLEGE, 
+HOSPITAL AND RESEARCH 
+INST,,CHANNAPATNA, 
+RAMANAGARA
+MBBS-PRIV.MA1200117Allotted
+811633324M044MQ
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-
+OTHERS
+OTH2500000Allotted
+812633402M067MQ
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-
+OTHERS
+OTH2911950Allotted
+813633650M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.GMP2225000Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+814639642M090MQ
+Siddaganga Medical College 
+and Research 
+Institute,,Tumakuru
+MBBS-
+OTHERS
+OTH2861950Allotted
+815641719M091MP
+SRI CHAMUNDESHWARI 
+MEDICAL COLLEGE, 
+HOSPITAL AND RESEARCH 
+INST,,CHANNAPATNA, 
+RAMANAGARA
+MBBS-PRIV.MA1200117Allotted
+816642922M095MQ
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-
+OTHERS
+OTH3515000Allotted
+817644906M093MP
+Sri Madhusudan Sai Institute of 
+Medical Sciences and 
+Research,,Muddenahalli,CHIKK
+ABALLAPURA
+MBBS-PRIV.GMPH2200000Allotted
+818645661M002MQ
+Dr. B.R. Ambedkar Medical 
+College,Kadugondanahalli,,Ban
+galore
+MBBS-
+OTHERS
+OTH3511950Allotted
+819646194M033MQ
+Al-Ameen Medical 
+College,ADMINISTRATIVE 
+BLOCK,VIJAYAPUR
+MBBS-
+OTHERS
+OTH2711950Allotted
+820649646M091MP
+SRI CHAMUNDESHWARI 
+MEDICAL COLLEGE, 
+HOSPITAL AND RESEARCH 
+INST,,CHANNAPATNA, 
+RAMANAGARA
+MBBS-PRIV.MA1200117Allotted
+821651093M035MQ
+S. Nijalingappa Medical College 
+and Research Centre,,Bagalkot
+MBBS-
+OTHERS
+OTH4011950Allotted
+822653017M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.GMP2225000Allotted
+823653370M043MQ
+Navodaya Medical College,PB 
+No.26, Navodaya 
+Nagar,Raichur
+MBBS-
+OTHERS
+OTH2736950Allotted
+824653932M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.GMP2225000Allotted
+825657748M023MP
+Adichunchanagiri Institute of 
+Medical Sciences,B.G 
+Nagar,,Bellur, Mandya Dist.
+MBBS-PRIV.GMPH2215000Allotted
+826658561M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.GMP2225000Allotted
+827659081M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.GMP2225000Allotted
+828660080M009MQ
+Vydehi Institute of Medical 
+Science and Research 
+Centre,No. 82,EPIP Area, 
+Nallurahalli,Bangalore
+MBBS-
+OTHERS
+OTH4411950Allotted
+829661689M097MQ
+Farookh Academy of Medical 
+Education Hospital and 
+Research Institute, Mysore 
+Madikeri Road, Near Illavala 
+Hunsur Taluk, Mysore District
+MBBS-
+OTHERS
+OTH3011950Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+830662582M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.GMP2225000Allotted
+831662866M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.GMP2225000Allotted
+832664435M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.GMP2225000Allotted
+833666307M071MQ
+The Oxford Medical College 
+Hospital and Research 
+Center,Yadavanahalli, Attibele 
+Hobli,Bangalore
+MBBS-
+OTHERS
+OTH3611950Allotted
+834668814M079MQ
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-
+OTHERS
+OTH3211950Allotted
+835672980M071MQ
+The Oxford Medical College 
+Hospital and Research 
+Center,Yadavanahalli, Attibele 
+Hobli,Bangalore
+MBBS-
+OTHERS
+OTH3611950Allotted
+836677221M044MQ
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-
+OTHERS
+OTH2500000Allotted
+837677715M010MQ
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-
+OTHERS
+OTH4011950Allotted
+838683911M091MP
+SRI CHAMUNDESHWARI 
+MEDICAL COLLEGE, 
+HOSPITAL AND RESEARCH 
+INST,,CHANNAPATNA, 
+RAMANAGARA
+MBBS-PRIV.MA1200117Allotted
+839684534M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.GMP2225000Allotted
+840684884M090MQ
+Siddaganga Medical College 
+and Research 
+Institute,,Tumakuru
+MBBS-
+OTHERS
+OTH2861950Allotted
+841687269M054MQ
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-
+OTHERS
+OTH3512650Allotted
+842689444M005MQ
+Khaja Bande Navaz Institute Of 
+Medical Sciences,Rouza 
+Buzurq,,Gulbarga
+MBBS-
+OTHERS
+OTH3215000Allotted
+843689906M090MQ
+Siddaganga Medical College 
+and Research 
+Institute,,Tumakuru
+MBBS-
+OTHERS
+OTH2861950Allotted
+844691715M061MQ
+Jaya Jagadguru 
+Murugharajendra Medical 
+College,,Davangere District
+MBBS-
+OTHERS
+OTH3911950Allotted
+845692140M067MQ
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-
+OTHERS
+OTH2911950Allotted
+846697078M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.GMP2225000Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+847701402M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.GMP2225000Allotted
+848704134M067MQ
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-
+OTHERS
+OTH2911950Allotted
+849704272M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.GMP2225000Allotted
+850708105M054MQ
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-
+OTHERS
+OTH3512650Allotted
+851708421M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.GMP2225000Allotted
+852711451M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.GMP2225000Allotted
+853719621M091MQ
+SRI CHAMUNDESHWARI 
+MEDICAL COLLEGE, 
+HOSPITAL AND RESEARCH 
+INST,,CHANNAPATNA, 
+RAMANAGARA
+MBBS-
+OTHERS
+OTH3001950Allotted
+854725616M071MQ
+The Oxford Medical College 
+Hospital and Research 
+Center,Yadavanahalli, Attibele 
+Hobli,Bangalore
+MBBS-
+OTHERS
+OTH3611950Allotted
+855727246M091MQ
+SRI CHAMUNDESHWARI 
+MEDICAL COLLEGE, 
+HOSPITAL AND RESEARCH 
+INST,,CHANNAPATNA, 
+RAMANAGARA
+MBBS-
+OTHERS
+OTH3001950Allotted
+856727937M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.GMP2225000Allotted
+857728079M009MQ
+Vydehi Institute of Medical 
+Science and Research 
+Centre,No. 82,EPIP Area, 
+Nallurahalli,Bangalore
+MBBS-
+OTHERS
+OTH4411950Allotted
+858728301M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.GMP2225000Allotted
+859729453M067MQ
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-
+OTHERS
+OTH2911950Allotted
+860733818M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.GMPH2225000Allotted
+861734198M095MQ
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-
+OTHERS
+OTH3515000Allotted
+862738882M067MQ
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-
+OTHERS
+OTH2911950Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+863739390M079MQ
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-
+OTHERS
+OTH3211950Allotted
+864739722M044MQ
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-
+OTHERS
+OTH2500000Allotted
+865740185M023MQ
+Adichunchanagiri Institute of 
+Medical Sciences,B.G 
+Nagar,,Bellur, Mandya Dist.
+MBBS-
+OTHERS
+OTH3415000Allotted
+866740291M044MQ
+Bidar Institute of Medical 
+Sciences,Udgir Road,,Bidar
+MBBS-
+OTHERS
+OTH2500000Allotted
+867745386M071MQ
+The Oxford Medical College 
+Hospital and Research 
+Center,Yadavanahalli, Attibele 
+Hobli,Bangalore
+MBBS-
+OTHERS
+OTH3611950Allotted
+868746425M062MQ
+Shymanuru Shivashankarappa 
+Institute Of Medical 
+Sciences,Jnanashankara, NH-
+4,Davangere
+MBBS-
+OTHERS
+OTH3611950Allotted
+869747627M095MQ
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-
+OTHERS
+OTH3515000Allotted
+870750429M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.GMPH2225000Allotted
+871752737M078MQ
+Akash Institute of Medical 
+Sciences and Research 
+Centre,DEVANAHALLI,,BANGA
+LORE
+MBBS-
+OTHERS
+OTH3611950Allotted
+872752823M094MQ
+PES University Institute of 
+Medical Sceinces and 
+Research,Electronic 
+city,BANGALORE
+MBBS-
+OTHERS
+OTH3915000Allotted
+873754373M067MQ
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-
+OTHERS
+OTH2911950Allotted
+874756781M095MQ
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-
+OTHERS
+OTH3515000Allotted
+875758868M083MQ
+Dr. Chandramma Dayananda 
+Sagar Institute of Medical 
+Education,,Harohalli hobli, 
+Kanakapura Rd
+MBBS-
+OTHERS
+OTH3815000Allotted
+876759550M068MQ
+BGS Global Institute of Medical 
+Sciences,# 67, BGS Health & 
+Education,Kengeri, Bangalore
+MBBS-
+OTHERS
+OTH4286950Allotted
+877761598M067MQ
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-
+OTHERS
+OTH2911950Allotted
+878764468M083MQ
+Dr. Chandramma Dayananda 
+Sagar Institute of Medical 
+Education,,Harohalli hobli, 
+Kanakapura Rd
+MBBS-
+OTHERS
+OTH3815000Allotted
+879764610M035MQ
+S. Nijalingappa Medical College 
+and Research Centre,,Bagalkot
+MBBS-
+OTHERS
+OTH4011950Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+880771331M091MP
+SRI CHAMUNDESHWARI 
+MEDICAL COLLEGE, 
+HOSPITAL AND RESEARCH 
+INST,,CHANNAPATNA, 
+RAMANAGARA
+MBBS-PRIV.MA1200117Allotted
+881772546M083MQ
+Dr. Chandramma Dayananda 
+Sagar Institute of Medical 
+Education,,Harohalli hobli, 
+Kanakapura Rd
+MBBS-
+OTHERS
+OTH3815000Allotted
+882773420M054MQ
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-
+OTHERS
+OTH3512650Allotted
+883775536M010MQ
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-
+OTHERS
+OTH4011950Allotted
+884775543M035MQ
+S. Nijalingappa Medical College 
+and Research Centre,,Bagalkot
+MBBS-
+OTHERS
+OTH4011950Allotted
+885776630M043MQ
+Navodaya Medical College,PB 
+No.26, Navodaya 
+Nagar,Raichur
+MBBS-
+OTHERS
+OTH2736950Allotted
+886778508M097MQ
+Farookh Academy of Medical 
+Education Hospital and 
+Research Institute, Mysore 
+Madikeri Road, Near Illavala 
+Hunsur Taluk, Mysore District
+MBBS-
+OTHERS
+OTH3011950Allotted
+887778549M067MQ
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-
+OTHERS
+OTH2911950Allotted
+888778574M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.GMPH2225000Allotted
+889778845M067MQ
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-
+OTHERS
+OTH2911950Allotted
+890779526M062MQ
+Shymanuru Shivashankarappa 
+Institute Of Medical 
+Sciences,Jnanashankara, NH-
+4,Davangere
+MBBS-
+OTHERS
+OTH3611950Allotted
+891781142M078MQ
+Akash Institute of Medical 
+Sciences and Research 
+Centre,DEVANAHALLI,,BANGA
+LORE
+MBBS-
+OTHERS
+OTH3611950Allotted
+892784901M095MQ
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-
+OTHERS
+OTH3515000Allotted
+893788057M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.GMPH2225000Allotted
+894791213M065MP
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-PRIV.GMPH2225000Allotted
+895792491M078MQ
+Akash Institute of Medical 
+Sciences and Research 
+Centre,DEVANAHALLI,,BANGA
+LORE
+MBBS-
+OTHERS
+OTH3611950Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+896801175M069MQ
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-
+OTHERS
+OTH3861950Allotted
+897805252M091MQ
+SRI CHAMUNDESHWARI 
+MEDICAL COLLEGE, 
+HOSPITAL AND RESEARCH 
+INST,,CHANNAPATNA, 
+RAMANAGARA
+MBBS-
+OTHERS
+OTH3001950Allotted
+898810024M079MQ
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-
+OTHERS
+OTH3211950Allotted
+899811252M095MQ
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-
+OTHERS
+OTH3515000Allotted
+900812702M064MQ
+Sapthagiri Institute of Medical 
+Sciences,No.15, 
+chikkasandra,,Bangalore
+MBBS-
+OTHERS
+OTH4540750Allotted
+901815169M071MQ
+The Oxford Medical College 
+Hospital and Research 
+Center,Yadavanahalli, Attibele 
+Hobli,Bangalore
+MBBS-
+OTHERS
+OTH3611950Allotted
+902817449M043MQ
+Navodaya Medical College,PB 
+No.26, Navodaya 
+Nagar,Raichur
+MBBS-
+OTHERS
+OTH2736950Allotted
+903823118M095MQ
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-
+OTHERS
+OTH3515000Allotted
+904824427M079MQ
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-
+OTHERS
+OTH3211950Allotted
+905824596M078MQ
+Akash Institute of Medical 
+Sciences and Research 
+Centre,DEVANAHALLI,,BANGA
+LORE
+MBBS-
+OTHERS
+OTH3611950Allotted
+906828036M069MQ
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-
+OTHERS
+OTH3861950Allotted
+907832555M078MQ
+Akash Institute of Medical 
+Sciences and Research 
+Centre,DEVANAHALLI,,BANGA
+LORE
+MBBS-
+OTHERS
+OTH3611950Allotted
+908833873M095MQ
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-
+OTHERS
+OTH3515000Allotted
+909837830M065MQ
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-
+OTHERS
+OTH2825000Allotted
+910843615M065MQ
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-
+OTHERS
+OTH2825000Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+911849654M069MQ
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-
+OTHERS
+OTH3861950Allotted
+912853088M010MQ
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-
+OTHERS
+OTH4011950Allotted
+913855848M078MQ
+Akash Institute of Medical 
+Sciences and Research 
+Centre,DEVANAHALLI,,BANGA
+LORE
+MBBS-
+OTHERS
+OTH3611950Allotted
+914856837M043MQ
+Navodaya Medical College,PB 
+No.26, Navodaya 
+Nagar,Raichur
+MBBS-
+OTHERS
+OTH2736950Allotted
+915857016M008MQ
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-
+OTHERS
+OTH4011950Allotted
+916859891M071MQ
+The Oxford Medical College 
+Hospital and Research 
+Center,Yadavanahalli, Attibele 
+Hobli,Bangalore
+MBBS-
+OTHERS
+OTH3611950Allotted
+917860717M064MQ
+Sapthagiri Institute of Medical 
+Sciences,No.15, 
+chikkasandra,,Bangalore
+MBBS-
+OTHERS
+OTH4540750Allotted
+918862161M054MQ
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-
+OTHERS
+OTH3512650Allotted
+919868700M062MQ
+Shymanuru Shivashankarappa 
+Institute Of Medical 
+Sciences,Jnanashankara, NH-
+4,Davangere
+MBBS-
+OTHERS
+OTH3611950Allotted
+920869691M081MQ
+East Point College of Medical 
+Sciences and Research 
+Center,,Bangalore
+MBBS-
+OTHERS
+OTH3611950Allotted
+921872855M095MQ
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-
+OTHERS
+OTH3515000Allotted
+922873761M095MQ
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-
+OTHERS
+OTH3515000Allotted
+923877145M069MQ
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-
+OTHERS
+OTH3861950Allotted
+924877193M095MQ
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-
+OTHERS
+OTH3515000Allotted
+925878422M062MQ
+Shymanuru Shivashankarappa 
+Institute Of Medical 
+Sciences,Jnanashankara, NH-
+4,Davangere
+MBBS-
+OTHERS
+OTH3611950Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+926881772M071MQ
+The Oxford Medical College 
+Hospital and Research 
+Center,Yadavanahalli, Attibele 
+Hobli,Bangalore
+MBBS-
+OTHERS
+OTH3611950Allotted
+927882237M062MQ
+Shymanuru Shivashankarappa 
+Institute Of Medical 
+Sciences,Jnanashankara, NH-
+4,Davangere
+MBBS-
+OTHERS
+OTH3611950Allotted
+928883703M008MQ
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-
+OTHERS
+OTH4011950Allotted
+929888463M062MQ
+Shymanuru Shivashankarappa 
+Institute Of Medical 
+Sciences,Jnanashankara, NH-
+4,Davangere
+MBBS-
+OTHERS
+OTH3611950Allotted
+930889433M062MQ
+Shymanuru Shivashankarappa 
+Institute Of Medical 
+Sciences,Jnanashankara, NH-
+4,Davangere
+MBBS-
+OTHERS
+OTH3611950Allotted
+931896104M078MQ
+Akash Institute of Medical 
+Sciences and Research 
+Centre,DEVANAHALLI,,BANGA
+LORE
+MBBS-
+OTHERS
+OTH3611950Allotted
+932901512M095MQ
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-
+OTHERS
+OTH3515000Allotted
+933903722M095MQ
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-
+OTHERS
+OTH3515000Allotted
+934904853M069MQ
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-
+OTHERS
+OTH3861950Allotted
+935912291M062MQ
+Shymanuru Shivashankarappa 
+Institute Of Medical 
+Sciences,Jnanashankara, NH-
+4,Davangere
+MBBS-
+OTHERS
+OTH3611950Allotted
+936913576M008MQ
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-
+OTHERS
+OTH4011950Allotted
+937914841M094MQ
+PES University Institute of 
+Medical Sceinces and 
+Research,Electronic 
+city,BANGALORE
+MBBS-
+OTHERS
+OTH3915000Allotted
+938919453M043MQ
+Navodaya Medical College,PB 
+No.26, Navodaya 
+Nagar,Raichur
+MBBS-
+OTHERS
+OTH2736950Allotted
+939920498M010MQ
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-
+OTHERS
+OTH4011950Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+940924598M078MQ
+Akash Institute of Medical 
+Sciences and Research 
+Centre,DEVANAHALLI,,BANGA
+LORE
+MBBS-
+OTHERS
+OTH3611950Allotted
+941929385M043MQ
+Navodaya Medical College,PB 
+No.26, Navodaya 
+Nagar,Raichur
+MBBS-
+OTHERS
+OTH2736950Allotted
+942931447M095MQ
+BGS Medical College and 
+Hospital(BGS MCH) Nagarur 
+Dasanapura Hobli Banglore 
+North,BANGALORE -562123
+MBBS-
+OTHERS
+OTH3515000Allotted
+943931619M043MQ
+Navodaya Medical College,PB 
+No.26, Navodaya 
+Nagar,Raichur
+MBBS-
+OTHERS
+OTH2736950Allotted
+944934172M078MQ
+Akash Institute of Medical 
+Sciences and Research 
+Centre,DEVANAHALLI,,BANGA
+LORE
+MBBS-
+OTHERS
+OTH3611950Allotted
+945936547M043MQ
+Navodaya Medical College,PB 
+No.26, Navodaya 
+Nagar,Raichur
+MBBS-
+OTHERS
+OTH2736950Allotted
+946936778M065MQ
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-
+OTHERS
+OTH2825000Allotted
+947940030M069MQ
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-
+OTHERS
+OTH3861950Allotted
+948941431M078MQ
+Akash Institute of Medical 
+Sciences and Research 
+Centre,DEVANAHALLI,,BANGA
+LORE
+MBBS-
+OTHERS
+OTH3611950Allotted
+949943439M096MQ
+S R Patil Medical College 
+Hospital and Research 
+Center,Badagandi,BAGALKOT
+MBBS-
+OTHERS
+OTH3011950Allotted
+950948388M023MQ
+Adichunchanagiri Institute of 
+Medical Sciences,B.G 
+Nagar,,Bellur, Mandya Dist.
+MBBS-
+OTHERS
+OTH3415000Allotted
+951948800M094MQ
+PES University Institute of 
+Medical Sceinces and 
+Research,Electronic 
+city,BANGALORE
+MBBS-
+OTHERS
+OTH3915000Allotted
+952950271M069MQ
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-
+OTHERS
+OTH3861950Allotted
+953951028M035MQ
+S. Nijalingappa Medical College 
+and Research Centre,,Bagalkot
+MBBS-
+OTHERS
+OTH4011950Allotted
+954954644M008MQ
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-
+OTHERS
+OTH4011950Allotted
+955954909M065MQ
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-
+OTHERS
+OTH2825000Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+956956630M042MQ
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-
+OTHERS
+OTH3911950Allotted
+957963493M065MQ
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-
+OTHERS
+OTH2825000Allotted
+958963614M067MQ
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-
+OTHERS
+OTH2911950Allotted
+959969863M008MQ
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-
+OTHERS
+OTH4011950Allotted
+960971179M054MQ
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-
+OTHERS
+OTH3512650Allotted
+961971600M078MQ
+Akash Institute of Medical 
+Sciences and Research 
+Centre,DEVANAHALLI,,BANGA
+LORE
+MBBS-
+OTHERS
+OTH3611950Allotted
+962975550M078MQ
+Akash Institute of Medical 
+Sciences and Research 
+Centre,DEVANAHALLI,,BANGA
+LORE
+MBBS-
+OTHERS
+OTH3611950Allotted
+963976632M067MQ
+Subbaiah Institute of Medical 
+Science,NH-13, Purle,,Shimoga
+MBBS-
+OTHERS
+OTH2911950Allotted
+964978486M062MQ
+Shymanuru Shivashankarappa 
+Institute Of Medical 
+Sciences,Jnanashankara, NH-
+4,Davangere
+MBBS-
+OTHERS
+OTH3611950Allotted
+965980036M094MQ
+PES University Institute of 
+Medical Sceinces and 
+Research,Electronic 
+city,BANGALORE
+MBBS-
+OTHERS
+OTH3915000Allotted
+966982915M065MQ
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-
+OTHERS
+OTH2825000Allotted
+967984692M078MQ
+Akash Institute of Medical 
+Sciences and Research 
+Centre,DEVANAHALLI,,BANGA
+LORE
+MBBS-
+OTHERS
+OTH3611950Allotted
+968986467M078MQ
+Akash Institute of Medical 
+Sciences and Research 
+Centre,DEVANAHALLI,,BANGA
+LORE
+MBBS-
+OTHERS
+OTH3611950Allotted
+969988541M079MQ
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-
+OTHERS
+OTH3211950Allotted
+970989240M008MQ
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-
+OTHERS
+OTH4011950Allotted
+971992213M069MQ
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-
+OTHERS
+OTH3861950Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+972996812M069MQ
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-
+OTHERS
+OTH3861950Allotted
+973999712M062MQ
+Shymanuru Shivashankarappa 
+Institute Of Medical 
+Sciences,Jnanashankara, NH-
+4,Davangere
+MBBS-
+OTHERS
+OTH3611950Allotted
+9741000580M078MQ
+Akash Institute of Medical 
+Sciences and Research 
+Centre,DEVANAHALLI,,BANGA
+LORE
+MBBS-
+OTHERS
+OTH3611950Allotted
+9751002460M078MQ
+Akash Institute of Medical 
+Sciences and Research 
+Centre,DEVANAHALLI,,BANGA
+LORE
+MBBS-
+OTHERS
+OTH3611950Allotted
+9761004971M071MQ
+The Oxford Medical College 
+Hospital and Research 
+Center,Yadavanahalli, Attibele 
+Hobli,Bangalore
+MBBS-
+OTHERS
+OTH3611950Allotted
+9771005964M062MQ
+Shymanuru Shivashankarappa 
+Institute Of Medical 
+Sciences,Jnanashankara, NH-
+4,Davangere
+MBBS-
+OTHERS
+OTH3611950Allotted
+9781006206M097MQ
+Farookh Academy of Medical 
+Education Hospital and 
+Research Institute, Mysore 
+Madikeri Road, Near Illavala 
+Hunsur Taluk, Mysore District
+MBBS-
+OTHERS
+OTH3011950Allotted
+9791006360M071MQ
+The Oxford Medical College 
+Hospital and Research 
+Center,Yadavanahalli, Attibele 
+Hobli,Bangalore
+MBBS-
+OTHERS
+OTH3611950Allotted
+9801007925M071MQ
+The Oxford Medical College 
+Hospital and Research 
+Center,Yadavanahalli, Attibele 
+Hobli,Bangalore
+MBBS-
+OTHERS
+OTH3611950Allotted
+9811009748M065MQ
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-
+OTHERS
+OTH2825000Allotted
+9821010578M097MQ
+Farookh Academy of Medical 
+Education Hospital and 
+Research Institute, Mysore 
+Madikeri Road, Near Illavala 
+Hunsur Taluk, Mysore District
+MBBS-
+OTHERS
+OTH3011950Allotted
+9831012228M071MQ
+The Oxford Medical College 
+Hospital and Research 
+Center,Yadavanahalli, Attibele 
+Hobli,Bangalore
+MBBS-
+OTHERS
+OTH3611950Allotted
+9841012250M054MQ
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-
+OTHERS
+OTH3512650Allotted
+9851013451M065MQ
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-
+OTHERS
+OTH2825000Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+9861013738M069MQ
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-
+OTHERS
+OTH3861950Allotted
+9871017240M078MQ
+Akash Institute of Medical 
+Sciences and Research 
+Centre,DEVANAHALLI,,BANGA
+LORE
+MBBS-
+OTHERS
+OTH3611950Allotted
+9881019660M078MQ
+Akash Institute of Medical 
+Sciences and Research 
+Centre,DEVANAHALLI,,BANGA
+LORE
+MBBS-
+OTHERS
+OTH3611950Allotted
+9891022138M023MQ
+Adichunchanagiri Institute of 
+Medical Sciences,B.G 
+Nagar,,Bellur, Mandya Dist.
+MBBS-
+OTHERS
+OTH3415000Allotted
+9901023122M081MQ
+East Point College of Medical 
+Sciences and Research 
+Center,,Bangalore
+MBBS-
+OTHERS
+OTH3611950Allotted
+9911028108M010MQ
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-
+OTHERS
+OTH4011950Allotted
+9921028844M079MQ
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-
+OTHERS
+OTH3211950Allotted
+9931029144M071MQ
+The Oxford Medical College 
+Hospital and Research 
+Center,Yadavanahalli, Attibele 
+Hobli,Bangalore
+MBBS-
+OTHERS
+OTH3611950Allotted
+9941029451M065MQ
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-
+OTHERS
+OTH2825000Allotted
+9951030946M069MQ
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-
+OTHERS
+OTH3861950Allotted
+9961032953M065MQ
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-
+OTHERS
+OTH2825000Allotted
+9971033821M023MQ
+Adichunchanagiri Institute of 
+Medical Sciences,B.G 
+Nagar,,Bellur, Mandya Dist.
+MBBS-
+OTHERS
+OTH3415000Allotted
+9981033965M097MQ
+Farookh Academy of Medical 
+Education Hospital and 
+Research Institute, Mysore 
+Madikeri Road, Near Illavala 
+Hunsur Taluk, Mysore District
+MBBS-
+OTHERS
+OTH3011950Allotted
+9991037595M062MQ
+Shymanuru Shivashankarappa 
+Institute Of Medical 
+Sciences,Jnanashankara, NH-
+4,Davangere
+MBBS-
+OTHERS
+OTH3611950Allotted
+10001037964M069MQ
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-
+OTHERS
+OTH3861950Allotted
+10011038110M071MQ
+The Oxford Medical College 
+Hospital and Research 
+Center,Yadavanahalli, Attibele 
+Hobli,Bangalore
+MBBS-
+OTHERS
+OTH3611950Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+10021038552M069MQ
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-
+OTHERS
+OTH3861950Allotted
+10031039383M042MQ
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-
+OTHERS
+OTH3911950Allotted
+10041040081M010MQ
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-
+OTHERS
+OTH4011950Allotted
+10051042128M097MQ
+Farookh Academy of Medical 
+Education Hospital and 
+Research Institute, Mysore 
+Madikeri Road, Near Illavala 
+Hunsur Taluk, Mysore District
+MBBS-
+OTHERS
+OTH3011950Allotted
+10061042651M094MQ
+PES University Institute of 
+Medical Sceinces and 
+Research,Electronic 
+city,BANGALORE
+MBBS-
+OTHERS
+OTH3915000Allotted
+10071042735M062MQ
+Shymanuru Shivashankarappa 
+Institute Of Medical 
+Sciences,Jnanashankara, NH-
+4,Davangere
+MBBS-
+OTHERS
+OTH3611950Allotted
+10081044981M065MQ
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-
+OTHERS
+OTH2825000Allotted
+10091046546M071MQ
+The Oxford Medical College 
+Hospital and Research 
+Center,Yadavanahalli, Attibele 
+Hobli,Bangalore
+MBBS-
+OTHERS
+OTH3611950Allotted
+10101047012M065MQ
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-
+OTHERS
+OTH2825000Allotted
+10111047720M065MQ
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-
+OTHERS
+OTH2825000Allotted
+10121051846M069MQ
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-
+OTHERS
+OTH3861950Allotted
+10131054643M010MQ
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-
+OTHERS
+OTH4011950Allotted
+10141057129M079MQ
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-
+OTHERS
+OTH3211950Allotted
+10151057929M054MQ
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-
+OTHERS
+OTH3512650Allotted
+10161058684M094MQ
+PES University Institute of 
+Medical Sceinces and 
+Research,Electronic 
+city,BANGALORE
+MBBS-
+OTHERS
+OTH3915000Allotted
+10171059982M069MQ
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-
+OTHERS
+OTH3861950Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+10181062868M065MQ
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-
+OTHERS
+OTH2825000Allotted
+10191064442M094MQ
+PES University Institute of 
+Medical Sceinces and 
+Research,Electronic 
+city,BANGALORE
+MBBS-
+OTHERS
+OTH3915000Allotted
+10201065620M094MQ
+PES University Institute of 
+Medical Sceinces and 
+Research,Electronic 
+city,BANGALORE
+MBBS-
+OTHERS
+OTH3915000Allotted
+10211067690M071MQ
+The Oxford Medical College 
+Hospital and Research 
+Center,Yadavanahalli, Attibele 
+Hobli,Bangalore
+MBBS-
+OTHERS
+OTH3611950Allotted
+10221068396M078MQ
+Akash Institute of Medical 
+Sciences and Research 
+Centre,DEVANAHALLI,,BANGA
+LORE
+MBBS-
+OTHERS
+OTH3611950Allotted
+10231069455M062MQ
+Shymanuru Shivashankarappa 
+Institute Of Medical 
+Sciences,Jnanashankara, NH-
+4,Davangere
+MBBS-
+OTHERS
+OTH3611950Allotted
+10241069588M065MQ
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-
+OTHERS
+OTH2825000Allotted
+10251069986M094MQ
+PES University Institute of 
+Medical Sceinces and 
+Research,Electronic 
+city,BANGALORE
+MBBS-
+OTHERS
+OTH3915000Allotted
+10261072110M065MQ
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-
+OTHERS
+OTH2825000Allotted
+10271074237M065MQ
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-
+OTHERS
+OTH2825000Allotted
+10281078740M062MQ
+Shymanuru Shivashankarappa 
+Institute Of Medical 
+Sciences,Jnanashankara, NH-
+4,Davangere
+MBBS-
+OTHERS
+OTH3611950Allotted
+10291082100M069MQ
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-
+OTHERS
+OTH3861950Allotted
+10301083706M078MQ
+Akash Institute of Medical 
+Sciences and Research 
+Centre,DEVANAHALLI,,BANGA
+LORE
+MBBS-
+OTHERS
+OTH3611950Allotted
+10311087688M069MQ
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-
+OTHERS
+OTH3861950Allotted
+10321089130M078MQ
+Akash Institute of Medical 
+Sciences and Research 
+Centre,DEVANAHALLI,,BANGA
+LORE
+MBBS-
+OTHERS
+OTH3611950Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+10331089669M054MQ
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-
+OTHERS
+OTH3512650Allotted
+10341089813M079MQ
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-
+OTHERS
+OTH3211950Allotted
+10351092281M065MQ
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-
+OTHERS
+OTH2825000Allotted
+10361099798M065MQ
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-
+OTHERS
+OTH2825000Allotted
+10371099865M078MQ
+Akash Institute of Medical 
+Sciences and Research 
+Centre,DEVANAHALLI,,BANGA
+LORE
+MBBS-
+OTHERS
+OTH3611950Allotted
+10381100141M065MQ
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-
+OTHERS
+OTH2825000Allotted
+10391101486M071MQ
+The Oxford Medical College 
+Hospital and Research 
+Center,Yadavanahalli, Attibele 
+Hobli,Bangalore
+MBBS-
+OTHERS
+OTH3611950Allotted
+10401104913M078MQ
+Akash Institute of Medical 
+Sciences and Research 
+Centre,DEVANAHALLI,,BANGA
+LORE
+MBBS-
+OTHERS
+OTH3611950Allotted
+10411107044M069MQ
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-
+OTHERS
+OTH3861950Allotted
+10421112509M094MQ
+PES University Institute of 
+Medical Sceinces and 
+Research,Electronic 
+city,BANGALORE
+MBBS-
+OTHERS
+OTH3915000Allotted
+10431115535M069MQ
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-
+OTHERS
+OTH3861950Allotted
+10441116482M065MQ
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-
+OTHERS
+OTH2825000Allotted
+10451116684M097MQ
+Farookh Academy of Medical 
+Education Hospital and 
+Research Institute, Mysore 
+Madikeri Road, Near Illavala 
+Hunsur Taluk, Mysore District
+MBBS-
+OTHERS
+OTH3011950Allotted
+10461119748M065MQ
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-
+OTHERS
+OTH2825000Allotted
+10471127005M062MQ
+Shymanuru Shivashankarappa 
+Institute Of Medical 
+Sciences,Jnanashankara, NH-
+4,Davangere
+MBBS-
+OTHERS
+OTH3611950Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+10481127134M054MQ
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-
+OTHERS
+OTH3512650Allotted
+10491141308M094MQ
+PES University Institute of 
+Medical Sceinces and 
+Research,Electronic 
+city,BANGALORE
+MBBS-
+OTHERS
+OTH3915000Allotted
+10501154152M065MQ
+Srinivasa Institute of Medical 
+Research Center Srinivas Nagar 
+Mangalore 
+MBBS-
+OTHERS
+OTH2825000Allotted
+10511156574M008MQ
+M.V.J.Medical College and 
+Research Hospital,NH-4, 
+Dandupalya, Kolathur 
+-,Channasandra, Bangalore
+MBBS-
+OTHERS
+OTH4011950Allotted
+10521161036M094MQ
+PES University Institute of 
+Medical Sceinces and 
+Research,Electronic 
+city,BANGALORE
+MBBS-
+OTHERS
+OTH3915000Allotted
+10531161176M042MQ
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-
+OTHERS
+OTH3911950Allotted
+10541163299M094MQ
+PES University Institute of 
+Medical Sceinces and 
+Research,Electronic 
+city,BANGALORE
+MBBS-
+OTHERS
+OTH3915000Allotted
+10551166133M097MQ
+Farookh Academy of Medical 
+Education Hospital and 
+Research Institute, Mysore 
+Madikeri Road, Near Illavala 
+Hunsur Taluk, Mysore District
+MBBS-
+OTHERS
+OTH3011950Allotted
+10561172524M097MQ
+Farookh Academy of Medical 
+Education Hospital and 
+Research Institute, Mysore 
+Madikeri Road, Near Illavala 
+Hunsur Taluk, Mysore District
+MBBS-
+OTHERS
+OTH3011950Allotted
+10571177749M069MQ
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-
+OTHERS
+OTH3861950Allotted
+10581179584M094MQ
+PES University Institute of 
+Medical Sceinces and 
+Research,Electronic 
+city,BANGALORE
+MBBS-
+OTHERS
+OTH3915000Allotted
+10591182231M096MQ
+S R Patil Medical College 
+Hospital and Research 
+Center,Badagandi,BAGALKOT
+MBBS-
+OTHERS
+OTH3011950Allotted
+10601186232M081MQ
+East Point College of Medical 
+Sciences and Research 
+Center,,Bangalore
+MBBS-
+OTHERS
+OTH3611950Allotted
+10611189221M010MQ
+A.J.Institute of Medical 
+Sciences,NH - 66, 
+Kuntikana,Mangalore
+MBBS-
+OTHERS
+OTH4011950Allotted
+10621194962M079MQ
+Kanachur Institute of Medical 
+Sciences and Research 
+Centre,UNIVERSITY 
+ROAD,MANGALORE
+MBBS-
+OTHERS
+OTH3211950Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+10631198006M096MQ
+S R Patil Medical College 
+Hospital and Research 
+Center,Badagandi,BAGALKOT
+MBBS-
+OTHERS
+OTH3011950Allotted
+10641200642M096MQ
+S R Patil Medical College 
+Hospital and Research 
+Center,Badagandi,BAGALKOT
+MBBS-
+OTHERS
+OTH3011950Allotted
+10651203077M094MQ
+PES University Institute of 
+Medical Sceinces and 
+Research,Electronic 
+city,BANGALORE
+MBBS-
+OTHERS
+OTH3915000Allotted
+10661218453M071MQ
+The Oxford Medical College 
+Hospital and Research 
+Center,Yadavanahalli, Attibele 
+Hobli,Bangalore
+MBBS-
+OTHERS
+OTH3611950Allotted
+10671222816M081MQ
+East Point College of Medical 
+Sciences and Research 
+Center,,Bangalore
+MBBS-
+OTHERS
+OTH3611950Allotted
+10681229858M094MQ
+PES University Institute of 
+Medical Sceinces and 
+Research,Electronic 
+city,BANGALORE
+MBBS-
+OTHERS
+OTH3915000Allotted
+10691236566M081MQ
+East Point College of Medical 
+Sciences and Research 
+Center,,Bangalore
+MBBS-
+OTHERS
+OTH3611950Allotted
+10701247266M081MQ
+East Point College of Medical 
+Sciences and Research 
+Center,,Bangalore
+MBBS-
+OTHERS
+OTH3611950Allotted
+10711250958M096MQ
+S R Patil Medical College 
+Hospital and Research 
+Center,Badagandi,BAGALKOT
+MBBS-
+OTHERS
+OTH3011950Allotted
+10721258329M094MQ
+PES University Institute of 
+Medical Sceinces and 
+Research,Electronic 
+city,BANGALORE
+MBBS-
+OTHERS
+OTH3915000Allotted
+10731279436M069MQ
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-
+OTHERS
+OTH3861950Allotted
+10741281981M094MQ
+PES University Institute of 
+Medical Sceinces and 
+Research,Electronic 
+city,BANGALORE
+MBBS-
+OTHERS
+OTH3915000Allotted
+10751282692M096MQ
+S R Patil Medical College 
+Hospital and Research 
+Center,Badagandi,BAGALKOT
+MBBS-
+OTHERS
+OTH3011950Allotted
+10761283648M054MQ
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-
+OTHERS
+OTH3512650Allotted
+10771285588M069MQ
+Shridevi Institute of Medical 
+Sciences and Research 
+Hospital,Sira Road,,Tumkur
+MBBS-
+OTHERS
+OTH3861950Allotted
+10781286470M054MQ
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-
+OTHERS
+OTH3512650Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]
+
+SL.NO
+All India 
+Rank
+Course CodeName of the College Allotted.Course Name
+Allotted 
+Category
+Course_feesStatus
+10791292134M054MQ
+K.Venkataramana Gowda 
+Medical College and 
+Hospital,Kurunjibag,,Dakshina 
+Kannada
+MBBS-
+OTHERS
+OTH3512650Allotted
+10801310859M042MQ
+Mahadevappa Rampure 
+Medical College,Mahadevappa 
+Rampure Marg,Kalaburgi
+MBBS-
+OTHERS
+OTH3911950Allotted
+UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
+B£eLBVĸsďe¤eÎĩe\
+Karnataka Examinations Authority
+As per the Orders of Hon'ble High Court in WP No.31934/2025 and related Writ Petitions 32428,32391,32510,32519 
+ Final result of the 3rd round medical  seat allotment list  PUBLISHED ON [08-12-2025]

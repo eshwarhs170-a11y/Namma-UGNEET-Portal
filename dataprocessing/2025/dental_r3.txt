@@ -11,22 +11,22 @@ Course_feesStatus
 Government Dental
 College,Victoria Hospital
 Premises,Bangalore
-BDS-GOVT. GM4 9350 Allotted
+BDS-GOVT. GM 49350 Allotted
 2 92910 D101DG 
 Government Dental
 College,Victoria Hospital
 Premises,Bangalore
-BDS-GOVT. GM4 9350 Allotted
+BDS-GOVT. GM 49350 Allotted
 3 105473 D101DG 
 Government Dental
 College,Victoria Hospital
 Premises,Bangalore
-BDS-GOVT. GM4 9350 Allotted
+BDS-GOVT. GM 49350 Allotted
 4 106491 D101DG 
 Government Dental
 College,Victoria Hospital
 Premises,Bangalore
-BDS-GOVT. GM4 9350 Allotted
+BDS-GOVT. GM 49350 Allotted
 5 110307 D101DG 
 Government Dental
 College,Victoria Hospital
@@ -36,7 +36,7 @@ BDS-GOVT. 2AG 49350 Allotted
 Dr.M.R.Ambedkar Dental
 College and Hospital,1/36, Cline
 Road,,Bangalore
-BDS-GOVT. GM9 5308 Allotted
+BDS-GOVT. GM 95308 Allotted
 7 124813 D448DG 
 Government Dental College and
 Research Institute,Cantonment
@@ -56,11 +56,11 @@ K.Venkataramana Gowda
 Dental College Hospital and
 Research Centre,Kurunji
 Bagh,,Dakshina Kannada
-BDS-OTHERSOTH 31 1950 Allotted
+BDS-OTHERSOTH 3 11950 Allotted
 11 131750 D225DG 
 Sri. Hasanamba Dental College
 and Hospital,No.86,Hassan
-BDS-GOVT. GM9 5308 Allotted
+BDS-GOVT. GM 95308 Allotted
 12 137841 D448DG 
 Government Dental College and
 Research Institute,Cantonment
@@ -71,7 +71,7 @@ Vydehi Institute of Dental
 Sciences and Research
 Centre,82, EPIP Area, Nallura
 Halli,,Bangalore
-BDS-GOVT. GM9 5308 Allotted
+BDS-GOVT. GM 95308 Allotted
 14 145804 D448DG 
 Government Dental College and
 Research Institute,Cantonment
@@ -81,22 +81,22 @@ BDS-GOVT. GMH 49350 Allotted
 Dr.M.R.Ambedkar Dental
 College and Hospital,1/36, Cline
 Road,,Bangalore
-BDS-GOVT. GM9 5308 Allotted
+BDS-GOVT. GM 95308 Allotted
 16 151562 D666DG 
 Employees State Insurance
 Corporation Dental
 College,,Gulbarga
-BDS-GOVT. GM1 09350 Allotted
+BDS-GOVT. GM 109350 Allotted
 17 152527 D111DG 
 Dayananda Sagar College of
 Dental Sciences,Shavige
 Malleshwara Hills,,Bangalore
-BDS-GOVT. GM9 5308 Allotted
+BDS-GOVT. GM 95308 Allotted
 18 157913 D103DG 
 Vokkaligara Sangha Dental
 College and Hospital,K R
 Road,,Bangalore
-BDS-GOVT. GM9 5308 Allotted
+BDS-GOVT. GM 95308 Allotted
 UGNEET -2025 DENTAL  3rd Round Final  Seat Allotment List
 B£eLBVĸsďe¤eÎĩe\
 Karnataka Examinations Authority
@@ -113,27 +113,27 @@ Course_feesStatus
 19 164537 D113DG 
 Sri Rajiv Gandhi Dental
 College,Chola Nagar,,Bangalore
-BDS-GOVT. GM9 5308 Allotted
+BDS-GOVT. GM 95308 Allotted
 20 187384 D337DG 
 Sri Dharmasthala
 Manjunatheswara Dental
 College,Dhavalanagar,,Dharwa
 d
-BDS-GOVT. GM9 5308 Allotted
+BDS-GOVT. GM 95308 Allotted
 21 192946 D662DG 
 College of Dental Sciences,PB
 No.327,Davangere
-BDS-GOVT. GM9 5308 Allotted
+BDS-GOVT. GM 95308 Allotted
 22 194193 D111DG 
 Dayananda Sagar College of
 Dental Sciences,Shavige
 Malleshwara Hills,,Bangalore
-BDS-GOVT. GM9 5308 Allotted
+BDS-GOVT. GM 95308 Allotted
 23 194845 D111DG 
 Dayananda Sagar College of
 Dental Sciences,Shavige
 Malleshwara Hills,,Bangalore
-BDS-GOVT. GM9 5308 Allotted
+BDS-GOVT. GM 95308 Allotted
 24 199123 D111DG 
 Dayananda Sagar College of
 Dental Sciences,Shavige
@@ -143,40 +143,40 @@ BDS-GOVT. 2AG 95308 Allotted
 Raja Rajeshwari Dental College
 and Hospital,No.14 ,Ramohalli
 Cross,,Bangalore
-BDS-GOVT. GM9 5308 Allotted
+BDS-GOVT. GM 95308 Allotted
 26 201540 D112DG 
 Oxford Dental
 College,Bommanahalli,,Bangalo
 re
-BDS-GOVT. GM9 5308 Allotted
+BDS-GOVT. GM 95308 Allotted
 27 201922 D112DG 
 Oxford Dental
 College,Bommanahalli,,Bangalo
 re
-BDS-GOVT. GM9 5308 Allotted
+BDS-GOVT. GM 95308 Allotted
 28 202121 D673DG 
 BGS Global Institute of Dental
 Sciences and Hospital, No. 69
 BGS Health Education City
 Uttarahalli road Kengeri pin
 560060,banglore
-BDS-GOVT. GM9 5308 Allotted
+BDS-GOVT. GM 95308 Allotted
 29 203300 D116DG 
 Krishnadevaraya College of
 Dental
 Sciences,Krishnadevaraya
 Nagar,HM halli, Road,
 Bangalore
-BDS-GOVT. GM9 5308 Allotted
+BDS-GOVT. GM 95308 Allotted
 30 205301 D662DG 
 College of Dental Sciences,PB
 No.327,Davangere
-BDS-GOVT. GM9 5308 Allotted
+BDS-GOVT. GM 95308 Allotted
 31 208713 D663DG 
 Sharavathi Dental
 College,Alkola, T H
 Road,,Shimoga
-BDS-GOVT. GM9 5308 Allotted
+BDS-GOVT. GM 95308 Allotted
 32 209637 D102DP 
 Dr.M.R.Ambedkar Dental
 College and Hospital,1/36, Cline
@@ -192,7 +192,7 @@ subjected to final outcome of
 W.P.NO 20558/2023 & also the
 approval by the DCI/ Apex Body
 )
-BDS-GOVT. GM9 5308 Allotted
+BDS-GOVT. GM 95308 Allotted
 34 212884 D103DP 
 Vokkaligara Sangha Dental
 College and Hospital,K R
@@ -216,7 +216,7 @@ Sri Dharmasthala
 Manjunatheswara Dental
 College,Dhavalanagar,,Dharwa
 d
-BDS-GOVT. GM9 5308 Allotted
+BDS-GOVT. GM 95308 Allotted
 36 216529 D104DP 
 M.S.Ramaiah Univerisity of
 Applied Sciences,MSR
@@ -226,18 +226,18 @@ BDS-PRIV. GMP 654650 Allotted
 Sri Jagadguru Murugharajendra
 Dental College & Hospital,P B
 Road,Chitradurga
-BDS-GOVT. GM9 5308 Allotted
+BDS-GOVT. GM 95308 Allotted
 38 220335 D337DG 
 Sri Dharmasthala
 Manjunatheswara Dental
 College,Dhavalanagar,,Dharwa
 d
-BDS-GOVT. GM9 5308 Allotted
+BDS-GOVT. GM 95308 Allotted
 39 220932 D664DG 
 Sri Jagadguru Murugharajendra
 Dental College & Hospital,P B
 Road,Chitradurga
-BDS-GOVT. GM9 5308 Allotted
+BDS-GOVT. GM 95308 Allotted
 40 226956 D120DG 
 Venkateswara Dental
 College,Kariappanahalli, Anekal
@@ -253,7 +253,7 @@ Coorg Institute of Dental
 Sciences,Kanjitanda
 Kushalappa Campus,, Coorg
 District
-BDS-GOVT. GM9 5308 Allotted
+BDS-GOVT. GM 95308 Allotted
 43 237593 D101DG 
 Government Dental
 College,Victoria Hospital
@@ -268,7 +268,7 @@ BDS-GOVT. GMR 95308 Allotted
 Bapuji Dental College and
 Hospital,M C C, B
 Block,Davangere
-BDS-GOVT. GM9 5308 Allotted
+BDS-GOVT. GM 95308 Allotted
 46 239954 D448DG 
 Government Dental College and
 Research Institute,Cantonment
@@ -294,7 +294,7 @@ subjected to final outcome of
 W.P.NO 20558/2023 & also the
 approval by the DCI/ Apex Body
 )
-BDS-PRIV. MM2 81950 Allotted
+BDS-PRIV. MM 281950 Allotted
 UGNEET -2025 DENTAL  3rd Round Final  Seat Allotment List
 B£eLBVĸsďe¤eÎĩe\
 Karnataka Examinations Authority
@@ -312,7 +312,7 @@ Course_feesStatus
 Bapuji Dental College and
 Hospital,M C C, B
 Block,Davangere
-BDS-OTHERSOTH 31 6950 Allotted
+BDS-OTHERSOTH 3 16950 Allotted
 51 254500 D111DP 
 Dayananda Sagar College of
 Dental Sciences,Shavige
@@ -333,12 +333,12 @@ PM Nadagowda Memorial
 Dental College and
 Hospital,Raichur
 Road,,Bagalkot
-BDS-GOVT. GM9 5308 Allotted
+BDS-GOVT. GM 95308 Allotted
 55 259705 D661DG 
 Bapuji Dental College and
 Hospital,M C C, B
 Block,Davangere
-BDS-GOVT. GM9 5308 Allotted
+BDS-GOVT. GM 95308 Allotted
 56 259934 D113DG 
 Sri Rajiv Gandhi Dental
 College,Chola Nagar,,Bangalore
@@ -366,7 +366,7 @@ BDS-PRIV. OPN 236950 Allotted
 M.S.Ramaiah Univerisity of
 Applied Sciences,MSR
 Nagar,,Bangalore
-BDS-OTHERSOTH 65 4650 Allotted
+BDS-OTHERSOTH 6 54650 Allotted
 62 282311 D556DP 
 A.J. Institute of Dental
 Sciences,NH-66,,Mangalore
@@ -376,7 +376,7 @@ PM Nadagowda Memorial
 Dental College and
 Hospital,Raichur
 Road,,Bagalkot
-BDS-OTHERSOTH 36 1950 Allotted
+BDS-OTHERSOTH 3 61950 Allotted
 64 297517 D113DG 
 Sri Rajiv Gandhi Dental
 College,Chola Nagar,,Bangalore
@@ -396,7 +396,7 @@ BDS-PRIV. GMP 311950 Allotted
 Dr.M.R.Ambedkar Dental
 College and Hospital,1/36, Cline
 Road,,Bangalore
-BDS-GOVT. 1G9 5308 Allotted
+BDS-GOVT. 1G 95308 Allotted
 UGNEET -2025 DENTAL  3rd Round Final  Seat Allotment List
 B£eLBVĸsďe¤eÎĩe\
 Karnataka Examinations Authority
@@ -445,7 +445,7 @@ BDS-GOVT. GMH 95308 Allotted
 Navodaya Dental College,PB
 No. 26,Navodaya
 Nagar,,Raichur
-BDS-OTHERSOTH 26 1950 Allotted
+BDS-OTHERSOTH 2 61950 Allotted
 75 339716 D673DP 
 BGS Global Institute of Dental
 Sciences and Hospital, No. 69
@@ -475,7 +475,7 @@ K.Venkataramana Gowda
 Dental College Hospital and
 Research Centre,Kurunji
 Bagh,,Dakshina Kannada
-BDS-OTHERSOTH 31 1950 Allotted
+BDS-OTHERSOTH 3 11950 Allotted
 80 350621 D442DP 
 Hyderabad Karnataka
 Education Societies Dental
@@ -509,7 +509,7 @@ subjected to final outcome of
 W.P.NO 20558/2023 & also the
 approval by the DCI/ Apex Body
 )
-BDS-OTHERSOTH 28 1950 Allotted
+BDS-OTHERSOTH 2 81950 Allotted
 83 352434 D102DP 
 Dr.M.R.Ambedkar Dental
 College and Hospital,1/36, Cline
@@ -605,12 +605,12 @@ Course_feesStatus
 Hyderabad Karnataka
 Education Societies Dental
 College,Sedam Road,,Gulbarga
-BDS-PRIV.GMPH261950Allotted
+BDS-PRIV. GMPH 261950 Allotted
 100 386447 D447DQ 
 Navodaya Dental College,PB
 No. 26,Navodaya
 Nagar,,Raichur
-BDS-OTHERSOTH 26 1950 Allotted
+BDS-OTHERSOTH 2 61950 Allotted
 101 393048 D444DP 
 HKDET`S Dental College
 Hospital,Kalur Road,Humnabad,
@@ -664,7 +664,7 @@ BDS-PRIV. OPN 329850 Allotted
 K L E S Institute of Dental
 Sciences,No. 20, Yeshwanthpur
 Suburb,,Bangalore
-BDS-OTHERSOTH 51 1950 Allotted
+BDS-OTHERSOTH 5 11950 Allotted
 112 425340 D112DP 
 Oxford Dental
 College,Bommanahalli,,Bangalo
@@ -673,7 +673,7 @@ BDS-PRIV. OPN 511950 Allotted
 113 426045 D333DP 
 Al-Ameen Dental College,Athani
 Road,Bijapur
-BDS-PRIV.GMPH236950Allotted
+BDS-PRIV. GMPH 236950 Allotted
 114 426335 D446DP 
 Academy of Medical Education
 Dental College,Near
@@ -683,7 +683,7 @@ BDS-PRIV. GMP 261950 Allotted
 115 429985 D665DP 
 Subbaiah Institute of Dental
 Sciences,NH-13, Purle,Shimoga
-BDS-PRIV.GMPH286950Allotted
+BDS-PRIV. GMPH 286950 Allotted
 116 433580 D673DP 
 BGS Global Institute of Dental
 Sciences and Hospital, No. 69
@@ -726,17 +726,17 @@ Academy of Medical Education
 Dental College,Near
 Government
 Polytechnic,Raichur
-BDS-OTHERSOTH 26 1950 Allotted
+BDS-OTHERSOTH 2 61950 Allotted
 121 444597 D121DQ 
 K.G.F. College of Dental
 Sciences,No 36, D K
 Plantation,K.G.F.
-BDS-OTHERSOTH 32 9850 Allotted
+BDS-OTHERSOTH 3 29850 Allotted
 122 445313 D120DQ 
 Venkateswara Dental
 College,Kariappanahalli, Anekal
 Road,,Bangalore
-BDS-OTHERSOTH 36 1950 Allotted
+BDS-OTHERSOTH 3 61950 Allotted
 123 446057 D103DP 
 Vokkaligara Sangha Dental
 College and Hospital,K R
@@ -762,7 +762,7 @@ K.Venkataramana Gowda
 Dental College Hospital and
 Research Centre,Kurunji
 Bagh,,Dakshina Kannada
-BDS-OTHERSOTH 31 1950 Allotted
+BDS-OTHERSOTH 3 11950 Allotted
 128 473952 D673DP 
 BGS Global Institute of Dental
 Sciences and Hospital, No. 69
@@ -810,7 +810,7 @@ BDS-PRIV. OPN 431950 Allotted
 Dr.M.R.Ambedkar Dental
 College and Hospital,1/36, Cline
 Road,,Bangalore
-BDS-OTHERSOTH 48 6950 Allotted
+BDS-OTHERSOTH 4 86950 Allotted
 134 521852 D557DG 
 Srinivasa Institute of Dental
 Science,Srinivas Nagar,
@@ -826,12 +826,12 @@ BDS-PRIV. GMP 311950 Allotted
 Dr.M.R.Ambedkar Dental
 College and Hospital,1/36, Cline
 Road,,Bangalore
-BDS-OTHERSOTH 48 6950 Allotted
+BDS-OTHERSOTH 4 86950 Allotted
 137 530165 D443DQ 
 Al Badar Dental College and
 Hospital,Sy No.12, Daryapur
 Village,Gulbarga
-BDS-OTHERSOTH 31 1950 Allotted
+BDS-OTHERSOTH 3 11950 Allotted
 138 530947 D551DP 
 Coorg Institute of Dental
 Sciences,Kanjitanda
@@ -848,12 +848,12 @@ Academy of Medical Education
 Dental College,Near
 Government
 Polytechnic,Raichur
-BDS-OTHERSOTH 26 1950 Allotted
+BDS-OTHERSOTH 2 61950 Allotted
 141 548848 D102DQ 
 Dr.M.R.Ambedkar Dental
 College and Hospital,1/36, Cline
 Road,,Bangalore
-BDS-OTHERSOTH 48 6950 Allotted
+BDS-OTHERSOTH 4 86950 Allotted
 142 557501 D120DP 
 Venkateswara Dental
 College,Kariappanahalli, Anekal
@@ -867,22 +867,22 @@ BDS-PRIV. GMP 329850 Allotted
 144 561928 D225DQ 
 Sri. Hasanamba Dental College
 and Hospital,No.86,Hassan
-BDS-OTHERSOTH 39 1950 Allotted
+BDS-OTHERSOTH 3 91950 Allotted
 145 564672 D120DQ 
 Venkateswara Dental
 College,Kariappanahalli, Anekal
 Road,,Bangalore
-BDS-OTHERSOTH 36 1950 Allotted
+BDS-OTHERSOTH 3 61950 Allotted
 146 570458 D111DQ 
 Dayananda Sagar College of
 Dental Sciences,Shavige
 Malleshwara Hills,,Bangalore
-BDS-OTHERSOTH 56 1950 Allotted
+BDS-OTHERSOTH 5 61950 Allotted
 147 578989 D444DP 
 HKDET`S Dental College
 Hospital,Kalur Road,Humnabad,
 Bidar Dist
-BDS-PRIV.GMPH261950Allotted
+BDS-PRIV. GMPH 261950 Allotted
 148 583856 D102DG 
 Dr.M.R.Ambedkar Dental
 College and Hospital,1/36, Cline
@@ -905,12 +905,12 @@ Course_feesStatus
 HKDET`S Dental College
 Hospital,Kalur Road,Humnabad,
 Bidar Dist
-BDS-OTHERSOTH 31 1950 Allotted
+BDS-OTHERSOTH 3 11950 Allotted
 150 587517 D121DQ 
 K.G.F. College of Dental
 Sciences,No 36, D K
 Plantation,K.G.F.
-BDS-OTHERSOTH 32 9850 Allotted
+BDS-OTHERSOTH 3 29850 Allotted
 151 588789 D102DP 
 Dr.M.R.Ambedkar Dental
 College and Hospital,1/36, Cline
@@ -926,12 +926,12 @@ PM Nadagowda Memorial
 Dental College and
 Hospital,Raichur
 Road,,Bagalkot
-BDS-OTHERSOTH 36 1950 Allotted
+BDS-OTHERSOTH 3 61950 Allotted
 154 597932 D111DQ 
 Dayananda Sagar College of
 Dental Sciences,Shavige
 Malleshwara Hills,,Bangalore
-BDS-OTHERSOTH 56 1950 Allotted
+BDS-OTHERSOTH 5 61950 Allotted
 155 604833 D555DP 
 K.Venkataramana Gowda
 Dental College Hospital and
@@ -969,7 +969,7 @@ BDS-PRIV. OPN 511950 Allotted
 HKDET`S Dental College
 Hospital,Kalur Road,Humnabad,
 Bidar Dist
-BDS-OTHERSOTH 31 1950 Allotted
+BDS-OTHERSOTH 3 11950 Allotted
 161 626796 D673DP 
 BGS Global Institute of Dental
 Sciences and Hospital, No. 69
@@ -982,7 +982,7 @@ PM Nadagowda Memorial
 Dental College and
 Hospital,Raichur
 Road,,Bagalkot
-BDS-OTHERSOTH 36 1950 Allotted
+BDS-OTHERSOTH 3 61950 Allotted
 163 633306 D113DP 
 Sri Rajiv Gandhi Dental
 College,Chola Nagar,,Bangalore
@@ -1010,7 +1010,7 @@ BDS-PRIV. GMP 511950 Allotted
 M.S.Ramaiah Univerisity of
 Applied Sciences,MSR
 Nagar,,Bangalore
-BDS-OTHERSOTH 65 4650 Allotted
+BDS-OTHERSOTH 6 54650 Allotted
 166 641068 D551DP 
 Coorg Institute of Dental
 Sciences,Kanjitanda
@@ -1029,32 +1029,32 @@ K.Venkataramana Gowda
 Dental College Hospital and
 Research Centre,Kurunji
 Bagh,,Dakshina Kannada
-BDS-OTHERSOTH 31 1950 Allotted
+BDS-OTHERSOTH 3 11950 Allotted
 169 647677 D444DQ 
 HKDET`S Dental College
 Hospital,Kalur Road,Humnabad,
 Bidar Dist
-BDS-OTHERSOTH 31 1950 Allotted
+BDS-OTHERSOTH 3 11950 Allotted
 170 655937 D661DP 
 Bapuji Dental College and
 Hospital,M C C, B
 Block,Davangere
-BDS-PRIV.GMPH316950Allotted
+BDS-PRIV. GMPH 316950 Allotted
 171 663394 D114DQ 
 Raja Rajeshwari Dental College
 and Hospital,No.14 ,Ramohalli
 Cross,,Bangalore
-BDS-OTHERSOTH 46 1950 Allotted
+BDS-OTHERSOTH 4 61950 Allotted
 172 666068 D121DQ 
 K.G.F. College of Dental
 Sciences,No 36, D K
 Plantation,K.G.F.
-BDS-OTHERSOTH 32 9850 Allotted
+BDS-OTHERSOTH 3 29850 Allotted
 173 666084 D104DQ 
 M.S.Ramaiah Univerisity of
 Applied Sciences,MSR
 Nagar,,Bangalore
-BDS-OTHERSOTH 65 4650 Allotted
+BDS-OTHERSOTH 6 54650 Allotted
 174 673292 D115DP 
 Rashtreeya Vidyalaya Dental
 College,No CA-37, 24th
@@ -1069,7 +1069,7 @@ BDS-PRIV. GMP 446950 Allotted
 HKDET`S Dental College
 Hospital,Kalur Road,Humnabad,
 Bidar Dist
-BDS-PRIV.GMPH261950Allotted
+BDS-PRIV. GMPH 261950 Allotted
 177 686411 D111DP 
 Dayananda Sagar College of
 Dental Sciences,Shavige
@@ -1079,13 +1079,13 @@ BDS-PRIV. GMP 561950 Allotted
 Bangalore Institute of Dental
 Sciences & Hospital,5/3 Hosur
 Main Road,,Bangalore
-BDS-OTHERSOTH 48 6950 Allotted
+BDS-OTHERSOTH 4 86950 Allotted
 179 689373 D555DQ 
 K.Venkataramana Gowda
 Dental College Hospital and
 Research Centre,Kurunji
 Bagh,,Dakshina Kannada
-BDS-OTHERSOTH 31 1950 Allotted
+BDS-OTHERSOTH 3 11950 Allotted
 UGNEET -2025 DENTAL  3rd Round Final  Seat Allotment List
 B£eLBVĸsďe¤eÎĩe\
 Karnataka Examinations Authority
@@ -1114,7 +1114,7 @@ Sciences and Hospital, No. 69
 BGS Health Education City
 Uttarahalli road Kengeri pin
 560060,banglore
-BDS-OTHERSOTH 81 1950 Allotted
+BDS-OTHERSOTH 8 11950 Allotted
 183 698371 D111DP 
 Dayananda Sagar College of
 Dental Sciences,Shavige
@@ -1124,7 +1124,7 @@ BDS-PRIV. GMP 561950 Allotted
 HKDET`S Dental College
 Hospital,Kalur Road,Humnabad,
 Bidar Dist
-BDS-OTHERSOTH 31 1950 Allotted
+BDS-OTHERSOTH 3 11950 Allotted
 185 710870 D113DP 
 Sri Rajiv Gandhi Dental
 College,Chola Nagar,,Bangalore
@@ -1144,7 +1144,7 @@ BDS-PRIV. GMP 744575 Allotted
 HKDET`S Dental College
 Hospital,Kalur Road,Humnabad,
 Bidar Dist
-BDS-OTHERSOTH 31 1950 Allotted
+BDS-OTHERSOTH 3 11950 Allotted
 189 724544 D103DP 
 Vokkaligara Sangha Dental
 College and Hospital,K R
@@ -1154,7 +1154,7 @@ BDS-PRIV. GMP 593200 Allotted
 Venkateswara Dental
 College,Kariappanahalli, Anekal
 Road,,Bangalore
-BDS-OTHERSOTH 36 1950 Allotted
+BDS-OTHERSOTH 3 61950 Allotted
 191 729698 D551DP 
 Coorg Institute of Dental
 Sciences,Kanjitanda
@@ -1174,7 +1174,7 @@ Sciences and Hospital, No. 69
 BGS Health Education City
 Uttarahalli road Kengeri pin
 560060,banglore
-BDS-OTHERSOTH 81 1950 Allotted
+BDS-OTHERSOTH 8 11950 Allotted
 194 739709 D556DP 
 A.J. Institute of Dental
 Sciences,NH-66,,Mangalore
@@ -1184,7 +1184,7 @@ K.Venkataramana Gowda
 Dental College Hospital and
 Research Centre,Kurunji
 Bagh,,Dakshina Kannada
-BDS-OTHERSOTH 31 1950 Allotted
+BDS-OTHERSOTH 3 11950 Allotted
 UGNEET -2025 DENTAL  3rd Round Final  Seat Allotment List
 B£eLBVĸsďe¤eÎĩe\
 Karnataka Examinations Authority
@@ -1208,14 +1208,14 @@ K.Venkataramana Gowda
 Dental College Hospital and
 Research Centre,Kurunji
 Bagh,,Dakshina Kannada
-BDS-OTHERSOTH 31 1950 Allotted
+BDS-OTHERSOTH 3 11950 Allotted
 198 750384 D673DQ 
 BGS Global Institute of Dental
 Sciences and Hospital, No. 69
 BGS Health Education City
 Uttarahalli road Kengeri pin
 560060,banglore
-BDS-OTHERSOTH 81 1950 Allotted
+BDS-OTHERSOTH 8 11950 Allotted
 199 752076 D112DP 
 Oxford Dental
 College,Bommanahalli,,Bangalo
@@ -1231,11 +1231,11 @@ K.Venkataramana Gowda
 Dental College Hospital and
 Research Centre,Kurunji
 Bagh,,Dakshina Kannada
-BDS-OTHERSOTH 31 1950 Allotted
+BDS-OTHERSOTH 3 11950 Allotted
 202 768262 D113DQ 
 Sri Rajiv Gandhi Dental
 College,Chola Nagar,,Bangalore
-BDS-OTHERSOTH 48 6950 Allotted
+BDS-OTHERSOTH 4 86950 Allotted
 203 769825 D557DP 
 Srinivasa Institute of Dental
 Science,Srinivas Nagar,
@@ -1258,23 +1258,23 @@ K.Venkataramana Gowda
 Dental College Hospital and
 Research Centre,Kurunji
 Bagh,,Dakshina Kannada
-BDS-OTHERSOTH 31 1950 Allotted
+BDS-OTHERSOTH 3 11950 Allotted
 207 791075 D555DQ 
 K.Venkataramana Gowda
 Dental College Hospital and
 Research Centre,Kurunji
 Bagh,,Dakshina Kannada
-BDS-OTHERSOTH 31 1950 Allotted
+BDS-OTHERSOTH 3 11950 Allotted
 208 791529 D113DQ 
 Sri Rajiv Gandhi Dental
 College,Chola Nagar,,Bangalore
-BDS-OTHERSOTH 48 6950 Allotted
+BDS-OTHERSOTH 4 86950 Allotted
 209 798181 D555DQ 
 K.Venkataramana Gowda
 Dental College Hospital and
 Research Centre,Kurunji
 Bagh,,Dakshina Kannada
-BDS-OTHERSOTH 31 1950 Allotted
+BDS-OTHERSOTH 3 11950 Allotted
 210 798590 D113DP 
 Sri Rajiv Gandhi Dental
 College,Chola Nagar,,Bangalore
@@ -1306,7 +1306,7 @@ BDS-PRIV. GMP 511950 Allotted
 213 805121 D113DQ 
 Sri Rajiv Gandhi Dental
 College,Chola Nagar,,Bangalore
-BDS-OTHERSOTH 48 6950 Allotted
+BDS-OTHERSOTH 4 86950 Allotted
 214 805341 D113DP 
 Sri Rajiv Gandhi Dental
 College,Chola Nagar,,Bangalore
@@ -1318,7 +1318,7 @@ BDS-PRIV. GMP 577950 Allotted
 216 813102 D113DQ 
 Sri Rajiv Gandhi Dental
 College,Chola Nagar,,Bangalore
-BDS-OTHERSOTH 48 6950 Allotted
+BDS-OTHERSOTH 4 86950 Allotted
 217 815819 D118DP 
 Bangalore Institute of Dental
 Sciences & Hospital,5/3 Hosur
@@ -1329,31 +1329,31 @@ Coorg Institute of Dental
 Sciences,Kanjitanda
 Kushalappa Campus,, Coorg
 District
-BDS-OTHERSOTH 41 1950 Allotted
+BDS-OTHERSOTH 4 11950 Allotted
 219 823792 D555DQ 
 K.Venkataramana Gowda
 Dental College Hospital and
 Research Centre,Kurunji
 Bagh,,Dakshina Kannada
-BDS-OTHERSOTH 31 1950 Allotted
+BDS-OTHERSOTH 3 11950 Allotted
 220 825025 D555DQ 
 K.Venkataramana Gowda
 Dental College Hospital and
 Research Centre,Kurunji
 Bagh,,Dakshina Kannada
-BDS-OTHERSOTH 31 1950 Allotted
+BDS-OTHERSOTH 3 11950 Allotted
 221 834602 D445DQ 
 S.B.Patil Institute for Dental
 Sciences and Research,Naubad
 Post,Bidar
-BDS-OTHERSOTH 43 6950 Allotted
+BDS-OTHERSOTH 4 36950 Allotted
 222 834603 D673DQ 
 BGS Global Institute of Dental
 Sciences and Hospital, No. 69
 BGS Health Education City
 Uttarahalli road Kengeri pin
 560060,banglore
-BDS-OTHERSOTH 81 1950 Allotted
+BDS-OTHERSOTH 8 11950 Allotted
 223 855405 D122DP 
 Vydehi Institute of Dental
 Sciences and Research
@@ -1408,7 +1408,7 @@ Coorg Institute of Dental
 Sciences,Kanjitanda
 Kushalappa Campus,, Coorg
 District
-BDS-OTHERSOTH 41 1950 Allotted
+BDS-OTHERSOTH 4 11950 Allotted
 231 893905 D557DP 
 Srinivasa Institute of Dental
 Science,Srinivas Nagar,
@@ -1428,7 +1428,7 @@ BDS-PRIV. OPN 461950 Allotted
 Srinivasa Institute of Dental
 Science,Srinivas Nagar,
 Mukka,Mangalore
-BDS-OTHERSOTH 46 1950 Allotted
+BDS-OTHERSOTH 4 61950 Allotted
 235 911916 D557DP 
 Srinivasa Institute of Dental
 Science,Srinivas Nagar,
@@ -1443,12 +1443,12 @@ BDS-PRIV. OPN 461950 Allotted
 Srinivasa Institute of Dental
 Science,Srinivas Nagar,
 Mukka,Mangalore
-BDS-OTHERSOTH 46 1950 Allotted
+BDS-OTHERSOTH 4 61950 Allotted
 238 932648 D557DQ 
 Srinivasa Institute of Dental
 Science,Srinivas Nagar,
 Mukka,Mangalore
-BDS-OTHERSOTH 46 1950 Allotted
+BDS-OTHERSOTH 4 61950 Allotted
 239 943287 D336DG 
 PM Nadagowda Memorial
 Dental College and
@@ -1502,7 +1502,7 @@ Course_feesStatus
 Srinivasa Institute of Dental
 Science,Srinivas Nagar,
 Mukka,Mangalore
-BDS-OTHERSOTH 46 1950 Allotted
+BDS-OTHERSOTH 4 61950 Allotted
 247 977914 D557DP 
 Srinivasa Institute of Dental
 Science,Srinivas Nagar,
@@ -1547,47 +1547,47 @@ BDS-PRIV. OPN 461950 Allotted
 Srinivasa Institute of Dental
 Science,Srinivas Nagar,
 Mukka,Mangalore
-BDS-OTHERSOTH 46 1950 Allotted
+BDS-OTHERSOTH 4 61950 Allotted
 256 1008697 D557DQ 
 Srinivasa Institute of Dental
 Science,Srinivas Nagar,
 Mukka,Mangalore
-BDS-OTHERSOTH 46 1950 Allotted
+BDS-OTHERSOTH 4 61950 Allotted
 257 1012958 D557DQ 
 Srinivasa Institute of Dental
 Science,Srinivas Nagar,
 Mukka,Mangalore
-BDS-OTHERSOTH 46 1950 Allotted
+BDS-OTHERSOTH 4 61950 Allotted
 258 1013993 D557DQ 
 Srinivasa Institute of Dental
 Science,Srinivas Nagar,
 Mukka,Mangalore
-BDS-OTHERSOTH 46 1950 Allotted
+BDS-OTHERSOTH 4 61950 Allotted
 259 1014295 D557DQ 
 Srinivasa Institute of Dental
 Science,Srinivas Nagar,
 Mukka,Mangalore
-BDS-OTHERSOTH 46 1950 Allotted
+BDS-OTHERSOTH 4 61950 Allotted
 260 1014663 D102DP 
 Dr.M.R.Ambedkar Dental
 College and Hospital,1/36, Cline
 Road,,Bangalore
-BDS-PRIV.GMPH486950Allotted
+BDS-PRIV. GMPH 486950 Allotted
 261 1016735 D114DP 
 Raja Rajeshwari Dental College
 and Hospital,No.14 ,Ramohalli
 Cross,,Bangalore
-BDS-PRIV.GMPH461950Allotted
+BDS-PRIV. GMPH 461950 Allotted
 262 1017876 D557DQ 
 Srinivasa Institute of Dental
 Science,Srinivas Nagar,
 Mukka,Mangalore
-BDS-OTHERSOTH 46 1950 Allotted
+BDS-OTHERSOTH 4 61950 Allotted
 263 1018165 D557DQ 
 Srinivasa Institute of Dental
 Science,Srinivas Nagar,
 Mukka,Mangalore
-BDS-OTHERSOTH 46 1950 Allotted
+BDS-OTHERSOTH 4 61950 Allotted
 UGNEET -2025 DENTAL  3rd Round Final  Seat Allotment List
 B£eLBVĸsďe¤eÎĩe\
 Karnataka Examinations Authority
@@ -1605,17 +1605,17 @@ Course_feesStatus
 Srinivasa Institute of Dental
 Science,Srinivas Nagar,
 Mukka,Mangalore
-BDS-OTHERSOTH 46 1950 Allotted
+BDS-OTHERSOTH 4 61950 Allotted
 265 1021879 D557DQ 
 Srinivasa Institute of Dental
 Science,Srinivas Nagar,
 Mukka,Mangalore
-BDS-OTHERSOTH 46 1950 Allotted
+BDS-OTHERSOTH 4 61950 Allotted
 266 1182389 D118DP 
 Bangalore Institute of Dental
 Sciences & Hospital,5/3 Hosur
 Main Road,,Bangalore
-BDS-PRIV. ME4 46950 Allotted
+BDS-PRIV. ME 446950 Allotted
 UGNEET -2025 DENTAL  3rd Round Final  Seat Allotment List
 B£eLBVĸsďe¤eÎĩe\
 Karnataka Examinations Authority

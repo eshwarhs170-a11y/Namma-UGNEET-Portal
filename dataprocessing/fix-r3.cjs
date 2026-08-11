@@ -19,7 +19,6 @@ for (const file of files) {
     line = line.trim();
     
     // Fix start: SLNO + Rank + Code
-    // Since rank can be any digits, we rely on expectedSlNo
     const startRegex = new RegExp(`^(${expectedSlNo})(\\d+)([MD]\\d{2,3}[A-Z0-9]*)`);
     const match = line.match(startRegex);
     if (match) {
@@ -28,7 +27,8 @@ for (const file of files) {
     }
     
     // Fix end: Course + Category + Fees + Status
-    const endRegex = /(MBBS-?[A-Za-z]+\.?|BDS-?[A-Za-z]+\.?)([A-Z0-9]{2,3})(\d{4,7})(Allotted|Reported|Reproted)/;
+    // Non-greedy category followed by greedy digits for fees!
+    const endRegex = /(MBBS-?[A-Za-z]+\.?|BDS-?[A-Za-z]+\.?)([A-Z0-9]+?)(\d+)(Allotted|Reported|Reproted)/;
     const endMatch = line.match(endRegex);
     if (endMatch) {
       line = line.replace(endRegex, `$1 $2 $3 $4`);

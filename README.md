@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/eshwarhs170-a11y/Namma-UGNEET-Portal/main/public/readme-banner.png" alt="NammaUGNEET Banner" width="700" />
+<img src="https://raw.githubusercontent.com/eshwarhs170-a11y/Namma-UGNEET-Portal/main/public/readme-banner.png" alt="NammaUGNEET Banner" width="420" />
 
 ### **ನಮ್ಮ ಯುಜಿ-ನೀಟ್ — Namma UGNEET**
 *The ultimate AI-powered data companion for Karnataka medical aspirants.*

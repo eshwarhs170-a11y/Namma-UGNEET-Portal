@@ -62,7 +62,7 @@ export default async function handler(req, res) {
       years: years.filter(Boolean).sort(),
       streams: allStreams.filter(Boolean).sort(),
       categories: categories.filter(Boolean).sort(),
-      rounds: rounds.filter(r => r && !/stray|vacancy/i.test(r)).sort(),
+      rounds: rounds.filter(r => r).sort(),
       quotas: quotas.filter(Boolean).sort(),
       colleges: colleges.filter(Boolean).sort(),
       // Per-stream college lists for autocomplete filtering

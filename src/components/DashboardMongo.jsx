@@ -1336,7 +1336,7 @@ export default function Dashboard() {
   const dynamicCategories = dropdownStats.categories;
   const dynamicQuotas = dropdownStats.quotas;
   // Filter out stray/vacancy rounds on the frontend as belt-and-suspenders
-  const dynamicRounds = (dropdownStats.rounds || []).filter(r => !/stray|vacancy/i.test(r));
+  const dynamicRounds = (dropdownStats.rounds || []);
   const dynamicYears = dropdownStats.years;
 
   // --- AUTO-COMPLETE LISTS: filtered by active stream to avoid showing irrelevant colleges ---

@@ -1,88 +1,84 @@
 <div align="center">
-  <h1 align="center">NammaUGNEET 🎯🩺</h1>
+  <img src="https://raw.githubusercontent.com/eshwarhs170-a11y/Namma-UGNEET-Portal/main/public/favicon.ico" alt="Logo" width="100" height="100">
+
+  <h1 align="center">NammaUGNEET</h1>
+
   <p align="center">
     <strong>The Ultimate Data-Driven NEET UG Counseling Predictor & Analytics Dashboard</strong>
+    <br />
+    <br />
+    <a href="https://namma-ugneet.vercel.app"><strong>Explore the Live App »</strong></a>
     <br />
     <br />
     <a href="https://github.com/eshwarhs170-a11y/Namma-UGNEET-Portal/issues">Report Bug</a>
     ·
     <a href="https://github.com/eshwarhs170-a11y/Namma-UGNEET-Portal/issues">Request Feature</a>
   </p>
+
+  <!-- Badges -->
+  <p align="center">
+    <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
+    <img src="https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E" alt="Vite" />
+    <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind" />
+    <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
+    <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel" />
+  </p>
 </div>
 
-<details open>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li><a href="#about-the-project">About The Project</a></li>
-    <li><a href="#key-features">Key Features</a></li>
-    <li><a href="#tech-stack">Tech Stack</a></li>
-    <li><a href="#getting-started">Getting Started</a></li>
-  </ol>
-</details>
+---
 
-## 🌟 About The Project
+> **NammaUGNEET** intercepts and transforms millions of fragmented data points from KEA and AIQ counseling PDFs into a lightning-fast, interactive search dashboard. Instantly discover your predicted MBBS, BDS, or AYUSH matches based on your rank, category, and budget.
 
-Navigating through KEA (Karnataka) and AIQ (All India Quota) cutoff PDFs during NEET UG counseling is chaotic, fragmented, and frustrating. Critical ranks, fee structures, and reservation categories are often buried in unsearchable documents. 
+---
 
-**NammaUGNEET** was built to solve exactly this. It intercepts and transforms thousands of fragmented data points into a lightning-fast, interactive search dashboard. Instantly discover your predicted MBBS, BDS, or AYUSH matches based on your rank, reservation category, and budget.
+## ⚡ Key Features
 
-## ✨ Key Features
+| Feature | Description |
+| :--- | :--- |
+| **🛡️ Dual Counseling Portals** | Toggle instantly between Karnataka State Quota (KEA) and Medical Counselling Committee (MCC) AIQ datasets. |
+| **🎯 Smart Predictor Matrix** | Accurately maps complex parameters (like high-fee management seats vs standard govt seats) preventing false "No Matches". |
+| **🧹 Automated Data Cleaning** | Custom Node.js parsers dynamically fix PDF column parsing anomalies and text corruptions before they reach the database. |
+| **🚀 Serverless Architecture** | Built entirely on Vercel Serverless Functions and MongoDB Atlas to guarantee zero downtime during peak counseling rushes. |
+| **🔒 Strict Stream Isolation** | Programmatically segregates MBBS, BDS, and AYUSH data pools to completely eliminate cross-stream clutter. |
 
-* **🛡️ Dual Counseling Portals**  
-  Toggle instantly between Karnataka State Quota (KEA) and Medical Counselling Committee (MCC) All India Quota (AIQ) datasets without losing your context.
-  
-* **🎯 Smart Predictor Matrix**  
-  Our algorithm doesn't just look for numbers; it accurately maps complex parameters like high-fee management seats vs standard government seats, preventing false "No Matches" errors for higher ranks.
+## 🛠️ Getting Started
 
-* **🧹 Automated Data Cleaning Pipeline**  
-  Custom Node.js parsers intercept raw PDF text to dynamically fix column parsing anomalies, seat categories, and text corruptions before they even reach the database.
-
-* **⚡ Lightning Fast & Crash-Proof**  
-  Built entirely on Serverless architecture and MongoDB Atlas to bypass local session limits, ensuring real-time statistic tracking and zero downtime during peak counseling rushes.
-
-* **🔒 Strict Stream Isolation**  
-  Programmatically segregates data pools based on your choices to completely eliminate cross-stream clutter (MBBS, BDS, and AYUSH are handled entirely separately).
-
-## 🛠️ Tech Stack
-
-* **Frontend:** React.js, Vite, Tailwind CSS
-* **Backend:** Vercel Serverless API Routes
-* **Database:** MongoDB Atlas (for high-speed querying & telemetry)
-* **Data Processing:** Node.js, Regex Parsing Pipelines
-* **Linting:** Oxlint (Oxc)
-
-## 🚀 Getting Started
-
-To get a local copy up and running, follow these simple steps:
+Follow these steps to set up the project locally on your machine.
 
 ### Prerequisites
-* npm (`npm install npm@latest -g`)
-* Node.js
-* A MongoDB Atlas Cluster URL
+
+Ensure you have the following installed:
+- [Node.js](https://nodejs.org/)
+- npm (`npm install npm@latest -g`)
+- A MongoDB Atlas Cluster URL
 
 ### Installation
 
-1. **Clone the repo**
+1. **Clone the repository**
    ```bash
    git clone https://github.com/eshwarhs170-a11y/Namma-UGNEET-Portal.git
    ```
-2. **Install NPM packages**
+
+2. **Install dependencies**
    ```bash
    cd namma-ugneet
    npm install
    ```
-3. **Set up your MongoDB connection**
-   Create a `.env.local` file in the root folder and add your connection string:
+
+3. **Configure Environment Variables**
+   Create a `.env.local` file in the root directory and add your MongoDB connection string:
    ```env
    MONGODB_URI="your_mongodb_connection_string_here"
    ```
-4. **Start the development server**
+
+4. **Start the Development Server**
    ```bash
    npm run dev
    ```
+   Open `http://localhost:5173` to view it in your browser.
 
 ---
 
 <div align="center">
-  <i>Built with ❤️ for aspiring medical students.</i>
+  <i>Engineered with precision for aspiring medical students.</i>
 </div>

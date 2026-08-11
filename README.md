@@ -1,24 +1,6 @@
 <div align="center">
-<table><tr><td valign="middle">
 
-```
- ███╗   ██╗ █████╗ ███╗   ███╗███╗   ███╗ █████╗ 
- ████╗  ██║██╔══██╗████╗ ████║████╗ ████║██╔══██╗
- ██╔██╗ ██║███████║██╔████╔██║██╔████╔██║███████║
- ██║╚██╗██║██╔══██║██║╚██╔╝██║██║╚██╔╝██║██╔══██║
- ██║ ╚████║██║  ██║██║ ╚═╝ ██║██║ ╚═╝ ██║██║  ██║
- ╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝
- ██╗   ██╗ ██████╗ ███╗   ██╗███████╗███████╗████████╗
- ██║   ██║██╔════╝ ████╗  ██║██╔════╝██╔════╝╚══██╔══╝
- ██║   ██║██║  ███╗██╔██╗ ██║█████╗  █████╗     ██║   
- ██║   ██║██║   ██║██║╚██╗██║██╔══╝  ██╔══╝     ██║   
- ╚██████╔╝╚██████╔╝██║ ╚████║███████╗███████╗   ██║   
-  ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝╚══════╝╚══════╝   ╚═╝   
-```
-
-</td><td valign="middle">
-<img src="https://raw.githubusercontent.com/eshwarhs170-a11y/Namma-UGNEET-Portal/main/public/favicon.png" alt="NammaUGNEET Logo" width="140" />
-</td></tr></table>
+<img src="https://raw.githubusercontent.com/eshwarhs170-a11y/Namma-UGNEET-Portal/main/public/readme-banner.png" alt="NammaUGNEET Banner" width="700" />
 
 ### **ನಮ್ಮ ಯುಜಿ-ನೀಟ್ — Namma UGNEET**
 *The ultimate AI-powered data companion for Karnataka medical aspirants.*

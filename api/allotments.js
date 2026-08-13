@@ -218,8 +218,8 @@ export default async function handler(req, res) {
     // Strip MongoDB _id from response
     const cleanData = data.map(({ _id, ...rest }) => rest);
 
-    // Cache for 5 minutes (data rarely changes)
-    res.setHeader('Cache-Control', 's-maxage=300, stale-while-revalidate=600');
+    // Cache for 10 seconds to force cache bust
+    res.setHeader('Cache-Control', 's-maxage=10, stale-while-revalidate=60');
 
     return res.status(200).json({
       data: cleanData,

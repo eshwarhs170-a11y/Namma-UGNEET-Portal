@@ -38,8 +38,8 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Dataset must be KEA or AIQ' });
     }
 
-    // Cache the stats for 12 hours since they rarely change
-    res.setHeader('Cache-Control', 's-maxage=43200, stale-while-revalidate=86400');
+    // Cache the stats for 10 seconds to force a cache bust
+    res.setHeader('Cache-Control', 's-maxage=10, stale-while-revalidate=60');
 
     const streams = ['MEDICAL', 'DENTAL', 'AYUSH'];
 

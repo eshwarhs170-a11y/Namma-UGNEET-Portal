@@ -914,9 +914,13 @@ export default function Dashboard() {
                 const minFee = fees.length ? Math.min(...fees) : null;
                 const maxFee = fees.length ? Math.max(...fees) : null;
                 
-                // Count seats from the latest round only (each record = 1 seat allotted)
-                const latestRoundRecords = latestRound ? courseRecords.filter(r => r.round === latestRound) : courseRecords;
-                const seats = latestRoundRecords.length;
+                // Since later rounds (R3, Stray) are only deltas, estimate seats from the round with the most allotments
+                let seats = 0;
+                allRounds.forEach(round => {
+                  const cnt = courseRecords.filter(r => r.round === round).length;
+                  if (cnt > seats) seats = cnt;
+                });
+                if (seats === 0) seats = courseRecords.length;
 
                 return { course, minFee, maxFee, seats };
               });

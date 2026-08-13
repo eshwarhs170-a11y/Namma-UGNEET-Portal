@@ -2003,9 +2003,18 @@ export default function Dashboard() {
                 const minFee = fees.length ? Math.min(...fees) : null;
                 const maxFee = fees.length ? Math.max(...fees) : null;
                 
-                // Count seats from the latest round only (each record = 1 seat allotted)
-                const latestRoundRecords = latestRound ? courseRecords.filter(r => r.round === latestRound) : courseRecords;
-                const seats = latestRoundRecords.length;
+                // Since later rounds (like R3 or Stray) only contain *new* allotments (the delta) and not the full
+                // matrix, we can estimate the total seats by finding the round with the MAXIMUM allotments.
+                let maxSeats = 0;
+                if (allRounds.length) {
+                  allRounds.forEach(round => {
+                    const roundSeats = courseRecords.filter(r => r.round === round).length;
+                    if (roundSeats > maxSeats) maxSeats = roundSeats;
+                  });
+                } else {
+                  maxSeats = courseRecords.length;
+                }
+                const seats = maxSeats;
 
                 return { course, minFee, maxFee, seats };
               });

@@ -4356,7 +4356,7 @@ MBBS-OTHERS OTH 2509350 Allotted
 Hassan Institute of Medical
 Sciences,Near Chamarajendra
 Hospital,Hassan
-MBBS-NRINRI 2 509350 Allotted
+MBBS-NRI NRI 2509350 Allotted
 722 520164 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar

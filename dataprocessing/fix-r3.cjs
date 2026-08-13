@@ -14,7 +14,7 @@ for (const file of files) {
   // Fix end: Course + Category + Fees + Status
   // We use a global regex on the entire text so it handles newlines gracefully.
   // E.g., 'MBBS-\nOTHERS\nOTH2509350Allotted'
-  const endRegex = /(MBBS-?\s*OTHERS|BDS-?\s*OTHERS|MBBS-?\s*PRIV\.?|BDS-?\s*PRIV\.?|MBBS-?[A-Za-z]+\.?|BDS-?[A-Za-z]+\.?)\s*([A-Z0-9]+?)\s*(\d+)\s*(Allotted|Reported|Reproted)/g;
+  const endRegex = /(MBBS-?\s*GOVT\.?|MBBS-?\s*PRIV\.?|MBBS-?\s*OTHERS|MBBS-?\s*NRI|BDS-?\s*GOVT\.?|BDS-?\s*PRIV\.?|BDS-?\s*OTHERS|BDS-?\s*NRI)\s*([A-Z0-9]+?)\s*(\d+)\s*(Allotted|Reported|Reproted)/gi;
   
   text = text.replace(endRegex, (match, p1, p2, p3, p4) => {
     const course = p1.replace(/\s+/g, '');

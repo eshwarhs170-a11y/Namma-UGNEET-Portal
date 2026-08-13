@@ -89,7 +89,9 @@ function compileAllData() {
           const rank = parseInt(match[2], 10);
           const collegeCode = match[3];
           const collegeName = match[4].replace(/\s+/g, ' ').trim();
-          const courseDetails = match[5].trim().replace(/\.$/, '');
+          const courseDetails = match[5].trim().replace(/\.$/, '')
+            // Normalize: ensure hyphen between degree and seat type (e.g. MBBSOTHERS → MBBS-OTHERS)
+            .replace(/^(MBBS|BDS|BAMS|BHMS|BUMS|BYNS)(GOVT|PRIV|OTHERS|NRI)(\.?)$/, '$1-$2$3');
           const category = match[6].trim();
           const fees = parseInt(match[7], 10);
 

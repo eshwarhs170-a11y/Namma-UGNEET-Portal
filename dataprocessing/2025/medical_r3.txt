@@ -7,90 +7,90 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-1 3478 M001MG 
+1 3478 M001MG
 Bangalore Medical College,NO-
 2, Fort , K R ROAD,Bangalore
 MBBS-GOVT. GM 64350 Allotted
-2 10468 M082MG 
+2 10468 M082MG
 Shri Atal Bihari Vajpayee
 Institute of Medical
 Science,,Bengaluru
 MBBS-GOVT. GM 64350 Allotted
-3 21922 M082MG 
+3 21922 M082MG
 Shri Atal Bihari Vajpayee
 Institute of Medical
 Science,,Bengaluru
 MBBS-GOVT. GM 64350 Allotted
-4 29482 M003MP 
+4 29482 M003MP
 Kempegowda Institute of
 Medical Sciences,B.S.K II
 Stage,,Bangalore
 MBBS-PRIV. OPN 1200117 Allotted
-5 30115 M003MP 
+5 30115 M003MP
 Kempegowda Institute of
 Medical Sciences,B.S.K II
 Stage,,Bangalore
 MBBS-PRIV. OPN 1200117 Allotted
-6 30129 M021MG 
+6 30129 M021MG
 Mysore Medical College,Irwin
 Road,,Mysore
 MBBS-GOVT. GM 64350 Allotted
-7 32055 M003MP 
+7 32055 M003MP
 Kempegowda Institute of
 Medical Sciences,B.S.K II
 Stage,,Bangalore
 MBBS-PRIV. OPN 1200117 Allotted
-8 33999 M003MP 
+8 33999 M003MP
 Kempegowda Institute of
 Medical Sciences,B.S.K II
 Stage,,Bangalore
 MBBS-PRIV. OPN 1200117 Allotted
-9 36379 M010MG 
+9 36379 M010MG
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
 MBBS-GOVT. GM 153571 Allotted
-10 40653 M002MP 
+10 40653 M002MP
 Dr. B.R. Ambedkar Medical
 College,Kadugondanahalli,,Ban
 galore
 MBBS-PRIV. OPN 1200117 Allotted
-11 41216 M010MG 
+11 41216 M010MG
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
 MBBS-GOVT. GM 153571 Allotted
-12 41774 M044MG 
+12 41774 M044MG
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
 MBBS-GOVT. GM 64350 Allotted
-13 42574 M095MG 
+13 42574 M095MG
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-GOVT. GM 156621 Allotted
-14 42725 M010MG 
+14 42725 M010MG
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
 MBBS-GOVT. GM 153571 Allotted
-15 43243 M010MG 
+15 43243 M010MG
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
 MBBS-GOVT. GM 153571 Allotted
-16 47180 M010MG 
+16 47180 M010MG
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
 MBBS-GOVT. GM 153571 Allotted
-17 47549 M002MP 
+17 47549 M002MP
 Dr. B.R. Ambedkar Medical
 College,Kadugondanahalli,,Ban
 galore
 MBBS-PRIV. OPN 1200117 Allotted
-18 48594 M082MG 
+18 48594 M082MG
 Shri Atal Bihari Vajpayee
 Institute of Medical
 Science,,Bengaluru
@@ -108,92 +108,92 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-19 48881 M002MP 
+19 48881 M002MP
 Dr. B.R. Ambedkar Medical
 College,Kadugondanahalli,,Ban
 galore
 MBBS-PRIV. OPN 1200117 Allotted
-20 50727 M061MP 
+20 50727 M061MP
 Jaya Jagadguru
 Murugharajendra Medical
 College,,Davangere District
 MBBS-PRIV. OPN 1200117 Allotted
-21 52049 M044MG 
+21 52049 M044MG
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
 MBBS-GOVT. GM 64350 Allotted
-22 52630 M068MP 
+22 52630 M068MP
 BGS Global Institute of Medical
 Sciences,# 67, BGS Health &
 Education,Kengeri, Bangalore
 MBBS-PRIV. OPN 1200117 Allotted
-23 53382 M044MG 
+23 53382 M044MG
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
 MBBS-GOVT. GM 64350 Allotted
-24 53748 M044MG 
+24 53748 M044MG
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
 MBBS-GOVT. GM 64350 Allotted
-25 53782 M044MG 
+25 53782 M044MG
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
 MBBS-GOVT. GM 64350 Allotted
-26 54305 M024MG 
+26 54305 M024MG
 Mandya Institute of Medical
 Sciences,District
 Hospital,,Mandya
 MBBS-GOVT. GM 64350 Allotted
-27 54717 M062MG 
+27 54717 M062MG
 Shymanuru Shivashankarappa
 Institute Of Medical
 Sciences,Jnanashankara, NH-
 4,Davangere
 MBBS-GOVT. GM 153571 Allotted
-28 55082 M010MP 
+28 55082 M010MP
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
 MBBS-PRIV. OPN 1200117 Allotted
-29 58192 M095MG 
+29 58192 M095MG
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-GOVT. GM 156621 Allotted
-30 58227 M010MG 
+30 58227 M010MG
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
 MBBS-GOVT. 2BG 153571 Allotted
-31 58767 M077MG 
+31 58767 M077MG
 Kodagu Institute of Medical
 Sciences,,MADIKERI
 MBBS-GOVT. GM 64350 Allotted
-32 58928 M044MG 
+32 58928 M044MG
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
 MBBS-GOVT. 2BG 64350 Allotted
-33 59470 M008MP 
+33 59470 M008MP
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
 MBBS-PRIV. OPN 1200117 Allotted
-34 59847 M044MG 
+34 59847 M044MG
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
 MBBS-GOVT. GMR 64350 Allotted
-35 60316 M010MP 
+35 60316 M010MP
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
 MBBS-PRIV. OPN 1200117 Allotted
-36 60456 M067MG 
+36 60456 M067MG
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-GOVT. GM 153571 Allotted
-37 60728 M008MG 
+37 60728 M008MG
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
@@ -212,87 +212,87 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-38 60852 M067MG 
+38 60852 M067MG
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-GOVT. GM 153571 Allotted
-39 61027 M078MP 
+39 61027 M078MP
 Akash Institute of Medical
 Sciences and Research
 Centre,DEVANAHALLI,,BANGA
 LORE
 MBBS-PRIV. OPN 1200117 Allotted
-40 61125 M095MG 
+40 61125 M095MG
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-GOVT. GM 156621 Allotted
-41 61685 M004MG 
+41 61685 M004MG
 M.S.Ramaiah Medical
 College,MSR Nagar, MSRIT
 Post,Bangalore
 MBBS-GOVT. GM 156621 Allotted
-42 62389 M085MG 
+42 62389 M085MG
 Chikkamagaluru Institute of
 Medical
 Sciences,,Chikkamagaluru
 MBBS-GOVT. GM 64350 Allotted
-43 62554 M008MG 
+43 62554 M008MG
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
 MBBS-GOVT. GM 153571 Allotted
-44 62630 M095MG 
+44 62630 M095MG
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-GOVT. GM 156621 Allotted
-45 62809 M008MP 
+45 62809 M008MP
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
 MBBS-PRIV. OPN 1200117 Allotted
-46 62858 M095MG 
+46 62858 M095MG
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-GOVT. GM 156621 Allotted
-47 63155 M044MG 
+47 63155 M044MG
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
 MBBS-GOVT. 2AG 64350 Allotted
-48 63162 M095MG 
+48 63162 M095MG
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-GOVT. GM 156621 Allotted
-49 63403 M067MG 
+49 63403 M067MG
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-GOVT. GM 153571 Allotted
-50 63478 M095MG 
+50 63478 M095MG
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-GOVT. GM 156621 Allotted
-51 63542 M067MG 
+51 63542 M067MG
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-GOVT. GM 153571 Allotted
-52 63581 M008MG 
+52 63581 M008MG
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
 MBBS-GOVT. GM 153571 Allotted
-53 63749 M067MG 
+53 63749 M067MG
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-GOVT. GM 153571 Allotted
@@ -309,90 +309,90 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-54 63990 M008MG 
+54 63990 M008MG
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
 MBBS-GOVT. GM 153571 Allotted
-55 64359 M069MG 
+55 64359 M069MG
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
 MBBS-GOVT. GM 153571 Allotted
-56 64525 M010MP 
+56 64525 M010MP
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
 MBBS-PRIV. OPN 1200117 Allotted
-57 64821 M092MG 
+57 64821 M092MG
 Chitradurga Medical College
 and Research
 Institute,,Chitradurga
 MBBS-GOVT. GM 64350 Allotted
-58 65543 M035MG 
+58 65543 M035MG
 S. Nijalingappa Medical College
 and Research Centre,,Bagalkot
 MBBS-GOVT. GM 153571 Allotted
-59 65627 M010MP 
+59 65627 M010MP
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
 MBBS-PRIV. OPN 1200117 Allotted
-60 66060 M008MG 
+60 66060 M008MG
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
 MBBS-GOVT. 3BG 153571 Allotted
-61 66133 M010MP 
+61 66133 M010MP
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
 MBBS-PRIV. OPN 1200117 Allotted
-62 66155 M010MP 
+62 66155 M010MP
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
 MBBS-PRIV. OPN 1200117 Allotted
-63 66713 M095MG 
+63 66713 M095MG
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-GOVT. 3AG 156621 Allotted
-64 67376 M042MG 
+64 67376 M042MG
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
 MBBS-GOVT. GM 153571 Allotted
-65 67796 M069MG 
+65 67796 M069MG
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
 MBBS-GOVT. GM 153571 Allotted
-66 67981 M069MG 
+66 67981 M069MG
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
 MBBS-GOVT. GM 153571 Allotted
-67 68009 M044MG 
+67 68009 M044MG
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
 MBBS-GOVT. GMH 64350 Allotted
-68 68080 M008MP 
+68 68080 M008MP
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
 MBBS-PRIV. OPN 1200117 Allotted
-69 68416 M062MG 
+69 68416 M062MG
 Shymanuru Shivashankarappa
 Institute Of Medical
 Sciences,Jnanashankara, NH-
 4,Davangere
 MBBS-GOVT. GM 153571 Allotted
-70 68724 M095MG 
+70 68724 M095MG
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
@@ -411,91 +411,91 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-71 68792 M044MG 
+71 68792 M044MG
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
 MBBS-GOVT. GMH 64350 Allotted
-72 69155 M044MG 
+72 69155 M044MG
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
 MBBS-GOVT. GMH 64350 Allotted
-73 69352 M069MG 
+73 69352 M069MG
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
 MBBS-GOVT. GM 153571 Allotted
-74 69775 M067MG 
+74 69775 M067MG
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-GOVT. 3AG 153571 Allotted
-75 69960 M069MG 
+75 69960 M069MG
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
 MBBS-GOVT. GM 153571 Allotted
-76 70086 M054MG 
+76 70086 M054MG
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-GOVT. GM 153571 Allotted
-77 70113 M044MG 
+77 70113 M044MG
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
 MBBS-GOVT. GMH 64350 Allotted
-78 70160 M044MG 
+78 70160 M044MG
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
 MBBS-GOVT. GMH 64350 Allotted
-79 70162 M054MG 
+79 70162 M054MG
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-GOVT. GM 153571 Allotted
-80 70332 M069MG 
+80 70332 M069MG
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
 MBBS-GOVT. GM 153571 Allotted
-81 70337 M069MG 
+81 70337 M069MG
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
 MBBS-GOVT. GM 153571 Allotted
-82 70390 M091MG 
+82 70390 M091MG
 SRI CHAMUNDESHWARI
 MEDICAL COLLEGE,
 HOSPITAL AND RESEARCH
 INST,,CHANNAPATNA,
 RAMANAGARA
 MBBS-GOVT. GM 153571 Allotted
-83 70476 M092MG 
+83 70476 M092MG
 Chitradurga Medical College
 and Research
 Institute,,Chitradurga
 MBBS-GOVT. GM 64350 Allotted
-84 70485 M069MG 
+84 70485 M069MG
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
 MBBS-GOVT. GM 153571 Allotted
-85 70502 M069MG 
+85 70502 M069MG
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
 MBBS-GOVT. GM 153571 Allotted
-86 70627 M092MG 
+86 70627 M092MG
 Chitradurga Medical College
 and Research
 Institute,,Chitradurga
 MBBS-GOVT. GM 64350 Allotted
-87 70743 M069MG 
+87 70743 M069MG
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
 MBBS-GOVT. 3AG 153571 Allotted
-88 71051 M069MG 
+88 71051 M069MG
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
@@ -513,89 +513,89 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-89 71309 M010MG 
+89 71309 M010MG
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
 MBBS-GOVT. GMR 153571 Allotted
-90 71507 M044MG 
+90 71507 M044MG
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
 MBBS-GOVT. GMH 64350 Allotted
-91 71867 M064MG 
+91 71867 M064MG
 Sapthagiri Institute of Medical
 Sciences,No.15,
 chikkasandra,,Bangalore
 MBBS-GOVT. GM 182371 Allotted
-92 71976 M054MG 
+92 71976 M054MG
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-GOVT. GM 153571 Allotted
-93 71995 M008MP 
+93 71995 M008MP
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
 MBBS-PRIV. OPN 1200117 Allotted
-94 72124 M062MG 
+94 72124 M062MG
 Shymanuru Shivashankarappa
 Institute Of Medical
 Sciences,Jnanashankara, NH-
 4,Davangere
 MBBS-GOVT. GM 153571 Allotted
-95 72137 M054MG 
+95 72137 M054MG
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-GOVT. GM 153571 Allotted
-96 72303 M065MG 
+96 72303 M065MG
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-GOVT. GM 166621 Allotted
-97 72375 M062MP 
+97 72375 M062MP
 Shymanuru Shivashankarappa
 Institute Of Medical
 Sciences,Jnanashankara, NH-
 4,Davangere
 MBBS-PRIV. OPN 1200117 Allotted
-98 72675 M044MG 
+98 72675 M044MG
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
 MBBS-GOVT. GMH 64350 Allotted
-99 72679 M054MG 
+99 72679 M054MG
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-GOVT. GM 153571 Allotted
-100 72776 M054MG 
+100 72776 M054MG
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-GOVT. GM 153571 Allotted
-101 72779 M008MG 
+101 72779 M008MG
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
 MBBS-GOVT. 2BG 153571 Allotted
-102 72854 M054MG 
+102 72854 M054MG
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-GOVT. GM 153571 Allotted
-103 72954 M081MG 
+103 72954 M081MG
 East Point College of Medical
 Sciences and Research
 Center,,Bangalore
 MBBS-GOVT. GM 153571 Allotted
-104 72969 M054MG 
+104 72969 M054MG
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
@@ -614,91 +614,91 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-105 73039 M042MG 
+105 73039 M042MG
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
 MBBS-GOVT. GM 153571 Allotted
-106 73149 M065MG 
+106 73149 M065MG
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-GOVT. GM 166621 Allotted
-107 73393 M044MG 
+107 73393 M044MG
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
 MBBS-GOVT. GMH 64350 Allotted
-108 73488 M020MG 
+108 73488 M020MG
 Sri Basaveshwara Medical
 College and Hospital,NH-4,
 S.J.M.I.T  Campus,,Chitradurga
 MBBS-GOVT. GM 153571 Allotted
-109 73521 M054MG 
+109 73521 M054MG
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-GOVT. 3AG 153571 Allotted
-110 73545 M073MG 
+110 73545 M073MG
 Koppal Institute of Medical
 Sciences,GANGAVATI ROAD,
 KIDDIDAL GATE,,KOPPAL
 MBBS-GOVT. 2AG 64350 Allotted
-111 73559 M097MG 
+111 73559 M097MG
 Farookh Academy of Medical
 Education Hospital and
 Research Institute, Mysore
 Madikeri Road, Near Illavala
 Hunsur Taluk, Mysore District
 MBBS-GOVT. GM 153571 Allotted
-112 73588 M065MG 
+112 73588 M065MG
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-GOVT. GM 166621 Allotted
-113 73645 M035MG 
+113 73645 M035MG
 S. Nijalingappa Medical College
 and Research Centre,,Bagalkot
 MBBS-GOVT. GM 153571 Allotted
-114 73735 M042MG 
+114 73735 M042MG
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
 MBBS-GOVT. GM 153571 Allotted
-115 73808 M065MG 
+115 73808 M065MG
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-GOVT. GM 166621 Allotted
-116 73875 M071MG 
+116 73875 M071MG
 The Oxford Medical College
 Hospital and Research
 Center,Yadavanahalli, Attibele
 Hobli,Bangalore
 MBBS-GOVT. GM 153571 Allotted
-117 73958 M065MG 
+117 73958 M065MG
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-GOVT. GM 166621 Allotted
-118 74011 M071MG 
+118 74011 M071MG
 The Oxford Medical College
 Hospital and Research
 Center,Yadavanahalli, Attibele
 Hobli,Bangalore
 MBBS-GOVT. GM 153571 Allotted
-119 74105 M081MG 
+119 74105 M081MG
 East Point College of Medical
 Sciences and Research
 Center,,Bangalore
 MBBS-GOVT. GM 153571 Allotted
-120 74169 M071MG 
+120 74169 M071MG
 The Oxford Medical College
 Hospital and Research
 Center,Yadavanahalli, Attibele
 Hobli,Bangalore
 MBBS-GOVT. 3AG 153571 Allotted
-121 74200 M081MG 
+121 74200 M081MG
 East Point College of Medical
 Sciences and Research
 Center,,Bangalore
@@ -716,89 +716,89 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-122 74229 M065MG 
+122 74229 M065MG
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-GOVT. GM 166621 Allotted
-123 74263 M062MP 
+123 74263 M062MP
 Shymanuru Shivashankarappa
 Institute Of Medical
 Sciences,Jnanashankara, NH-
 4,Davangere
 MBBS-PRIV. OPN 1200117 Allotted
-124 74270 M044MG 
+124 74270 M044MG
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
 MBBS-GOVT. GMH 64350 Allotted
-125 74304 M096MG 
+125 74304 M096MG
 S R Patil Medical College
 Hospital and Research
 Center,Badagandi,BAGALKOT
 MBBS-GOVT. GM 153571 Allotted
-126 74462 M043MG 
+126 74462 M043MG
 Navodaya Medical College,PB
 No.26, Navodaya
 Nagar,Raichur
 MBBS-GOVT. GM 153571 Allotted
-127 74554 M065MG 
+127 74554 M065MG
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-GOVT. GM 166621 Allotted
-128 74702 M081MP 
+128 74702 M081MP
 East Point College of Medical
 Sciences and Research
 Center,,Bangalore
 MBBS-PRIV. OPN 1200117 Allotted
-129 74708 M065MG 
+129 74708 M065MG
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-GOVT. GM 166621 Allotted
-130 74727 M079MG 
+130 74727 M079MG
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
 MBBS-GOVT. GM 153571 Allotted
-131 74736 M096MG 
+131 74736 M096MG
 S R Patil Medical College
 Hospital and Research
 Center,Badagandi,BAGALKOT
 MBBS-GOVT. GM 153571 Allotted
-132 74919 M065MG 
+132 74919 M065MG
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-GOVT. GM 166621 Allotted
-133 75089 M079MG 
+133 75089 M079MG
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
 MBBS-GOVT. GM 153571 Allotted
-134 75149 M065MG 
+134 75149 M065MG
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-GOVT. GM 166621 Allotted
-135 75251 M092MG 
+135 75251 M092MG
 Chitradurga Medical College
 and Research
 Institute,,Chitradurga
 MBBS-GOVT. GMR 64350 Allotted
-136 75410 M065MG 
+136 75410 M065MG
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-GOVT. 3AG 166621 Allotted
-137 75476 M096MG 
+137 75476 M096MG
 S R Patil Medical College
 Hospital and Research
 Center,Badagandi,BAGALKOT
 MBBS-GOVT. GM 153571 Allotted
-138 75498 M096MG 
+138 75498 M096MG
 S R Patil Medical College
 Hospital and Research
 Center,Badagandi,BAGALKOT
@@ -816,87 +816,87 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-139 75560 M081MP 
+139 75560 M081MP
 East Point College of Medical
 Sciences and Research
 Center,,Bangalore
 MBBS-PRIV. OPN 1200117 Allotted
-140 75568 M096MG 
+140 75568 M096MG
 S R Patil Medical College
 Hospital and Research
 Center,Badagandi,BAGALKOT
 MBBS-GOVT. GM 153571 Allotted
-141 75580 M005MG 
+141 75580 M005MG
 Khaja Bande Navaz Institute Of
 Medical Sciences,Rouza
 Buzurq,,Gulbarga
 MBBS-GOVT. GM 156621 Allotted
-142 75652 M033MG 
+142 75652 M033MG
 Al-Ameen Medical
 College,ADMINISTRATIVE
 BLOCK,VIJAYAPUR
 MBBS-GOVT. GM 153571 Allotted
-143 75737 M033MG 
+143 75737 M033MG
 Al-Ameen Medical
 College,ADMINISTRATIVE
 BLOCK,VIJAYAPUR
 MBBS-GOVT. GM 153571 Allotted
-144 75755 M033MG 
+144 75755 M033MG
 Al-Ameen Medical
 College,ADMINISTRATIVE
 BLOCK,VIJAYAPUR
 MBBS-GOVT. GM 153571 Allotted
-145 75863 M044MG 
+145 75863 M044MG
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
 MBBS-GOVT. 3BH 64350 Allotted
-146 75900 M089MG 
+146 75900 M089MG
 Jagadguru Gangadhar
 Mahaswamigalu
 Moorusavirmath Medical
 College,,Dharward
 MBBS-GOVT. GM 609084 Allotted
-147 75976 M096MG 
+147 75976 M096MG
 S R Patil Medical College
 Hospital and Research
 Center,Badagandi,BAGALKOT
 MBBS-GOVT. 3AG 153571 Allotted
-148 76952 M089MG 
+148 76952 M089MG
 Jagadguru Gangadhar
 Mahaswamigalu
 Moorusavirmath Medical
 College,,Dharward
 MBBS-GOVT. GM 609084 Allotted
-149 77300 M089MG 
+149 77300 M089MG
 Jagadguru Gangadhar
 Mahaswamigalu
 Moorusavirmath Medical
 College,,Dharward
 MBBS-GOVT. GM 609084 Allotted
-150 77734 M096MG 
+150 77734 M096MG
 S R Patil Medical College
 Hospital and Research
 Center,Badagandi,BAGALKOT
 MBBS-GOVT. 3AG 153571 Allotted
-151 77912 M079MG 
+151 77912 M079MG
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
 MBBS-GOVT. 3AG 153571 Allotted
-152 77943 M089MG 
+152 77943 M089MG
 Jagadguru Gangadhar
 Mahaswamigalu
 Moorusavirmath Medical
 College,,Dharward
 MBBS-GOVT. GM 609084 Allotted
-153 77989 M054MG 
+153 77989 M054MG
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-GOVT. 3BG 153571 Allotted
-154 78113 M089MG 
+154 78113 M089MG
 Jagadguru Gangadhar
 Mahaswamigalu
 Moorusavirmath Medical
@@ -915,93 +915,93 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-155 78126 M008MG 
+155 78126 M008MG
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
 MBBS-GOVT. GMR 153571 Allotted
-156 78231 M054MG 
+156 78231 M054MG
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-GOVT. 3BG 153571 Allotted
-157 78595 M092MG 
+157 78595 M092MG
 Chitradurga Medical College
 and Research
 Institute,,Chitradurga
 MBBS-GOVT. 3BG 64350 Allotted
-158 78637 M033MG 
+158 78637 M033MG
 Al-Ameen Medical
 College,ADMINISTRATIVE
 BLOCK,VIJAYAPUR
 MBBS-GOVT. 3AG 153571 Allotted
-159 79056 M089MG 
+159 79056 M089MG
 Jagadguru Gangadhar
 Mahaswamigalu
 Moorusavirmath Medical
 College,,Dharward
 MBBS-GOVT. GM 609084 Allotted
-160 79075 M069MG 
+160 79075 M069MG
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
 MBBS-GOVT. 2BG 153571 Allotted
-161 79106 M033MG 
+161 79106 M033MG
 Al-Ameen Medical
 College,ADMINISTRATIVE
 BLOCK,VIJAYAPUR
 MBBS-GOVT. 3BG 153571 Allotted
-162 79158 M010MP 
+162 79158 M010MP
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
 MBBS-PRIV. GMP 1200117 Allotted
-163 79194 M090MP 
+163 79194 M090MP
 Siddaganga Medical College
 and Research
 Institute,,Tumakuru
 MBBS-PRIV. OPN 1200117 Allotted
-164 79231 M071MG 
+164 79231 M071MG
 The Oxford Medical College
 Hospital and Research
 Center,Yadavanahalli, Attibele
 Hobli,Bangalore
 MBBS-GOVT. 2BG 153571 Allotted
-165 79508 M087MG 
+165 79508 M087MG
 Yadgiri Institute of Medical
 Sciences,,Yadgiri
 MBBS-GOVT. GMH 64350 Allotted
-166 79520 M044MG 
+166 79520 M044MG
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
 MBBS-GOVT. 2BH 64350 Allotted
-167 79565 M020MG 
+167 79565 M020MG
 Sri Basaveshwara Medical
 College and Hospital,NH-4,
 S.J.M.I.T  Campus,,Chitradurga
 MBBS-GOVT. 3BG 153571 Allotted
-168 79636 M067MG 
+168 79636 M067MG
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-GOVT. GMR 153571 Allotted
-169 79869 M069MG 
+169 79869 M069MG
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
 MBBS-GOVT. 2AG 153571 Allotted
-170 80138 M065MG 
+170 80138 M065MG
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-GOVT. 2BG 166621 Allotted
-171 80276 M010MG 
+171 80276 M010MG
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
 MBBS-GOVT. 1G 153571 Allotted
-172 80365 M003MP 
+172 80365 M003MP
 Kempegowda Institute of
 Medical Sciences,B.S.K II
 Stage,,Bangalore
@@ -1019,87 +1019,87 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-173 80581 M084MG 
+173 80581 M084MG
 Chikkaballapura Institute of
 Medical
 Science,,Chikkaballapura
 MBBS-GOVT. 3BH 64350 Allotted
-174 81100 M010MG 
+174 81100 M010MG
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
 MBBS-GOVT. 2AG 153571 Allotted
-175 81143 M044MG 
+175 81143 M044MG
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
 MBBS-GOVT. 1G 64350 Allotted
-176 81730 M044MG 
+176 81730 M044MG
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
 MBBS-GOVT. GMRH 64350 Allotted
-177 81864 M054MG 
+177 81864 M054MG
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-GOVT. 2BG 153571 Allotted
-178 82063 M095MG 
+178 82063 M095MG
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-GOVT. 2AG 156621 Allotted
-179 82306 M003MP 
+179 82306 M003MP
 Kempegowda Institute of
 Medical Sciences,B.S.K II
 Stage,,Bangalore
 MBBS-PRIV. GMP 1200117 Allotted
-180 82423 M095MG 
+180 82423 M095MG
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-GOVT. GMR 156621 Allotted
-181 82466 M008MG 
+181 82466 M008MG
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
 MBBS-GOVT. 2AG 153571 Allotted
-182 82851 M042MG 
+182 82851 M042MG
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
 MBBS-GOVT. GMH 153571 Allotted
-183 83057 M093MG 
+183 83057 M093MG
 Sri Madhusudan Sai Institute of
 Medical Sciences and
 Research,,Muddenahalli,CHIKK
 ABALLAPURA
 MBBS-GOVT. 2BG 0 Allotted
-184 83118 M071MP 
+184 83118 M071MP
 The Oxford Medical College
 Hospital and Research
 Center,Yadavanahalli, Attibele
 Hobli,Bangalore
 MBBS-PRIV. OPN 1200117 Allotted
-185 83291 M009MP 
+185 83291 M009MP
 Vydehi Institute of Medical
 Science and Research
 Centre,No. 82,EPIP Area,
 Nallurahalli,Bangalore
 MBBS-PRIV. GMP 1200117 Allotted
-186 83397 M010MP 
+186 83397 M010MP
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
 MBBS-PRIV. GMP 1200117 Allotted
-187 83515 M020MG 
+187 83515 M020MG
 Sri Basaveshwara Medical
 College and Hospital,NH-4,
 S.J.M.I.T  Campus,,Chitradurga
 MBBS-GOVT. GMR 153571 Allotted
-188 83731 M044MG 
+188 83731 M044MG
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
 MBBS-GOVT. 3AH 64350 Allotted
@@ -1116,91 +1116,91 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-189 83777 M008MG 
+189 83777 M008MG
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
 MBBS-GOVT. GMH 153571 Allotted
-190 83949 M095MG 
+190 83949 M095MG
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-GOVT. GMH 156621 Allotted
-191 84002 M067MG 
+191 84002 M067MG
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-GOVT. 2AG 153571 Allotted
-192 84042 M095MG 
+192 84042 M095MG
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-GOVT. 2AG 156621 Allotted
-193 84232 M042MG 
+193 84232 M042MG
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
 MBBS-GOVT. GMH 153571 Allotted
-194 84272 M069MG 
+194 84272 M069MG
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
 MBBS-GOVT. 2AG 153571 Allotted
-195 84310 M065MG 
+195 84310 M065MG
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-GOVT. GMR 166621 Allotted
-196 84503 M054MG 
+196 84503 M054MG
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-GOVT. GMR 153571 Allotted
-197 84580 M009MP 
+197 84580 M009MP
 Vydehi Institute of Medical
 Science and Research
 Centre,No. 82,EPIP Area,
 Nallurahalli,Bangalore
 MBBS-PRIV. GMP 1200117 Allotted
-198 84715 M069MG 
+198 84715 M069MG
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
 MBBS-GOVT. GMR 153571 Allotted
-199 84735 M069MG 
+199 84735 M069MG
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
 MBBS-GOVT. 3BR 153571 Allotted
-200 84802 M042MG 
+200 84802 M042MG
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
 MBBS-GOVT. GMH 153571 Allotted
-201 84946 M003MP 
+201 84946 M003MP
 Kempegowda Institute of
 Medical Sciences,B.S.K II
 Stage,,Bangalore
 MBBS-PRIV. GMP 1200117 Allotted
-202 85294 M097MG 
+202 85294 M097MG
 Farookh Academy of Medical
 Education Hospital and
 Research Institute, Mysore
 Madikeri Road, Near Illavala
 Hunsur Taluk, Mysore District
 MBBS-GOVT. GMR 153571 Allotted
-203 85357 M044MG 
+203 85357 M044MG
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
 MBBS-GOVT. GMRH 64350 Allotted
-204 85377 M044MG 
+204 85377 M044MG
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
 MBBS-GOVT. 1H 64350 Allotted
-205 85575 M042MG 
+205 85575 M042MG
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
@@ -1218,89 +1218,89 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-206 85841 M065MG 
+206 85841 M065MG
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-GOVT. 3BR 166621 Allotted
-207 85938 M061MP 
+207 85938 M061MP
 Jaya Jagadguru
 Murugharajendra Medical
 College,,Davangere District
 MBBS-PRIV. GMP 1200117 Allotted
-208 85941 M079MG 
+208 85941 M079MG
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
 MBBS-GOVT. GMR 153571 Allotted
-209 86032 M067MG 
+209 86032 M067MG
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-GOVT. 2AG 153571 Allotted
-210 86607 M042MG 
+210 86607 M042MG
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
 MBBS-GOVT. GMH 153571 Allotted
-211 86635 M042MG 
+211 86635 M042MG
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
 MBBS-GOVT. GMH 153571 Allotted
-212 86682 M069MG 
+212 86682 M069MG
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
 MBBS-GOVT. GMH 153571 Allotted
-213 87131 M042MG 
+213 87131 M042MG
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
 MBBS-GOVT. GMH 153571 Allotted
-214 87142 M054MG 
+214 87142 M054MG
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-GOVT. 2AG 153571 Allotted
-215 87165 M042MP 
+215 87165 M042MP
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
 MBBS-PRIV. OPN 1200117 Allotted
-216 87728 M068MP 
+216 87728 M068MP
 BGS Global Institute of Medical
 Sciences,# 67, BGS Health &
 Education,Kengeri, Bangalore
 MBBS-PRIV. GMP 1200117 Allotted
-217 87819 M095MP 
+217 87819 M095MP
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-PRIV. OPN 2215000 Allotted
-218 87920 M071MG 
+218 87920 M071MG
 The Oxford Medical College
 Hospital and Research
 Center,Yadavanahalli, Attibele
 Hobli,Bangalore
 MBBS-GOVT. GMR 153571 Allotted
-219 87964 M067MG 
+219 87964 M067MG
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-GOVT. GMH 153571 Allotted
-220 88169 M044MG 
+220 88169 M044MG
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
 MBBS-GOVT. 2AH 64350 Allotted
-221 88187 M079MG 
+221 88187 M079MG
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
 MBBS-GOVT. GMR 153571 Allotted
-222 88485 M042MG 
+222 88485 M042MG
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
@@ -1318,90 +1318,90 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-223 88497 M095MG 
+223 88497 M095MG
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-GOVT. 2AG 156621 Allotted
-224 88626 M065MG 
+224 88626 M065MG
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-GOVT. GMH 166621 Allotted
-225 88641 M087MG 
+225 88641 M087MG
 Yadgiri Institute of Medical
 Sciences,,Yadgiri
 MBBS-GOVT. GMH 64350 Allotted
-226 88702 M020MP 
+226 88702 M020MP
 Sri Basaveshwara Medical
 College and Hospital,NH-4,
 S.J.M.I.T  Campus,,Chitradurga
 MBBS-PRIV. OPN 1200117 Allotted
-227 88770 M079MG 
+227 88770 M079MG
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
 MBBS-GOVT. GMR 153571 Allotted
-228 89108 M035MP 
+228 89108 M035MP
 S. Nijalingappa Medical College
 and Research Centre,,Bagalkot
 MBBS-PRIV. OPN 1200117 Allotted
-229 89193 M092MG 
+229 89193 M092MG
 Chitradurga Medical College
 and Research
 Institute,,Chitradurga
 MBBS-GOVT. GMH 64350 Allotted
-230 89369 M081MP 
+230 89369 M081MP
 East Point College of Medical
 Sciences and Research
 Center,,Bangalore
 MBBS-PRIV. OPN 1200117 Allotted
-231 89664 M071MG 
+231 89664 M071MG
 The Oxford Medical College
 Hospital and Research
 Center,Yadavanahalli, Attibele
 Hobli,Bangalore
 MBBS-GOVT. GMR 153571 Allotted
-232 89705 M042MG 
+232 89705 M042MG
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
 MBBS-GOVT. 3BH 153571 Allotted
-233 90044 M071MP 
+233 90044 M071MP
 The Oxford Medical College
 Hospital and Research
 Center,Yadavanahalli, Attibele
 Hobli,Bangalore
 MBBS-PRIV. OPN 1200117 Allotted
-234 90233 M042MG 
+234 90233 M042MG
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
 MBBS-GOVT. 2BH 153571 Allotted
-235 90339 M020MP 
+235 90339 M020MP
 Sri Basaveshwara Medical
 College and Hospital,NH-4,
 S.J.M.I.T  Campus,,Chitradurga
 MBBS-PRIV. OPN 1200117 Allotted
-236 90509 M089MG 
+236 90509 M089MG
 Jagadguru Gangadhar
 Mahaswamigalu
 Moorusavirmath Medical
 College,,Dharward
 MBBS-GOVT. GMR 609084 Allotted
-237 90769 M044MG 
+237 90769 M044MG
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
 MBBS-GOVT. GMKH 64350 Allotted
-238 90789 M008MG 
+238 90789 M008MG
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
 MBBS-GOVT. 2AG 153571 Allotted
-239 90854 M069MG 
+239 90854 M069MG
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
@@ -1419,92 +1419,92 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-240 90857 M081MG 
+240 90857 M081MG
 East Point College of Medical
 Sciences and Research
 Center,,Bangalore
 MBBS-GOVT. 2AG 153571 Allotted
-241 90884 M042MP 
+241 90884 M042MP
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
 MBBS-PRIV. OPN 1200117 Allotted
-242 90941 M005MG 
+242 90941 M005MG
 Khaja Bande Navaz Institute Of
 Medical Sciences,Rouza
 Buzurq,,Gulbarga
 MBBS-GOVT. GMH 156621 Allotted
-243 90990 M077MG 
+243 90990 M077MG
 Kodagu Institute of Medical
 Sciences,,MADIKERI
 MBBS-GOVT. GMH 64350 Allotted
-244 91204 M043MG 
+244 91204 M043MG
 Navodaya Medical College,PB
 No.26, Navodaya
 Nagar,Raichur
 MBBS-GOVT. GMH 153571 Allotted
-245 91238 M071MP 
+245 91238 M071MP
 The Oxford Medical College
 Hospital and Research
 Center,Yadavanahalli, Attibele
 Hobli,Bangalore
 MBBS-PRIV. OPN 1200117 Allotted
-246 91342 M044MG 
+246 91342 M044MG
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
 MBBS-GOVT. 2AH 64350 Allotted
-247 91433 M008MP 
+247 91433 M008MP
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
 MBBS-PRIV. GMP 1200117 Allotted
-248 91495 M067MG 
+248 91495 M067MG
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-GOVT. 1G 153571 Allotted
-249 91687 M035MP 
+249 91687 M035MP
 S. Nijalingappa Medical College
 and Research Centre,,Bagalkot
 MBBS-PRIV. OPN 1200117 Allotted
-250 91735 M092MG 
+250 91735 M092MG
 Chitradurga Medical College
 and Research
 Institute,,Chitradurga
 MBBS-GOVT. GMH 64350 Allotted
-251 91742 M054MG 
+251 91742 M054MG
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-GOVT. 2AG 153571 Allotted
-252 91917 M054MG 
+252 91917 M054MG
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-GOVT. 2AG 153571 Allotted
-253 92129 M023MG 
+253 92129 M023MG
 Adichunchanagiri Institute of
 Medical Sciences,B.G
 Nagar,,Bellur, Mandya Dist.
 MBBS-GOVT. GMH 156621 Allotted
-254 92247 M054MG 
+254 92247 M054MG
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-GOVT. 2AG 153571 Allotted
-255 92264 M044MG 
+255 92264 M044MG
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
 MBBS-GOVT. 2AH 64350 Allotted
-256 92300 M061MP 
+256 92300 M061MP
 Jaya Jagadguru
 Murugharajendra Medical
 College,,Davangere District
 MBBS-PRIV. GMP 1200117 Allotted
-257 92347 M051MG 
+257 92347 M051MG
 Kasturba Medical College,PB
 No -
 53,,Hampanakatta,Mangalore.
@@ -1522,88 +1522,88 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-258 92397 M042MG 
+258 92397 M042MG
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
 MBBS-GOVT. 2AR 153571 Allotted
-259 92534 M042MP 
+259 92534 M042MP
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
 MBBS-PRIV. OPN 1200117 Allotted
-260 92825 M065MG 
+260 92825 M065MG
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-GOVT. 2AG 166621 Allotted
-261 92905 M020MG 
+261 92905 M020MG
 Sri Basaveshwara Medical
 College and Hospital,NH-4,
 S.J.M.I.T  Campus,,Chitradurga
 MBBS-GOVT. 2AG 153571 Allotted
-262 92961 M033MG 
+262 92961 M033MG
 Al-Ameen Medical
 College,ADMINISTRATIVE
 BLOCK,VIJAYAPUR
 MBBS-GOVT. GMH 153571 Allotted
-263 93032 M042MG 
+263 93032 M042MG
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
 MBBS-GOVT. GMKH 153571 Allotted
-264 93141 M089MG 
+264 93141 M089MG
 Jagadguru Gangadhar
 Mahaswamigalu
 Moorusavirmath Medical
 College,,Dharward
 MBBS-GOVT. GMR 609084 Allotted
-265 93185 M062MP 
+265 93185 M062MP
 Shymanuru Shivashankarappa
 Institute Of Medical
 Sciences,Jnanashankara, NH-
 4,Davangere
 MBBS-PRIV. GMP 1200117 Allotted
-266 93187 M005MG 
+266 93187 M005MG
 Khaja Bande Navaz Institute Of
 Medical Sciences,Rouza
 Buzurq,,Gulbarga
 MBBS-GOVT. 3BH 156621 Allotted
-267 93353 M043MG 
+267 93353 M043MG
 Navodaya Medical College,PB
 No.26, Navodaya
 Nagar,Raichur
 MBBS-GOVT. GMH 153571 Allotted
-268 93568 M052MG 
+268 93568 M052MG
 Yenepoya Medical
 College,University Road,
 Nithyanandar,Mangalore
 MBBS-GOVT. 3BH 156621 Allotted
-269 93583 M035MP 
+269 93583 M035MP
 S. Nijalingappa Medical College
 and Research Centre,,Bagalkot
 MBBS-PRIV. OPN 1200117 Allotted
-270 93612 M033MG 
+270 93612 M033MG
 Al-Ameen Medical
 College,ADMINISTRATIVE
 BLOCK,VIJAYAPUR
 MBBS-GOVT. GMH 153571 Allotted
-271 93665 M010MP 
+271 93665 M010MP
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
 MBBS-PRIV. GMP 1200117 Allotted
-272 93984 M042MP 
+272 93984 M042MP
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
 MBBS-PRIV. OPN 1200117 Allotted
-273 94028 M069MP 
+273 94028 M069MP
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
 MBBS-PRIV. OPN 1200117 Allotted
-274 94231 M081MG 
+274 94231 M081MG
 East Point College of Medical
 Sciences and Research
 Center,,Bangalore
@@ -1621,87 +1621,87 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-275 94290 M079MG 
+275 94290 M079MG
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
 MBBS-GOVT. GMH 153571 Allotted
-276 94496 M090MG 
+276 94496 M090MG
 Siddaganga Medical College
 and Research
 Institute,,Tumakuru
 MBBS-GOVT. 2AG 153571 Allotted
-277 94557 M097MG 
+277 94557 M097MG
 Farookh Academy of Medical
 Education Hospital and
 Research Institute, Mysore
 Madikeri Road, Near Illavala
 Hunsur Taluk, Mysore District
 MBBS-GOVT. 2AG 153571 Allotted
-278 94742 M065MG 
+278 94742 M065MG
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-GOVT. 2AG 166621 Allotted
-279 94791 M044MG 
+279 94791 M044MG
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
 MBBS-GOVT. 2ARH 64350 Allotted
-280 95024 M069MG 
+280 95024 M069MG
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
 MBBS-GOVT. GMK 153571 Allotted
-281 95163 M069MG 
+281 95163 M069MG
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
 MBBS-GOVT. 3AH 153571 Allotted
-282 95305 M064MG 
+282 95305 M064MG
 Sapthagiri Institute of Medical
 Sciences,No.15,
 chikkasandra,,Bangalore
 MBBS-GOVT. 3AH 182371 Allotted
-283 95321 M005MG 
+283 95321 M005MG
 Khaja Bande Navaz Institute Of
 Medical Sciences,Rouza
 Buzurq,,Gulbarga
 MBBS-GOVT. 3AH 156621 Allotted
-284 95410 M071MG 
+284 95410 M071MG
 The Oxford Medical College
 Hospital and Research
 Center,Yadavanahalli, Attibele
 Hobli,Bangalore
 MBBS-GOVT. 2AG 153571 Allotted
-285 95448 M065MG 
+285 95448 M065MG
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-GOVT. 2AG 166621 Allotted
-286 95682 M008MP 
+286 95682 M008MP
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
 MBBS-PRIV. GMP 1200117 Allotted
-287 95767 M033MG 
+287 95767 M033MG
 Al-Ameen Medical
 College,ADMINISTRATIVE
 BLOCK,VIJAYAPUR
 MBBS-GOVT. 2AG 153571 Allotted
-288 95905 M065MG 
+288 95905 M065MG
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-GOVT. 2AG 166621 Allotted
-289 95918 M079MP 
+289 95918 M079MP
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
 MBBS-PRIV. OPN 1200117 Allotted
-290 95963 M079MG 
+290 95963 M079MG
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
@@ -1720,85 +1720,85 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-291 96066 M079MG 
+291 96066 M079MG
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
 MBBS-GOVT. 2AG 153571 Allotted
-292 96446 M010MP 
+292 96446 M010MP
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
 MBBS-PRIV. GMP 1200117 Allotted
-293 96604 M043MG 
+293 96604 M043MG
 Navodaya Medical College,PB
 No.26, Navodaya
 Nagar,Raichur
 MBBS-GOVT. 2BH 153571 Allotted
-294 96678 M005MG 
+294 96678 M005MG
 Khaja Bande Navaz Institute Of
 Medical Sciences,Rouza
 Buzurq,,Gulbarga
 MBBS-GOVT. 2AG 156621 Allotted
-295 96808 M094MG 
+295 96808 M094MG
 PES University Institute of
 Medical Sceinces and
 Research,Electronic
 city,BANGALORE
 MBBS-GOVT. 1G 156621 Allotted
-296 97016 M065MG 
+296 97016 M065MG
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-GOVT. 1G 166621 Allotted
-297 97030 M005MG 
+297 97030 M005MG
 Khaja Bande Navaz Institute Of
 Medical Sciences,Rouza
 Buzurq,,Gulbarga
 MBBS-GOVT. 2AG 156621 Allotted
-298 97108 M042MP 
+298 97108 M042MP
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
 MBBS-PRIV. GMP 1200117 Allotted
-299 97505 M042MG 
+299 97505 M042MG
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
 MBBS-GOVT. GMKH 153571 Allotted
-300 97558 M089MG 
+300 97558 M089MG
 Jagadguru Gangadhar
 Mahaswamigalu
 Moorusavirmath Medical
 College,,Dharward
 MBBS-GOVT. 3AR 609084 Allotted
-301 97979 M033MP 
+301 97979 M033MP
 Al-Ameen Medical
 College,ADMINISTRATIVE
 BLOCK,VIJAYAPUR
 MBBS-PRIV. OPN 1200117 Allotted
-302 98063 M067MP 
+302 98063 M067MP
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-PRIV. OPN 1200117 Allotted
-303 98133 M093MG 
+303 98133 M093MG
 Sri Madhusudan Sai Institute of
 Medical Sciences and
 Research,,Muddenahalli,CHIKK
 ABALLAPURA
 MBBS-GOVT. 2AG 0 Allotted
-304 98449 M035MP 
+304 98449 M035MP
 S. Nijalingappa Medical College
 and Research Centre,,Bagalkot
 MBBS-PRIV. OPN 1200117 Allotted
-305 98704 M054MG 
+305 98704 M054MG
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-GOVT. 1G 153571 Allotted
-306 98890 M089MG 
+306 98890 M089MG
 Jagadguru Gangadhar
 Mahaswamigalu
 Moorusavirmath Medical
@@ -1817,88 +1817,88 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-307 99168 M071MP 
+307 99168 M071MP
 The Oxford Medical College
 Hospital and Research
 Center,Yadavanahalli, Attibele
 Hobli,Bangalore
 MBBS-PRIV. GMP 1200117 Allotted
-308 99251 M042MG 
+308 99251 M042MG
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
 MBBS-GOVT. GMRH 153571 Allotted
-309 99335 M062MP 
+309 99335 M062MP
 Shymanuru Shivashankarappa
 Institute Of Medical
 Sciences,Jnanashankara, NH-
 4,Davangere
 MBBS-PRIV. GMP 1200117 Allotted
-310 99395 M035MP 
+310 99395 M035MP
 S. Nijalingappa Medical College
 and Research Centre,,Bagalkot
 MBBS-PRIV. OPN 1200117 Allotted
-311 99604 M090MP 
+311 99604 M090MP
 Siddaganga Medical College
 and Research
 Institute,,Tumakuru
 MBBS-PRIV. GMP 1200117 Allotted
-312 99605 M008MP 
+312 99605 M008MP
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
 MBBS-PRIV. GMP 1200117 Allotted
-313 99640 M008MP 
+313 99640 M008MP
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
 MBBS-PRIV. GMP 1200117 Allotted
-314 99642 M069MP 
+314 99642 M069MP
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
 MBBS-PRIV. OPN 1200117 Allotted
-315 100154 M079MG 
+315 100154 M079MG
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
 MBBS-GOVT. 1G 153571 Allotted
-316 100337 M096MP 
+316 100337 M096MP
 S R Patil Medical College
 Hospital and Research
 Center,Badagandi,BAGALKOT
 MBBS-PRIV. OPN 1200117 Allotted
-317 100486 M054MP 
+317 100486 M054MP
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-PRIV. OPN 1200117 Allotted
-318 100552 M081MP 
+318 100552 M081MP
 East Point College of Medical
 Sciences and Research
 Center,,Bangalore
 MBBS-PRIV. GMP 1200117 Allotted
-319 100826 M054MG 
+319 100826 M054MG
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-GOVT. 1R 153571 Allotted
-320 101455 M042MG 
+320 101455 M042MG
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
 MBBS-GOVT. 2AH 153571 Allotted
-321 101580 M069MP 
+321 101580 M069MP
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
 MBBS-PRIV. OPN 1200117 Allotted
-322 102228 M042MP 
+322 102228 M042MP
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
@@ -1916,91 +1916,91 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-323 102283 M069MP 
+323 102283 M069MP
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
 MBBS-PRIV. OPN 1200117 Allotted
-324 102289 M091MP 
+324 102289 M091MP
 SRI CHAMUNDESHWARI
 MEDICAL COLLEGE,
 HOSPITAL AND RESEARCH
 INST,,CHANNAPATNA,
 RAMANAGARA
 MBBS-PRIV. OPN 1200117 Allotted
-325 102349 M067MP 
+325 102349 M067MP
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-PRIV. OPN 1200117 Allotted
-326 103054 M042MG 
+326 103054 M042MG
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
 MBBS-GOVT. 2AH 153571 Allotted
-327 103176 M067MP 
+327 103176 M067MP
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-PRIV. OPN 1200117 Allotted
-328 103226 M069MP 
+328 103226 M069MP
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
 MBBS-PRIV. OPN 1200117 Allotted
-329 103351 M087MG 
+329 103351 M087MG
 Yadgiri Institute of Medical
 Sciences,,Yadgiri
 MBBS-GOVT. GMRH 64350 Allotted
-330 103581 M069MP 
+330 103581 M069MP
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
 MBBS-PRIV. OPN 1200117 Allotted
-331 103666 M067MP 
+331 103666 M067MP
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-PRIV. OPN 1200117 Allotted
-332 104024 M065MG 
+332 104024 M065MG
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-GOVT. 1R 166621 Allotted
-333 104256 M069MP 
+333 104256 M069MP
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
 MBBS-PRIV. OPN 1200117 Allotted
-334 104305 M097MP 
+334 104305 M097MP
 Farookh Academy of Medical
 Education Hospital and
 Research Institute, Mysore
 Madikeri Road, Near Illavala
 Hunsur Taluk, Mysore District
 MBBS-PRIV. OPN 1200117 Allotted
-335 104338 M073MG 
+335 104338 M073MG
 Koppal Institute of Medical
 Sciences,GANGAVATI ROAD,
 KIDDIDAL GATE,,KOPPAL
 MBBS-GOVT. 3BRH 64350 Allotted
-336 104507 M087MG 
+336 104507 M087MG
 Yadgiri Institute of Medical
 Sciences,,Yadgiri
 MBBS-GOVT. GMRH 64350 Allotted
-337 105141 M069MP 
+337 105141 M069MP
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
 MBBS-PRIV. OPN 1200117 Allotted
-338 105225 M020MG 
+338 105225 M020MG
 Sri Basaveshwara Medical
 College and Hospital,NH-4,
 S.J.M.I.T  Campus,,Chitradurga
 MBBS-GOVT. 2AH 153571 Allotted
-339 105818 M042MP 
+339 105818 M042MP
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
 MBBS-PRIV. GMP 1200117 Allotted
-340 106022 M069MP 
+340 106022 M069MP
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
@@ -2018,89 +2018,89 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-341 106131 M090MG 
+341 106131 M090MG
 Siddaganga Medical College
 and Research
 Institute,,Tumakuru
 MBBS-GOVT. 2AH 153571 Allotted
-342 106278 M067MP 
+342 106278 M067MP
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-PRIV. OPN 1200117 Allotted
-343 106404 M042MP 
+343 106404 M042MP
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
 MBBS-PRIV. GMPH 1200117 Allotted
-344 106457 M095MG 
+344 106457 M095MG
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-GOVT. 2AH 156621 Allotted
-345 106534 M069MP 
+345 106534 M069MP
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
 MBBS-PRIV. OPN 1200117 Allotted
-346 106652 M067MP 
+346 106652 M067MP
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-PRIV. GMP 1200117 Allotted
-347 107053 M091MP 
+347 107053 M091MP
 SRI CHAMUNDESHWARI
 MEDICAL COLLEGE,
 HOSPITAL AND RESEARCH
 INST,,CHANNAPATNA,
 RAMANAGARA
 MBBS-PRIV. OPN 1200117 Allotted
-348 107205 M075MG 
+348 107205 M075MG
 Chamarajanagar Institute of
 Medical Science,SURVEY NO
 124,
 YADAPURA,CHAMARAJANAG
 AR
 MBBS-GOVT. 1H 64350 Allotted
-349 107383 M005MG 
+349 107383 M005MG
 Khaja Bande Navaz Institute Of
 Medical Sciences,Rouza
 Buzurq,,Gulbarga
 MBBS-GOVT. 2AH 156621 Allotted
-350 107588 M069MP 
+350 107588 M069MP
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
 MBBS-PRIV. OPN 1200117 Allotted
-351 107682 M054MP 
+351 107682 M054MP
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-PRIV. OPN 1200117 Allotted
-352 107720 M091MP 
+352 107720 M091MP
 SRI CHAMUNDESHWARI
 MEDICAL COLLEGE,
 HOSPITAL AND RESEARCH
 INST,,CHANNAPATNA,
 RAMANAGARA
 MBBS-PRIV. OPN 1200117 Allotted
-353 107775 M079MP 
+353 107775 M079MP
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
 MBBS-PRIV. OPN 1200117 Allotted
-354 107902 M069MP 
+354 107902 M069MP
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
 MBBS-PRIV. GMP 1200117 Allotted
-355 108000 M043MG 
+355 108000 M043MG
 Navodaya Medical College,PB
 No.26, Navodaya
 Nagar,Raichur
 MBBS-GOVT. 2AH 153571 Allotted
-356 108184 M054MP 
+356 108184 M054MP
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
@@ -2119,86 +2119,86 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-357 108689 M054MP 
+357 108689 M054MP
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-PRIV. OPN 1200117 Allotted
-358 108713 M092MG 
+358 108713 M092MG
 Chitradurga Medical College
 and Research
 Institute,,Chitradurga
 MBBS-GOVT. 1H 64350 Allotted
-359 108919 M091MG 
+359 108919 M091MG
 SRI CHAMUNDESHWARI
 MEDICAL COLLEGE,
 HOSPITAL AND RESEARCH
 INST,,CHANNAPATNA,
 RAMANAGARA
 MBBS-GOVT. 2AH 153571 Allotted
-360 109065 M068MG 
+360 109065 M068MG
 BGS Global Institute of Medical
 Sciences,# 67, BGS Health &
 Education,Kengeri, Bangalore
 MBBS-GOVT. 2ARH 153571 Allotted
-361 109071 M079MP 
+361 109071 M079MP
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
 MBBS-PRIV. OPN 1200117 Allotted
-362 109216 M054MP 
+362 109216 M054MP
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-PRIV. OPN 1200117 Allotted
-363 109239 M067MP 
+363 109239 M067MP
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-PRIV. GMP 1200117 Allotted
-364 109275 M054MG 
+364 109275 M054MG
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-GOVT. 1H 153571 Allotted
-365 109348 M067MP 
+365 109348 M067MP
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-PRIV. GMP 1200117 Allotted
-366 109556 M054MP 
+366 109556 M054MP
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-PRIV. OPN 1200117 Allotted
-367 109806 M054MP 
+367 109806 M054MP
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-PRIV. OPN 1200117 Allotted
-368 109855 M054MP 
+368 109855 M054MP
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-PRIV. OPN 1200117 Allotted
-369 110439 M089MG 
+369 110439 M089MG
 Jagadguru Gangadhar
 Mahaswamigalu
 Moorusavirmath Medical
 College,,Dharward
 MBBS-GOVT. 2AH 609084 Allotted
-370 111042 M054MP 
+370 111042 M054MP
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-PRIV. OPN 1200117 Allotted
-371 111304 M042MP 
+371 111304 M042MP
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
@@ -2216,90 +2216,90 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-372 112438 M079MP 
+372 112438 M079MP
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
 MBBS-PRIV. OPN 1200117 Allotted
-373 112916 M079MP 
+373 112916 M079MP
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
 MBBS-PRIV. OPN 1200117 Allotted
-374 113183 M079MP 
+374 113183 M079MP
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
 MBBS-PRIV. OPN 1200117 Allotted
-375 115135 M054MP 
+375 115135 M054MP
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-PRIV. OPN 1200117 Allotted
-376 115192 M054MP 
+376 115192 M054MP
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-PRIV. OPN 1200117 Allotted
-377 115782 M069MP 
+377 115782 M069MP
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
 MBBS-PRIV. GMP 1200117 Allotted
-378 115960 M067MP 
+378 115960 M067MP
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-PRIV. GMP 1200117 Allotted
-379 116672 M069MP 
+379 116672 M069MP
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
 MBBS-PRIV. GMP 1200117 Allotted
-380 117193 M054MP 
+380 117193 M054MP
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-PRIV. OPN 1200117 Allotted
-381 117218 M054MP 
+381 117218 M054MP
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-PRIV. OPN 1200117 Allotted
-382 117671 M089MG 
+382 117671 M089MG
 Jagadguru Gangadhar
 Mahaswamigalu
 Moorusavirmath Medical
 College,,Dharward
 MBBS-GOVT. 1R 609084 Allotted
-383 117739 M043MP 
+383 117739 M043MP
 Navodaya Medical College,PB
 No.26, Navodaya
 Nagar,Raichur
 MBBS-PRIV. GMP 1200117 Allotted
-384 117882 M002MG 
+384 117882 M002MG
 Dr. B.R. Ambedkar Medical
 College,Kadugondanahalli,,Ban
 galore
 MBBS-GOVT. GMK 153571 Allotted
-385 117892 M020MP 
+385 117892 M020MP
 Sri Basaveshwara Medical
 College and Hospital,NH-4,
 S.J.M.I.T  Campus,,Chitradurga
 MBBS-PRIV. GMP 1200117 Allotted
-386 117899 M054MP 
+386 117899 M054MP
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-PRIV. OPN 1200117 Allotted
-387 119015 M043MP 
+387 119015 M043MP
 Navodaya Medical College,PB
 No.26, Navodaya
 Nagar,Raichur
@@ -2317,88 +2317,88 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-388 119484 M033MP 
+388 119484 M033MP
 Al-Ameen Medical
 College,ADMINISTRATIVE
 BLOCK,VIJAYAPUR
 MBBS-PRIV. GMP 1200117 Allotted
-389 119687 M097MP 
+389 119687 M097MP
 Farookh Academy of Medical
 Education Hospital and
 Research Institute, Mysore
 Madikeri Road, Near Illavala
 Hunsur Taluk, Mysore District
 MBBS-PRIV. OPN 1200117 Allotted
-390 120886 M069MP 
+390 120886 M069MP
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
 MBBS-PRIV. GMP 1200117 Allotted
-391 121089 M097MP 
+391 121089 M097MP
 Farookh Academy of Medical
 Education Hospital and
 Research Institute, Mysore
 Madikeri Road, Near Illavala
 Hunsur Taluk, Mysore District
 MBBS-PRIV. OPN 1200117 Allotted
-392 121658 M069MP 
+392 121658 M069MP
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
 MBBS-PRIV. GMP 1200117 Allotted
-393 121898 M054MP 
+393 121898 M054MP
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-PRIV. GMP 1200117 Allotted
-394 122249 M065MG 
+394 122249 M065MG
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-GOVT. GMK 166621 Allotted
-395 122569 M097MG 
+395 122569 M097MG
 Farookh Academy of Medical
 Education Hospital and
 Research Institute, Mysore
 Madikeri Road, Near Illavala
 Hunsur Taluk, Mysore District
 MBBS-GOVT. GMK 153571 Allotted
-396 122959 M079MG 
+396 122959 M079MG
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
 MBBS-GOVT. GMK 153571 Allotted
-397 123024 M069MP 
+397 123024 M069MP
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
 MBBS-PRIV. GMP 1200117 Allotted
-398 123531 M097MP 
+398 123531 M097MP
 Farookh Academy of Medical
 Education Hospital and
 Research Institute, Mysore
 Madikeri Road, Near Illavala
 Hunsur Taluk, Mysore District
 MBBS-PRIV. OPN 1200117 Allotted
-399 123624 M054MP 
+399 123624 M054MP
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-PRIV. GMP 1200117 Allotted
-400 123759 M069MP 
+400 123759 M069MP
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
 MBBS-PRIV. GMP 1200117 Allotted
-401 123795 M069MP 
+401 123795 M069MP
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
 MBBS-PRIV. GMP 1200117 Allotted
-402 124084 M069MP 
+402 124084 M069MP
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
@@ -2416,87 +2416,87 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-403 124610 M097MP 
+403 124610 M097MP
 Farookh Academy of Medical
 Education Hospital and
 Research Institute, Mysore
 Madikeri Road, Near Illavala
 Hunsur Taluk, Mysore District
 MBBS-PRIV. OPN 1200117 Allotted
-404 124901 M090MG 
+404 124901 M090MG
 Siddaganga Medical College
 and Research
 Institute,,Tumakuru
 MBBS-GOVT. GMKH 153571 Allotted
-405 125040 M097MP 
+405 125040 M097MP
 Farookh Academy of Medical
 Education Hospital and
 Research Institute, Mysore
 Madikeri Road, Near Illavala
 Hunsur Taluk, Mysore District
 MBBS-PRIV. OPN 1200117 Allotted
-406 125447 M054MP 
+406 125447 M054MP
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-PRIV. GMP 1200117 Allotted
-407 125727 M010MP 
+407 125727 M010MP
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
 MBBS-PRIV. GMPH 1200117 Allotted
-408 125760 M005MG 
+408 125760 M005MG
 Khaja Bande Navaz Institute Of
 Medical Sciences,Rouza
 Buzurq,,Gulbarga
 MBBS-GOVT. GMK 156621 Allotted
-409 126359 M069MP 
+409 126359 M069MP
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
 MBBS-PRIV. GMPH 1200117 Allotted
-410 126467 M054MP 
+410 126467 M054MP
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-PRIV. GMP 1200117 Allotted
-411 127024 M020MP 
+411 127024 M020MP
 Sri Basaveshwara Medical
 College and Hospital,NH-4,
 S.J.M.I.T  Campus,,Chitradurga
 MBBS-PRIV. GMP 1200117 Allotted
-412 127271 M054MP 
+412 127271 M054MP
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-PRIV. GMP 1200117 Allotted
-413 127326 M020MP 
+413 127326 M020MP
 Sri Basaveshwara Medical
 College and Hospital,NH-4,
 S.J.M.I.T  Campus,,Chitradurga
 MBBS-PRIV. GMP 1200117 Allotted
-414 127594 M054MP 
+414 127594 M054MP
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-PRIV. GMP 1200117 Allotted
-415 128019 M054MP 
+415 128019 M054MP
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-PRIV. GMP 1200117 Allotted
-416 128199 M054MP 
+416 128199 M054MP
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-PRIV. GMP 1200117 Allotted
-417 128363 M095MG 
+417 128363 M095MG
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
@@ -2515,87 +2515,87 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-418 128413 M097MP 
+418 128413 M097MP
 Farookh Academy of Medical
 Education Hospital and
 Research Institute, Mysore
 Madikeri Road, Near Illavala
 Hunsur Taluk, Mysore District
 MBBS-PRIV. OPN 1200117 Allotted
-419 128626 M079MP 
+419 128626 M079MP
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
 MBBS-PRIV. GMP 1200117 Allotted
-420 129260 M054MP 
+420 129260 M054MP
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-PRIV. GMP 1200117 Allotted
-421 129344 M054MP 
+421 129344 M054MP
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-PRIV. GMP 1200117 Allotted
-422 129558 M054MP 
+422 129558 M054MP
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-PRIV. GMP 1200117 Allotted
-423 129738 M054MP 
+423 129738 M054MP
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-PRIV. GMP 1200117 Allotted
-424 130008 M033MP 
+424 130008 M033MP
 Al-Ameen Medical
 College,ADMINISTRATIVE
 BLOCK,VIJAYAPUR
 MBBS-PRIV. GMP 1200117 Allotted
-425 130037 M054MP 
+425 130037 M054MP
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-PRIV. GMP 1200117 Allotted
-426 130180 M096MP 
+426 130180 M096MP
 S R Patil Medical College
 Hospital and Research
 Center,Badagandi,BAGALKOT
 MBBS-PRIV. GMP 1200117 Allotted
-427 130411 M096MP 
+427 130411 M096MP
 S R Patil Medical College
 Hospital and Research
 Center,Badagandi,BAGALKOT
 MBBS-PRIV. GMP 1200117 Allotted
-428 131152 M097MP 
+428 131152 M097MP
 Farookh Academy of Medical
 Education Hospital and
 Research Institute, Mysore
 Madikeri Road, Near Illavala
 Hunsur Taluk, Mysore District
 MBBS-PRIV. OPN 1200117 Allotted
-429 131431 M096MP 
+429 131431 M096MP
 S R Patil Medical College
 Hospital and Research
 Center,Badagandi,BAGALKOT
 MBBS-PRIV. GMP 1200117 Allotted
-430 131586 M096MP 
+430 131586 M096MP
 S R Patil Medical College
 Hospital and Research
 Center,Badagandi,BAGALKOT
 MBBS-PRIV. GMP 1200117 Allotted
-431 131680 M096MP 
+431 131680 M096MP
 S R Patil Medical College
 Hospital and Research
 Center,Badagandi,BAGALKOT
 MBBS-PRIV. GMP 1200117 Allotted
-432 132323 M096MP 
+432 132323 M096MP
 S R Patil Medical College
 Hospital and Research
 Center,Badagandi,BAGALKOT
@@ -2613,82 +2613,82 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-433 132328 M079MP 
+433 132328 M079MP
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
 MBBS-PRIV. GMP 1200117 Allotted
-434 132373 M096MP 
+434 132373 M096MP
 S R Patil Medical College
 Hospital and Research
 Center,Badagandi,BAGALKOT
 MBBS-PRIV. GMP 1200117 Allotted
-435 132379 M079MP 
+435 132379 M079MP
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
 MBBS-PRIV. GMP 1200117 Allotted
-436 132483 M097MP 
+436 132483 M097MP
 Farookh Academy of Medical
 Education Hospital and
 Research Institute, Mysore
 Madikeri Road, Near Illavala
 Hunsur Taluk, Mysore District
 MBBS-PRIV. GMP 1200117 Allotted
-437 132898 M079MP 
+437 132898 M079MP
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
 MBBS-PRIV. GMP 1200117 Allotted
-438 133279 M093MP 
+438 133279 M093MP
 Sri Madhusudan Sai Institute of
 Medical Sciences and
 Research,,Muddenahalli,CHIKK
 ABALLAPURA
 MBBS-PRIV. OPN 2200000 Allotted
-439 133315 M079MP 
+439 133315 M079MP
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
 MBBS-PRIV. GMP 1200117 Allotted
-440 134274 M079MP 
+440 134274 M079MP
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
 MBBS-PRIV. GMP 1200117 Allotted
-441 135917 M079MP 
+441 135917 M079MP
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
 MBBS-PRIV. MM 1200117 Allotted
-442 135955 M042MP 
+442 135955 M042MP
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
 MBBS-PRIV. GMPH 1200117 Allotted
-443 136489 M042MP 
+443 136489 M042MP
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
 MBBS-PRIV. GMPH 1200117 Allotted
-444 137110 M036MP 
+444 137110 M036MP
 SDM College of Medical
 Sciences and
 Hospital,Manjushree Nagar, PB
 ROAD,Dharwad
 MBBS-PRIV. OPN 2015000 Allotted
-445 137867 M005MP 
+445 137867 M005MP
 Khaja Bande Navaz Institute Of
 Medical Sciences,Rouza
 Buzurq,,Gulbarga
 MBBS-PRIV. OPN 1629965 Allotted
-446 138839 M036MP 
+446 138839 M036MP
 SDM College of Medical
 Sciences and
 Hospital,Manjushree Nagar, PB
@@ -2707,91 +2707,91 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-447 139076 M036MP 
+447 139076 M036MP
 SDM College of Medical
 Sciences and
 Hospital,Manjushree Nagar, PB
 ROAD,Dharwad
 MBBS-PRIV. GMP 2015000 Allotted
-448 143243 M042MP 
+448 143243 M042MP
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
 MBBS-PRIV. GMPH 1200117 Allotted
-449 144372 M005MP 
+449 144372 M005MP
 Khaja Bande Navaz Institute Of
 Medical Sciences,Rouza
 Buzurq,,Gulbarga
 MBBS-PRIV. OPN 1629965 Allotted
-450 144379 M010MP 
+450 144379 M010MP
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
 MBBS-PRIV. GMPH 1200117 Allotted
-451 145559 M042MP 
+451 145559 M042MP
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
 MBBS-PRIV. GMPH 1200117 Allotted
-452 147541 M042MP 
+452 147541 M042MP
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
 MBBS-PRIV. GMPH 1200117 Allotted
-453 148875 M020MP 
+453 148875 M020MP
 Sri Basaveshwara Medical
 College and Hospital,NH-4,
 S.J.M.I.T  Campus,,Chitradurga
 MBBS-PRIV. GMPH 1200117 Allotted
-454 149059 M095MP 
+454 149059 M095MP
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-PRIV. OPN 2215000 Allotted
-455 149193 M083MP 
+455 149193 M083MP
 Dr. Chandramma Dayananda
 Sagar Institute of Medical
 Education,,Harohalli hobli,
 Kanakapura Rd
 MBBS-PRIV. OPN 2215000 Allotted
-456 149320 M042MP 
+456 149320 M042MP
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
 MBBS-PRIV. GMPH 1200117 Allotted
-457 150925 M042MP 
+457 150925 M042MP
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
 MBBS-PRIV. GMPH 1200117 Allotted
-458 151706 M008MP 
+458 151706 M008MP
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
 MBBS-PRIV. GMPH 1200117 Allotted
-459 152589 M042MP 
+459 152589 M042MP
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
 MBBS-PRIV. GMPH 1200117 Allotted
-460 154234 M042MP 
+460 154234 M042MP
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
 MBBS-PRIV. GMPH 1200117 Allotted
-461 155535 M005MP 
+461 155535 M005MP
 Khaja Bande Navaz Institute Of
 Medical Sciences,Rouza
 Buzurq,,Gulbarga
 MBBS-PRIV. GMP 1629965 Allotted
-462 155937 M042MP 
+462 155937 M042MP
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
 MBBS-PRIV. GMPH 1200117 Allotted
-463 156006 M042MP 
+463 156006 M042MP
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
@@ -2809,90 +2809,90 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-464 156466 M042MP 
+464 156466 M042MP
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
 MBBS-PRIV. GMPH 1200117 Allotted
-465 159066 M010MP 
+465 159066 M010MP
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
 MBBS-PRIV. GMPH 1200117 Allotted
-466 159408 M069MP 
+466 159408 M069MP
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
 MBBS-PRIV. GMPH 1200117 Allotted
-467 161043 M008MP 
+467 161043 M008MP
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
 MBBS-PRIV. GMPH 1200117 Allotted
-468 161794 M071MP 
+468 161794 M071MP
 The Oxford Medical College
 Hospital and Research
 Center,Yadavanahalli, Attibele
 Hobli,Bangalore
 MBBS-PRIV. GMPH 1200117 Allotted
-469 162080 M094MP 
+469 162080 M094MP
 PES University Institute of
 Medical Sceinces and
 Research,Electronic
 city,BANGALORE
 MBBS-PRIV. OPN 2215000 Allotted
-470 162287 M083MP 
+470 162287 M083MP
 Dr. Chandramma Dayananda
 Sagar Institute of Medical
 Education,,Harohalli hobli,
 Kanakapura Rd
 MBBS-PRIV. GMP 2215000 Allotted
-471 163709 M096MP 
+471 163709 M096MP
 S R Patil Medical College
 Hospital and Research
 Center,Badagandi,BAGALKOT
 MBBS-PRIV. GMPH 1200117 Allotted
-472 169744 M071MP 
+472 169744 M071MP
 The Oxford Medical College
 Hospital and Research
 Center,Yadavanahalli, Attibele
 Hobli,Bangalore
 MBBS-PRIV. GMPH 1200117 Allotted
-473 170947 M096MP 
+473 170947 M096MP
 S R Patil Medical College
 Hospital and Research
 Center,Badagandi,BAGALKOT
 MBBS-PRIV. GMPH 1200117 Allotted
-474 171482 M067MP 
+474 171482 M067MP
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-PRIV. GMPH 1200117 Allotted
-475 173033 M083MP 
+475 173033 M083MP
 Dr. Chandramma Dayananda
 Sagar Institute of Medical
 Education,,Harohalli hobli,
 Kanakapura Rd
 MBBS-PRIV. GMP 2215000 Allotted
-476 173409 M095MP 
+476 173409 M095MP
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-PRIV. OPN 2215000 Allotted
-477 173826 M067MP 
+477 173826 M067MP
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-PRIV. GMPH 1200117 Allotted
-478 174009 M044MG 
+478 174009 M044MG
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
 MBBS-GOVT. SCG 64350 Allotted
-479 174089 M067MG 
+479 174089 M067MG
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-GOVT. SCG 153571 Allotted
-480 174599 M067MP 
+480 174599 M067MP
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-PRIV. GMPH 1200117 Allotted
@@ -2909,95 +2909,93 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-481 175120 M025MG 
+481 175120 M025MG
 Hassan Institute of Medical
 Sciences,Near Chamarajendra
 Hospital,Hassan
 MBBS-GOVT. SCG 64350 Allotted
-482 179823 M084MQ 
+482 179823 M084MQ
 Chikkaballapura Institute of
 Medical
 Science,,Chikkaballapura
-MBBS-
-OTHERS
-OTH2509350Allotted
-483 180761 M079MP 
+MBBS-OTHERS OTH 2509350 Allotted
+483 180761 M079MP
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
 MBBS-PRIV. GMPH 1200117 Allotted
-484 186420 M054MP 
+484 186420 M054MP
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-PRIV. GMPH 1200117 Allotted
-485 187448 M067MP 
+485 187448 M067MP
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-PRIV. GMPH 1200117 Allotted
-486 188972 M054MP 
+486 188972 M054MP
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-PRIV. GMPH 1200117 Allotted
-487 189430 M067MP 
+487 189430 M067MP
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-PRIV. GMPH 1200117 Allotted
-488 192236 M044MG 
+488 192236 M044MG
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
 MBBS-GOVT. STG 64350 Allotted
-489 192402 M054MP 
+489 192402 M054MP
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-PRIV. GMPH 1200117 Allotted
-490 192550 M044MG 
+490 192550 M044MG
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
 MBBS-GOVT. SCH 64350 Allotted
-491 192713 M023MP 
+491 192713 M023MP
 Adichunchanagiri Institute of
 Medical Sciences,B.G
 Nagar,,Bellur, Mandya Dist.
 MBBS-PRIV. OPN 2215000 Allotted
-492 193443 M044MG 
+492 193443 M044MG
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
 MBBS-GOVT. STG 64350 Allotted
-493 194564 M044MG 
+493 194564 M044MG
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
 MBBS-GOVT. SCH 64350 Allotted
-494 195020 M044MG 
+494 195020 M044MG
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
 MBBS-GOVT. STH 64350 Allotted
-495 195136 M044MG 
+495 195136 M044MG
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
 MBBS-GOVT. STRH 64350 Allotted
-496 195339 M004MP 
+496 195339 M004MP
 M.S.Ramaiah Medical
 College,MSR Nagar, MSRIT
 Post,Bangalore
 MBBS-PRIV. GMP 2515000 Allotted
-497 197201 M033MP 
+497 197201 M033MP
 Al-Ameen Medical
 College,ADMINISTRATIVE
 BLOCK,VIJAYAPUR
 MBBS-PRIV. GMPH 1200117 Allotted
-498 197423 M033MP 
+498 197423 M033MP
 Al-Ameen Medical
 College,ADMINISTRATIVE
 BLOCK,VIJAYAPUR
 MBBS-PRIV. GMPH 1200117 Allotted
-499 197977 M083MP 
+499 197977 M083MP
 Dr. Chandramma Dayananda
 Sagar Institute of Medical
 Education,,Harohalli hobli,
@@ -3016,92 +3014,92 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-500 200102 M044MG 
+500 200102 M044MG
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
 MBBS-GOVT. SCH 64350 Allotted
-501 201573 M042MG 
+501 201573 M042MG
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
 MBBS-GOVT. SCG 153571 Allotted
-502 202596 M095MG 
+502 202596 M095MG
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-GOVT. STG 156621 Allotted
-503 204165 M064MP 
+503 204165 M064MP
 Sapthagiri Institute of Medical
 Sciences,No.15,
 chikkasandra,,Bangalore
 MBBS-PRIV. OPN 2240750 Allotted
-504 205702 M079MP 
+504 205702 M079MP
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
 MBBS-PRIV. GMPH 1200117 Allotted
-505 205710 M044MG 
+505 205710 M044MG
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
 MBBS-GOVT. SCRH 64350 Allotted
-506 207509 M010MG 
+506 207509 M010MG
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
 MBBS-GOVT. SCG 153571 Allotted
-507 210755 M021MG 
+507 210755 M021MG
 Mysore Medical College,Irwin
 Road,,Mysore
 MBBS-GOVT. SCH 64350 Allotted
-508 210918 M010MG 
+508 210918 M010MG
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
 MBBS-GOVT. SCG 153571 Allotted
-509 211032 M094MP 
+509 211032 M094MP
 PES University Institute of
 Medical Sceinces and
 Research,Electronic
 city,BANGALORE
 MBBS-PRIV. GMP 2215000 Allotted
-510 212423 M067MG 
+510 212423 M067MG
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-GOVT. STG 153571 Allotted
-511 213459 M067MG 
+511 213459 M067MG
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-GOVT. STG 153571 Allotted
-512 213485 M008MG 
+512 213485 M008MG
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
 MBBS-GOVT. SCG 153571 Allotted
-513 213615 M065MG 
+513 213615 M065MG
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-GOVT. SCG 166621 Allotted
-514 214020 M042MG 
+514 214020 M042MG
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
 MBBS-GOVT. SCH 153571 Allotted
-515 214196 M082MG 
+515 214196 M082MG
 Shri Atal Bihari Vajpayee
 Institute of Medical
 Science,,Bengaluru
 MBBS-GOVT. SCG 64350 Allotted
-516 214498 M008MG 
+516 214498 M008MG
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
 MBBS-GOVT. STG 153571 Allotted
-517 215603 M010MG 
+517 215603 M010MG
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
@@ -3119,89 +3117,87 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-518 216076 M095MG 
+518 216076 M095MG
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-GOVT. SCG 156621 Allotted
-519 216219 M095MG 
+519 216219 M095MG
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-GOVT. SCG 156621 Allotted
-520 217226 M037MG 
+520 217226 M037MG
 Belgaum Institute of Medical
 Sciences,Dr B R Ambedkar
 Road,,Belgaum
 MBBS-GOVT. STG 64350 Allotted
-521 217404 M010MG 
+521 217404 M010MG
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
 MBBS-GOVT. STG 153571 Allotted
-522 217471 M067MG 
+522 217471 M067MG
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-GOVT. SCG 153571 Allotted
-523 218641 M009MQ 
+523 218641 M009MQ
 Vydehi Institute of Medical
 Science and Research
 Centre,No. 82,EPIP Area,
 Nallurahalli,Bangalore
-MBBS-
-OTHERS
-OTH4411950Allotted
-524 219268 M079MP 
+MBBS-OTHERS OTH 4411950 Allotted
+524 219268 M079MP
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
 MBBS-PRIV. GMPH 1200117 Allotted
-525 219567 M008MG 
+525 219567 M008MG
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
 MBBS-GOVT. SCG 153571 Allotted
-526 219621 M069MG 
+526 219621 M069MG
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
 MBBS-GOVT. SCG 153571 Allotted
-527 219776 M050MG 
+527 219776 M050MG
 Father Muller Institute of Med.
 Education & Research,Father
 Muller Road,,Mangalore
 MBBS-GOVT. STG 153571 Allotted
-528 220268 M065MG 
+528 220268 M065MG
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-GOVT. STG 166621 Allotted
-529 221329 M069MG 
+529 221329 M069MG
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
 MBBS-GOVT. SCG 153571 Allotted
-530 221454 M065MG 
+530 221454 M065MG
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-GOVT. STG 166621 Allotted
-531 222418 M054MG 
+531 222418 M054MG
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-GOVT. STH 153571 Allotted
-532 223023 M090MG 
+532 223023 M090MG
 Siddaganga Medical College
 and Research
 Institute,,Tumakuru
 MBBS-GOVT. STG 153571 Allotted
-533 223243 M025MG 
+533 223243 M025MG
 Hassan Institute of Medical
 Sciences,Near Chamarajendra
 Hospital,Hassan
@@ -3219,88 +3215,88 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-534 223250 M052MG 
+534 223250 M052MG
 Yenepoya Medical
 College,University Road,
 Nithyanandar,Mangalore
 MBBS-GOVT. STG 156621 Allotted
-535 224247 M069MG 
+535 224247 M069MG
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
 MBBS-GOVT. SCG 153571 Allotted
-536 224710 M073MG 
+536 224710 M073MG
 Koppal Institute of Medical
 Sciences,GANGAVATI ROAD,
 KIDDIDAL GATE,,KOPPAL
 MBBS-GOVT. SCH 64350 Allotted
-537 224821 M042MG 
+537 224821 M042MG
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
 MBBS-GOVT. SCH 153571 Allotted
-538 225235 M069MG 
+538 225235 M069MG
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
 MBBS-GOVT. SCG 153571 Allotted
-539 225296 M087MG 
+539 225296 M087MG
 Yadgiri Institute of Medical
 Sciences,,Yadgiri
 MBBS-GOVT. SCH 64350 Allotted
-540 225379 M033MG 
+540 225379 M033MG
 Al-Ameen Medical
 College,ADMINISTRATIVE
 BLOCK,VIJAYAPUR
 MBBS-GOVT. STG 153571 Allotted
-541 225742 M054MG 
+541 225742 M054MG
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-GOVT. SCG 153571 Allotted
-542 226624 M024MG 
+542 226624 M024MG
 Mandya Institute of Medical
 Sciences,District
 Hospital,,Mandya
 MBBS-GOVT. SCG 64350 Allotted
-543 226772 M054MG 
+543 226772 M054MG
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-GOVT. SCG 153571 Allotted
-544 227728 M097MG 
+544 227728 M097MG
 Farookh Academy of Medical
 Education Hospital and
 Research Institute, Mysore
 Madikeri Road, Near Illavala
 Hunsur Taluk, Mysore District
 MBBS-GOVT. STG 153571 Allotted
-545 228162 M067MG 
+545 228162 M067MG
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-GOVT. SCH 153571 Allotted
-546 228572 M024MG 
+546 228572 M024MG
 Mandya Institute of Medical
 Sciences,District
 Hospital,,Mandya
 MBBS-GOVT. SCG 64350 Allotted
-547 228628 M081MG 
+547 228628 M081MG
 East Point College of Medical
 Sciences and Research
 Center,,Bangalore
 MBBS-GOVT. SCG 153571 Allotted
-548 228829 M004MG 
+548 228829 M004MG
 M.S.Ramaiah Medical
 College,MSR Nagar, MSRIT
 Post,Bangalore
 MBBS-GOVT. SCG 156621 Allotted
-549 229033 M087MG 
+549 229033 M087MG
 Yadgiri Institute of Medical
 Sciences,,Yadgiri
 MBBS-GOVT. SCH 64350 Allotted
-550 229374 M097MP 
+550 229374 M097MP
 Farookh Academy of Medical
 Education Hospital and
 Research Institute, Mysore
@@ -3320,91 +3316,91 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-551 229378 M081MG 
+551 229378 M081MG
 East Point College of Medical
 Sciences and Research
 Center,,Bangalore
 MBBS-GOVT. SCG 153571 Allotted
-552 229799 M020MG 
+552 229799 M020MG
 Sri Basaveshwara Medical
 College and Hospital,NH-4,
 S.J.M.I.T  Campus,,Chitradurga
 MBBS-GOVT. SCG 153571 Allotted
-553 229811 M065MG 
+553 229811 M065MG
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-GOVT. SCG 166621 Allotted
-554 229815 M087MG 
+554 229815 M087MG
 Yadgiri Institute of Medical
 Sciences,,Yadgiri
 MBBS-GOVT. SCH 64350 Allotted
-555 229829 M020MG 
+555 229829 M020MG
 Sri Basaveshwara Medical
 College and Hospital,NH-4,
 S.J.M.I.T  Campus,,Chitradurga
 MBBS-GOVT. SCG 153571 Allotted
-556 229839 M095MG 
+556 229839 M095MG
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-GOVT. SCR 156621 Allotted
-557 229864 M079MG 
+557 229864 M079MG
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
 MBBS-GOVT. SCG 153571 Allotted
-558 230103 M035MG 
+558 230103 M035MG
 S. Nijalingappa Medical College
 and Research Centre,,Bagalkot
 MBBS-GOVT. SCG 153571 Allotted
-559 230273 M023MG 
+559 230273 M023MG
 Adichunchanagiri Institute of
 Medical Sciences,B.G
 Nagar,,Bellur, Mandya Dist.
 MBBS-GOVT. SCH 156621 Allotted
-560 230921 M054MG 
+560 230921 M054MG
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-GOVT. SCG 153571 Allotted
-561 230982 M054MG 
+561 230982 M054MG
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-GOVT. SCG 153571 Allotted
-562 231092 M079MG 
+562 231092 M079MG
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
 MBBS-GOVT. SCG 153571 Allotted
-563 231129 M065MG 
+563 231129 M065MG
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-GOVT. SCG 166621 Allotted
-564 231180 M033MP 
+564 231180 M033MP
 Al-Ameen Medical
 College,ADMINISTRATIVE
 BLOCK,VIJAYAPUR
 MBBS-PRIV. GMPH 1200117 Allotted
-565 231214 M079MG 
+565 231214 M079MG
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
 MBBS-GOVT. SCG 153571 Allotted
-566 231384 M033MP 
+566 231384 M033MP
 Al-Ameen Medical
 College,ADMINISTRATIVE
 BLOCK,VIJAYAPUR
 MBBS-PRIV. GMPH 1200117 Allotted
-567 231399 M096MG 
+567 231399 M096MG
 S R Patil Medical College
 Hospital and Research
 Center,Badagandi,BAGALKOT
@@ -3422,87 +3418,87 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-568 231642 M085MG 
+568 231642 M085MG
 Chikkamagaluru Institute of
 Medical
 Sciences,,Chikkamagaluru
 MBBS-GOVT. SCRH 64350 Allotted
-569 231946 M079MG 
+569 231946 M079MG
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
 MBBS-GOVT. SCG 153571 Allotted
-570 231995 M005MG 
+570 231995 M005MG
 Khaja Bande Navaz Institute Of
 Medical Sciences,Rouza
 Buzurq,,Gulbarga
 MBBS-GOVT. SCH 156621 Allotted
-571 232347 M079MG 
+571 232347 M079MG
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
 MBBS-GOVT. SCG 153571 Allotted
-572 232400 M079MG 
+572 232400 M079MG
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
 MBBS-GOVT. SCG 153571 Allotted
-573 233194 M065MG 
+573 233194 M065MG
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-GOVT. SCG 166621 Allotted
-574 233221 M005MG 
+574 233221 M005MG
 Khaja Bande Navaz Institute Of
 Medical Sciences,Rouza
 Buzurq,,Gulbarga
 MBBS-GOVT. STH 156621 Allotted
-575 233354 M097MG 
+575 233354 M097MG
 Farookh Academy of Medical
 Education Hospital and
 Research Institute, Mysore
 Madikeri Road, Near Illavala
 Hunsur Taluk, Mysore District
 MBBS-GOVT. SCG 153571 Allotted
-576 233366 M042MG 
+576 233366 M042MG
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
 MBBS-GOVT. SCR 153571 Allotted
-577 233474 M054MG 
+577 233474 M054MG
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
 MBBS-GOVT. SCR 153571 Allotted
-578 234353 M033MG 
+578 234353 M033MG
 Al-Ameen Medical
 College,ADMINISTRATIVE
 BLOCK,VIJAYAPUR
 MBBS-GOVT. SCG 153571 Allotted
-579 235065 M097MG 
+579 235065 M097MG
 Farookh Academy of Medical
 Education Hospital and
 Research Institute, Mysore
 Madikeri Road, Near Illavala
 Hunsur Taluk, Mysore District
 MBBS-GOVT. SCG 153571 Allotted
-580 235100 M097MG 
+580 235100 M097MG
 Farookh Academy of Medical
 Education Hospital and
 Research Institute, Mysore
 Madikeri Road, Near Illavala
 Hunsur Taluk, Mysore District
 MBBS-GOVT. SCG 153571 Allotted
-581 235168 M065MG 
+581 235168 M065MG
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-GOVT. SCH 166621 Allotted
-582 235603 M065MG 
+582 235603 M065MG
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
@@ -3520,96 +3516,90 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-583 235878 M042MG 
+583 235878 M042MG
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
 MBBS-GOVT. SCRH 153571 Allotted
-584 235914 M079MG 
+584 235914 M079MG
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
 MBBS-GOVT. SCR 153571 Allotted
-585 236976 M079MG 
+585 236976 M079MG
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
 MBBS-GOVT. SCRH 153571 Allotted
-586 239235 M089MG 
+586 239235 M089MG
 Jagadguru Gangadhar
 Mahaswamigalu
 Moorusavirmath Medical
 College,,Dharward
 MBBS-GOVT. SCR 609084 Allotted
-587 239435 M065MG 
+587 239435 M065MG
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-GOVT. STR 166621 Allotted
-588 240007 M005MP 
+588 240007 M005MP
 Khaja Bande Navaz Institute Of
 Medical Sciences,Rouza
 Buzurq,,Gulbarga
 MBBS-PRIV. GMPH 1629965 Allotted
-589 240993 M035MG 
+589 240993 M035MG
 S. Nijalingappa Medical College
 and Research Centre,,Bagalkot
 MBBS-GOVT. STR 153571 Allotted
-590 247229 M005MP 
+590 247229 M005MP
 Khaja Bande Navaz Institute Of
 Medical Sciences,Rouza
 Buzurq,,Gulbarga
 MBBS-PRIV. MMH 1629965 Allotted
-591 247773 M036MP 
+591 247773 M036MP
 SDM College of Medical
 Sciences and
 Hospital,Manjushree Nagar, PB
 ROAD,Dharwad
 MBBS-PRIV. GMPH 2015000 Allotted
-592 256231 M010MG 
+592 256231 M010MG
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
 MBBS-GOVT. SCK 153571 Allotted
-593 263485 M094MP 
+593 263485 M094MP
 PES University Institute of
 Medical Sceinces and
 Research,Electronic
 city,BANGALORE
 MBBS-PRIV. GMP 2215000 Allotted
-594 272587 M023MP 
+594 272587 M023MP
 Adichunchanagiri Institute of
 Medical Sciences,B.G
 Nagar,,Bellur, Mandya Dist.
 MBBS-PRIV. OPN 2215000 Allotted
-595 275464 M045MQ 
+595 275464 M045MQ
 Raichur Institute of Medical
 Sciences,Sy No.307 &
 308,,Raichur
-MBBS-
-OTHERS
-OTH2509350Allotted
-596 275869 M004MQ 
+MBBS-OTHERS OTH 2509350 Allotted
+596 275869 M004MQ
 M.S.Ramaiah Medical
 College,MSR Nagar, MSRIT
 Post,Bangalore
-MBBS-
-OTHERS
-OTH4515000Allotted
-597 285930 M050MP 
+MBBS-OTHERS OTH 4515000 Allotted
+597 285930 M050MP
 Father Muller Institute of Med.
 Education & Research,Father
 Muller Road,,Mangalore
 MBBS-PRIV. MC 1200117 Allotted
-598 294829 M033MQ 
+598 294829 M033MQ
 Al-Ameen Medical
 College,ADMINISTRATIVE
 BLOCK,VIJAYAPUR
-MBBS-
-OTHERS
-OTH2711950Allotted
+MBBS-OTHERS OTH 2711950 Allotted
 UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
 B£eLBVĸsďe¤eÎĩe\
 Karnataka Examinations Authority
@@ -3623,94 +3613,90 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-599 299569 M095MP 
+599 299569 M095MP
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-PRIV. OPN 2215000 Allotted
-600 307278 M095MP 
+600 307278 M095MP
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-PRIV. OPN 2215000 Allotted
-601 309555 M095MP 
+601 309555 M095MP
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-PRIV. OPN 2215000 Allotted
-602 314018 M093MP 
+602 314018 M093MP
 Sri Madhusudan Sai Institute of
 Medical Sciences and
 Research,,Muddenahalli,CHIKK
 ABALLAPURA
 MBBS-PRIV. GMP 2200000 Allotted
-603 321158 M095MP 
+603 321158 M095MP
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-PRIV. OPN 2215000 Allotted
-604 324487 M064MP 
+604 324487 M064MP
 Sapthagiri Institute of Medical
 Sciences,No.15,
 chikkasandra,,Bangalore
 MBBS-PRIV. OPN 2240750 Allotted
-605 325218 M065MP 
+605 325218 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. OPN 2225000 Allotted
-606 325840 M067MP 
+606 325840 M067MP
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-PRIV. ME 1200117 Allotted
-607 332584 M068MQ 
+607 332584 M068MQ
 BGS Global Institute of Medical
 Sciences,# 67, BGS Health &
 Education,Kengeri, Bangalore
-MBBS-
-OTHERS
-OTH4286950Allotted
-608 343527 M095MP 
+MBBS-OTHERS OTH 4286950 Allotted
+608 343527 M095MP
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-PRIV. OPN 2215000 Allotted
-609 345678 M095MP 
+609 345678 M095MP
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-PRIV. OPN 2215000 Allotted
-610 346823 M095MP 
+610 346823 M095MP
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-PRIV. OPN 2215000 Allotted
-611 347641 M095MP 
+611 347641 M095MP
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-PRIV. OPN 2215000 Allotted
-612 348230 M008MP 
+612 348230 M008MP
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
 MBBS-PRIV. MA 1200117 Allotted
-613 353852 M010MQ 
+613 353852 M010MQ
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
-MBBS-
-OTHERS
-OTH4011950Allotted
+MBBS-OTHERS OTH 4011950 Allotted
 UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
 B£eLBVĸsďe¤eÎĩe\
 Karnataka Examinations Authority
@@ -3724,94 +3710,90 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-614 361383 M023MP 
+614 361383 M023MP
 Adichunchanagiri Institute of
 Medical Sciences,B.G
 Nagar,,Bellur, Mandya Dist.
 MBBS-PRIV. OPN 2215000 Allotted
-615 361634 M067MP 
+615 361634 M067MP
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-PRIV. ME 1200117 Allotted
-616 361885 M008MP 
+616 361885 M008MP
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
 MBBS-PRIV. MA 1200117 Allotted
-617 367960 M064MP 
+617 367960 M064MP
 Sapthagiri Institute of Medical
 Sciences,No.15,
 chikkasandra,,Bangalore
 MBBS-PRIV. OPN 2240750 Allotted
-618 368144 M067MP 
+618 368144 M067MP
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-PRIV. ME 1200117 Allotted
-619 371329 M008MP 
+619 371329 M008MP
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
 MBBS-PRIV. MA 1200117 Allotted
-620 376770 M064MP 
+620 376770 M064MP
 Sapthagiri Institute of Medical
 Sciences,No.15,
 chikkasandra,,Bangalore
 MBBS-PRIV. OPN 2240750 Allotted
-621 379521 M033MQ 
+621 379521 M033MQ
 Al-Ameen Medical
 College,ADMINISTRATIVE
 BLOCK,VIJAYAPUR
-MBBS-
-OTHERS
-OTH2711950Allotted
-622 382260 M079MQ 
+MBBS-OTHERS OTH 2711950 Allotted
+622 382260 M079MQ
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
-MBBS-
-OTHERS
-OTH3211950Allotted
-623 385210 M023MP 
+MBBS-OTHERS OTH 3211950 Allotted
+623 385210 M023MP
 Adichunchanagiri Institute of
 Medical Sciences,B.G
 Nagar,,Bellur, Mandya Dist.
 MBBS-PRIV. GMP 2215000 Allotted
-624 388972 M010MP 
+624 388972 M010MP
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
 MBBS-PRIV. MU 1200117 Allotted
-625 393328 M008MP 
+625 393328 M008MP
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
 MBBS-PRIV. MA 1200117 Allotted
-626 394544 M095MP 
+626 394544 M095MP
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-PRIV. OPN 2215000 Allotted
-627 395111 M095MP 
+627 395111 M095MP
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-PRIV. OPN 2215000 Allotted
-628 397208 M067MP 
+628 397208 M067MP
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-PRIV. ME 1200117 Allotted
-629 399528 M065MP 
+629 399528 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. OPN 2225000 Allotted
-630 401380 M095MP 
+630 401380 M095MP
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
@@ -3830,98 +3812,94 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-631 405639 M010MP 
+631 405639 M010MP
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
 MBBS-PRIV. MU 1200117 Allotted
-632 406430 M071MP 
+632 406430 M071MP
 The Oxford Medical College
 Hospital and Research
 Center,Yadavanahalli, Attibele
 Hobli,Bangalore
 MBBS-PRIV. ME 1200117 Allotted
-633 407062 M078MP 
+633 407062 M078MP
 Akash Institute of Medical
 Sciences and Research
 Centre,DEVANAHALLI,,BANGA
 LORE
 MBBS-PRIV. ME 1200117 Allotted
-634 407085 M067MP 
+634 407085 M067MP
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-PRIV. ME 1200117 Allotted
-635 408137 M067MP 
+635 408137 M067MP
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-PRIV. ME 1200117 Allotted
-636 408617 M010MP 
+636 408617 M010MP
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
 MBBS-PRIV. MU 1200117 Allotted
-637 408652 M067MP 
+637 408652 M067MP
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-PRIV. ME 1200117 Allotted
-638 411542 M067MP 
+638 411542 M067MP
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-PRIV. ME 1200117 Allotted
-639 413273 M084MQ 
+639 413273 M084MQ
 Chikkaballapura Institute of
 Medical
 Science,,Chikkaballapura
-MBBS-
-OTHERS
-OTH2509350Allotted
-640 415565 M064MP 
+MBBS-OTHERS OTH 2509350 Allotted
+640 415565 M064MP
 Sapthagiri Institute of Medical
 Sciences,No.15,
 chikkasandra,,Bangalore
 MBBS-PRIV. OPN 2240750 Allotted
-641 415678 M010MP 
+641 415678 M010MP
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
 MBBS-PRIV. MU 1200117 Allotted
-642 418145 M010MP 
+642 418145 M010MP
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
 MBBS-PRIV. MU 1200117 Allotted
-643 418211 M067MP 
+643 418211 M067MP
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-PRIV. ME 1200117 Allotted
-644 418543 M067MP 
+644 418543 M067MP
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-PRIV. ME 1200117 Allotted
-645 419975 M009MQ 
+645 419975 M009MQ
 Vydehi Institute of Medical
 Science and Research
 Centre,No. 82,EPIP Area,
 Nallurahalli,Bangalore
-MBBS-
-OTHERS
-OTH4411950Allotted
-646 421423 M095MP 
+MBBS-OTHERS OTH 4411950 Allotted
+646 421423 M095MP
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-PRIV. OPN 2215000 Allotted
-647 421433 M010MP 
+647 421433 M010MP
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
 MBBS-PRIV. MU 1200117 Allotted
-648 421737 M067MP 
+648 421737 M067MP
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-PRIV. ME 1200117 Allotted
-649 426245 M067MP 
+649 426245 M067MP
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-PRIV. ME 1200117 Allotted
@@ -3938,94 +3916,88 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-650 427012 M036MQ 
+650 427012 M036MQ
 SDM College of Medical
 Sciences and
 Hospital,Manjushree Nagar, PB
 ROAD,Dharwad
-MBBS-
-OTHERS
-OTH3515000Allotted
-651 428318 M067MP 
+MBBS-OTHERS OTH 3515000 Allotted
+651 428318 M067MP
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-PRIV. ME 1200117 Allotted
-652 428753 M067MP 
+652 428753 M067MP
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-PRIV. ME 1200117 Allotted
-653 429546 M095MP 
+653 429546 M095MP
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-PRIV. OPN 2215000 Allotted
-654 430781 M010MP 
+654 430781 M010MP
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
 MBBS-PRIV. MU 1200117 Allotted
-655 433256 M008MP 
+655 433256 M008MP
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
 MBBS-PRIV. MA 1200117 Allotted
-656 433409 M095MP 
+656 433409 M095MP
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-PRIV. GMP 2215000 Allotted
-657 433779 M095MP 
+657 433779 M095MP
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-PRIV. GMP 2215000 Allotted
-658 433821 M067MP 
+658 433821 M067MP
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-PRIV. ME 1200117 Allotted
-659 433854 M067MQ 
+659 433854 M067MQ
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
-MBBS-
-OTHERS
-OTH2911950Allotted
-660 434406 M010MP 
+MBBS-OTHERS OTH 2911950 Allotted
+660 434406 M010MP
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
 MBBS-PRIV. MU 1200117 Allotted
-661 434845 M067MP 
+661 434845 M067MP
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-PRIV. ME 1200117 Allotted
-662 435232 M008MP 
+662 435232 M008MP
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
 MBBS-PRIV. MA 1200117 Allotted
-663 436705 M064MP 
+663 436705 M064MP
 Sapthagiri Institute of Medical
 Sciences,No.15,
 chikkasandra,,Bangalore
 MBBS-PRIV. OPN 2240750 Allotted
-664 438321 M067MP 
+664 438321 M067MP
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
 MBBS-PRIV. ME 1200117 Allotted
-665 439568 M009MQ 
+665 439568 M009MQ
 Vydehi Institute of Medical
 Science and Research
 Centre,No. 82,EPIP Area,
 Nallurahalli,Bangalore
-MBBS-
-OTHERS
-OTH4411950Allotted
-666 443601 M095MP 
+MBBS-OTHERS OTH 4411950 Allotted
+666 443601 M095MP
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
@@ -4044,85 +4016,85 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-667 444950 M095MP 
+667 444950 M095MP
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-PRIV. GMP 2215000 Allotted
-668 447301 M010MP 
+668 447301 M010MP
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
 MBBS-PRIV. MU 1200117 Allotted
-669 448505 M008MP 
+669 448505 M008MP
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
 MBBS-PRIV. MA 1200117 Allotted
-670 448939 M010MP 
+670 448939 M010MP
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
 MBBS-PRIV. MU 1200117 Allotted
-671 449153 M064MP 
+671 449153 M064MP
 Sapthagiri Institute of Medical
 Sciences,No.15,
 chikkasandra,,Bangalore
 MBBS-PRIV. OPN 2240750 Allotted
-672 451351 M023MP 
+672 451351 M023MP
 Adichunchanagiri Institute of
 Medical Sciences,B.G
 Nagar,,Bellur, Mandya Dist.
 MBBS-PRIV. GMP 2215000 Allotted
-673 451763 M095MP 
+673 451763 M095MP
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-PRIV. GMP 2215000 Allotted
-674 452196 M023MP 
+674 452196 M023MP
 Adichunchanagiri Institute of
 Medical Sciences,B.G
 Nagar,,Bellur, Mandya Dist.
 MBBS-PRIV. GMP 2215000 Allotted
-675 453251 M095MP 
+675 453251 M095MP
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-PRIV. GMP 2215000 Allotted
-676 457124 M095MP 
+676 457124 M095MP
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-PRIV. GMP 2215000 Allotted
-677 459875 M093MP 
+677 459875 M093MP
 Sri Madhusudan Sai Institute of
 Medical Sciences and
 Research,,Muddenahalli,CHIKK
 ABALLAPURA
 MBBS-PRIV. GMP 2200000 Allotted
-678 460082 M095MP 
+678 460082 M095MP
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-PRIV. GMP 2215000 Allotted
-679 460219 M095MP 
+679 460219 M095MP
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-PRIV. GMP 2215000 Allotted
-680 461050 M064MP 
+680 461050 M064MP
 Sapthagiri Institute of Medical
 Sciences,No.15,
 chikkasandra,,Bangalore
 MBBS-PRIV. OPN 2240750 Allotted
-681 461709 M010MP 
+681 461709 M010MP
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
@@ -4140,92 +4112,90 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-682 462872 M008MP 
+682 462872 M008MP
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
 MBBS-PRIV. MA 1200117 Allotted
-683 463136 M095MP 
+683 463136 M095MP
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-PRIV. GMP 2215000 Allotted
-684 463245 M010MP 
+684 463245 M010MP
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
 MBBS-PRIV. MU 1200117 Allotted
-685 464209 M064MP 
+685 464209 M064MP
 Sapthagiri Institute of Medical
 Sciences,No.15,
 chikkasandra,,Bangalore
 MBBS-PRIV. GMP 2240750 Allotted
-686 464985 M064MP 
+686 464985 M064MP
 Sapthagiri Institute of Medical
 Sciences,No.15,
 chikkasandra,,Bangalore
 MBBS-PRIV. GMP 2240750 Allotted
-687 465221 M095MP 
+687 465221 M095MP
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-PRIV. GMP 2215000 Allotted
-688 466155 M095MP 
+688 466155 M095MP
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-PRIV. GMP 2215000 Allotted
-689 468574 M095MP 
+689 468574 M095MP
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-PRIV. GMP 2215000 Allotted
-690 468656 M064MP 
+690 468656 M064MP
 Sapthagiri Institute of Medical
 Sciences,No.15,
 chikkasandra,,Bangalore
 MBBS-PRIV. GMP 2240750 Allotted
-691 472185 M023MP 
+691 472185 M023MP
 Adichunchanagiri Institute of
 Medical Sciences,B.G
 Nagar,,Bellur, Mandya Dist.
 MBBS-PRIV. GMP 2215000 Allotted
-692 472326 M095MP 
+692 472326 M095MP
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-PRIV. GMP 2215000 Allotted
-693 476889 M095MP 
+693 476889 M095MP
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-PRIV. GMP 2215000 Allotted
-694 477354 M095MP 
+694 477354 M095MP
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-PRIV. GMP 2215000 Allotted
-695 477437 M093MP 
+695 477437 M093MP
 Sri Madhusudan Sai Institute of
 Medical Sciences and
 Research,,Muddenahalli,CHIKK
 ABALLAPURA
 MBBS-PRIV. GMP 2200000 Allotted
-696 481439 M042MQ 
+696 481439 M042MQ
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
-MBBS-
-OTHERS
-OTH3911950Allotted
+MBBS-OTHERS OTH 3911950 Allotted
 UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
 B£eLBVĸsďe¤eÎĩe\
 Karnataka Examinations Authority
@@ -4239,86 +4209,84 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-697 481571 M023MP 
+697 481571 M023MP
 Adichunchanagiri Institute of
 Medical Sciences,B.G
 Nagar,,Bellur, Mandya Dist.
 MBBS-PRIV. GMP 2215000 Allotted
-698 481822 M095MP 
+698 481822 M095MP
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-PRIV. GMP 2215000 Allotted
-699 483824 M064MP 
+699 483824 M064MP
 Sapthagiri Institute of Medical
 Sciences,No.15,
 chikkasandra,,Bangalore
 MBBS-PRIV. GMP 2240750 Allotted
-700 484786 M095MP 
+700 484786 M095MP
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-PRIV. GMP 2215000 Allotted
-701 485180 M010MP 
+701 485180 M010MP
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
 MBBS-PRIV. MU 1200117 Allotted
-702 487011 M064MP 
+702 487011 M064MP
 Sapthagiri Institute of Medical
 Sciences,No.15,
 chikkasandra,,Bangalore
 MBBS-PRIV. GMP 2240750 Allotted
-703 489526 M008MP 
+703 489526 M008MP
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
 MBBS-PRIV. MA 1200117 Allotted
-704 492633 M008MP 
+704 492633 M008MP
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
 MBBS-PRIV. MA 1200117 Allotted
-705 493311 M010MP 
+705 493311 M010MP
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
 MBBS-PRIV. MU 1200117 Allotted
-706 493822 M095MP 
+706 493822 M095MP
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-PRIV. GMP 2215000 Allotted
-707 493910 M023MP 
+707 493910 M023MP
 Adichunchanagiri Institute of
 Medical Sciences,B.G
 Nagar,,Bellur, Mandya Dist.
 MBBS-PRIV. GMP 2215000 Allotted
-708 499564 M010MP 
+708 499564 M010MP
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
 MBBS-PRIV. MU 1200117 Allotted
-709 502115 M008MP 
+709 502115 M008MP
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
 MBBS-PRIV. MA 1200117 Allotted
-710 502375 M083MQ 
+710 502375 M083MQ
 Dr. Chandramma Dayananda
 Sagar Institute of Medical
 Education,,Harohalli hobli,
 Kanakapura Rd
-MBBS-
-OTHERS
-OTH3815000Allotted
-711 502421 M008MP 
+MBBS-OTHERS OTH 3815000 Allotted
+711 502421 M008MP
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
@@ -4337,104 +4305,90 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-712 505360 M036MQ 
+712 505360 M036MQ
 SDM College of Medical
 Sciences and
 Hospital,Manjushree Nagar, PB
 ROAD,Dharwad
-MBBS-
-OTHERS
-OTH3515000Allotted
-713 505496 M095MQ 
+MBBS-OTHERS OTH 3515000 Allotted
+713 505496 M095MQ
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
-MBBS-
-OTHERS
-OTH3515000Allotted
-714 508018 M003MQ 
+MBBS-OTHERS OTH 3515000 Allotted
+714 508018 M003MQ
 Kempegowda Institute of
 Medical Sciences,B.S.K II
 Stage,,Bangalore
-MBBS-
-OTHERS
-OTH4311950Allotted
-715 508866 M010MP 
+MBBS-OTHERS OTH 4311950 Allotted
+715 508866 M010MP
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
 MBBS-PRIV. MU 1200117 Allotted
-716 509632 M064MP 
+716 509632 M064MP
 Sapthagiri Institute of Medical
 Sciences,No.15,
 chikkasandra,,Bangalore
 MBBS-PRIV. GMP 2240750 Allotted
-717 509735 M033MQ 
+717 509735 M033MQ
 Al-Ameen Medical
 College,ADMINISTRATIVE
 BLOCK,VIJAYAPUR
-MBBS-
-OTHERS
-OTH2711950Allotted
-718 512954 M050MQ 
+MBBS-OTHERS OTH 2711950 Allotted
+718 512954 M050MQ
 Father Muller Institute of Med.
 Education & Research,Father
 Muller Road,,Mangalore
-MBBS-
-OTHERS
-OTH3511950Allotted
-719 513398 M064MP 
+MBBS-OTHERS OTH 3511950 Allotted
+719 513398 M064MP
 Sapthagiri Institute of Medical
 Sciences,No.15,
 chikkasandra,,Bangalore
 MBBS-PRIV. GMP 2240750 Allotted
-720 514703 M045MQ 
+720 514703 M045MQ
 Raichur Institute of Medical
 Sciences,Sy No.307 &
 308,,Raichur
-MBBS-
-OTHERS
-OTH2509350Allotted
-721 515174 M025MN 
+MBBS-OTHERS OTH 2509350 Allotted
+721 515174 M025MN
 Hassan Institute of Medical
 Sciences,Near Chamarajendra
 Hospital,Hassan
 MBBS-NRINRI 2 509350 Allotted
-722 520164 M065MP 
+722 520164 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. OPN 2225000 Allotted
-723 521981 M065MP 
+723 521981 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. OPN 2225000 Allotted
-724 529780 M065MP 
+724 529780 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. OPN 2225000 Allotted
-725 529855 M008MP 
+725 529855 M008MP
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
 MBBS-PRIV. MA 1200117 Allotted
-726 531428 M090MQ 
+726 531428 M090MQ
 Siddaganga Medical College
 and Research
 Institute,,Tumakuru
-MBBS-
-OTHERS
-OTH2861950Allotted
-727 531655 M065MP 
+MBBS-OTHERS OTH 2861950 Allotted
+727 531655 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. OPN 2225000 Allotted
-728 533935 M065MP 
+728 533935 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
@@ -4452,105 +4406,91 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-729 534329 M035MQ 
+729 534329 M035MQ
 S. Nijalingappa Medical College
 and Research Centre,,Bagalkot
-MBBS-
-OTHERS
-OTH4011950Allotted
-730 536763 M050MQ 
+MBBS-OTHERS OTH 4011950 Allotted
+730 536763 M050MQ
 Father Muller Institute of Med.
 Education & Research,Father
 Muller Road,,Mangalore
-MBBS-
-OTHERS
-OTH3511950Allotted
-731 537208 M042MQ 
+MBBS-OTHERS OTH 3511950 Allotted
+731 537208 M042MQ
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
-MBBS-
-OTHERS
-OTH3911950Allotted
-732 538229 M045MQ 
+MBBS-OTHERS OTH 3911950 Allotted
+732 538229 M045MQ
 Raichur Institute of Medical
 Sciences,Sy No.307 &
 308,,Raichur
-MBBS-
-OTHERS
-OTH2509350Allotted
-733 540517 M065MP 
+MBBS-OTHERS OTH 2509350 Allotted
+733 540517 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. OPN 2225000 Allotted
-734 540734 M079MQ 
+734 540734 M079MQ
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
-MBBS-
-OTHERS
-OTH3211950Allotted
-735 541252 M065MP 
+MBBS-OTHERS OTH 3211950 Allotted
+735 541252 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. OPN 2225000 Allotted
-736 543006 M094MQ 
+736 543006 M094MQ
 PES University Institute of
 Medical Sceinces and
 Research,Electronic
 city,BANGALORE
-MBBS-
-OTHERS
-OTH3915000Allotted
-737 543693 M095MP 
+MBBS-OTHERS OTH 3915000 Allotted
+737 543693 M095MP
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-PRIV. GMPH 2215000 Allotted
-738 545562 M095MP 
+738 545562 M095MP
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-PRIV. GMPH 2215000 Allotted
-739 546492 M065MP 
+739 546492 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. OPN 2225000 Allotted
-740 546736 M037MQ 
+740 546736 M037MQ
 Belgaum Institute of Medical
 Sciences,Dr B R Ambedkar
 Road,,Belgaum
-MBBS-
-OTHERS
-OTH2509350Allotted
-741 547159 M065MP 
+MBBS-OTHERS OTH 2509350 Allotted
+741 547159 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. OPN 2225000 Allotted
-742 547232 M065MP 
+742 547232 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. OPN 2225000 Allotted
-743 549306 M065MP 
+743 549306 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. OPN 2225000 Allotted
-744 550728 M095MP 
+744 550728 M095MP
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
 MBBS-PRIV. GMPH 2215000 Allotted
-745 551286 M065MP 
+745 551286 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
@@ -4568,93 +4508,87 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-746 552403 M010MQ 
+746 552403 M010MQ
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
-MBBS-
-OTHERS
-OTH4011950Allotted
-747 553463 M008MP 
+MBBS-OTHERS OTH 4011950 Allotted
+747 553463 M008MP
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
 MBBS-PRIV. MA 1200117 Allotted
-748 555458 M065MP 
+748 555458 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. OPN 2225000 Allotted
-749 555696 M065MP 
+749 555696 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. OPN 2225000 Allotted
-750 556245 M065MP 
+750 556245 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. OPN 2225000 Allotted
-751 557043 M002MQ 
+751 557043 M002MQ
 Dr. B.R. Ambedkar Medical
 College,Kadugondanahalli,,Ban
 galore
-MBBS-
-OTHERS
-OTH3511950Allotted
-752 557416 M008MP 
+MBBS-OTHERS OTH 3511950 Allotted
+752 557416 M008MP
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
 MBBS-PRIV. MA 1200117 Allotted
-753 560494 M064MP 
+753 560494 M064MP
 Sapthagiri Institute of Medical
 Sciences,No.15,
 chikkasandra,,Bangalore
 MBBS-PRIV. GMPH 2240750 Allotted
-754 561036 M065MP 
+754 561036 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. OPN 2225000 Allotted
-755 562524 M065MP 
+755 562524 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. OPN 2225000 Allotted
-756 563508 M065MP 
+756 563508 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. OPN 2225000 Allotted
-757 565488 M008MP 
+757 565488 M008MP
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
 MBBS-PRIV. MA 1200117 Allotted
-758 566730 M008MP 
+758 566730 M008MP
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
 MBBS-PRIV. MA 1200117 Allotted
-759 568177 M009MQ 
+759 568177 M009MQ
 Vydehi Institute of Medical
 Science and Research
 Centre,No. 82,EPIP Area,
 Nallurahalli,Bangalore
-MBBS-
-OTHERS
-OTH4411950Allotted
-760 571347 M010MP 
+MBBS-OTHERS OTH 4411950 Allotted
+760 571347 M010MP
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
 MBBS-PRIV. MU 1200117 Allotted
-761 574379 M065MP 
+761 574379 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
@@ -4672,111 +4606,97 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-762 577413 M065MP 
+762 577413 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. OPN 2225000 Allotted
-763 577786 M067MQ 
+763 577786 M067MQ
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
-MBBS-
-OTHERS
-OTH2911950Allotted
-764 579295 M044MQ 
+MBBS-OTHERS OTH 2911950 Allotted
+764 579295 M044MQ
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
-MBBS-
-OTHERS
-OTH2500000Allotted
-765 579993 M093MP 
+MBBS-OTHERS OTH 2500000 Allotted
+765 579993 M093MP
 Sri Madhusudan Sai Institute of
 Medical Sciences and
 Research,,Muddenahalli,CHIKK
 ABALLAPURA
 MBBS-PRIV. GMPH 2200000 Allotted
-766 581641 M065MP 
+766 581641 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. OPN 2225000 Allotted
-767 581696 M008MP 
+767 581696 M008MP
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
 MBBS-PRIV. MA 1200117 Allotted
-768 584493 M065MP 
+768 584493 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. OPN 2225000 Allotted
-769 587327 M033MQ 
+769 587327 M033MQ
 Al-Ameen Medical
 College,ADMINISTRATIVE
 BLOCK,VIJAYAPUR
-MBBS-
-OTHERS
-OTH2711950Allotted
-770 587923 M065MP 
+MBBS-OTHERS OTH 2711950 Allotted
+770 587923 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. OPN 2225000 Allotted
-771 589468 M065MP 
+771 589468 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. OPN 2225000 Allotted
-772 591069 M065MP 
+772 591069 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. OPN 2225000 Allotted
-773 592135 M069MQ 
+773 592135 M069MQ
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
-MBBS-
-OTHERS
-OTH3861950Allotted
-774 593003 M091MP 
+MBBS-OTHERS OTH 3861950 Allotted
+774 593003 M091MP
 SRI CHAMUNDESHWARI
 MEDICAL COLLEGE,
 HOSPITAL AND RESEARCH
 INST,,CHANNAPATNA,
 RAMANAGARA
 MBBS-PRIV. MA 1200117 Allotted
-775 595585 M065MP 
+775 595585 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. OPN 2225000 Allotted
-776 595929 M002MQ 
+776 595929 M002MQ
 Dr. B.R. Ambedkar Medical
 College,Kadugondanahalli,,Ban
 galore
-MBBS-
-OTHERS
-OTH3511950Allotted
-777 596029 M065MP 
+MBBS-OTHERS OTH 3511950 Allotted
+777 596029 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. OPN 2225000 Allotted
-778 597637 M067MQ 
+778 597637 M067MQ
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
-MBBS-
-OTHERS
-OTH2911950Allotted
-779 598863 M090MQ 
+MBBS-OTHERS OTH 2911950 Allotted
+779 598863 M090MQ
 Siddaganga Medical College
 and Research
 Institute,,Tumakuru
-MBBS-
-OTHERS
-OTH2861950Allotted
+MBBS-OTHERS OTH 2861950 Allotted
 UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
 B£eLBVĸsďe¤eÎĩe\
 Karnataka Examinations Authority
@@ -4790,115 +4710,97 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-780 600868 M065MP 
+780 600868 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. OPN 2225000 Allotted
-781 601874 M065MP 
+781 601874 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. OPN 2225000 Allotted
-782 603267 M065MP 
+782 603267 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. OPN 2225000 Allotted
-783 603452 M065MP 
+783 603452 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. OPN 2225000 Allotted
-784 604931 M083MQ 
+784 604931 M083MQ
 Dr. Chandramma Dayananda
 Sagar Institute of Medical
 Education,,Harohalli hobli,
 Kanakapura Rd
-MBBS-
-OTHERS
-OTH3815000Allotted
-785 605443 M044MQ 
+MBBS-OTHERS OTH 3815000 Allotted
+785 605443 M044MQ
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
-MBBS-
-OTHERS
-OTH2500000Allotted
-786 606804 M065MP 
+MBBS-OTHERS OTH 2500000 Allotted
+786 606804 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. OPN 2225000 Allotted
-787 610009 M065MP 
+787 610009 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. OPN 2225000 Allotted
-788 610980 M078MQ 
+788 610980 M078MQ
 Akash Institute of Medical
 Sciences and Research
 Centre,DEVANAHALLI,,BANGA
 LORE
-MBBS-
-OTHERS
-OTH3611950Allotted
-789 612057 M065MP 
+MBBS-OTHERS OTH 3611950 Allotted
+789 612057 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. GMP 2225000 Allotted
-790 612357 M002MQ 
+790 612357 M002MQ
 Dr. B.R. Ambedkar Medical
 College,Kadugondanahalli,,Ban
 galore
-MBBS-
-OTHERS
-OTH3511950Allotted
-791 612792 M042MQ 
+MBBS-OTHERS OTH 3511950 Allotted
+791 612792 M042MQ
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
-MBBS-
-OTHERS
-OTH3911950Allotted
-792 613502 M003MQ 
+MBBS-OTHERS OTH 3911950 Allotted
+792 613502 M003MQ
 Kempegowda Institute of
 Medical Sciences,B.S.K II
 Stage,,Bangalore
-MBBS-
-OTHERS
-OTH4311950Allotted
-793 613966 M065MP 
+MBBS-OTHERS OTH 4311950 Allotted
+793 613966 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. GMP 2225000 Allotted
-794 614720 M090MQ 
+794 614720 M090MQ
 Siddaganga Medical College
 and Research
 Institute,,Tumakuru
-MBBS-
-OTHERS
-OTH2861950Allotted
-795 616779 M003MQ 
+MBBS-OTHERS OTH 2861950 Allotted
+795 616779 M003MQ
 Kempegowda Institute of
 Medical Sciences,B.S.K II
 Stage,,Bangalore
-MBBS-
-OTHERS
-OTH4311950Allotted
-796 617200 M065MP 
+MBBS-OTHERS OTH 4311950 Allotted
+796 617200 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. GMP 2225000 Allotted
-797 618977 M002MQ 
+797 618977 M002MQ
 Dr. B.R. Ambedkar Medical
 College,Kadugondanahalli,,Ban
 galore
-MBBS-
-OTHERS
-OTH3511950Allotted
+MBBS-OTHERS OTH 3511950 Allotted
 UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
 B£eLBVĸsďe¤eÎĩe\
 Karnataka Examinations Authority
@@ -4912,96 +4814,88 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-798 620026 M091MP 
+798 620026 M091MP
 SRI CHAMUNDESHWARI
 MEDICAL COLLEGE,
 HOSPITAL AND RESEARCH
 INST,,CHANNAPATNA,
 RAMANAGARA
 MBBS-PRIV. MA 1200117 Allotted
-799 620858 M065MP 
+799 620858 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. GMP 2225000 Allotted
-800 622484 M065MP 
+800 622484 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. GMP 2225000 Allotted
-801 623573 M065MP 
+801 623573 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. GMP 2225000 Allotted
-802 624401 M065MP 
+802 624401 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. GMP 2225000 Allotted
-803 625247 M095MQ 
+803 625247 M095MQ
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
-MBBS-
-OTHERS
-OTH3515000Allotted
-804 625853 M065MP 
+MBBS-OTHERS OTH 3515000 Allotted
+804 625853 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. GMP 2225000 Allotted
-805 626673 M065MP 
+805 626673 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. GMP 2225000 Allotted
-806 627848 M091MP 
+806 627848 M091MP
 SRI CHAMUNDESHWARI
 MEDICAL COLLEGE,
 HOSPITAL AND RESEARCH
 INST,,CHANNAPATNA,
 RAMANAGARA
 MBBS-PRIV. MA 1200117 Allotted
-807 628575 M095MQ 
+807 628575 M095MQ
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
-MBBS-
-OTHERS
-OTH3515000Allotted
-808 630526 M065MP 
+MBBS-OTHERS OTH 3515000 Allotted
+808 630526 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. GMP 2225000 Allotted
-809 630919 M065MP 
+809 630919 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. GMP 2225000 Allotted
-810 633161 M091MP 
+810 633161 M091MP
 SRI CHAMUNDESHWARI
 MEDICAL COLLEGE,
 HOSPITAL AND RESEARCH
 INST,,CHANNAPATNA,
 RAMANAGARA
 MBBS-PRIV. MA 1200117 Allotted
-811 633324 M044MQ 
+811 633324 M044MQ
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
-MBBS-
-OTHERS
-OTH2500000Allotted
-812 633402 M067MQ 
+MBBS-OTHERS OTH 2500000 Allotted
+812 633402 M067MQ
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
-MBBS-
-OTHERS
-OTH2911950Allotted
-813 633650 M065MP 
+MBBS-OTHERS OTH 2911950 Allotted
+813 633650 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
@@ -5019,110 +4913,94 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-814 639642 M090MQ 
+814 639642 M090MQ
 Siddaganga Medical College
 and Research
 Institute,,Tumakuru
-MBBS-
-OTHERS
-OTH2861950Allotted
-815 641719 M091MP 
+MBBS-OTHERS OTH 2861950 Allotted
+815 641719 M091MP
 SRI CHAMUNDESHWARI
 MEDICAL COLLEGE,
 HOSPITAL AND RESEARCH
 INST,,CHANNAPATNA,
 RAMANAGARA
 MBBS-PRIV. MA 1200117 Allotted
-816 642922 M095MQ 
+816 642922 M095MQ
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
-MBBS-
-OTHERS
-OTH3515000Allotted
-817 644906 M093MP 
+MBBS-OTHERS OTH 3515000 Allotted
+817 644906 M093MP
 Sri Madhusudan Sai Institute of
 Medical Sciences and
 Research,,Muddenahalli,CHIKK
 ABALLAPURA
 MBBS-PRIV. GMPH 2200000 Allotted
-818 645661 M002MQ 
+818 645661 M002MQ
 Dr. B.R. Ambedkar Medical
 College,Kadugondanahalli,,Ban
 galore
-MBBS-
-OTHERS
-OTH3511950Allotted
-819 646194 M033MQ 
+MBBS-OTHERS OTH 3511950 Allotted
+819 646194 M033MQ
 Al-Ameen Medical
 College,ADMINISTRATIVE
 BLOCK,VIJAYAPUR
-MBBS-
-OTHERS
-OTH2711950Allotted
-820 649646 M091MP 
+MBBS-OTHERS OTH 2711950 Allotted
+820 649646 M091MP
 SRI CHAMUNDESHWARI
 MEDICAL COLLEGE,
 HOSPITAL AND RESEARCH
 INST,,CHANNAPATNA,
 RAMANAGARA
 MBBS-PRIV. MA 1200117 Allotted
-821 651093 M035MQ 
+821 651093 M035MQ
 S. Nijalingappa Medical College
 and Research Centre,,Bagalkot
-MBBS-
-OTHERS
-OTH4011950Allotted
-822 653017 M065MP 
+MBBS-OTHERS OTH 4011950 Allotted
+822 653017 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. GMP 2225000 Allotted
-823 653370 M043MQ 
+823 653370 M043MQ
 Navodaya Medical College,PB
 No.26, Navodaya
 Nagar,Raichur
-MBBS-
-OTHERS
-OTH2736950Allotted
-824 653932 M065MP 
+MBBS-OTHERS OTH 2736950 Allotted
+824 653932 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. GMP 2225000 Allotted
-825 657748 M023MP 
+825 657748 M023MP
 Adichunchanagiri Institute of
 Medical Sciences,B.G
 Nagar,,Bellur, Mandya Dist.
 MBBS-PRIV. GMPH 2215000 Allotted
-826 658561 M065MP 
+826 658561 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. GMP 2225000 Allotted
-827 659081 M065MP 
+827 659081 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. GMP 2225000 Allotted
-828 660080 M009MQ 
+828 660080 M009MQ
 Vydehi Institute of Medical
 Science and Research
 Centre,No. 82,EPIP Area,
 Nallurahalli,Bangalore
-MBBS-
-OTHERS
-OTH4411950Allotted
-829 661689 M097MQ 
+MBBS-OTHERS OTH 4411950 Allotted
+829 661689 M097MQ
 Farookh Academy of Medical
 Education Hospital and
 Research Institute, Mysore
 Madikeri Road, Near Illavala
 Hunsur Taluk, Mysore District
-MBBS-
-OTHERS
-OTH3011950Allotted
+MBBS-OTHERS OTH 3011950 Allotted
 UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
 B£eLBVĸsďe¤eÎĩe\
 Karnataka Examinations Authority
@@ -5136,113 +5014,91 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-830 662582 M065MP 
+830 662582 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. GMP 2225000 Allotted
-831 662866 M065MP 
+831 662866 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. GMP 2225000 Allotted
-832 664435 M065MP 
+832 664435 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. GMP 2225000 Allotted
-833 666307 M071MQ 
+833 666307 M071MQ
 The Oxford Medical College
 Hospital and Research
 Center,Yadavanahalli, Attibele
 Hobli,Bangalore
-MBBS-
-OTHERS
-OTH3611950Allotted
-834 668814 M079MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+834 668814 M079MQ
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
-MBBS-
-OTHERS
-OTH3211950Allotted
-835 672980 M071MQ 
+MBBS-OTHERS OTH 3211950 Allotted
+835 672980 M071MQ
 The Oxford Medical College
 Hospital and Research
 Center,Yadavanahalli, Attibele
 Hobli,Bangalore
-MBBS-
-OTHERS
-OTH3611950Allotted
-836 677221 M044MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+836 677221 M044MQ
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
-MBBS-
-OTHERS
-OTH2500000Allotted
-837 677715 M010MQ 
+MBBS-OTHERS OTH 2500000 Allotted
+837 677715 M010MQ
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
-MBBS-
-OTHERS
-OTH4011950Allotted
-838 683911 M091MP 
+MBBS-OTHERS OTH 4011950 Allotted
+838 683911 M091MP
 SRI CHAMUNDESHWARI
 MEDICAL COLLEGE,
 HOSPITAL AND RESEARCH
 INST,,CHANNAPATNA,
 RAMANAGARA
 MBBS-PRIV. MA 1200117 Allotted
-839 684534 M065MP 
+839 684534 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. GMP 2225000 Allotted
-840 684884 M090MQ 
+840 684884 M090MQ
 Siddaganga Medical College
 and Research
 Institute,,Tumakuru
-MBBS-
-OTHERS
-OTH2861950Allotted
-841 687269 M054MQ 
+MBBS-OTHERS OTH 2861950 Allotted
+841 687269 M054MQ
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
-MBBS-
-OTHERS
-OTH3512650Allotted
-842 689444 M005MQ 
+MBBS-OTHERS OTH 3512650 Allotted
+842 689444 M005MQ
 Khaja Bande Navaz Institute Of
 Medical Sciences,Rouza
 Buzurq,,Gulbarga
-MBBS-
-OTHERS
-OTH3215000Allotted
-843 689906 M090MQ 
+MBBS-OTHERS OTH 3215000 Allotted
+843 689906 M090MQ
 Siddaganga Medical College
 and Research
 Institute,,Tumakuru
-MBBS-
-OTHERS
-OTH2861950Allotted
-844 691715 M061MQ 
+MBBS-OTHERS OTH 2861950 Allotted
+844 691715 M061MQ
 Jaya Jagadguru
 Murugharajendra Medical
 College,,Davangere District
-MBBS-
-OTHERS
-OTH3911950Allotted
-845 692140 M067MQ 
+MBBS-OTHERS OTH 3911950 Allotted
+845 692140 M067MQ
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
-MBBS-
-OTHERS
-OTH2911950Allotted
-846 697078 M065MP 
+MBBS-OTHERS OTH 2911950 Allotted
+846 697078 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
@@ -5260,109 +5116,91 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-847 701402 M065MP 
+847 701402 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. GMP 2225000 Allotted
-848 704134 M067MQ 
+848 704134 M067MQ
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
-MBBS-
-OTHERS
-OTH2911950Allotted
-849 704272 M065MP 
+MBBS-OTHERS OTH 2911950 Allotted
+849 704272 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. GMP 2225000 Allotted
-850 708105 M054MQ 
+850 708105 M054MQ
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
-MBBS-
-OTHERS
-OTH3512650Allotted
-851 708421 M065MP 
+MBBS-OTHERS OTH 3512650 Allotted
+851 708421 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. GMP 2225000 Allotted
-852 711451 M065MP 
+852 711451 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. GMP 2225000 Allotted
-853 719621 M091MQ 
+853 719621 M091MQ
 SRI CHAMUNDESHWARI
 MEDICAL COLLEGE,
 HOSPITAL AND RESEARCH
 INST,,CHANNAPATNA,
 RAMANAGARA
-MBBS-
-OTHERS
-OTH3001950Allotted
-854 725616 M071MQ 
+MBBS-OTHERS OTH 3001950 Allotted
+854 725616 M071MQ
 The Oxford Medical College
 Hospital and Research
 Center,Yadavanahalli, Attibele
 Hobli,Bangalore
-MBBS-
-OTHERS
-OTH3611950Allotted
-855 727246 M091MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+855 727246 M091MQ
 SRI CHAMUNDESHWARI
 MEDICAL COLLEGE,
 HOSPITAL AND RESEARCH
 INST,,CHANNAPATNA,
 RAMANAGARA
-MBBS-
-OTHERS
-OTH3001950Allotted
-856 727937 M065MP 
+MBBS-OTHERS OTH 3001950 Allotted
+856 727937 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. GMP 2225000 Allotted
-857 728079 M009MQ 
+857 728079 M009MQ
 Vydehi Institute of Medical
 Science and Research
 Centre,No. 82,EPIP Area,
 Nallurahalli,Bangalore
-MBBS-
-OTHERS
-OTH4411950Allotted
-858 728301 M065MP 
+MBBS-OTHERS OTH 4411950 Allotted
+858 728301 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. GMP 2225000 Allotted
-859 729453 M067MQ 
+859 729453 M067MQ
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
-MBBS-
-OTHERS
-OTH2911950Allotted
-860 733818 M065MP 
+MBBS-OTHERS OTH 2911950 Allotted
+860 733818 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. GMPH 2225000 Allotted
-861 734198 M095MQ 
+861 734198 M095MQ
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
-MBBS-
-OTHERS
-OTH3515000Allotted
-862 738882 M067MQ 
+MBBS-OTHERS OTH 3515000 Allotted
+862 738882 M067MQ
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
-MBBS-
-OTHERS
-OTH2911950Allotted
+MBBS-OTHERS OTH 2911950 Allotted
 UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
 B£eLBVĸsďe¤eÎĩe\
 Karnataka Examinations Authority
@@ -5376,127 +5214,95 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-863 739390 M079MQ 
+863 739390 M079MQ
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
-MBBS-
-OTHERS
-OTH3211950Allotted
-864 739722 M044MQ 
+MBBS-OTHERS OTH 3211950 Allotted
+864 739722 M044MQ
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
-MBBS-
-OTHERS
-OTH2500000Allotted
-865 740185 M023MQ 
+MBBS-OTHERS OTH 2500000 Allotted
+865 740185 M023MQ
 Adichunchanagiri Institute of
 Medical Sciences,B.G
 Nagar,,Bellur, Mandya Dist.
-MBBS-
-OTHERS
-OTH3415000Allotted
-866 740291 M044MQ 
+MBBS-OTHERS OTH 3415000 Allotted
+866 740291 M044MQ
 Bidar Institute of Medical
 Sciences,Udgir Road,,Bidar
-MBBS-
-OTHERS
-OTH2500000Allotted
-867 745386 M071MQ 
+MBBS-OTHERS OTH 2500000 Allotted
+867 745386 M071MQ
 The Oxford Medical College
 Hospital and Research
 Center,Yadavanahalli, Attibele
 Hobli,Bangalore
-MBBS-
-OTHERS
-OTH3611950Allotted
-868 746425 M062MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+868 746425 M062MQ
 Shymanuru Shivashankarappa
 Institute Of Medical
 Sciences,Jnanashankara, NH-
 4,Davangere
-MBBS-
-OTHERS
-OTH3611950Allotted
-869 747627 M095MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+869 747627 M095MQ
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
-MBBS-
-OTHERS
-OTH3515000Allotted
-870 750429 M065MP 
+MBBS-OTHERS OTH 3515000 Allotted
+870 750429 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. GMPH 2225000 Allotted
-871 752737 M078MQ 
+871 752737 M078MQ
 Akash Institute of Medical
 Sciences and Research
 Centre,DEVANAHALLI,,BANGA
 LORE
-MBBS-
-OTHERS
-OTH3611950Allotted
-872 752823 M094MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+872 752823 M094MQ
 PES University Institute of
 Medical Sceinces and
 Research,Electronic
 city,BANGALORE
-MBBS-
-OTHERS
-OTH3915000Allotted
-873 754373 M067MQ 
+MBBS-OTHERS OTH 3915000 Allotted
+873 754373 M067MQ
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
-MBBS-
-OTHERS
-OTH2911950Allotted
-874 756781 M095MQ 
+MBBS-OTHERS OTH 2911950 Allotted
+874 756781 M095MQ
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
-MBBS-
-OTHERS
-OTH3515000Allotted
-875 758868 M083MQ 
+MBBS-OTHERS OTH 3515000 Allotted
+875 758868 M083MQ
 Dr. Chandramma Dayananda
 Sagar Institute of Medical
 Education,,Harohalli hobli,
 Kanakapura Rd
-MBBS-
-OTHERS
-OTH3815000Allotted
-876 759550 M068MQ 
+MBBS-OTHERS OTH 3815000 Allotted
+876 759550 M068MQ
 BGS Global Institute of Medical
 Sciences,# 67, BGS Health &
 Education,Kengeri, Bangalore
-MBBS-
-OTHERS
-OTH4286950Allotted
-877 761598 M067MQ 
+MBBS-OTHERS OTH 4286950 Allotted
+877 761598 M067MQ
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
-MBBS-
-OTHERS
-OTH2911950Allotted
-878 764468 M083MQ 
+MBBS-OTHERS OTH 2911950 Allotted
+878 764468 M083MQ
 Dr. Chandramma Dayananda
 Sagar Institute of Medical
 Education,,Harohalli hobli,
 Kanakapura Rd
-MBBS-
-OTHERS
-OTH3815000Allotted
-879 764610 M035MQ 
+MBBS-OTHERS OTH 3815000 Allotted
+879 764610 M035MQ
 S. Nijalingappa Medical College
 and Research Centre,,Bagalkot
-MBBS-
-OTHERS
-OTH4011950Allotted
+MBBS-OTHERS OTH 4011950 Allotted
 UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
 B£eLBVĸsďe¤eÎĩe\
 Karnataka Examinations Authority
@@ -5510,117 +5316,93 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-880 771331 M091MP 
+880 771331 M091MP
 SRI CHAMUNDESHWARI
 MEDICAL COLLEGE,
 HOSPITAL AND RESEARCH
 INST,,CHANNAPATNA,
 RAMANAGARA
 MBBS-PRIV. MA 1200117 Allotted
-881 772546 M083MQ 
+881 772546 M083MQ
 Dr. Chandramma Dayananda
 Sagar Institute of Medical
 Education,,Harohalli hobli,
 Kanakapura Rd
-MBBS-
-OTHERS
-OTH3815000Allotted
-882 773420 M054MQ 
+MBBS-OTHERS OTH 3815000 Allotted
+882 773420 M054MQ
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
-MBBS-
-OTHERS
-OTH3512650Allotted
-883 775536 M010MQ 
+MBBS-OTHERS OTH 3512650 Allotted
+883 775536 M010MQ
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
-MBBS-
-OTHERS
-OTH4011950Allotted
-884 775543 M035MQ 
+MBBS-OTHERS OTH 4011950 Allotted
+884 775543 M035MQ
 S. Nijalingappa Medical College
 and Research Centre,,Bagalkot
-MBBS-
-OTHERS
-OTH4011950Allotted
-885 776630 M043MQ 
+MBBS-OTHERS OTH 4011950 Allotted
+885 776630 M043MQ
 Navodaya Medical College,PB
 No.26, Navodaya
 Nagar,Raichur
-MBBS-
-OTHERS
-OTH2736950Allotted
-886 778508 M097MQ 
+MBBS-OTHERS OTH 2736950 Allotted
+886 778508 M097MQ
 Farookh Academy of Medical
 Education Hospital and
 Research Institute, Mysore
 Madikeri Road, Near Illavala
 Hunsur Taluk, Mysore District
-MBBS-
-OTHERS
-OTH3011950Allotted
-887 778549 M067MQ 
+MBBS-OTHERS OTH 3011950 Allotted
+887 778549 M067MQ
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
-MBBS-
-OTHERS
-OTH2911950Allotted
-888 778574 M065MP 
+MBBS-OTHERS OTH 2911950 Allotted
+888 778574 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. GMPH 2225000 Allotted
-889 778845 M067MQ 
+889 778845 M067MQ
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
-MBBS-
-OTHERS
-OTH2911950Allotted
-890 779526 M062MQ 
+MBBS-OTHERS OTH 2911950 Allotted
+890 779526 M062MQ
 Shymanuru Shivashankarappa
 Institute Of Medical
 Sciences,Jnanashankara, NH-
 4,Davangere
-MBBS-
-OTHERS
-OTH3611950Allotted
-891 781142 M078MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+891 781142 M078MQ
 Akash Institute of Medical
 Sciences and Research
 Centre,DEVANAHALLI,,BANGA
 LORE
-MBBS-
-OTHERS
-OTH3611950Allotted
-892 784901 M095MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+892 784901 M095MQ
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
-MBBS-
-OTHERS
-OTH3515000Allotted
-893 788057 M065MP 
+MBBS-OTHERS OTH 3515000 Allotted
+893 788057 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. GMPH 2225000 Allotted
-894 791213 M065MP 
+894 791213 M065MP
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
 MBBS-PRIV. GMPH 2225000 Allotted
-895 792491 M078MQ 
+895 792491 M078MQ
 Akash Institute of Medical
 Sciences and Research
 Centre,DEVANAHALLI,,BANGA
 LORE
-MBBS-
-OTHERS
-OTH3611950Allotted
+MBBS-OTHERS OTH 3611950 Allotted
 UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
 B£eLBVĸsďe¤eÎĩe\
 Karnataka Examinations Authority
@@ -5634,121 +5416,91 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-896 801175 M069MQ 
+896 801175 M069MQ
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
-MBBS-
-OTHERS
-OTH3861950Allotted
-897 805252 M091MQ 
+MBBS-OTHERS OTH 3861950 Allotted
+897 805252 M091MQ
 SRI CHAMUNDESHWARI
 MEDICAL COLLEGE,
 HOSPITAL AND RESEARCH
 INST,,CHANNAPATNA,
 RAMANAGARA
-MBBS-
-OTHERS
-OTH3001950Allotted
-898 810024 M079MQ 
+MBBS-OTHERS OTH 3001950 Allotted
+898 810024 M079MQ
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
-MBBS-
-OTHERS
-OTH3211950Allotted
-899 811252 M095MQ 
+MBBS-OTHERS OTH 3211950 Allotted
+899 811252 M095MQ
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
-MBBS-
-OTHERS
-OTH3515000Allotted
-900 812702 M064MQ 
+MBBS-OTHERS OTH 3515000 Allotted
+900 812702 M064MQ
 Sapthagiri Institute of Medical
 Sciences,No.15,
 chikkasandra,,Bangalore
-MBBS-
-OTHERS
-OTH4540750Allotted
-901 815169 M071MQ 
+MBBS-OTHERS OTH 4540750 Allotted
+901 815169 M071MQ
 The Oxford Medical College
 Hospital and Research
 Center,Yadavanahalli, Attibele
 Hobli,Bangalore
-MBBS-
-OTHERS
-OTH3611950Allotted
-902 817449 M043MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+902 817449 M043MQ
 Navodaya Medical College,PB
 No.26, Navodaya
 Nagar,Raichur
-MBBS-
-OTHERS
-OTH2736950Allotted
-903 823118 M095MQ 
+MBBS-OTHERS OTH 2736950 Allotted
+903 823118 M095MQ
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
-MBBS-
-OTHERS
-OTH3515000Allotted
-904 824427 M079MQ 
+MBBS-OTHERS OTH 3515000 Allotted
+904 824427 M079MQ
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
-MBBS-
-OTHERS
-OTH3211950Allotted
-905 824596 M078MQ 
+MBBS-OTHERS OTH 3211950 Allotted
+905 824596 M078MQ
 Akash Institute of Medical
 Sciences and Research
 Centre,DEVANAHALLI,,BANGA
 LORE
-MBBS-
-OTHERS
-OTH3611950Allotted
-906 828036 M069MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+906 828036 M069MQ
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
-MBBS-
-OTHERS
-OTH3861950Allotted
-907 832555 M078MQ 
+MBBS-OTHERS OTH 3861950 Allotted
+907 832555 M078MQ
 Akash Institute of Medical
 Sciences and Research
 Centre,DEVANAHALLI,,BANGA
 LORE
-MBBS-
-OTHERS
-OTH3611950Allotted
-908 833873 M095MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+908 833873 M095MQ
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
-MBBS-
-OTHERS
-OTH3515000Allotted
-909 837830 M065MQ 
+MBBS-OTHERS OTH 3515000 Allotted
+909 837830 M065MQ
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
-MBBS-
-OTHERS
-OTH2825000Allotted
-910 843615 M065MQ 
+MBBS-OTHERS OTH 2825000 Allotted
+910 843615 M065MQ
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
-MBBS-
-OTHERS
-OTH2825000Allotted
+MBBS-OTHERS OTH 2825000 Allotted
 UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
 B£eLBVĸsďe¤eÎĩe\
 Karnataka Examinations Authority
@@ -5762,120 +5514,90 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-911 849654 M069MQ 
+911 849654 M069MQ
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
-MBBS-
-OTHERS
-OTH3861950Allotted
-912 853088 M010MQ 
+MBBS-OTHERS OTH 3861950 Allotted
+912 853088 M010MQ
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
-MBBS-
-OTHERS
-OTH4011950Allotted
-913 855848 M078MQ 
+MBBS-OTHERS OTH 4011950 Allotted
+913 855848 M078MQ
 Akash Institute of Medical
 Sciences and Research
 Centre,DEVANAHALLI,,BANGA
 LORE
-MBBS-
-OTHERS
-OTH3611950Allotted
-914 856837 M043MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+914 856837 M043MQ
 Navodaya Medical College,PB
 No.26, Navodaya
 Nagar,Raichur
-MBBS-
-OTHERS
-OTH2736950Allotted
-915 857016 M008MQ 
+MBBS-OTHERS OTH 2736950 Allotted
+915 857016 M008MQ
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
-MBBS-
-OTHERS
-OTH4011950Allotted
-916 859891 M071MQ 
+MBBS-OTHERS OTH 4011950 Allotted
+916 859891 M071MQ
 The Oxford Medical College
 Hospital and Research
 Center,Yadavanahalli, Attibele
 Hobli,Bangalore
-MBBS-
-OTHERS
-OTH3611950Allotted
-917 860717 M064MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+917 860717 M064MQ
 Sapthagiri Institute of Medical
 Sciences,No.15,
 chikkasandra,,Bangalore
-MBBS-
-OTHERS
-OTH4540750Allotted
-918 862161 M054MQ 
+MBBS-OTHERS OTH 4540750 Allotted
+918 862161 M054MQ
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
-MBBS-
-OTHERS
-OTH3512650Allotted
-919 868700 M062MQ 
+MBBS-OTHERS OTH 3512650 Allotted
+919 868700 M062MQ
 Shymanuru Shivashankarappa
 Institute Of Medical
 Sciences,Jnanashankara, NH-
 4,Davangere
-MBBS-
-OTHERS
-OTH3611950Allotted
-920 869691 M081MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+920 869691 M081MQ
 East Point College of Medical
 Sciences and Research
 Center,,Bangalore
-MBBS-
-OTHERS
-OTH3611950Allotted
-921 872855 M095MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+921 872855 M095MQ
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
-MBBS-
-OTHERS
-OTH3515000Allotted
-922 873761 M095MQ 
+MBBS-OTHERS OTH 3515000 Allotted
+922 873761 M095MQ
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
-MBBS-
-OTHERS
-OTH3515000Allotted
-923 877145 M069MQ 
+MBBS-OTHERS OTH 3515000 Allotted
+923 877145 M069MQ
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
-MBBS-
-OTHERS
-OTH3861950Allotted
-924 877193 M095MQ 
+MBBS-OTHERS OTH 3861950 Allotted
+924 877193 M095MQ
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
-MBBS-
-OTHERS
-OTH3515000Allotted
-925 878422 M062MQ 
+MBBS-OTHERS OTH 3515000 Allotted
+925 878422 M062MQ
 Shymanuru Shivashankarappa
 Institute Of Medical
 Sciences,Jnanashankara, NH-
 4,Davangere
-MBBS-
-OTHERS
-OTH3611950Allotted
+MBBS-OTHERS OTH 3611950 Allotted
 UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
 B£eLBVĸsďe¤eÎĩe\
 Karnataka Examinations Authority
@@ -5889,115 +5611,87 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-926 881772 M071MQ 
+926 881772 M071MQ
 The Oxford Medical College
 Hospital and Research
 Center,Yadavanahalli, Attibele
 Hobli,Bangalore
-MBBS-
-OTHERS
-OTH3611950Allotted
-927 882237 M062MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+927 882237 M062MQ
 Shymanuru Shivashankarappa
 Institute Of Medical
 Sciences,Jnanashankara, NH-
 4,Davangere
-MBBS-
-OTHERS
-OTH3611950Allotted
-928 883703 M008MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+928 883703 M008MQ
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
-MBBS-
-OTHERS
-OTH4011950Allotted
-929 888463 M062MQ 
+MBBS-OTHERS OTH 4011950 Allotted
+929 888463 M062MQ
 Shymanuru Shivashankarappa
 Institute Of Medical
 Sciences,Jnanashankara, NH-
 4,Davangere
-MBBS-
-OTHERS
-OTH3611950Allotted
-930 889433 M062MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+930 889433 M062MQ
 Shymanuru Shivashankarappa
 Institute Of Medical
 Sciences,Jnanashankara, NH-
 4,Davangere
-MBBS-
-OTHERS
-OTH3611950Allotted
-931 896104 M078MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+931 896104 M078MQ
 Akash Institute of Medical
 Sciences and Research
 Centre,DEVANAHALLI,,BANGA
 LORE
-MBBS-
-OTHERS
-OTH3611950Allotted
-932 901512 M095MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+932 901512 M095MQ
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
-MBBS-
-OTHERS
-OTH3515000Allotted
-933 903722 M095MQ 
+MBBS-OTHERS OTH 3515000 Allotted
+933 903722 M095MQ
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
-MBBS-
-OTHERS
-OTH3515000Allotted
-934 904853 M069MQ 
+MBBS-OTHERS OTH 3515000 Allotted
+934 904853 M069MQ
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
-MBBS-
-OTHERS
-OTH3861950Allotted
-935 912291 M062MQ 
+MBBS-OTHERS OTH 3861950 Allotted
+935 912291 M062MQ
 Shymanuru Shivashankarappa
 Institute Of Medical
 Sciences,Jnanashankara, NH-
 4,Davangere
-MBBS-
-OTHERS
-OTH3611950Allotted
-936 913576 M008MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+936 913576 M008MQ
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
-MBBS-
-OTHERS
-OTH4011950Allotted
-937 914841 M094MQ 
+MBBS-OTHERS OTH 4011950 Allotted
+937 914841 M094MQ
 PES University Institute of
 Medical Sceinces and
 Research,Electronic
 city,BANGALORE
-MBBS-
-OTHERS
-OTH3915000Allotted
-938 919453 M043MQ 
+MBBS-OTHERS OTH 3915000 Allotted
+938 919453 M043MQ
 Navodaya Medical College,PB
 No.26, Navodaya
 Nagar,Raichur
-MBBS-
-OTHERS
-OTH2736950Allotted
-939 920498 M010MQ 
+MBBS-OTHERS OTH 2736950 Allotted
+939 920498 M010MQ
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
-MBBS-
-OTHERS
-OTH4011950Allotted
+MBBS-OTHERS OTH 4011950 Allotted
 UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
 B£eLBVĸsďe¤eÎĩe\
 Karnataka Examinations Authority
@@ -6011,123 +5705,91 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-940 924598 M078MQ 
+940 924598 M078MQ
 Akash Institute of Medical
 Sciences and Research
 Centre,DEVANAHALLI,,BANGA
 LORE
-MBBS-
-OTHERS
-OTH3611950Allotted
-941 929385 M043MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+941 929385 M043MQ
 Navodaya Medical College,PB
 No.26, Navodaya
 Nagar,Raichur
-MBBS-
-OTHERS
-OTH2736950Allotted
-942 931447 M095MQ 
+MBBS-OTHERS OTH 2736950 Allotted
+942 931447 M095MQ
 BGS Medical College and
 Hospital(BGS MCH) Nagarur
 Dasanapura Hobli Banglore
 North,BANGALORE -562123
-MBBS-
-OTHERS
-OTH3515000Allotted
-943 931619 M043MQ 
+MBBS-OTHERS OTH 3515000 Allotted
+943 931619 M043MQ
 Navodaya Medical College,PB
 No.26, Navodaya
 Nagar,Raichur
-MBBS-
-OTHERS
-OTH2736950Allotted
-944 934172 M078MQ 
+MBBS-OTHERS OTH 2736950 Allotted
+944 934172 M078MQ
 Akash Institute of Medical
 Sciences and Research
 Centre,DEVANAHALLI,,BANGA
 LORE
-MBBS-
-OTHERS
-OTH3611950Allotted
-945 936547 M043MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+945 936547 M043MQ
 Navodaya Medical College,PB
 No.26, Navodaya
 Nagar,Raichur
-MBBS-
-OTHERS
-OTH2736950Allotted
-946 936778 M065MQ 
+MBBS-OTHERS OTH 2736950 Allotted
+946 936778 M065MQ
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
-MBBS-
-OTHERS
-OTH2825000Allotted
-947 940030 M069MQ 
+MBBS-OTHERS OTH 2825000 Allotted
+947 940030 M069MQ
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
-MBBS-
-OTHERS
-OTH3861950Allotted
-948 941431 M078MQ 
+MBBS-OTHERS OTH 3861950 Allotted
+948 941431 M078MQ
 Akash Institute of Medical
 Sciences and Research
 Centre,DEVANAHALLI,,BANGA
 LORE
-MBBS-
-OTHERS
-OTH3611950Allotted
-949 943439 M096MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+949 943439 M096MQ
 S R Patil Medical College
 Hospital and Research
 Center,Badagandi,BAGALKOT
-MBBS-
-OTHERS
-OTH3011950Allotted
-950 948388 M023MQ 
+MBBS-OTHERS OTH 3011950 Allotted
+950 948388 M023MQ
 Adichunchanagiri Institute of
 Medical Sciences,B.G
 Nagar,,Bellur, Mandya Dist.
-MBBS-
-OTHERS
-OTH3415000Allotted
-951 948800 M094MQ 
+MBBS-OTHERS OTH 3415000 Allotted
+951 948800 M094MQ
 PES University Institute of
 Medical Sceinces and
 Research,Electronic
 city,BANGALORE
-MBBS-
-OTHERS
-OTH3915000Allotted
-952 950271 M069MQ 
+MBBS-OTHERS OTH 3915000 Allotted
+952 950271 M069MQ
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
-MBBS-
-OTHERS
-OTH3861950Allotted
-953 951028 M035MQ 
+MBBS-OTHERS OTH 3861950 Allotted
+953 951028 M035MQ
 S. Nijalingappa Medical College
 and Research Centre,,Bagalkot
-MBBS-
-OTHERS
-OTH4011950Allotted
-954 954644 M008MQ 
+MBBS-OTHERS OTH 4011950 Allotted
+954 954644 M008MQ
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
-MBBS-
-OTHERS
-OTH4011950Allotted
-955 954909 M065MQ 
+MBBS-OTHERS OTH 4011950 Allotted
+955 954909 M065MQ
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
-MBBS-
-OTHERS
-OTH2825000Allotted
+MBBS-OTHERS OTH 2825000 Allotted
 UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
 B£eLBVĸsďe¤eÎĩe\
 Karnataka Examinations Authority
@@ -6141,126 +5803,94 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-956 956630 M042MQ 
+956 956630 M042MQ
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
-MBBS-
-OTHERS
-OTH3911950Allotted
-957 963493 M065MQ 
+MBBS-OTHERS OTH 3911950 Allotted
+957 963493 M065MQ
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
-MBBS-
-OTHERS
-OTH2825000Allotted
-958 963614 M067MQ 
+MBBS-OTHERS OTH 2825000 Allotted
+958 963614 M067MQ
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
-MBBS-
-OTHERS
-OTH2911950Allotted
-959 969863 M008MQ 
+MBBS-OTHERS OTH 2911950 Allotted
+959 969863 M008MQ
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
-MBBS-
-OTHERS
-OTH4011950Allotted
-960 971179 M054MQ 
+MBBS-OTHERS OTH 4011950 Allotted
+960 971179 M054MQ
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
-MBBS-
-OTHERS
-OTH3512650Allotted
-961 971600 M078MQ 
+MBBS-OTHERS OTH 3512650 Allotted
+961 971600 M078MQ
 Akash Institute of Medical
 Sciences and Research
 Centre,DEVANAHALLI,,BANGA
 LORE
-MBBS-
-OTHERS
-OTH3611950Allotted
-962 975550 M078MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+962 975550 M078MQ
 Akash Institute of Medical
 Sciences and Research
 Centre,DEVANAHALLI,,BANGA
 LORE
-MBBS-
-OTHERS
-OTH3611950Allotted
-963 976632 M067MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+963 976632 M067MQ
 Subbaiah Institute of Medical
 Science,NH-13, Purle,,Shimoga
-MBBS-
-OTHERS
-OTH2911950Allotted
-964 978486 M062MQ 
+MBBS-OTHERS OTH 2911950 Allotted
+964 978486 M062MQ
 Shymanuru Shivashankarappa
 Institute Of Medical
 Sciences,Jnanashankara, NH-
 4,Davangere
-MBBS-
-OTHERS
-OTH3611950Allotted
-965 980036 M094MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+965 980036 M094MQ
 PES University Institute of
 Medical Sceinces and
 Research,Electronic
 city,BANGALORE
-MBBS-
-OTHERS
-OTH3915000Allotted
-966 982915 M065MQ 
+MBBS-OTHERS OTH 3915000 Allotted
+966 982915 M065MQ
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
-MBBS-
-OTHERS
-OTH2825000Allotted
-967 984692 M078MQ 
+MBBS-OTHERS OTH 2825000 Allotted
+967 984692 M078MQ
 Akash Institute of Medical
 Sciences and Research
 Centre,DEVANAHALLI,,BANGA
 LORE
-MBBS-
-OTHERS
-OTH3611950Allotted
-968 986467 M078MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+968 986467 M078MQ
 Akash Institute of Medical
 Sciences and Research
 Centre,DEVANAHALLI,,BANGA
 LORE
-MBBS-
-OTHERS
-OTH3611950Allotted
-969 988541 M079MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+969 988541 M079MQ
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
-MBBS-
-OTHERS
-OTH3211950Allotted
-970 989240 M008MQ 
+MBBS-OTHERS OTH 3211950 Allotted
+970 989240 M008MQ
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
-MBBS-
-OTHERS
-OTH4011950Allotted
-971 992213 M069MQ 
+MBBS-OTHERS OTH 4011950 Allotted
+971 992213 M069MQ
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
-MBBS-
-OTHERS
-OTH3861950Allotted
+MBBS-OTHERS OTH 3861950 Allotted
 UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
 B£eLBVĸsďe¤eÎĩe\
 Karnataka Examinations Authority
@@ -6274,117 +5904,89 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-972 996812 M069MQ 
+972 996812 M069MQ
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
-MBBS-
-OTHERS
-OTH3861950Allotted
-973 999712 M062MQ 
+MBBS-OTHERS OTH 3861950 Allotted
+973 999712 M062MQ
 Shymanuru Shivashankarappa
 Institute Of Medical
 Sciences,Jnanashankara, NH-
 4,Davangere
-MBBS-
-OTHERS
-OTH3611950Allotted
-974 1000580 M078MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+974 1000580 M078MQ
 Akash Institute of Medical
 Sciences and Research
 Centre,DEVANAHALLI,,BANGA
 LORE
-MBBS-
-OTHERS
-OTH3611950Allotted
-975 1002460 M078MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+975 1002460 M078MQ
 Akash Institute of Medical
 Sciences and Research
 Centre,DEVANAHALLI,,BANGA
 LORE
-MBBS-
-OTHERS
-OTH3611950Allotted
-976 1004971 M071MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+976 1004971 M071MQ
 The Oxford Medical College
 Hospital and Research
 Center,Yadavanahalli, Attibele
 Hobli,Bangalore
-MBBS-
-OTHERS
-OTH3611950Allotted
-977 1005964 M062MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+977 1005964 M062MQ
 Shymanuru Shivashankarappa
 Institute Of Medical
 Sciences,Jnanashankara, NH-
 4,Davangere
-MBBS-
-OTHERS
-OTH3611950Allotted
-978 1006206 M097MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+978 1006206 M097MQ
 Farookh Academy of Medical
 Education Hospital and
 Research Institute, Mysore
 Madikeri Road, Near Illavala
 Hunsur Taluk, Mysore District
-MBBS-
-OTHERS
-OTH3011950Allotted
-979 1006360 M071MQ 
+MBBS-OTHERS OTH 3011950 Allotted
+979 1006360 M071MQ
 The Oxford Medical College
 Hospital and Research
 Center,Yadavanahalli, Attibele
 Hobli,Bangalore
-MBBS-
-OTHERS
-OTH3611950Allotted
-980 1007925 M071MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+980 1007925 M071MQ
 The Oxford Medical College
 Hospital and Research
 Center,Yadavanahalli, Attibele
 Hobli,Bangalore
-MBBS-
-OTHERS
-OTH3611950Allotted
-981 1009748 M065MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+981 1009748 M065MQ
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
-MBBS-
-OTHERS
-OTH2825000Allotted
-982 1010578 M097MQ 
+MBBS-OTHERS OTH 2825000 Allotted
+982 1010578 M097MQ
 Farookh Academy of Medical
 Education Hospital and
 Research Institute, Mysore
 Madikeri Road, Near Illavala
 Hunsur Taluk, Mysore District
-MBBS-
-OTHERS
-OTH3011950Allotted
-983 1012228 M071MQ 
+MBBS-OTHERS OTH 3011950 Allotted
+983 1012228 M071MQ
 The Oxford Medical College
 Hospital and Research
 Center,Yadavanahalli, Attibele
 Hobli,Bangalore
-MBBS-
-OTHERS
-OTH3611950Allotted
-984 1012250 M054MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+984 1012250 M054MQ
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
-MBBS-
-OTHERS
-OTH3512650Allotted
-985 1013451 M065MQ 
+MBBS-OTHERS OTH 3512650 Allotted
+985 1013451 M065MQ
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
-MBBS-
-OTHERS
-OTH2825000Allotted
+MBBS-OTHERS OTH 2825000 Allotted
 UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
 B£eLBVĸsďe¤eÎĩe\
 Karnataka Examinations Authority
@@ -6398,126 +6000,94 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-986 1013738 M069MQ 
+986 1013738 M069MQ
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
-MBBS-
-OTHERS
-OTH3861950Allotted
-987 1017240 M078MQ 
+MBBS-OTHERS OTH 3861950 Allotted
+987 1017240 M078MQ
 Akash Institute of Medical
 Sciences and Research
 Centre,DEVANAHALLI,,BANGA
 LORE
-MBBS-
-OTHERS
-OTH3611950Allotted
-988 1019660 M078MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+988 1019660 M078MQ
 Akash Institute of Medical
 Sciences and Research
 Centre,DEVANAHALLI,,BANGA
 LORE
-MBBS-
-OTHERS
-OTH3611950Allotted
-989 1022138 M023MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+989 1022138 M023MQ
 Adichunchanagiri Institute of
 Medical Sciences,B.G
 Nagar,,Bellur, Mandya Dist.
-MBBS-
-OTHERS
-OTH3415000Allotted
-990 1023122 M081MQ 
+MBBS-OTHERS OTH 3415000 Allotted
+990 1023122 M081MQ
 East Point College of Medical
 Sciences and Research
 Center,,Bangalore
-MBBS-
-OTHERS
-OTH3611950Allotted
-991 1028108 M010MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+991 1028108 M010MQ
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
-MBBS-
-OTHERS
-OTH4011950Allotted
-992 1028844 M079MQ 
+MBBS-OTHERS OTH 4011950 Allotted
+992 1028844 M079MQ
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
-MBBS-
-OTHERS
-OTH3211950Allotted
-993 1029144 M071MQ 
+MBBS-OTHERS OTH 3211950 Allotted
+993 1029144 M071MQ
 The Oxford Medical College
 Hospital and Research
 Center,Yadavanahalli, Attibele
 Hobli,Bangalore
-MBBS-
-OTHERS
-OTH3611950Allotted
-994 1029451 M065MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+994 1029451 M065MQ
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
-MBBS-
-OTHERS
-OTH2825000Allotted
-995 1030946 M069MQ 
+MBBS-OTHERS OTH 2825000 Allotted
+995 1030946 M069MQ
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
-MBBS-
-OTHERS
-OTH3861950Allotted
-996 1032953 M065MQ 
+MBBS-OTHERS OTH 3861950 Allotted
+996 1032953 M065MQ
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
-MBBS-
-OTHERS
-OTH2825000Allotted
-997 1033821 M023MQ 
+MBBS-OTHERS OTH 2825000 Allotted
+997 1033821 M023MQ
 Adichunchanagiri Institute of
 Medical Sciences,B.G
 Nagar,,Bellur, Mandya Dist.
-MBBS-
-OTHERS
-OTH3415000Allotted
-998 1033965 M097MQ 
+MBBS-OTHERS OTH 3415000 Allotted
+998 1033965 M097MQ
 Farookh Academy of Medical
 Education Hospital and
 Research Institute, Mysore
 Madikeri Road, Near Illavala
 Hunsur Taluk, Mysore District
-MBBS-
-OTHERS
-OTH3011950Allotted
-999 1037595 M062MQ 
+MBBS-OTHERS OTH 3011950 Allotted
+999 1037595 M062MQ
 Shymanuru Shivashankarappa
 Institute Of Medical
 Sciences,Jnanashankara, NH-
 4,Davangere
-MBBS-
-OTHERS
-OTH3611950Allotted
-1000 1037964 M069MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+1000 1037964 M069MQ
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
-MBBS-
-OTHERS
-OTH3861950Allotted
-1001 1038110 M071MQ 
+MBBS-OTHERS OTH 3861950 Allotted
+1001 1038110 M071MQ
 The Oxford Medical College
 Hospital and Research
 Center,Yadavanahalli, Attibele
 Hobli,Bangalore
-MBBS-
-OTHERS
-OTH3611950Allotted
+MBBS-OTHERS OTH 3611950 Allotted
 UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
 B£eLBVĸsďe¤eÎĩe\
 Karnataka Examinations Authority
@@ -6531,126 +6101,94 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-1002 1038552 M069MQ 
+1002 1038552 M069MQ
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
-MBBS-
-OTHERS
-OTH3861950Allotted
-1003 1039383 M042MQ 
+MBBS-OTHERS OTH 3861950 Allotted
+1003 1039383 M042MQ
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
-MBBS-
-OTHERS
-OTH3911950Allotted
-1004 1040081 M010MQ 
+MBBS-OTHERS OTH 3911950 Allotted
+1004 1040081 M010MQ
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
-MBBS-
-OTHERS
-OTH4011950Allotted
-1005 1042128 M097MQ 
+MBBS-OTHERS OTH 4011950 Allotted
+1005 1042128 M097MQ
 Farookh Academy of Medical
 Education Hospital and
 Research Institute, Mysore
 Madikeri Road, Near Illavala
 Hunsur Taluk, Mysore District
-MBBS-
-OTHERS
-OTH3011950Allotted
-1006 1042651 M094MQ 
+MBBS-OTHERS OTH 3011950 Allotted
+1006 1042651 M094MQ
 PES University Institute of
 Medical Sceinces and
 Research,Electronic
 city,BANGALORE
-MBBS-
-OTHERS
-OTH3915000Allotted
-1007 1042735 M062MQ 
+MBBS-OTHERS OTH 3915000 Allotted
+1007 1042735 M062MQ
 Shymanuru Shivashankarappa
 Institute Of Medical
 Sciences,Jnanashankara, NH-
 4,Davangere
-MBBS-
-OTHERS
-OTH3611950Allotted
-1008 1044981 M065MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+1008 1044981 M065MQ
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
-MBBS-
-OTHERS
-OTH2825000Allotted
-1009 1046546 M071MQ 
+MBBS-OTHERS OTH 2825000 Allotted
+1009 1046546 M071MQ
 The Oxford Medical College
 Hospital and Research
 Center,Yadavanahalli, Attibele
 Hobli,Bangalore
-MBBS-
-OTHERS
-OTH3611950Allotted
-1010 1047012 M065MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+1010 1047012 M065MQ
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
-MBBS-
-OTHERS
-OTH2825000Allotted
-1011 1047720 M065MQ 
+MBBS-OTHERS OTH 2825000 Allotted
+1011 1047720 M065MQ
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
-MBBS-
-OTHERS
-OTH2825000Allotted
-1012 1051846 M069MQ 
+MBBS-OTHERS OTH 2825000 Allotted
+1012 1051846 M069MQ
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
-MBBS-
-OTHERS
-OTH3861950Allotted
-1013 1054643 M010MQ 
+MBBS-OTHERS OTH 3861950 Allotted
+1013 1054643 M010MQ
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
-MBBS-
-OTHERS
-OTH4011950Allotted
-1014 1057129 M079MQ 
+MBBS-OTHERS OTH 4011950 Allotted
+1014 1057129 M079MQ
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
-MBBS-
-OTHERS
-OTH3211950Allotted
-1015 1057929 M054MQ 
+MBBS-OTHERS OTH 3211950 Allotted
+1015 1057929 M054MQ
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
-MBBS-
-OTHERS
-OTH3512650Allotted
-1016 1058684 M094MQ 
+MBBS-OTHERS OTH 3512650 Allotted
+1016 1058684 M094MQ
 PES University Institute of
 Medical Sceinces and
 Research,Electronic
 city,BANGALORE
-MBBS-
-OTHERS
-OTH3915000Allotted
-1017 1059982 M069MQ 
+MBBS-OTHERS OTH 3915000 Allotted
+1017 1059982 M069MQ
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
-MBBS-
-OTHERS
-OTH3861950Allotted
+MBBS-OTHERS OTH 3861950 Allotted
 UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
 B£eLBVĸsďe¤eÎĩe\
 Karnataka Examinations Authority
@@ -6664,120 +6202,90 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-1018 1062868 M065MQ 
+1018 1062868 M065MQ
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
-MBBS-
-OTHERS
-OTH2825000Allotted
-1019 1064442 M094MQ 
+MBBS-OTHERS OTH 2825000 Allotted
+1019 1064442 M094MQ
 PES University Institute of
 Medical Sceinces and
 Research,Electronic
 city,BANGALORE
-MBBS-
-OTHERS
-OTH3915000Allotted
-1020 1065620 M094MQ 
+MBBS-OTHERS OTH 3915000 Allotted
+1020 1065620 M094MQ
 PES University Institute of
 Medical Sceinces and
 Research,Electronic
 city,BANGALORE
-MBBS-
-OTHERS
-OTH3915000Allotted
-1021 1067690 M071MQ 
+MBBS-OTHERS OTH 3915000 Allotted
+1021 1067690 M071MQ
 The Oxford Medical College
 Hospital and Research
 Center,Yadavanahalli, Attibele
 Hobli,Bangalore
-MBBS-
-OTHERS
-OTH3611950Allotted
-1022 1068396 M078MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+1022 1068396 M078MQ
 Akash Institute of Medical
 Sciences and Research
 Centre,DEVANAHALLI,,BANGA
 LORE
-MBBS-
-OTHERS
-OTH3611950Allotted
-1023 1069455 M062MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+1023 1069455 M062MQ
 Shymanuru Shivashankarappa
 Institute Of Medical
 Sciences,Jnanashankara, NH-
 4,Davangere
-MBBS-
-OTHERS
-OTH3611950Allotted
-1024 1069588 M065MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+1024 1069588 M065MQ
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
-MBBS-
-OTHERS
-OTH2825000Allotted
-1025 1069986 M094MQ 
+MBBS-OTHERS OTH 2825000 Allotted
+1025 1069986 M094MQ
 PES University Institute of
 Medical Sceinces and
 Research,Electronic
 city,BANGALORE
-MBBS-
-OTHERS
-OTH3915000Allotted
-1026 1072110 M065MQ 
+MBBS-OTHERS OTH 3915000 Allotted
+1026 1072110 M065MQ
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
-MBBS-
-OTHERS
-OTH2825000Allotted
-1027 1074237 M065MQ 
+MBBS-OTHERS OTH 2825000 Allotted
+1027 1074237 M065MQ
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
-MBBS-
-OTHERS
-OTH2825000Allotted
-1028 1078740 M062MQ 
+MBBS-OTHERS OTH 2825000 Allotted
+1028 1078740 M062MQ
 Shymanuru Shivashankarappa
 Institute Of Medical
 Sciences,Jnanashankara, NH-
 4,Davangere
-MBBS-
-OTHERS
-OTH3611950Allotted
-1029 1082100 M069MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+1029 1082100 M069MQ
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
-MBBS-
-OTHERS
-OTH3861950Allotted
-1030 1083706 M078MQ 
+MBBS-OTHERS OTH 3861950 Allotted
+1030 1083706 M078MQ
 Akash Institute of Medical
 Sciences and Research
 Centre,DEVANAHALLI,,BANGA
 LORE
-MBBS-
-OTHERS
-OTH3611950Allotted
-1031 1087688 M069MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+1031 1087688 M069MQ
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
-MBBS-
-OTHERS
-OTH3861950Allotted
-1032 1089130 M078MQ 
+MBBS-OTHERS OTH 3861950 Allotted
+1032 1089130 M078MQ
 Akash Institute of Medical
 Sciences and Research
 Centre,DEVANAHALLI,,BANGA
 LORE
-MBBS-
-OTHERS
-OTH3611950Allotted
+MBBS-OTHERS OTH 3611950 Allotted
 UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
 B£eLBVĸsďe¤eÎĩe\
 Karnataka Examinations Authority
@@ -6791,120 +6299,90 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-1033 1089669 M054MQ 
+1033 1089669 M054MQ
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
-MBBS-
-OTHERS
-OTH3512650Allotted
-1034 1089813 M079MQ 
+MBBS-OTHERS OTH 3512650 Allotted
+1034 1089813 M079MQ
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
-MBBS-
-OTHERS
-OTH3211950Allotted
-1035 1092281 M065MQ 
+MBBS-OTHERS OTH 3211950 Allotted
+1035 1092281 M065MQ
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
-MBBS-
-OTHERS
-OTH2825000Allotted
-1036 1099798 M065MQ 
+MBBS-OTHERS OTH 2825000 Allotted
+1036 1099798 M065MQ
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
-MBBS-
-OTHERS
-OTH2825000Allotted
-1037 1099865 M078MQ 
+MBBS-OTHERS OTH 2825000 Allotted
+1037 1099865 M078MQ
 Akash Institute of Medical
 Sciences and Research
 Centre,DEVANAHALLI,,BANGA
 LORE
-MBBS-
-OTHERS
-OTH3611950Allotted
-1038 1100141 M065MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+1038 1100141 M065MQ
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
-MBBS-
-OTHERS
-OTH2825000Allotted
-1039 1101486 M071MQ 
+MBBS-OTHERS OTH 2825000 Allotted
+1039 1101486 M071MQ
 The Oxford Medical College
 Hospital and Research
 Center,Yadavanahalli, Attibele
 Hobli,Bangalore
-MBBS-
-OTHERS
-OTH3611950Allotted
-1040 1104913 M078MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+1040 1104913 M078MQ
 Akash Institute of Medical
 Sciences and Research
 Centre,DEVANAHALLI,,BANGA
 LORE
-MBBS-
-OTHERS
-OTH3611950Allotted
-1041 1107044 M069MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+1041 1107044 M069MQ
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
-MBBS-
-OTHERS
-OTH3861950Allotted
-1042 1112509 M094MQ 
+MBBS-OTHERS OTH 3861950 Allotted
+1042 1112509 M094MQ
 PES University Institute of
 Medical Sceinces and
 Research,Electronic
 city,BANGALORE
-MBBS-
-OTHERS
-OTH3915000Allotted
-1043 1115535 M069MQ 
+MBBS-OTHERS OTH 3915000 Allotted
+1043 1115535 M069MQ
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
-MBBS-
-OTHERS
-OTH3861950Allotted
-1044 1116482 M065MQ 
+MBBS-OTHERS OTH 3861950 Allotted
+1044 1116482 M065MQ
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
-MBBS-
-OTHERS
-OTH2825000Allotted
-1045 1116684 M097MQ 
+MBBS-OTHERS OTH 2825000 Allotted
+1045 1116684 M097MQ
 Farookh Academy of Medical
 Education Hospital and
 Research Institute, Mysore
 Madikeri Road, Near Illavala
 Hunsur Taluk, Mysore District
-MBBS-
-OTHERS
-OTH3011950Allotted
-1046 1119748 M065MQ 
+MBBS-OTHERS OTH 3011950 Allotted
+1046 1119748 M065MQ
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
-MBBS-
-OTHERS
-OTH2825000Allotted
-1047 1127005 M062MQ 
+MBBS-OTHERS OTH 2825000 Allotted
+1047 1127005 M062MQ
 Shymanuru Shivashankarappa
 Institute Of Medical
 Sciences,Jnanashankara, NH-
 4,Davangere
-MBBS-
-OTHERS
-OTH3611950Allotted
+MBBS-OTHERS OTH 3611950 Allotted
 UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
 B£eLBVĸsďe¤eÎĩe\
 Karnataka Examinations Authority
@@ -6918,122 +6396,92 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-1048 1127134 M054MQ 
+1048 1127134 M054MQ
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
-MBBS-
-OTHERS
-OTH3512650Allotted
-1049 1141308 M094MQ 
+MBBS-OTHERS OTH 3512650 Allotted
+1049 1141308 M094MQ
 PES University Institute of
 Medical Sceinces and
 Research,Electronic
 city,BANGALORE
-MBBS-
-OTHERS
-OTH3915000Allotted
-1050 1154152 M065MQ 
+MBBS-OTHERS OTH 3915000 Allotted
+1050 1154152 M065MQ
 Srinivasa Institute of Medical
 Research Center Srinivas Nagar
 Mangalore
-MBBS-
-OTHERS
-OTH2825000Allotted
-1051 1156574 M008MQ 
+MBBS-OTHERS OTH 2825000 Allotted
+1051 1156574 M008MQ
 M.V.J.Medical College and
 Research Hospital,NH-4,
 Dandupalya, Kolathur
 -,Channasandra, Bangalore
-MBBS-
-OTHERS
-OTH4011950Allotted
-1052 1161036 M094MQ 
+MBBS-OTHERS OTH 4011950 Allotted
+1052 1161036 M094MQ
 PES University Institute of
 Medical Sceinces and
 Research,Electronic
 city,BANGALORE
-MBBS-
-OTHERS
-OTH3915000Allotted
-1053 1161176 M042MQ 
+MBBS-OTHERS OTH 3915000 Allotted
+1053 1161176 M042MQ
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
-MBBS-
-OTHERS
-OTH3911950Allotted
-1054 1163299 M094MQ 
+MBBS-OTHERS OTH 3911950 Allotted
+1054 1163299 M094MQ
 PES University Institute of
 Medical Sceinces and
 Research,Electronic
 city,BANGALORE
-MBBS-
-OTHERS
-OTH3915000Allotted
-1055 1166133 M097MQ 
+MBBS-OTHERS OTH 3915000 Allotted
+1055 1166133 M097MQ
 Farookh Academy of Medical
 Education Hospital and
 Research Institute, Mysore
 Madikeri Road, Near Illavala
 Hunsur Taluk, Mysore District
-MBBS-
-OTHERS
-OTH3011950Allotted
-1056 1172524 M097MQ 
+MBBS-OTHERS OTH 3011950 Allotted
+1056 1172524 M097MQ
 Farookh Academy of Medical
 Education Hospital and
 Research Institute, Mysore
 Madikeri Road, Near Illavala
 Hunsur Taluk, Mysore District
-MBBS-
-OTHERS
-OTH3011950Allotted
-1057 1177749 M069MQ 
+MBBS-OTHERS OTH 3011950 Allotted
+1057 1177749 M069MQ
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
-MBBS-
-OTHERS
-OTH3861950Allotted
-1058 1179584 M094MQ 
+MBBS-OTHERS OTH 3861950 Allotted
+1058 1179584 M094MQ
 PES University Institute of
 Medical Sceinces and
 Research,Electronic
 city,BANGALORE
-MBBS-
-OTHERS
-OTH3915000Allotted
-1059 1182231 M096MQ 
+MBBS-OTHERS OTH 3915000 Allotted
+1059 1182231 M096MQ
 S R Patil Medical College
 Hospital and Research
 Center,Badagandi,BAGALKOT
-MBBS-
-OTHERS
-OTH3011950Allotted
-1060 1186232 M081MQ 
+MBBS-OTHERS OTH 3011950 Allotted
+1060 1186232 M081MQ
 East Point College of Medical
 Sciences and Research
 Center,,Bangalore
-MBBS-
-OTHERS
-OTH3611950Allotted
-1061 1189221 M010MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+1061 1189221 M010MQ
 A.J.Institute of Medical
 Sciences,NH - 66,
 Kuntikana,Mangalore
-MBBS-
-OTHERS
-OTH4011950Allotted
-1062 1194962 M079MQ 
+MBBS-OTHERS OTH 4011950 Allotted
+1062 1194962 M079MQ
 Kanachur Institute of Medical
 Sciences and Research
 Centre,UNIVERSITY
 ROAD,MANGALORE
-MBBS-
-OTHERS
-OTH3211950Allotted
+MBBS-OTHERS OTH 3211950 Allotted
 UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
 B£eLBVĸsďe¤eÎĩe\
 Karnataka Examinations Authority
@@ -7047,125 +6495,93 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-1063 1198006 M096MQ 
+1063 1198006 M096MQ
 S R Patil Medical College
 Hospital and Research
 Center,Badagandi,BAGALKOT
-MBBS-
-OTHERS
-OTH3011950Allotted
-1064 1200642 M096MQ 
+MBBS-OTHERS OTH 3011950 Allotted
+1064 1200642 M096MQ
 S R Patil Medical College
 Hospital and Research
 Center,Badagandi,BAGALKOT
-MBBS-
-OTHERS
-OTH3011950Allotted
-1065 1203077 M094MQ 
+MBBS-OTHERS OTH 3011950 Allotted
+1065 1203077 M094MQ
 PES University Institute of
 Medical Sceinces and
 Research,Electronic
 city,BANGALORE
-MBBS-
-OTHERS
-OTH3915000Allotted
-1066 1218453 M071MQ 
+MBBS-OTHERS OTH 3915000 Allotted
+1066 1218453 M071MQ
 The Oxford Medical College
 Hospital and Research
 Center,Yadavanahalli, Attibele
 Hobli,Bangalore
-MBBS-
-OTHERS
-OTH3611950Allotted
-1067 1222816 M081MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+1067 1222816 M081MQ
 East Point College of Medical
 Sciences and Research
 Center,,Bangalore
-MBBS-
-OTHERS
-OTH3611950Allotted
-1068 1229858 M094MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+1068 1229858 M094MQ
 PES University Institute of
 Medical Sceinces and
 Research,Electronic
 city,BANGALORE
-MBBS-
-OTHERS
-OTH3915000Allotted
-1069 1236566 M081MQ 
+MBBS-OTHERS OTH 3915000 Allotted
+1069 1236566 M081MQ
 East Point College of Medical
 Sciences and Research
 Center,,Bangalore
-MBBS-
-OTHERS
-OTH3611950Allotted
-1070 1247266 M081MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+1070 1247266 M081MQ
 East Point College of Medical
 Sciences and Research
 Center,,Bangalore
-MBBS-
-OTHERS
-OTH3611950Allotted
-1071 1250958 M096MQ 
+MBBS-OTHERS OTH 3611950 Allotted
+1071 1250958 M096MQ
 S R Patil Medical College
 Hospital and Research
 Center,Badagandi,BAGALKOT
-MBBS-
-OTHERS
-OTH3011950Allotted
-1072 1258329 M094MQ 
+MBBS-OTHERS OTH 3011950 Allotted
+1072 1258329 M094MQ
 PES University Institute of
 Medical Sceinces and
 Research,Electronic
 city,BANGALORE
-MBBS-
-OTHERS
-OTH3915000Allotted
-1073 1279436 M069MQ 
+MBBS-OTHERS OTH 3915000 Allotted
+1073 1279436 M069MQ
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
-MBBS-
-OTHERS
-OTH3861950Allotted
-1074 1281981 M094MQ 
+MBBS-OTHERS OTH 3861950 Allotted
+1074 1281981 M094MQ
 PES University Institute of
 Medical Sceinces and
 Research,Electronic
 city,BANGALORE
-MBBS-
-OTHERS
-OTH3915000Allotted
-1075 1282692 M096MQ 
+MBBS-OTHERS OTH 3915000 Allotted
+1075 1282692 M096MQ
 S R Patil Medical College
 Hospital and Research
 Center,Badagandi,BAGALKOT
-MBBS-
-OTHERS
-OTH3011950Allotted
-1076 1283648 M054MQ 
+MBBS-OTHERS OTH 3011950 Allotted
+1076 1283648 M054MQ
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
-MBBS-
-OTHERS
-OTH3512650Allotted
-1077 1285588 M069MQ 
+MBBS-OTHERS OTH 3512650 Allotted
+1077 1285588 M069MQ
 Shridevi Institute of Medical
 Sciences and Research
 Hospital,Sira Road,,Tumkur
-MBBS-
-OTHERS
-OTH3861950Allotted
-1078 1286470 M054MQ 
+MBBS-OTHERS OTH 3861950 Allotted
+1078 1286470 M054MQ
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
-MBBS-
-OTHERS
-OTH3512650Allotted
+MBBS-OTHERS OTH 3512650 Allotted
 UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
 B£eLBVĸsďe¤eÎĩe\
 Karnataka Examinations Authority
@@ -7179,21 +6595,17 @@ Course CodeName of the College Allotted.Course Name
 Allotted
 Category
 Course_feesStatus
-1079 1292134 M054MQ 
+1079 1292134 M054MQ
 K.Venkataramana Gowda
 Medical College and
 Hospital,Kurunjibag,,Dakshina
 Kannada
-MBBS-
-OTHERS
-OTH3512650Allotted
-1080 1310859 M042MQ 
+MBBS-OTHERS OTH 3512650 Allotted
+1080 1310859 M042MQ
 Mahadevappa Rampure
 Medical College,Mahadevappa
 Rampure Marg,Kalaburgi
-MBBS-
-OTHERS
-OTH3911950Allotted
+MBBS-OTHERS OTH 3911950 Allotted
 UGNEET -2025 MEDICAL  3rd Round Final  Seat Allotment List
 B£eLBVĸsďe¤eÎĩe\
 Karnataka Examinations Authority

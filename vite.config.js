@@ -38,6 +38,17 @@ export default defineConfig({
   ],
   server: {
     port: 8080,
+    // ── Dev Proxy ────────────────────────────────────────────────────────────
+    // Forwards /api/* calls to the live Vercel deployment so local dev works
+    // without needing `vercel dev` or a local MongoDB connection.
+    // The proxy is server-side (Node → Vercel), so there are no CORS issues.
+    proxy: {
+      '/api': {
+        target: 'https://namma-ugneet-portal.vercel.app',
+        changeOrigin: true,
+        secure: true,
+      },
+    },
     headers: {
       'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload',
       'X-Frame-Options': 'DENY',

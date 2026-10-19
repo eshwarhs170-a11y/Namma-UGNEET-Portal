@@ -871,7 +871,7 @@ export default function Dashboard() {
   const [maxBudget, setMaxBudget] = useState(() => lsGet(LS_EXPLORE, {}).maxBudget ?? 1500000);
   // Default to 'R1'; if localStorage had the old 'ALL', fall back to 'R1'
   const [roundFilter, setRoundFilter] = useState(() => lsGet(LS_EXPLORE, {}).roundFilter ?? 'ALL');
-  const [yearFilter, setYearFilter] = useState(() => lsGet(LS_EXPLORE, {}).yearFilter ?? '2025');
+  const [yearFilter, setYearFilter] = useState(() => lsGet(LS_EXPLORE, {}).yearFilter ?? '2026');
 
   const [sortConfig, setSortConfig] = useState(() => lsGet(LS_EXPLORE, {}).sortConfig ?? { key: 'rank', direction: 'asc' });
 
@@ -979,7 +979,7 @@ export default function Dashboard() {
   const [predictorStream, setPredictorStream] = useState(() => lsGet(LS_PREDICTOR, {}).predictorStream ?? 'MEDICAL');
   // Default to 'R1'; if localStorage had the old 'ALL', fall back to 'R1'
   const [predictorRound, setPredictorRound] = useState(() => lsGet(LS_PREDICTOR, {}).predictorRound ?? 'ALL');
-  const [predictorYear, setPredictorYear] = useState(() => lsGet(LS_PREDICTOR, {}).predictorYear ?? '2025');
+  const [predictorYear, setPredictorYear] = useState(() => lsGet(LS_PREDICTOR, {}).predictorYear ?? '2026');
   const [rankRange, setRankRange] = useState(() => lsGet(LS_PREDICTOR, {}).rankRange ?? 0);
 
   // Persist predictor inputs whenever they change
@@ -1022,7 +1022,7 @@ export default function Dashboard() {
     if (!initialLoading && dropdownStats.years.length > 0 && !yearDefaultSetRef.current) {
       const maxYear = Math.max(...dropdownStats.years.map(y => parseInt(y, 10)));
       setYearFilter(maxYear.toString());
-      setPredictorYear('2025');
+      setPredictorYear(maxYear.toString());
       yearDefaultSetRef.current = true;
     }
   }, [initialLoading, dropdownStats]);
@@ -1988,7 +1988,7 @@ export default function Dashboard() {
               }
 
               const records = selectedCollegeRecords;
-              const targetYear = activeTab === '#predictor' ? predictorYear : yearFilter !== 'ALL' ? yearFilter : (Array.from(new Set(records.map(r => String(r.year)))).sort().pop() || '2024');
+              const targetYear = activeTab === '#predictor' ? predictorYear : yearFilter !== 'ALL' ? yearFilter : (Array.from(new Set(records.map(r => String(r.year)))).sort().pop() || '2026');
               const yearRecords = records.filter(r => String(r.year) === String(targetYear));
 
               const courseTypes = Array.from(new Set(yearRecords.map((r) => r.courseDetails))).sort();
@@ -2420,7 +2420,7 @@ export default function Dashboard() {
             <div className="field">
               <label>Allotment Year</label>
               <select aria-label="Allotment Year" value={yearFilter} onChange={(e) => setYearFilter(e.target.value)}>
-                {dynamicYears.filter(y => y === '2025' || y === '2024').map((y) => (
+                {dynamicYears.filter(y => /^\d{4}$/.test(y)).map((y) => (
                   <option key={y} value={y}>{y}</option>
                 ))}
               </select>
@@ -2777,7 +2777,7 @@ export default function Dashboard() {
                     <div className="field">
                       <label>Allotment Year</label>
                       <select aria-label="Allotment Year" value={yearFilter} onChange={(e) => setYearFilter(e.target.value)}>
-                        {dynamicYears.filter(y => y === '2025' || y === '2024').map((y) => (
+                        {dynamicYears.filter(y => /^\d{4}$/.test(y)).map((y) => (
                           <option key={y} value={y}>{y}</option>
                         ))}
                       </select>
@@ -2997,7 +2997,7 @@ export default function Dashboard() {
                   <div className="field">
                     <label>Allotment Year</label>
                     <select aria-label="Allotment Year" value={predictorYear} onChange={(e) => setPredictorYear(e.target.value)}>
-                      {dynamicYears.filter(y => y === '2025' || y === '2024').map((y) => (
+                      {dynamicYears.filter(y => /^\d{4}$/.test(y)).map((y) => (
                         <option key={y} value={y}>{y}</option>
                       ))}
                     </select>

@@ -340,200 +340,6 @@ export default function Dashboard() {
     setActiveTab(initialTab);
     window.history.replaceState({ tab: initialTab }, '', `#${initialTab}`);
 
-const formatFees = (fees) =>
-  fees === null || fees === undefined ? 'Not available' : `₹${fees.toLocaleString('en-IN')}`;
-
-const formatCategory = (category) => (category === 'UNKNOWN' ? 'Category not recorded' : category);
-
-const OPTIONS_KEY = 'namma_option_entries';
-const makeOptionId = (item) => `${item.year}-${item.stream}-${item.round}-${item.serialNo}-${item.category}`;
-
-function RankSparkline({ points }) {
-  if (!points || points.length < 2) return null;
-
-  const width = 100;
-  const height = 28;
-  const padX = 8;
-  const padY = 6;
-
-  const ranks = points.map((p) => p.rank);
-  const maxRank = Math.max(...ranks);
-  const minRank = Math.min(...ranks);
-  const range = maxRank - minRank || 1;
-
-  const coords = points.map((p, i) => {
-    const x = padX + (i * (width - padX * 2)) / (points.length - 1);
-    const normalized = (p.rank - minRank) / range;
-    const y = padY + normalized * (height - padY * 2);
-    return { x, y, rank: p.rank };
-  });
-
-  const pathD = coords.map((c, i) => `${i === 0 ? 'M' : 'L'} ${c.x.toFixed(1)} ${c.y.toFixed(1)}`).join(' ');
-
-  return (
-    <svg viewBox={`0 0 ${width} ${height}`} className="sparkline-svg" preserveAspectRatio="xMidYMid meet">
-      <path d={pathD} className="sparkline-line" fill="none" />
-      {coords.map((c, i) => (
-        <circle
-          key={i}
-          cx={c.x}
-          cy={c.y}
-          r={c.rank === minRank ? 3 : 2}
-          className={c.rank === minRank ? 'sparkline-dot sparkline-dot-best' : 'sparkline-dot'}
-        />
-      ))}
-    </svg>
-  );
-}
-
-const PredictedGrid = React.memo(function PredictedGrid({
-  predictedColleges,
-  userRank,
-  isSaved,
-  toggleSave,
-  isInOptionList,
-  addToOptionList,
-  getTrends,
-  onSelectCollege,
-  showFees,
-}) {
-  const CARD_RENDER_LIMIT = 150;
-  const [visibleCount, setVisibleCount] = useState(CARD_RENDER_LIMIT);
-
-  useEffect(() => {
-    setVisibleCount(CARD_RENDER_LIMIT);
-  }, [predictedColleges]);
-
-  if (predictedColleges.length === 0) {
-    return (
-      <div className="predicted-grid">
-        <div className="empty-predict">
-          Enter your exact NEET Rank above to populate your custom eligible target mapping list.
-        </div>
-      </div>
-    );
-  }
-
-  const visibleColleges = predictedColleges.slice(0, visibleCount);
-
-  return (
-    <div className="predicted-grid-wrap">
-      <div className="predicted-grid">
-        {visibleColleges.map((item, idx) => {
-        const safetyMargin = item.rank - parseInt(userRank, 10);
-        let stampClass = 'safe';
-        let badgeText = 'Safe Match';
-
-        if (safetyMargin < 2000) {
-          stampClass = 'borderline';
-          badgeText = 'Borderline Chance';
-        } else if (safetyMargin < 8000) {
-          stampClass = 'moderate';
-          badgeText = 'Moderate Chance';
-        }
-
-        return (
-          <div key={idx} className="result-card">
-            <div className="result-top">
-              <span className="result-code">CODE: {item.collegeCode}</span>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <span className={`stamp ${stampClass}`}>{badgeText}</span>
-                <button
-                  className={`star-btn${isSaved(item) ? ' saved' : ''}`}
-                  onClick={() => toggleSave(item)}
-                  aria-label="Save college"
-                >
-                  {isSaved(item) ? '<Star className="lucide-icon" size={16} fill="currentColor" />' : '<Star className="lucide-icon" size={16} />'}
-                </button>
-                <button
-                  className={`add-option-btn${isInOptionList(item) ? ' added' : ''}`}
-                  onClick={() => addToOptionList(item)}
-                  title="Add to Option Entry List"
-                >
-                  {isInOptionList(item) ? '<Check className="lucide-icon" size={16} /> Added' : '+ Add'}
-                </button>
-              </div>
-            </div>
-            <h4
-              className="result-name college-name-link"
-              onClick={() => onSelectCollege({ collegeCode: item.collegeCode, stream: item.stream, collegeName: item.collegeName })}
-            >
-              {item.collegeName}
-            </h4>
-            <p className="result-meta">Course: <strong>{item.courseDetails}</strong></p>
-            <p className="result-meta">Round: <strong>{item.round}</strong> · Year: <strong>{item.year}</strong></p>
-            {showFees && <p className="result-meta">Annual Cost: <strong>{formatFees(item.fees)}</strong></p>}
-
-            {(() => {
-              const { roundsThisYear, otherYearSameRound } = getTrends(item);
-              const uniqueRounds = Array.from(new Map(roundsThisYear.map((r) => [r.round, r])).values());
-              const otherYear = otherYearSameRound[0];
-              if (uniqueRounds.length <= 1 && !otherYear) return null;
-              return (
-                <div className="trend-box">
-                  {uniqueRounds.length > 1 && (
-                    <div className="trend-line trend-line-with-spark">
-                      <div>
-                        <span className="trend-label">This year:</span>
-                        {uniqueRounds.map((r) => (
-                          <span key={r.round} className="trend-chip">{r.round} {r.rank.toLocaleString('en-IN')}</span>
-                        ))}
-                      </div>
-                      <RankSparkline points={uniqueRounds} />
-                    </div>
-                  )}
-                  {otherYear && (
-                    <div className="trend-line">
-                      <span className="trend-label">vs {otherYear.year}:</span>
-                      <span className="trend-chip">
-                        {otherYear.rank.toLocaleString('en-IN')}
-                        {otherYear.rank > item.rank ? ' (tighter now)' : otherYear.rank < item.rank ? ' (looser now)' : ' (same)'}
-                      </span>
-                    </div>
-                  )}
-                </div>
-              );
-            })()}
-
-            <div className="result-footer">
-              <span>Last Cutoff</span>
-              <span className="val">{item.rank.toLocaleString('en-IN')}</span>
-            </div>
-          </div>
-        );
-        })}
-      </div>
-      {predictedColleges.length > visibleCount && (
-        <div className="show-more-wrap">
-          <p className="truncate-note">
-            Showing top {visibleCount.toLocaleString('en-IN')} of {predictedColleges.length.toLocaleString('en-IN')} matches (closest cutoffs first).
-          </p>
-          <button
-            className="show-more-btn"
-            onClick={() => setVisibleCount((prev) => prev + CARD_RENDER_LIMIT)}
-          >
-            Show {Math.min(CARD_RENDER_LIMIT, predictedColleges.length - visibleCount).toLocaleString('en-IN')} More
-          </button>
-        </div>
-      )}
-    </div>
-  );
-});
-
-export default function Dashboard() {
-  const [activeTab, setActiveTab] = useState('home');
-
-  const navigateTo = (tab) => {
-    if (tab === activeTab) return;
-    window.history.pushState({ tab }, '', `#${tab}`);
-    setActiveTab(tab);
-  };
-
-  useEffect(() => {
-    const initialTab = window.location.hash.replace('#', '') || 'home';
-    setActiveTab(initialTab);
-    window.history.replaceState({ tab: initialTab }, '', `#${initialTab}`);
-
     const onPopState = (e) => {
       const tab = (e.state && e.state.tab) || window.location.hash.replace('#', '') || 'home';
       setActiveTab(tab);
@@ -712,6 +518,107 @@ export default function Dashboard() {
 
     return cleaned.trim();
   };
+
+  // ── HIDDEN ADMIN PANEL ────────────────────────────────────────────────────
+  if (activeTab === ADMIN_HASH) {
+    return (
+      <div style={{
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: 'linear-gradient(135deg, #0a0f1e 0%, #0f172a 50%, #0a0f1e 100%)',
+        fontFamily: "'Inter', 'Segoe UI', system-ui, sans-serif",
+        color: '#e2e8f0',
+        padding: '2rem',
+        position: 'relative',
+        overflow: 'hidden',
+      }}>
+        {/* Ambient glow effects */}
+        <div style={{
+          position: 'absolute', top: '20%', left: '50%', transform: 'translateX(-50%)',
+          width: 400, height: 400, borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%)',
+          pointerEvents: 'none',
+        }} />
+
+        <div style={{ zIndex: 1, textAlign: 'center', marginBottom: '2rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <img 
+            src={logo} 
+            alt="NammaUGNEET" 
+            style={{ 
+              width: 80, 
+              height: 80, 
+              marginBottom: '1rem', 
+              borderRadius: '50%',
+              objectFit: 'contain',
+              backgroundColor: '#ffffff',
+              boxShadow: '0 0 20px rgba(99,102,241,0.4)',
+              border: '2px solid rgba(255,255,255,0.1)',
+              display: 'block'
+            }} 
+          />
+          <h1 style={{ fontSize: '1.75rem', fontWeight: 700, margin: 0, color: '#e2e8f0' }}>Admin Panel</h1>
+          <p style={{ color: '#64748b', fontSize: '0.85rem', marginTop: '0.35rem' }}>Developer-only view — do not share this URL.</p>
+        </div>
+
+        <div style={{
+          zIndex: 1,
+          background: 'rgba(15,23,42,0.85)',
+          border: '1px solid rgba(99,102,241,0.25)',
+          borderRadius: '20px',
+          padding: '2.5rem',
+          textAlign: 'center',
+          width: '100%',
+          maxWidth: 600,
+          backdropFilter: 'blur(20px)',
+          boxShadow: '0 25px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04) inset',
+          marginBottom: '1.5rem'
+        }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: '2rem' }}>
+            <div>
+              <p style={{ color: '#94a3b8', fontSize: '0.75rem', marginBottom: '0.5rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em' }}>All-Time Visits</p>
+              {adminLoading ? (
+                <p style={{ fontSize: '2.5rem', fontWeight: 700, color: '#818cf8', margin: '0.5rem 0' }}>…</p>
+              ) : adminVisitCount.total !== null ? (
+                <p style={{ fontSize: '3rem', fontWeight: 800, color: '#818cf8', lineHeight: 1, margin: '0.5rem 0', textShadow: '0 0 20px rgba(129,140,248,0.4)' }}>
+                  {adminVisitCount.total.toLocaleString('en-IN')}
+                </p>
+              ) : (
+                <p style={{ color: '#94a3b8', fontSize: '0.8rem', margin: '1rem 0', background: 'rgba(255,255,255,0.05)', padding: '0.5rem', borderRadius: '8px' }}>
+                  Live deployment required
+                </p>
+              )}
+            </div>
+            
+            <div style={{ borderLeft: '1px solid rgba(255,255,255,0.1)' }}>
+              <p style={{ color: '#94a3b8', fontSize: '0.75rem', marginBottom: '0.5rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em' }}>Today's Visits</p>
+              {adminLoading ? (
+                <p style={{ fontSize: '2.5rem', fontWeight: 700, color: '#38bdf8', margin: '0.5rem 0' }}>…</p>
+              ) : adminVisitCount.today !== null ? (
+                <p style={{ fontSize: '3rem', fontWeight: 800, color: '#38bdf8', lineHeight: 1, margin: '0.5rem 0', textShadow: '0 0 20px rgba(56,189,248,0.4)' }}>
+                  {adminVisitCount.today.toLocaleString('en-IN')}
+                </p>
+              ) : (
+                <p style={{ color: '#94a3b8', fontSize: '0.8rem', margin: '1rem 0', background: 'rgba(255,255,255,0.05)', padding: '0.5rem', borderRadius: '8px' }}>
+                  Live deployment required
+                </p>
+              )}
+            </div>
+
+            <div style={{ borderLeft: '1px solid rgba(255,255,255,0.1)' }}>
+              <p style={{ color: '#94a3b8', fontSize: '0.75rem', marginBottom: '0.5rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em' }}>App Installs</p>
+              {adminLoading ? (
+                <p style={{ fontSize: '2.5rem', fontWeight: 700, color: '#34d399', margin: '0.5rem 0' }}>…</p>
+              ) : adminInstallCount.total !== null ? (
+                <p style={{ fontSize: '3rem', fontWeight: 800, color: '#34d399', lineHeight: 1, margin: '0.5rem 0', textShadow: '0 0 20px rgba(52,211,153,0.4)' }}>
+                  {adminInstallCount.total.toLocaleString('en-IN')}
+                </p>
+              ) : (
+                <p style={{ color: '#94a3b8', fontSize: '0.8rem', margin: '1rem 0', background: 'rgba(255,255,255,0.05)', padding: '0.5rem', borderRadius: '8px' }}>
+                  Live deployment required
+                </p>
               )}
             </div>
           </div>
@@ -899,7 +806,7 @@ export default function Dashboard() {
 
             {(() => {
               const records = getCollegeRecords(selectedCollege.stream, selectedCollege.collegeCode);
-              const targetYear = activeTab === '#predictor' ? predictorYear : yearFilter !== 'ALL' ? yearFilter : (Array.from(new Set(records.map(r => String(r.year)))).sort().pop() || '2024');
+              const targetYear = activeTab === '#predictor' ? predictorYear : yearFilter !== 'ALL' ? yearFilter : (Array.from(new Set(records.map(r => String(r.year)))).sort().pop() || '2026');
               const yearRecords = records.filter(r => String(r.year) === String(targetYear));
 
               const courseTypes = Array.from(new Set(yearRecords.map((r) => r.courseDetails))).sort();
@@ -1301,7 +1208,7 @@ export default function Dashboard() {
             <div className="field">
               <label>Allotment Year</label>
               <select value={yearFilter} onChange={(e) => setYearFilter(e.target.value)}>
-                {dynamicYears.filter(y => y === '2025' || y === '2024').map((y) => (
+                {dynamicYears.filter(y => /^\d{4}$/.test(y)).map((y) => (
                   <option key={y} value={y}>{y}</option>
                 ))}
               </select>
@@ -1653,7 +1560,7 @@ export default function Dashboard() {
                     <div className="field">
                       <label>Allotment Year</label>
                       <select value={yearFilter} onChange={(e) => setYearFilter(e.target.value)}>
-                        {dynamicYears.filter(y => y === '2025' || y === '2024').map((y) => (
+                        {dynamicYears.filter(y => /^\d{4}$/.test(y)).map((y) => (
                           <option key={y} value={y}>{y}</option>
                         ))}
                       </select>
@@ -1873,7 +1780,7 @@ export default function Dashboard() {
                   <div className="field">
                     <label>Allotment Year</label>
                     <select value={predictorYear} onChange={(e) => setPredictorYear(e.target.value)}>
-                      {dynamicYears.filter(y => y === '2025' || y === '2024').map((y) => (
+                      {dynamicYears.filter(y => /^\d{4}$/.test(y)).map((y) => (
                         <option key={y} value={y}>{y}</option>
                       ))}
                     </select>

@@ -50,8 +50,8 @@ console.log('Dental Stray 3:', dentByRound[3].length);
 console.log('Dental Stray 4:', dentByRound[4].length);
 console.log('Total Dental from medical file:', dentByRound[2].length + dentByRound[3].length + dentByRound[4].length);
 
-// Extract Stray 1 Dental from existing dental_stray.txt
-const dentMatches = [...rawDent.matchAll(entryRegex)];
+// Extract Stray 1 Dental from existing dental_stray.txt (first 328 records)
+const dentMatches = [...rawDent.matchAll(entryRegex)].slice(0, 328);
 console.log('Dental Stray 1 in dental_stray.txt:', dentMatches.length);
 const dentStray1 = dentMatches.map(m => ({
   originalSl: m[1],

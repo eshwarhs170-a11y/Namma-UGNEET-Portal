@@ -7,6 +7,8 @@ const OUTPUT_FILE = path.join(__dirname, 'aiq_staging_output', 'aiq_mbbs_bds_com
 const REMARK_PATTERN = /^(Reported|Not\s+Reported|Not\s+Allotted\.|Seat\s+Surrendered|Upgraded|No\s+Upgradation|Fresh\s+Allotted\s+in\s+\d+\w{2}\s+Round(?:\([^)]*\))?|Did\s+not\s+opt\s+for\s+Upgradation\.|Did\s+not\s+fill\s+up\s+fresh\s+choices\.)/;
 
 const KNOWN_QUOTA_PATTERNS = [
+  /(Self\s*-?\s*Financed?\s+Merit\s+Seat)/i,
+  /(Employee['’\s]*s\s+State\s+Insurance\s+Scheme\s*\(?\s*ESI?\)?(?:\s+Nursing\s+Quota)?)/i,
   /(Non\s*-?\s*Resident\s+Indian\s*\(\s*A\s*M\s*U\s*\)\s*Quota)/i,
   /(Non\s*-?\s*Resident\s+Indian\s*\(\s*Jamia\s*\)\s*Quota)/i,
   /(Delhi\s*NCR\s*Children\s*\/?\s*Widows\s*of\s*Personnel\s*of\s*the\s*Armed\s*Forces\s*\(\s*CW\s*\)\s*DU\s*Quota)/i,
@@ -60,7 +62,7 @@ function splitIntoRows(text) {
   const anchorMatch = text.match(HEADER_ANCHOR);
   const searchFrom = anchorMatch ? anchorMatch.index + anchorMatch[0].length : 0;
 
-  const firstRowPattern = /(\d+)\s+(?=(-\s|(?=[A-Za-z])[a-zA-Z\/\s]{0,40}?(?:Quota|Institutions?|Indian|India|Employee)\b))/;
+  const firstRowPattern = /(\d+)\s+(?=(-\s|(?=[A-Za-z])[a-zA-Z\/\s]{0,40}?(?:Quota|Institutions?|Indian|India|Employee|Self)\b))/i;
   const remainder = text.slice(searchFrom);
   const firstMatch = remainder.match(firstRowPattern);
   if (!firstMatch) return [];
@@ -189,13 +191,53 @@ function parseRow(rowText, rank) {
   };
 }
 
+function parseSingleRound(rawText, year, round) {
+  const regex = /(\d+)\s+(\d+)\s+([\s\S]*?)\s+(MBBS|BDS)\s+([A-Za-z]+(?:\s+PwD)?)\s+([A-Za-z]+(?:\s+PwD)?)\s+(Allotted|Reported|Not\s+Reported)/g;
+  const matches = [...rawText.matchAll(regex)];
+  const results = [];
+  let quotaNullCount = 0;
+  for (const m of matches) {
+    let str = m[3].replace(/\s+/g, ' ').trim();
+    str = str.replace(/Page No\.\s*\d+\s+[\d-]+\s+[\d:]+\s*(?:AM|PM)?/gi, '').trim();
+    str = str.replace(/NEET-UG Counselling Seats Allotment[^\n]*/gi, '').trim();
+    str = str.replace(/SNo Rank Allotted Quota Allotted Institute Course[^\n]*/gi, '').trim();
+    let q = null;
+    let inst = str;
+    for (const pat of KNOWN_QUOTA_PATTERNS) {
+      const qm = str.match(pat);
+      if (qm) {
+        q = qm[1];
+        inst = str.slice(qm.index + qm[0].length).trim();
+        break;
+      }
+    }
+    if (!q) quotaNullCount++;
+    results.push({
+      rank: parseInt(m[2], 10),
+      quota: normalizeWhitespace(q),
+      collegeName: normalizeWhitespace(inst),
+      course: m[4],
+      allottedCategory: m[5].trim(),
+      candidateCategory: m[6].trim(),
+      remark: m[7].trim(),
+      year,
+      round,
+      dataset: 'AIQ',
+      stream: 'MEDICAL_DENTAL'
+    });
+  }
+  return { results, quotaNullCount };
+}
+
 function compileMbbsBds() {
   const masterData = [];
   const years = detectYearFolders();
 
   function getRoundLabel(fileName) {
+    if (/r1|round1/i.test(fileName)) return 'R1';
     if (/r2|round2/i.test(fileName)) return 'R2';
     if (/r3|round3|revised/i.test(fileName)) return 'R3';
+    if (/stray/i.test(fileName)) return 'STRAY';
     return null; // null means skip
   }
 
@@ -203,14 +245,12 @@ function compileMbbsBds() {
     const yearPath = path.join(AIQ_INPUT_DIR, year);
     if (!fs.existsSync(yearPath)) return;
 
-    // Only process R2 and R3 — R1 has a different PDF format (3-round combined sheet)
-    // that the current parser cannot handle reliably. Skip it.
     const files = fs.readdirSync(yearPath)
-      .filter((f) => /^aiq.*r[23]|round[23]/i.test(f) && !(/ayush/i.test(f)) && f.endsWith('.txt'))
+      .filter((f) => /^aiq.*(r[123]|round[123]|stray)/i.test(f) && !(/ayush/i.test(f)) && f.endsWith('.txt'))
       .sort();
 
     if (files.length === 0) {
-      console.log(`⚠️  No MBBS/BDS R2/R3 files found in ${year}`);
+      console.log(`⚠️  No MBBS/BDS files found in ${year}`);
     }
 
     files.forEach((fileName) => {
@@ -219,8 +259,18 @@ function compileMbbsBds() {
       const filePath = path.join(yearPath, fileName);
       console.log(`⏳ Processing MBBS/BDS ${round} from ${fileName} (${year})...`);
       const rawText = fs.readFileSync(filePath, 'utf8');
-      const rows = splitIntoRows(rawText);
 
+      if (round === 'R1' || round === 'STRAY') {
+        const { results, quotaNullCount } = parseSingleRound(rawText, year, round);
+        masterData.push(...results);
+        console.log(`✅ Extracted ${results.length} records from ${fileName}`);
+        if (quotaNullCount > 0) {
+          console.log(`⚠️  ${quotaNullCount} records have quota:null — review these`);
+        }
+        return;
+      }
+
+      const rows = splitIntoRows(rawText);
       let count = 0;
       let skipped = 0;
       let quotaNullCount = 0;

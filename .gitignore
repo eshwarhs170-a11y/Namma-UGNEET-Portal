@@ -40,3 +40,16 @@ dataprocessing/aiq_staging_output/*.json
 
 # Exclude raw AIQ source text files (4-9 MB each, not needed in repo)
 dataprocessing/aiq_source/**/*.txt
+
+# Exclude all raw KEA/state counselling source text files (processed into public/data/ already)
+dataprocessing/2024/*.txt
+dataprocessing/2025/*.txt
+
+# Exclude dataprocessing/output/ - duplicate of public/data/ (the real app data)
+dataprocessing/output/
+
+# Exclude any scratch/temp files in staging
+dataprocessing/aiq_staging_output/*.txt
+dataprocessing/scratch/
+
+dataprocessing/node *

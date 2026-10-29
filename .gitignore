@@ -33,3 +33,10 @@ dataprocessing/2026/*.txt
 
 .vercel
 .env*
+
+# Exclude large intermediate compiled JSON staging files (80-90 MB each).
+# Regenerated locally by the compile scripts; only public/data/ JSONs are tracked.
+dataprocessing/aiq_staging_output/*.json
+
+# Exclude raw AIQ source text files (4-9 MB each, not needed in repo)
+dataprocessing/aiq_source/**/*.txt

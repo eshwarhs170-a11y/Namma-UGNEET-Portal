@@ -151,6 +151,16 @@ const formatFees = (fees) =>
 
 const formatCategory = (category) => (category === 'UNKNOWN' ? 'Category not recorded' : category);
 
+// Human-friendly label for counselling round codes
+const ROUND_LABELS = {
+  R1: 'Round 1',
+  R2: 'Round 2',
+  R3: 'Round 3 (Includes All Previous Rounds Info)',
+  STRAY: 'Stray Vacancy Round',
+  FINAL: 'Final Round',
+};
+const formatRound = (r) => ROUND_LABELS[r] || r;
+
 const OPTIONS_KEY = 'namma_option_entries';
 const makeOptionId = (item) => `${item.year}-${item.stream}-${item.round}-${item.serialNo}-${item.category}`;
 
@@ -1200,7 +1210,7 @@ export default function Dashboard() {
               <select value={roundFilter} onChange={(e) => setRoundFilter(e.target.value)}>
                 <option value="ALL">All Rounds</option>
                 {dynamicRounds.filter(r => r !== 'FINAL' && !r.toLowerCase().includes('all rounds')).map((r) => (
-                  <option key={r} value={r}>{r === 'R3' ? 'R3 (Includes All Previous Rounds Info)' : r}</option>
+                  <option key={r} value={r}>{formatRound(r)}</option>
                 ))}
               </select>
             </div>
@@ -1553,7 +1563,7 @@ export default function Dashboard() {
                       <select value={roundFilter} onChange={(e) => setRoundFilter(e.target.value)}>
                         <option value="ALL">All Rounds</option>
                         {dynamicRounds.filter(r => r !== 'FINAL' && !r.toLowerCase().includes('all rounds')).map((r) => (
-                          <option key={r} value={r}>{r === 'R3' ? 'R3 (Includes All Previous Rounds Info)' : r}</option>
+                          <option key={r} value={r}>{formatRound(r)}</option>
                         ))}
                       </select>
                     </div>
@@ -1772,7 +1782,7 @@ export default function Dashboard() {
                     <select value={predictorRound} onChange={(e) => setPredictorRound(e.target.value)}>
                       <option value="ALL">All Rounds</option>
                       {dynamicRounds.filter(r => r !== 'FINAL' && !r.toLowerCase().includes('all rounds')).map((r) => (
-                        <option key={r} value={r}>{r === 'R3' ? 'R3 (Includes All Previous Rounds Info)' : r}</option>
+                        <option key={r} value={r}>{formatRound(r)}</option>
                       ))}
                     </select>
                   </div>

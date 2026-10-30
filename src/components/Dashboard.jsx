@@ -502,7 +502,10 @@ export default function Dashboard() {
 
   // Utility to normalize college names (remove newlines, extra spaces)
   const cleanCollegeName = (name) => {
+    if (!name) return '';
     let cleaned = name.replace(/\r?\n/g, ' ').replace(/\s+/g, ' ').trim();
+    cleaned = cleaned.replace(/^Page\s+No\.\s*\d+[\s\S]*?(?:AM|PM)\s*[\d\s\-]+(?:Management[\w\s\/]*Quota|Deemed[\w\s\/]*Quota|All\s+India[\w\s]*Quota)?\s*/i, '');
+    cleaned = cleaned.replace(/^.*?Pharmacy\s+B\.?Pharm\s+Not\s+Reported\s+(?:All\s+India\s+Quota\s+Government\s+)?/i, '');
     cleaned = cleaned.replace(/Did not opt for Upgradati\s*on\.?\s*\d+\s*-+\s*/gi, '');
     cleaned = cleaned.replace(/Did not opt for Upgradation\.?\s*\d+\s*-+\s*/gi, '');
     cleaned = cleaned.replace(/Did not fill up fresh choices\.?\s*\d+\s*-+\s*/gi, '');

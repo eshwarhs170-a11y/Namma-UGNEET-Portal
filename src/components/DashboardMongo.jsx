@@ -735,6 +735,10 @@ export default function Dashboard() {
     // Remove notes from KEA data like "(Note : Admission...)"
     cleaned = cleaned.replace(/\s*\(Note\s*:.*?\)/gi, '');
 
+    // Remove Page No. and header leak patterns
+    cleaned = cleaned.replace(/^Page\s+No\.\s*\d+[\s\S]*?(?:AM|PM)\s*[\d\s\-]+(?:Management[\w\s\/]*Quota|Deemed[\w\s\/]*Quota|All\s+India[\w\s]*Quota)?\s*/i, '');
+    cleaned = cleaned.replace(/^.*?Pharmacy\s+B\.?Pharm\s+Not\s+Reported\s+(?:All\s+India\s+Quota\s+Government\s+)?/i, '');
+
     // Remove common garbage prefixes from PDF parsing artifacts
     cleaned = cleaned.replace(/Did not opt for Upgradati\s*on\.?\s*\d+\s*[-\s]*/gi, '');
     cleaned = cleaned.replace(/Did not opt for Upgradation\.?\s*\d+\s*[-\s]*/gi, '');

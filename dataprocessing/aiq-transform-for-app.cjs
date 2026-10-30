@@ -46,6 +46,82 @@ function normalizeCategory(cat) {
   return 'UNKNOWN';
 }
 
+function normalizeQuota(quota) {
+  if (!quota) return 'UNKNOWN';
+  let q = quota.trim();
+
+  // Deemed & Self-Financed
+  if (/deemed/i.test(q) || (/self\s*-?\s*financ/i.test(q) && !/amu/i.test(q))) {
+    return 'Deemed/Paid Seats Quota';
+  }
+
+  // Management Paid Seats (AYUSH)
+  if (/manage/i.test(q)) {
+    return 'Management/Paid Seats Quota';
+  }
+
+  // NRI (check before ESI or others)
+  if (/non\s*-?\s*resident\s*indian/i.test(q) || /nonresident\s*indian/i.test(q)) {
+    if (/amu/i.test(q)) return 'Non-Resident Indian (AMU) Quota';
+    if (/jamia/i.test(q)) return 'Non-Resident Indian (Jamia) Quota';
+    return 'Non-Resident Indian';
+  }
+
+  // ESI
+  if (/\b(esi|employee['’\s]*s?\s*state\s*insurance)\b/i.test(q)) {
+    return 'Employees State Insurance Scheme (ESI)';
+  }
+
+  // Delhi NCR CW Quotas
+  if (/delhi\s*ncr.*cw/i.test(q) || /armed\s*forces/i.test(q)) {
+    if (/du/i.test(q)) return 'Delhi NCR CW Quota (DU)';
+    if (/ip/i.test(q)) return 'Delhi NCR CW Quota (IP)';
+    return 'Delhi NCR CW Quota';
+  }
+
+  // Delhi University Quota
+  if (/delhi\s*universit/i.test(q)) {
+    return 'Delhi University Quota';
+  }
+
+  // IP University Quota
+  if (/ip\s*universit/i.test(q)) {
+    return 'IP University Quota';
+  }
+
+  // AMU
+  if (/amu.*self\s*finance.*all\s*india/i.test(q)) return 'AMU Self Finance All India';
+  if (/amu.*self\s*finance.*internal/i.test(q)) return 'AMU Self Finance Internal';
+  if (/aligarh\s*muslim/i.test(q)) return 'Aligarh Muslim University (AMU) Quota';
+
+  // Puducherry
+  if (/puducher/i.test(q)) return 'Internal - Puducherry UT Domicile';
+
+  // Central Universities
+  if (/central\s*universit/i.test(q)) return 'Central Universities / National Institutions';
+
+  // AIQ Govt / Govt Aided / All India
+  if (/all\s*india\s*quota\s*govt\s*aided/i.test(q)) return 'All India Quota Govt Aided';
+  if (/all\s*india\s*quota\s*government/i.test(q)) return 'All India Quota Government';
+  if (/^all\s*india$/i.test(q)) return 'All India';
+
+  // Minorities & others
+  if (/jain\s*minority.*govt\s*aided/i.test(q)) return 'Jain Minority Quota (Govt Aided)';
+  if (/jain\s*minority/i.test(q)) return 'Jain Minority Quota';
+  if (/muslim\s*minority.*govt\s*aided/i.test(q)) return 'Muslim Minority Quota (Govt Aided)';
+  if (/muslim\s*minority/i.test(q)) return 'Muslim Minority Quota';
+  if (/muslim\s*women/i.test(q)) return 'Muslim Women Quota';
+  if (/muslim\s*obc/i.test(q)) return 'Muslim OBC Quota';
+  if (/muslim\s*st/i.test(q)) return 'Muslim ST Quota';
+  if (/muslim\s*quota/i.test(q)) return 'Muslim Quota';
+  if (/jamia\s*internal/i.test(q)) return 'Jamia Internal Quota';
+  if (/linguistic\s*minority/i.test(q)) return 'Linguistic Minority';
+  if (/foreign\s*country/i.test(q)) return 'Foreign Country Quota';
+  if (/open\s*seat/i.test(q)) return 'Open Seat Quota';
+
+  return q;
+}
+
 // College names from the PDF extraction sometimes contain garbage prefix:
 //   "- - - - - - Did not fill up fresh choices. 1338 74045 - - - - - - - - All India Quota Govt Aided Vaidyaratnam Ayurved College..."
 // We need to extract the actual college name from this mess.

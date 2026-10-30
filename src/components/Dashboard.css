@@ -274,18 +274,27 @@ html, body {
 }
 
 .tour-card {
+  position: relative;
   background: var(--paper);
   border-radius: 12px;
-  padding: 26px;
+  padding: 22px 24px 22px;
   max-width: 380px;
   width: 100%;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
 }
 
+.tour-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
 .tour-dots {
   display: flex;
+  align-items: center;
   gap: 6px;
-  margin-bottom: 16px;
+  margin-bottom: 0;
 }
 .tour-dot {
   width: 7px;
@@ -295,12 +304,51 @@ html, body {
 }
 .tour-dot.active { background: var(--marigold-dark); width: 18px; border-radius: 4px; transition: width 0.2s ease; }
 
-.tour-card h3 {
-  margin: 0 0 8px;
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  color: var(--ink);
+.tour-close-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--slate);
+  padding: 4px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: color 0.15s ease, background-color 0.15s ease;
 }
+.tour-close-btn:hover {
+  color: var(--ink);
+  background-color: var(--paper-alt);
+}
+.tour-close-btn:focus-visible {
+  outline: 2px solid var(--marigold);
+  outline-offset: 1px;
+}
+
+.tour-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 10px;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--ink);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.tour-heading-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+  flex-shrink: 0;
+}
+.tour-heading-icon svg {
+  display: block;
+}
+
 .tour-card p {
   margin: 0 0 20px;
   font-size: 0.9rem;

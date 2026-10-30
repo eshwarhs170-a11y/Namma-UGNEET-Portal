@@ -2,7 +2,8 @@ import React, { useState, useMemo, useEffect, useRef, useCallback } from 'react'
 import { 
   Search, Target, Info, AlertTriangle, Lock, Unlock, ScrollText, Mail, 
   Star, Trash2, FileText, MessageCircle, School, User, PenTool, Lightbulb, 
-  Coffee, RefreshCw, Frown, Circle, BarChart3, Check, X, ExternalLink
+  Coffee, RefreshCw, Frown, Circle, BarChart3, Check, X, ExternalLink,
+  SlidersHorizontal, Menu
 } from 'lucide-react';
 
 import jsPDF from 'jspdf';
@@ -443,12 +444,12 @@ export default function Dashboard() {
 
   const TOUR_KEY = 'namma_tour_seen';
   const tourSteps = [
-    { title: '<Target className="lucide-icon" size={24} /> Quick Predict', body: 'Enter your NEET rank right on this page to jump straight into the Smart College Predictor.' },
-    { title: '🎚️ Quick Filters', body: 'Search by name, filter by stream, category, round, and year — all update the table live.' },
-    { title: '<Star className="lucide-icon" size={16} /> Save Colleges', body: 'Tap the star on any row or predictor card to bookmark it. Saved colleges show up in the sidebar — save 2+ to unlock the Compare button.' },
-    { title: '<School className="lucide-icon" size={18} /> College Details', body: 'Tap any college name to see every category, round, and year cutoff for that college, plus a private notes box just for you.' },
-    { title: '<User className="lucide-icon" size={18} /> Save Rank Profiles', body: 'Checking ranks for a sibling or friend too? Save each search as a named profile in the sidebar for one-click reloading.' },
-    { title: '☰ Sidebar', body: 'Use the edge handle (top-left) to open the sidebar anytime for live stats, filters, and your saved lists.' },
+    { icon: <Target className="lucide-icon" size={20} />, title: 'Quick Predict', body: 'Enter your NEET rank right on this page to jump straight into the Smart College Predictor.' },
+    { icon: <SlidersHorizontal className="lucide-icon" size={20} />, title: 'Quick Filters', body: 'Search by name, filter by stream, category, round, and year — all update the table live.' },
+    { icon: <Star className="lucide-icon" size={20} />, title: 'Save Colleges', body: 'Tap the star on any row or predictor card to bookmark it. Saved colleges show up in the sidebar — save 2+ to unlock the Compare button.' },
+    { icon: <School className="lucide-icon" size={20} />, title: 'College Details', body: 'Tap any college name to see every category, round, and year cutoff for that college, plus a private notes box just for you.' },
+    { icon: <User className="lucide-icon" size={20} />, title: 'Save Rank Profiles', body: 'Checking ranks for a sibling or friend too? Save each search as a named profile in the sidebar for one-click reloading.' },
+    { icon: <Menu className="lucide-icon" size={20} />, title: 'Sidebar', body: 'Use the edge handle (top-left) to open the sidebar anytime for live stats, filters, and your saved lists.' },
   ];
   const [tourOpen, setTourOpen] = useState(false);
   const [supportOpen, setSupportOpen] = useState(false);
@@ -961,12 +962,27 @@ export default function Dashboard() {
       {tourOpen && (
         <div className="tour-backdrop" onClick={closeTour}>
           <div className="tour-card" onClick={(e) => e.stopPropagation()}>
-            <div className="tour-dots">
-              {tourSteps.map((_, i) => (
-                <span key={i} className={`tour-dot${i === tourStep ? ' active' : ''}`} />
-              ))}
+            <div className="tour-top-bar">
+              <div className="tour-dots">
+                {tourSteps.map((_, i) => (
+                  <span key={i} className={`tour-dot${i === tourStep ? ' active' : ''}`} />
+                ))}
+              </div>
+              <button
+                className="tour-close-btn"
+                onClick={closeTour}
+                aria-label="Close tour"
+                title="Close"
+              >
+                <X size={16} />
+              </button>
             </div>
-            <h3>{tourSteps[tourStep].title}</h3>
+            <h3 className="tour-heading">
+              {tourSteps[tourStep].icon && (
+                <span className="tour-heading-icon">{tourSteps[tourStep].icon}</span>
+              )}
+              <span>{tourSteps[tourStep].title}</span>
+            </h3>
             <p>{tourSteps[tourStep].body}</p>
             <div className="tour-actions">
               <button className="tour-skip" onClick={closeTour}>Skip</button>

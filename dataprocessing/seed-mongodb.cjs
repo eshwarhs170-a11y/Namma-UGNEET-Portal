@@ -6,8 +6,20 @@ const { MongoClient } = require('mongodb');
 // Force Google DNS to fix ISP DNS blocks on SRV record lookups (needed for mongodb+srv://)
 dns.setServers(['8.8.8.8', '1.1.1.1', '8.8.4.4']);
 
-// Require MONGODB_URI to be passed as environment variable
-const uri = process.env.MONGODB_URI;
+// Require MONGODB_URI or read from local .env files
+let uri = process.env.MONGODB_URI;
+if (!uri) {
+  for (const envFile of ['.env.local', '.env']) {
+    const envPath = path.join(__dirname, '..', envFile);
+    if (fs.existsSync(envPath)) {
+      const match = fs.readFileSync(envPath, 'utf8').match(/MONGODB_URI=["']?([^"'\r\n]+)["']?/);
+      if (match) {
+        uri = match[1];
+        break;
+      }
+    }
+  }
+}
 if (!uri) {
   console.error("Error: MONGODB_URI environment variable is required.");
   console.error("Usage: MONGODB_URI='mongodb+srv://...' node seed-mongodb.cjs");

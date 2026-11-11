@@ -2,7 +2,7 @@
 
 Cutoff analysis and seat predictor for Karnataka (KEA) and All India Quota (MCC AIQ) NEET UG counselling.
 
-Live Application: [nammaugneet.vercel.app](https://nammaugneet.vercel.app)
+Live Application: [namma-ugneet-portal.vercel.app](https://namma-ugneet-portal.vercel.app)
 
 ---
 
@@ -72,8 +72,6 @@ namma-ugneet/
     |-- App.jsx
     `-- main.jsx
 ```
-
-Raw source PDF extractions and intermediate JSON files are excluded via `.gitignore` to maintain repository size limits. Only final datasets in `public/data/` are tracked in version control.
 
 ---
 

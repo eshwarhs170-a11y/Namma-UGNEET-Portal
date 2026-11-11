@@ -105,32 +105,6 @@ The application runs locally at `http://localhost:5173`.
 
 ---
 
-## Data Pipeline
-
-When new counselling round documents are released:
-
-```bash
-# KEA data:
-node dataprocessing/compile.cjs
-
-# AIQ data (in order):
-node dataprocessing/aiq-mbbs-bds-compile.cjs
-node dataprocessing/aiq-ayush-stray-compile.cjs
-node dataprocessing/aiq-fill-categories.cjs
-node dataprocessing/aiq-aggregate-cutoffs.cjs
-node dataprocessing/aiq-transform-for-app.cjs
-```
-
-After generating updated data, stage and commit the output files:
-
-```bash
-git add public/data/
-git commit -m "Update cutoff data"
-git push
-```
-
----
-
 ## License
 
 Distributed under the MIT License. See `LICENSE` for details.

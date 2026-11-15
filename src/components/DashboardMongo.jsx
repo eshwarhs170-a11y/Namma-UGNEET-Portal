@@ -563,7 +563,7 @@ const KEA_DISTRICTS = [
   { name: 'CPT',  label: 'Koppal',                   query: 'Koppal' },
   { name: 'BDR',  label: 'Ballari (Bellary)',         query: 'Bellary' },
   { name: 'VJN',  label: 'Vijayanagara',             query: 'Vijayanagara' },
-  { name: 'TDR',  label: 'Tumakuru',                 query: 'Tumkur' },
+  { name: 'TDR',  label: 'Tumakuru',                 query: 'Tum' },
   { name: 'KLR',  label: 'Kolar',                    query: 'Kolar' },
   { name: 'CGP',  label: 'Chikkaballapura',          query: 'Chikkaballapur' },
   { name: 'RMG',  label: 'Ramanagara',               query: 'Ramanagara' },

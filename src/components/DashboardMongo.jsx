@@ -5,7 +5,7 @@ import {
   Star, Trash2, FileText, MessageCircle, School, User, PenTool, Lightbulb, 
   Coffee, RefreshCw, Frown, Circle, BarChart3, Check, X,
   Sun, Moon, Home, Download, Landmark, Globe, Wallet, ExternalLink,
-  SlidersHorizontal, Menu
+  SlidersHorizontal, Menu, MapPin, ChevronDown
 } from 'lucide-react';
 
 // jsPDF loaded on-demand (lazy) to keep initial bundle small
@@ -415,19 +415,9 @@ const PredictedGrid = React.memo(function PredictedGrid({
 }) {
   const CARD_RENDER_LIMIT = 150;
   const [visibleCount, setVisibleCount] = useState(CARD_RENDER_LIMIT);
-  const [chanceFilter, setChanceFilter] = useState('ALL');
-
   useEffect(() => {
     setVisibleCount(CARD_RENDER_LIMIT);
-  }, [predictedColleges, chanceFilter]);
-
-  const getChance = (collegeRank) => {
-    if (!userRank || isNaN(userRank)) return 'safe';
-    const margin = collegeRank - parseInt(userRank, 10);
-    if (margin < 0) return 'dream';
-    if (margin < 4000) return 'target';
-    return 'safe';
-  };
+  }, [predictedColleges]);
 
   if (predictedColleges.length === 0) {
     return (
@@ -439,53 +429,10 @@ const PredictedGrid = React.memo(function PredictedGrid({
     );
   }
 
-  const safeCount = predictedColleges.filter((c) => getChance(c.rank) === 'safe').length;
-  const targetCount = predictedColleges.filter((c) => getChance(c.rank) === 'target').length;
-  const dreamCount = predictedColleges.filter((c) => getChance(c.rank) === 'dream').length;
-
-  const filteredColleges = chanceFilter === 'ALL'
-    ? predictedColleges
-    : predictedColleges.filter((c) => getChance(c.rank) === chanceFilter);
-
-  const visibleColleges = filteredColleges.slice(0, visibleCount);
+  const visibleColleges = predictedColleges.slice(0, visibleCount);
 
   return (
     <div className="predicted-grid-wrap">
-      {userRank && !isNaN(userRank) && predictedColleges.length > 0 && (
-        <div className="chance-filter-bar">
-          <span className="chance-filter-label">Filter by Chance:</span>
-          <button
-            type="button"
-            className={`chance-tab${chanceFilter === 'ALL' ? ' active' : ''}`}
-            onClick={() => setChanceFilter('ALL')}
-          >
-            All Matches <span className="chance-count-badge">{predictedColleges.length}</span>
-          </button>
-          <button
-            type="button"
-            className={`chance-tab tab-safe${chanceFilter === 'safe' ? ' active' : ''}`}
-            onClick={() => setChanceFilter('safe')}
-          >
-            🟢 Safe Match <span className="chance-count-badge">{safeCount}</span>
-          </button>
-          <button
-            type="button"
-            className={`chance-tab tab-target${chanceFilter === 'target' ? ' active' : ''}`}
-            onClick={() => setChanceFilter('target')}
-          >
-            🟡 Target / Realistic <span className="chance-count-badge">{targetCount}</span>
-          </button>
-          {dreamCount > 0 && (
-            <button
-              type="button"
-              className={`chance-tab tab-dream${chanceFilter === 'dream' ? ' active' : ''}`}
-              onClick={() => setChanceFilter('dream')}
-            >
-              🟣 Dream / Reach <span className="chance-count-badge">{dreamCount}</span>
-            </button>
-          )}
-        </div>
-      )}
       <div className="predicted-grid">
         {visibleColleges.map((item, idx) => {
         const safetyMargin = item.rank - parseInt(userRank, 10);
@@ -589,13 +536,38 @@ const PredictedGrid = React.memo(function PredictedGrid({
 });
 
 const KEA_DISTRICTS = [
-  { name: 'ALL', label: '🌟 All Karnataka', query: '' },
-  { name: 'BLR', label: '📍 Bengaluru', query: 'Bangalore' },
-  { name: 'MLR', label: '🏖️ Mangalore / D.K.', query: 'Mangalore' },
-  { name: 'MYS', label: '🏛️ Mysuru', query: 'Mysore' },
-  { name: 'BLG', label: '🏰 Belagavi', query: 'Belgaum' },
-  { name: 'HK',  label: '🌾 Kalyana-Karnataka', query: 'Gulbarga' },
-  { name: 'DVG', label: '🏙️ Davangere / Shimoga', query: 'Davangere' },
+  { name: 'ALL',  label: 'All Karnataka',           query: '' },
+  { name: 'BLR',  label: 'Bengaluru Urban',          query: 'Bangalore' },
+  { name: 'BLR2', label: 'Bengaluru Rural',          query: 'Bangalore Rural' },
+  { name: 'MLR',  label: 'Dakshina Kannada (Mangaluru)', query: 'Mangalore' },
+  { name: 'UDU',  label: 'Udupi',                    query: 'Udupi' },
+  { name: 'MYS',  label: 'Mysuru',                   query: 'Mysore' },
+  { name: 'CKL',  label: 'Chamarajanagar',           query: 'Chamarajanagara' },
+  { name: 'MDY',  label: 'Mandya',                   query: 'Mandya' },
+  { name: 'HSN',  label: 'Hassan',                   query: 'Hassan' },
+  { name: 'CDG',  label: 'Kodagu (Coorg)',            query: 'Madikeri' },
+  { name: 'SHV',  label: 'Shivamogga',               query: 'Shimoga' },
+  { name: 'DVG',  label: 'Davangere',                query: 'Davangere' },
+  { name: 'CKG',  label: 'Chikkamagaluru',           query: 'Chikmagalur' },
+  { name: 'BLG',  label: 'Belagavi',                 query: 'Belgaum' },
+  { name: 'DWD',  label: 'Dharwad',                  query: 'Dharwad' },
+  { name: 'HBL',  label: 'Hubballi',                 query: 'Hubli' },
+  { name: 'GDG',  label: 'Gadag',                    query: 'Gadag' },
+  { name: 'HVR',  label: 'Haveri',                   query: 'Haveri' },
+  { name: 'UTK',  label: 'Uttara Kannada',           query: 'Karwar' },
+  { name: 'KLB',  label: 'Kalaburagi (Gulbarga)',    query: 'Gulbarga' },
+  { name: 'YDG',  label: 'Yadgir',                   query: 'Yadgir' },
+  { name: 'VJP',  label: 'Vijayapura (Bijapur)',     query: 'Bijapur' },
+  { name: 'BGT',  label: 'Bagalkot',                 query: 'Bagalkot' },
+  { name: 'RCR',  label: 'Raichur',                  query: 'Raichur' },
+  { name: 'CPT',  label: 'Koppal',                   query: 'Koppal' },
+  { name: 'BDR',  label: 'Ballari (Bellary)',         query: 'Bellary' },
+  { name: 'VJN',  label: 'Vijayanagara',             query: 'Vijayanagara' },
+  { name: 'TDR',  label: 'Tumakuru',                 query: 'Tumkur' },
+  { name: 'KLR',  label: 'Kolar',                    query: 'Kolar' },
+  { name: 'CGP',  label: 'Chikkaballapura',          query: 'Chikkaballapur' },
+  { name: 'RMG',  label: 'Ramanagara',               query: 'Ramanagara' },
+  { name: 'BKP',  label: 'Bidar',                    query: 'Bidar' },
 ];
 
 export default function Dashboard() {
@@ -2960,21 +2932,28 @@ export default function Dashboard() {
                 </div>
               )}
 
-              {/* Quick District / Region Filter Pills for KEA */}
+              {/* Quick District / Region Filter for KEA */}
               {dataSource === 'KEA' && (
                 <div className="district-filter-row">
-                  <span className="district-label">📍 Quick Region:</span>
-                  <div className="district-pills">
-                    {KEA_DISTRICTS.map((dist) => (
-                      <button
-                        key={dist.name}
-                        type="button"
-                        className={`district-pill${selectedDistrict === dist.name ? ' active' : ''}`}
-                        onClick={() => handleDistrictSelect(dist)}
-                      >
-                        {dist.label}
-                      </button>
-                    ))}
+                  <span className="district-label">
+                    <MapPin size={14} className="lucide-icon" /> District:
+                  </span>
+                  <div className="district-select-wrap">
+                    <select
+                      className="district-select"
+                      value={selectedDistrict}
+                      onChange={(e) => {
+                        const dist = KEA_DISTRICTS.find((d) => d.name === e.target.value);
+                        if (dist) handleDistrictSelect(dist);
+                      }}
+                    >
+                      {KEA_DISTRICTS.map((dist) => (
+                        <option key={dist.name} value={dist.name}>
+                          {dist.label}
+                        </option>
+                      ))}
+                    </select>
+                    <ChevronDown size={14} className="district-select-chevron" />
                   </div>
                 </div>
               )}

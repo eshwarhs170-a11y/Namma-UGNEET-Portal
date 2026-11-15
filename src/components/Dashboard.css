@@ -2884,7 +2884,7 @@ html, body {
   color: #fff;
 }
 
-/* --- Explore District / Region Filter Pills --- */
+/* --- Explore District / Region Filter Dropdown --- */
 .district-filter-row {
   display: flex;
   align-items: center;
@@ -2894,52 +2894,53 @@ html, body {
   background: var(--paper-alt);
   border: 1px solid var(--border);
   border-radius: 10px;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
 }
 .district-label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
   font-size: 0.82rem;
   font-weight: 700;
   color: var(--slate);
   white-space: nowrap;
   letter-spacing: 0.02em;
 }
-.district-pills {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: nowrap;
-}
-.district-pill {
+.district-select-wrap {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  padding: 5px 12px;
-  border-radius: 16px;
-  font-size: 0.82rem;
-  font-weight: 600;
-  white-space: nowrap;
-  cursor: pointer;
+}
+.district-select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 6px 32px 6px 12px;
+  border-radius: 8px;
   border: 1px solid var(--border);
   background: var(--paper);
   color: var(--ink);
-  transition: all 0.15s ease;
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.15s ease;
+  min-width: 200px;
 }
-.district-pill:hover {
+.district-select:hover,
+.district-select:focus {
   border-color: var(--brand-ochre);
-  color: var(--brand-deep);
 }
-.district-pill.active {
-  background: var(--brand-ochre);
-  color: #fff;
-  border-color: var(--brand-ochre);
-  box-shadow: 0 2px 5px rgba(180, 83, 9, 0.25);
+.district-select-chevron {
+  position: absolute;
+  right: 10px;
+  pointer-events: none;
+  color: var(--slate);
 }
 
 @media (max-width: 480px) {
   .chance-filter-bar { gap: 6px; }
   .chance-tab { font-size: 0.78rem; padding: 5px 10px; }
   .district-filter-row { padding: 8px 10px; gap: 6px; }
-  .district-pill { font-size: 0.76rem; padding: 4px 9px; }
+  .district-select { font-size: 0.76rem; min-width: 0; width: 100%; }
   .teaser-stream-select { min-width: 0; width: 100%; }
   .desired-college-box { font-size: 0.85rem; padding: 12px 14px; }
   .trend-line-with-spark { flex-wrap: wrap; }

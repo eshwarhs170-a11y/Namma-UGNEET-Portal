@@ -2819,7 +2819,127 @@ html, body {
   color: var(--brand-deep, #5c3d11);
 }
 
+.stamp.dream { color: #8b5cf6; background: rgba(139, 92, 246, 0.12); border: 1px solid rgba(139, 92, 246, 0.25); }
+
+/* --- Predictor Chance / Probability Filter Tabs --- */
+.chance-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 0 18px 0;
+  flex-wrap: wrap;
+}
+.chance-filter-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--slate);
+  margin-right: 4px;
+}
+.chance-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--paper);
+  color: var(--ink);
+  transition: all 0.15s ease;
+}
+.chance-tab:hover {
+  background: var(--paper-alt);
+  border-color: var(--slate);
+}
+.chance-tab.active {
+  background: var(--navy);
+  color: #fff;
+  border-color: var(--navy);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+.chance-tab.tab-safe.active {
+  background: #15803d;
+  border-color: #15803d;
+}
+.chance-tab.tab-target.active {
+  background: #b45309;
+  border-color: #b45309;
+}
+.chance-tab.tab-dream.active {
+  background: #6d28d9;
+  border-color: #6d28d9;
+}
+.chance-count-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 1px 7px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.08);
+  font-weight: 700;
+}
+.chance-tab.active .chance-count-badge {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+/* --- Explore District / Region Filter Pills --- */
+.district-filter-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 12px 0 16px 0;
+  padding: 10px 14px;
+  background: var(--paper-alt);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.district-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--slate);
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+.district-pills {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+.district-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  border-radius: 16px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--paper);
+  color: var(--ink);
+  transition: all 0.15s ease;
+}
+.district-pill:hover {
+  border-color: var(--brand-ochre);
+  color: var(--brand-deep);
+}
+.district-pill.active {
+  background: var(--brand-ochre);
+  color: #fff;
+  border-color: var(--brand-ochre);
+  box-shadow: 0 2px 5px rgba(180, 83, 9, 0.25);
+}
+
 @media (max-width: 480px) {
+  .chance-filter-bar { gap: 6px; }
+  .chance-tab { font-size: 0.78rem; padding: 5px 10px; }
+  .district-filter-row { padding: 8px 10px; gap: 6px; }
+  .district-pill { font-size: 0.76rem; padding: 4px 9px; }
   .teaser-stream-select { min-width: 0; width: 100%; }
   .desired-college-box { font-size: 0.85rem; padding: 12px 14px; }
   .trend-line-with-spark { flex-wrap: wrap; }

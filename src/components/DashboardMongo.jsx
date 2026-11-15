@@ -283,8 +283,74 @@ const AIQ_QUOTA_GLOSSARY = {
 const getQuotaMeaning = (quota) =>
   AIQ_QUOTA_GLOSSARY[quota] || 'AIQ seat quota — refer to the official MCC notification for eligibility details.';
 
-const getCategoryMeaning = (code) =>
-  CATEGORY_GLOSSARY[code] || 'Reservation/quota category code — refer to the official counselling notification for exact eligibility rules.';
+const getCategoryMeaning = (code) => {
+  if (CATEGORY_GLOSSARY[code]) return CATEGORY_GLOSSARY[code];
+  if (!code || typeof code !== 'string') return 'Reservation/quota category code.';
+
+  const clean = code.trim().toUpperCase();
+
+  // Special Category prefixes (S1G..S4G, etc.)
+  if (/^S\d[A-Z]+$/.test(clean)) {
+    const specialNum = clean.charAt(1);
+    const sub = clean.slice(2);
+    const subDesc = sub === 'G' ? 'General' : sub === 'R' ? 'Rural' : sub === 'K' ? 'Kannada Medium' : sub === 'H' ? 'Hyderabad-Karnataka (Art. 371J)' : sub;
+    return `Special Category ${specialNum} (${subDesc}) — reserved under special eligibility quota.`;
+  }
+
+  // Decompose KEA reservation codes (e.g. 1H, 2AH, 2AKH, 3BH, GMRH, SCH, STH)
+  const baseMatch = clean.match(/^(GM|1|2A|2B|3A|3B|SC|ST)(.*)$/);
+  if (baseMatch) {
+    const baseNames = {
+      GM: 'General Merit',
+      '1': 'Category I',
+      '2A': 'Category IIA',
+      '2B': 'Category IIB',
+      '3A': 'Category IIIA',
+      '3B': 'Category IIIB',
+      SC: 'Scheduled Caste (SC)',
+      ST: 'Scheduled Tribe (ST)',
+    };
+    const baseName = baseNames[baseMatch[1]];
+    const suffix = baseMatch[2];
+
+    const suffixDescriptions = {
+      G: 'General',
+      K: 'Kannada Medium reservation',
+      R: 'Rural reservation',
+      H: 'Hyderabad-Karnataka / Kalyana-Karnataka (Art. 371J)',
+      KH: 'Kannada Medium + Hyderabad-Karnataka (Art. 371J)',
+      RH: 'Rural + Hyderabad-Karnataka (Art. 371J)',
+      P: 'Physically Challenged (PWD)',
+      PH: 'Physically Challenged (PWD) + Hyderabad-Karnataka (Art. 371J)',
+    };
+
+    const suffixDesc = suffixDescriptions[suffix] || (suffix ? `sub-quota: ${suffix}` : 'General');
+    return `${baseName} — ${suffixDesc}.`;
+  }
+
+  // Common Special Quotas
+  const specialQuotas = {
+    D: 'Defence personnel children reservation.',
+    XD: 'Ex-Defence / Ex-Servicemen personnel children reservation.',
+    NCC: 'National Cadet Corps (NCC) special quota.',
+    SPO: 'Sports quota for state/national achievers.',
+    CAP: 'Central Armed Police Forces (CAPF) children reservation.',
+    PH: 'Persons with Disabilities (PwD) reservation.',
+    PHM: 'Persons with Disabilities (PwD) in minority institutions.',
+    JK: 'Jammu & Kashmir migrant reservation.',
+    ME: 'Linguistic Minority (English) quota.',
+    MA: 'Linguistic Minority (Telugu) quota.',
+    MC: 'Religious Minority (Christian) quota.',
+    MM: 'Religious Minority (Muslim) quota.',
+    MU: 'Linguistic Minority (Urdu) quota.',
+    MEH: 'Linguistic Minority (English) + Hyderabad-Karnataka (Art. 371J).',
+    MMH: 'Religious Minority (Muslim) + Hyderabad-Karnataka (Art. 371J).',
+    GMPH: 'General Merit Private + Hyderabad-Karnataka (Art. 371J).',
+  };
+  if (specialQuotas[clean]) return specialQuotas[clean];
+
+  return 'Reservation/quota category code — refer to the official counselling notification for exact eligibility rules.';
+};
 
 const formatFees = (fees) =>
   fees === null || fees === undefined ? 'Not available' : `₹${fees.toLocaleString('en-IN')}`;
@@ -349,10 +415,19 @@ const PredictedGrid = React.memo(function PredictedGrid({
 }) {
   const CARD_RENDER_LIMIT = 150;
   const [visibleCount, setVisibleCount] = useState(CARD_RENDER_LIMIT);
+  const [chanceFilter, setChanceFilter] = useState('ALL');
 
   useEffect(() => {
     setVisibleCount(CARD_RENDER_LIMIT);
-  }, [predictedColleges]);
+  }, [predictedColleges, chanceFilter]);
+
+  const getChance = (collegeRank) => {
+    if (!userRank || isNaN(userRank)) return 'safe';
+    const margin = collegeRank - parseInt(userRank, 10);
+    if (margin < 0) return 'dream';
+    if (margin < 4000) return 'target';
+    return 'safe';
+  };
 
   if (predictedColleges.length === 0) {
     return (
@@ -364,22 +439,65 @@ const PredictedGrid = React.memo(function PredictedGrid({
     );
   }
 
-  const visibleColleges = predictedColleges.slice(0, visibleCount);
+  const safeCount = predictedColleges.filter((c) => getChance(c.rank) === 'safe').length;
+  const targetCount = predictedColleges.filter((c) => getChance(c.rank) === 'target').length;
+  const dreamCount = predictedColleges.filter((c) => getChance(c.rank) === 'dream').length;
+
+  const filteredColleges = chanceFilter === 'ALL'
+    ? predictedColleges
+    : predictedColleges.filter((c) => getChance(c.rank) === chanceFilter);
+
+  const visibleColleges = filteredColleges.slice(0, visibleCount);
 
   return (
     <div className="predicted-grid-wrap">
+      {userRank && !isNaN(userRank) && predictedColleges.length > 0 && (
+        <div className="chance-filter-bar">
+          <span className="chance-filter-label">Filter by Chance:</span>
+          <button
+            type="button"
+            className={`chance-tab${chanceFilter === 'ALL' ? ' active' : ''}`}
+            onClick={() => setChanceFilter('ALL')}
+          >
+            All Matches <span className="chance-count-badge">{predictedColleges.length}</span>
+          </button>
+          <button
+            type="button"
+            className={`chance-tab tab-safe${chanceFilter === 'safe' ? ' active' : ''}`}
+            onClick={() => setChanceFilter('safe')}
+          >
+            🟢 Safe Match <span className="chance-count-badge">{safeCount}</span>
+          </button>
+          <button
+            type="button"
+            className={`chance-tab tab-target${chanceFilter === 'target' ? ' active' : ''}`}
+            onClick={() => setChanceFilter('target')}
+          >
+            🟡 Target / Realistic <span className="chance-count-badge">{targetCount}</span>
+          </button>
+          {dreamCount > 0 && (
+            <button
+              type="button"
+              className={`chance-tab tab-dream${chanceFilter === 'dream' ? ' active' : ''}`}
+              onClick={() => setChanceFilter('dream')}
+            >
+              🟣 Dream / Reach <span className="chance-count-badge">{dreamCount}</span>
+            </button>
+          )}
+        </div>
+      )}
       <div className="predicted-grid">
         {visibleColleges.map((item, idx) => {
         const safetyMargin = item.rank - parseInt(userRank, 10);
         let stampClass = 'safe';
         let badgeText = 'Safe Match';
 
-        if (safetyMargin < 2000) {
-          stampClass = 'borderline';
-          badgeText = 'Borderline Chance';
-        } else if (safetyMargin < 8000) {
+        if (safetyMargin < 0) {
+          stampClass = 'dream';
+          badgeText = 'Dream / Reach';
+        } else if (safetyMargin < 4000) {
           stampClass = 'moderate';
-          badgeText = 'Moderate Chance';
+          badgeText = 'Target Chance';
         }
 
         return (
@@ -469,6 +587,16 @@ const PredictedGrid = React.memo(function PredictedGrid({
     </div>
   );
 });
+
+const KEA_DISTRICTS = [
+  { name: 'ALL', label: '🌟 All Karnataka', query: '' },
+  { name: 'BLR', label: '📍 Bengaluru', query: 'Bangalore' },
+  { name: 'MLR', label: '🏖️ Mangalore / D.K.', query: 'Mangalore' },
+  { name: 'MYS', label: '🏛️ Mysuru', query: 'Mysore' },
+  { name: 'BLG', label: '🏰 Belagavi', query: 'Belgaum' },
+  { name: 'HK',  label: '🌾 Kalyana-Karnataka', query: 'Gulbarga' },
+  { name: 'DVG', label: '🏙️ Davangere / Shimoga', query: 'Davangere' },
+];
 
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState('home');
@@ -848,6 +976,19 @@ export default function Dashboard() {
   // committedSearchQuery is what actually gets sent to the API - only updates on selection or Enter
   const [committedSearchQuery, setCommittedSearchQuery] = useState('');
   const [debouncedSearchQuery, setDebouncedSearchQuery] = useState(searchQuery);
+  const [selectedDistrict, setSelectedDistrict] = useState('ALL');
+
+  const handleDistrictSelect = (dist) => {
+    if (selectedDistrict === dist.name || dist.name === 'ALL') {
+      setSelectedDistrict('ALL');
+      setSearchQuery('');
+      setCommittedSearchQuery('');
+    } else {
+      setSelectedDistrict(dist.name);
+      setSearchQuery(dist.query);
+      setCommittedSearchQuery(dist.query);
+    }
+  };
 
   useEffect(() => {
     const handler = setTimeout(() => {
@@ -2815,6 +2956,25 @@ export default function Dashboard() {
                         />
                       </div>
                     )}
+                  </div>
+                </div>
+              )}
+
+              {/* Quick District / Region Filter Pills for KEA */}
+              {dataSource === 'KEA' && (
+                <div className="district-filter-row">
+                  <span className="district-label">📍 Quick Region:</span>
+                  <div className="district-pills">
+                    {KEA_DISTRICTS.map((dist) => (
+                      <button
+                        key={dist.name}
+                        type="button"
+                        className={`district-pill${selectedDistrict === dist.name ? ' active' : ''}`}
+                        onClick={() => handleDistrictSelect(dist)}
+                      >
+                        {dist.label}
+                      </button>
+                    ))}
                   </div>
                 </div>
               )}

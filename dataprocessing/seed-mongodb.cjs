@@ -69,12 +69,26 @@ async function seed() {
     console.log("Dropping existing colleges collection (if exists)...");
     await db.collection('colleges').drop().catch(() => {}); // ignore error if it doesn't exist
 
-    // Insert data in batches
+    // Insert data in batches with retry on transient network errors
     console.log(`Inserting ${allData.length} total records into MongoDB...`);
     const batchSize = 5000;
     for (let i = 0; i < allData.length; i += batchSize) {
       const batch = allData.slice(i, i + batchSize);
-      await collection.insertMany(batch);
+      let success = false;
+      let attempts = 0;
+      while (!success && attempts < 5) {
+        try {
+          attempts++;
+          await collection.insertMany(batch, { ordered: false });
+          success = true;
+        } catch (err) {
+          console.warn(`Retry attempt ${attempts} for batch starting at ${i} due to: ${err.message}`);
+          await new Promise(r => setTimeout(r, 2000));
+        }
+      }
+      if (!success) {
+        throw new Error(`Failed to insert batch at index ${i} after 5 attempts.`);
+      }
       console.log(`Inserted ${Math.min(i + batchSize, allData.length)} / ${allData.length}`);
     }
 

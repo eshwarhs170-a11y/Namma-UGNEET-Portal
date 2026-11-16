@@ -547,7 +547,7 @@ const KEA_DISTRICTS = [
   { name: 'CDG',  label: 'Kodagu (Coorg)',                query: 'Madikeri' },
   { name: 'SHV',  label: 'Shivamogga',                   query: 'Shimoga' },
   { name: 'DVG',  label: 'Davangere',                    query: 'Davangere' },
-  { name: 'CKG',  label: 'Chikkamagaluru',               query: 'Chikmagalur' },
+  { name: 'CKG',  label: 'Chikkamagaluru',               query: 'Chik' },
   { name: 'BLG',  label: 'Belagavi',                     query: 'Belgaum' },
   { name: 'DWD',  label: 'Dharwad',                      query: 'Dharwad' },
   { name: 'HBL',  label: 'Hubballi',                     query: 'Hubli' },
@@ -563,6 +563,7 @@ const KEA_DISTRICTS = [
   { name: 'BDR',  label: 'Ballari (Bellary)',             query: 'Bellary' },
   { name: 'VJN',  label: 'Vijayanagara',                 query: 'Vijayanagara' },
   { name: 'TDR',  label: 'Tumakuru',                     query: 'Tum' },
+  { name: 'CTA',  label: 'Chitradurga',                  query: 'Chitradurga' },
   { name: 'CGP',  label: 'Chikkaballapura',              query: 'Chikkaballapur' },
   { name: 'RMG',  label: 'Ramanagara',                   query: 'Ramanagara' },
   { name: 'BKP',  label: 'Bidar',                        query: 'Bidar' },
@@ -3715,6 +3716,55 @@ export default function Dashboard() {
 
         </div>
       </main>
+
+      {/* MOBILE BOTTOM NAVIGATION BAR */}
+      <nav className="mobile-bottom-nav" aria-label="Mobile Navigation">
+        <button
+          type="button"
+          className={`mobile-nav-item${activeTab === 'home' ? ' active' : ''}`}
+          onClick={() => navigateTo('home')}
+        >
+          <Home size={19} className="lucide-icon" />
+          <span>Home</span>
+        </button>
+        <button
+          type="button"
+          className={`mobile-nav-item${activeTab === 'explore' ? ' active' : ''}`}
+          onClick={() => navigateTo('explore')}
+        >
+          <Search size={19} className="lucide-icon" />
+          <span>Explore</span>
+        </button>
+        <button
+          type="button"
+          className={`mobile-nav-item${activeTab === 'predictor' ? ' active' : ''}`}
+          onClick={() => navigateTo('predictor')}
+        >
+          <Target size={19} className="lucide-icon" />
+          <span>Predictor</span>
+        </button>
+        <button
+          type="button"
+          className={`mobile-nav-item${activeTab === 'options' ? ' active' : ''}`}
+          onClick={() => navigateTo('options')}
+        >
+          <div className="mobile-nav-icon-wrap">
+            <PenTool size={19} className="lucide-icon" />
+            {optionEntries.length > 0 && (
+              <span className="mobile-nav-badge">{optionEntries.length}</span>
+            )}
+          </div>
+          <span>My List</span>
+        </button>
+        <button
+          type="button"
+          className={`mobile-nav-item${activeTab === 'contact' ? ' active' : ''}`}
+          onClick={() => navigateTo('contact')}
+        >
+          <Mail size={19} className="lucide-icon" />
+          <span>About</span>
+        </button>
+      </nav>
 
       {/* SCROLL TO TOP FAB */}
       {showScrollTop && (

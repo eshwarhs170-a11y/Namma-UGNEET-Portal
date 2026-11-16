@@ -2963,3 +2963,105 @@ html, body {
     padding: 10px 12px;
   }
 }
+
+/* ============================================================
+   UI/UX Enhancements: Skeleton Loaders, Scroll Top FAB & Polish
+   ============================================================ */
+
+/* ---------- Scroll To Top Floating Button ---------- */
+.scroll-top-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--solid-accent-bg);
+  color: var(--accent-text);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 16px rgba(27, 42, 74, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 70;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease, background 0.2s ease;
+}
+.scroll-top-fab:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 8px 24px rgba(27, 42, 74, 0.35);
+  background: var(--brand-deep, #14223d);
+}
+.scroll-top-fab:active {
+  transform: translateY(0) scale(0.96);
+}
+.scroll-top-fab:focus-visible {
+  outline: 2px solid var(--marigold);
+  outline-offset: 2px;
+}
+
+/* ---------- Table Skeleton Loading Placeholders ---------- */
+.skeleton-row td {
+  padding: 14px 12px;
+  vertical-align: middle;
+}
+.skel {
+  height: 14px;
+  border-radius: 6px;
+  background: linear-gradient(
+    90deg,
+    var(--paper-alt) 25%,
+    rgba(221, 212, 192, 0.6) 50%,
+    var(--paper-alt) 75%
+  );
+  background-size: 200% 100%;
+  animation: skel-shimmer 1.5s ease-in-out infinite;
+}
+.dark .skel {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.05) 25%,
+    rgba(255, 255, 255, 0.12) 50%,
+    rgba(255, 255, 255, 0.05) 75%
+  );
+  background-size: 200% 100%;
+}
+.skel-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+.skel-code {
+  width: 70px;
+}
+.skel-name {
+  width: 85%;
+  max-width: 280px;
+}
+.skel-short {
+  width: 50px;
+}
+
+@keyframes skel-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* ---------- Smooth Entrance Animations ---------- */
+@keyframes cardFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.result-card {
+  animation: cardFadeUp 0.25s ease-out;
+}

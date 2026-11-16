@@ -536,38 +536,36 @@ const PredictedGrid = React.memo(function PredictedGrid({
 });
 
 const KEA_DISTRICTS = [
-  { name: 'ALL',  label: 'All Karnataka',           query: '' },
-  { name: 'BLR',  label: 'Bengaluru Urban',          query: 'Bangalore' },
-  { name: 'BLR2', label: 'Bengaluru Rural',          query: 'Bangalore Rural' },
+  { name: 'ALL',  label: 'All Karnataka',               query: '' },
+  { name: 'BLR',  label: 'Bengaluru (Urban & Rural)',    query: 'Bangalore' },
   { name: 'MLR',  label: 'Dakshina Kannada (Mangaluru)', query: 'Mangalore' },
-  { name: 'UDU',  label: 'Udupi',                    query: 'Udupi' },
-  { name: 'MYS',  label: 'Mysuru',                   query: 'Mysore' },
-  { name: 'CKL',  label: 'Chamarajanagar',           query: 'Chamarajanagara' },
-  { name: 'MDY',  label: 'Mandya',                   query: 'Mandya' },
-  { name: 'HSN',  label: 'Hassan',                   query: 'Hassan' },
-  { name: 'CDG',  label: 'Kodagu (Coorg)',            query: 'Madikeri' },
-  { name: 'SHV',  label: 'Shivamogga',               query: 'Shimoga' },
-  { name: 'DVG',  label: 'Davangere',                query: 'Davangere' },
-  { name: 'CKG',  label: 'Chikkamagaluru',           query: 'Chikmagalur' },
-  { name: 'BLG',  label: 'Belagavi',                 query: 'Belgaum' },
-  { name: 'DWD',  label: 'Dharwad',                  query: 'Dharwad' },
-  { name: 'HBL',  label: 'Hubballi',                 query: 'Hubli' },
-  { name: 'GDG',  label: 'Gadag',                    query: 'Gadag' },
-  { name: 'HVR',  label: 'Haveri',                   query: 'Haveri' },
-  { name: 'UTK',  label: 'Uttara Kannada',           query: 'Karwar' },
-  { name: 'KLB',  label: 'Kalaburagi (Gulbarga)',    query: 'Gulbarga' },
-  { name: 'YDG',  label: 'Yadgir',                   query: 'Yadgir' },
-  { name: 'VJP',  label: 'Vijayapura (Bijapur)',     query: 'Bijapur' },
-  { name: 'BGT',  label: 'Bagalkot',                 query: 'Bagalkot' },
-  { name: 'RCR',  label: 'Raichur',                  query: 'Raichur' },
-  { name: 'CPT',  label: 'Koppal',                   query: 'Koppal' },
-  { name: 'BDR',  label: 'Ballari (Bellary)',         query: 'Bellary' },
-  { name: 'VJN',  label: 'Vijayanagara',             query: 'Vijayanagara' },
-  { name: 'TDR',  label: 'Tumakuru',                 query: 'Tum' },
-  { name: 'KLR',  label: 'Kolar',                    query: 'Kolar' },
-  { name: 'CGP',  label: 'Chikkaballapura',          query: 'Chikkaballapur' },
-  { name: 'RMG',  label: 'Ramanagara',               query: 'Ramanagara' },
-  { name: 'BKP',  label: 'Bidar',                    query: 'Bidar' },
+  { name: 'UDU',  label: 'Udupi',                        query: 'Udupi' },
+  { name: 'MYS',  label: 'Mysuru',                       query: 'Mysore' },
+  { name: 'CKL',  label: 'Chamarajanagar',               query: 'Chamarajanag' },
+  { name: 'MDY',  label: 'Mandya',                       query: 'Mandya' },
+  { name: 'HSN',  label: 'Hassan',                       query: 'Hassan' },
+  { name: 'CDG',  label: 'Kodagu (Coorg)',                query: 'Madikeri' },
+  { name: 'SHV',  label: 'Shivamogga',                   query: 'Shimoga' },
+  { name: 'DVG',  label: 'Davangere',                    query: 'Davangere' },
+  { name: 'CKG',  label: 'Chikkamagaluru',               query: 'Chikmagalur' },
+  { name: 'BLG',  label: 'Belagavi',                     query: 'Belgaum' },
+  { name: 'DWD',  label: 'Dharwad',                      query: 'Dharwad' },
+  { name: 'HBL',  label: 'Hubballi',                     query: 'Hubli' },
+  { name: 'GDG',  label: 'Gadag',                        query: 'Gadag' },
+  { name: 'HVR',  label: 'Haveri',                       query: 'Haveri' },
+  { name: 'UTK',  label: 'Uttara Kannada',               query: 'Karwar' },
+  { name: 'KLB',  label: 'Kalaburagi (Gulbarga)',        query: 'Gulbarga' },
+  { name: 'YDG',  label: 'Yadgir',                       query: 'Yadgir' },
+  { name: 'VJP',  label: 'Vijayapura (Bijapur)',         query: 'Bijapur' },
+  { name: 'BGT',  label: 'Bagalkot',                     query: 'Bagalkot' },
+  { name: 'RCR',  label: 'Raichur',                      query: 'Raichur' },
+  { name: 'CPT',  label: 'Koppal',                       query: 'Koppal' },
+  { name: 'BDR',  label: 'Ballari (Bellary)',             query: 'Bellary' },
+  { name: 'VJN',  label: 'Vijayanagara',                 query: 'Vijayanagara' },
+  { name: 'TDR',  label: 'Tumakuru',                     query: 'Tum' },
+  { name: 'CGP',  label: 'Chikkaballapura',              query: 'Chikkaballapur' },
+  { name: 'RMG',  label: 'Ramanagara',                   query: 'Ramanagara' },
+  { name: 'BKP',  label: 'Bidar',                        query: 'Bidar' },
 ];
 
 export default function Dashboard() {
@@ -791,6 +789,14 @@ export default function Dashboard() {
     } catch { }
     return false;
   });
+
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setShowScrollTop(window.scrollY > 400);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   useEffect(() => {
     try { localStorage.setItem('namma_dark_mode', String(darkMode)); } catch { }
@@ -2999,12 +3005,19 @@ export default function Dashboard() {
                   </thead>
                   <tbody>
                     {exploreLoading ? (
-                      <tr className="empty-row">
-                        <td colSpan={showFees ? 9 : 8} style={{ padding: '60px 0' }}>
-                          <RefreshCw className="lucide-icon predict-spinner" size={28} style={{ display: 'block', margin: '0 auto 12px', color: 'var(--brand-deep)' }} />
-                          Fetching latest data...
-                        </td>
-                      </tr>
+                      Array.from({ length: 8 }).map((_, i) => (
+                        <tr key={i} className="skeleton-row">
+                          <td><div className="skel skel-icon" /></td>
+                          <td><div className="skel skel-icon" /></td>
+                          <td><div className="skel skel-code" /></td>
+                          <td><div className="skel skel-name" /></td>
+                          <td><div className="skel skel-short" /></td>
+                          <td><div className="skel skel-short" /></td>
+                          {showFees && <td><div className="skel skel-code" /></td>}
+                          <td><div className="skel skel-code" /></td>
+                          <td><div className="skel skel-short" /></td>
+                        </tr>
+                      ))
                     ) : exploreColleges.length === 0 ? (
                       <tr className="empty-row">
                         <td colSpan={showFees ? 9 : 8}>No colleges found for these filters. Try a different round or category.</td>
@@ -3656,6 +3669,18 @@ export default function Dashboard() {
 
         </div>
       </main>
+
+      {/* SCROLL TO TOP FAB */}
+      {showScrollTop && (
+        <button
+          className="scroll-top-fab"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          aria-label="Scroll to top"
+          title="Back to top"
+        >
+          <ChevronDown size={20} style={{ transform: 'rotate(180deg)' }} />
+        </button>
+      )}
     </div>
   );
 }

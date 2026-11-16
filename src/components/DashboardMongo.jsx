@@ -439,12 +439,12 @@ const PredictedGrid = React.memo(function PredictedGrid({
         let stampClass = 'safe';
         let badgeText = 'Safe Match';
 
-        if (safetyMargin < 0) {
-          stampClass = 'dream';
-          badgeText = 'Dream / Reach';
-        } else if (safetyMargin < 4000) {
+        if (safetyMargin < 2000) {
+          stampClass = 'borderline';
+          badgeText = 'Borderline Chance';
+        } else if (safetyMargin < 8000) {
           stampClass = 'moderate';
-          badgeText = 'Target Chance';
+          badgeText = 'Moderate Chance';
         }
 
         return (
@@ -2576,6 +2576,29 @@ export default function Dashboard() {
                   value={maxBudget}
                   onChange={(e) => setMaxBudget(parseInt(e.target.value, 10))}
                 />
+                <div className="budget-preset-pills">
+                  <button
+                    type="button"
+                    className={`budget-pill${maxBudget === 75000 ? ' active' : ''}`}
+                    onClick={() => setMaxBudget(75000)}
+                  >
+                    Govt (≤₹75k)
+                  </button>
+                  <button
+                    type="button"
+                    className={`budget-pill${maxBudget === 160000 ? ' active' : ''}`}
+                    onClick={() => setMaxBudget(160000)}
+                  >
+                    Private (≤₹1.6L)
+                  </button>
+                  <button
+                    type="button"
+                    className={`budget-pill${maxBudget >= 1500000 ? ' active' : ''}`}
+                    onClick={() => setMaxBudget(1500000)}
+                  >
+                    All Fees
+                  </button>
+                </div>
               </div>
             )}
           </div>
@@ -2932,6 +2955,29 @@ export default function Dashboard() {
                           value={maxBudget}
                           onChange={(e) => setMaxBudget(parseInt(e.target.value, 10))}
                         />
+                        <div className="budget-preset-pills">
+                          <button
+                            type="button"
+                            className={`budget-pill${maxBudget === 75000 ? ' active' : ''}`}
+                            onClick={() => setMaxBudget(75000)}
+                          >
+                            Govt (≤₹75k)
+                          </button>
+                          <button
+                            type="button"
+                            className={`budget-pill${maxBudget === 160000 ? ' active' : ''}`}
+                            onClick={() => setMaxBudget(160000)}
+                          >
+                            Private (≤₹1.6L)
+                          </button>
+                          <button
+                            type="button"
+                            className={`budget-pill${maxBudget >= 1500000 ? ' active' : ''}`}
+                            onClick={() => setMaxBudget(1500000)}
+                          >
+                            All Fees
+                          </button>
+                        </div>
                       </div>
                     )}
                   </div>

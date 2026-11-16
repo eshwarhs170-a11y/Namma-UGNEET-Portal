@@ -3065,3 +3065,32 @@ html, body {
 .result-card {
   animation: cardFadeUp 0.25s ease-out;
 }
+
+/* ---------- Quick Budget Preset Pills ---------- */
+.budget-preset-pills {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+.budget-pill {
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  background: var(--paper);
+  color: var(--slate);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.budget-pill:hover {
+  border-color: var(--sage);
+  color: var(--ink);
+}
+.budget-pill.active {
+  background: var(--sage);
+  color: var(--accent-text, #fff);
+  border-color: var(--sage);
+}
+

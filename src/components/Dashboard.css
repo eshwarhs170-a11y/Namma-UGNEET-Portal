@@ -29,6 +29,58 @@
 
 * { box-sizing: border-box; }
 
+/* Global SVG / Lucide Icon alignment & crisp rendering */
+.lucide-icon,
+svg.lucide {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+/* Ensure buttons with icons and text keep icon and label strictly on same line */
+.whatsapp-share-btn,
+.pdf-download-btn,
+.clear-options-btn,
+.ai-btn-primary,
+.ai-btn-secondary,
+.ai-share-btn,
+.ai-pdf-btn,
+.option-mode-tab,
+.home-cta,
+.tour-fab,
+.install-fab,
+.add-option-btn,
+.back-home-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  white-space: nowrap !important;
+  gap: 6px;
+}
+
+.whatsapp-share-btn > svg,
+.whatsapp-share-btn > .lucide-icon,
+.pdf-download-btn > svg,
+.pdf-download-btn > .lucide-icon,
+.clear-options-btn > svg,
+.clear-options-btn > .lucide-icon,
+.ai-btn-primary > svg,
+.ai-btn-primary > .lucide-icon,
+.ai-btn-secondary > svg,
+.ai-btn-secondary > .lucide-icon,
+.ai-share-btn > svg,
+.ai-share-btn > .lucide-icon,
+.ai-pdf-btn > svg,
+.ai-pdf-btn > .lucide-icon,
+.option-mode-tab > svg,
+.option-mode-tab > .lucide-icon,
+.home-cta > svg,
+.home-cta > .lucide-icon {
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
 .loading-screen {
   min-height: 100vh;
   display: flex;
@@ -2438,6 +2490,7 @@ html, body {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  align-items: center;
   flex: 1 1 auto;
   justify-content: flex-end;
 }
@@ -2451,8 +2504,22 @@ html, body {
   padding: 7px 14px;
   border-radius: 6px;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  white-space: nowrap;
+  line-height: 1;
+  transition: all 0.15s ease;
 }
 .clear-options-btn:hover { background: rgba(178, 58, 72, 0.08); }
+.clear-options-btn:focus-visible { outline: 2px solid var(--seal-red); outline-offset: 2px; }
+.clear-options-btn .lucide-icon,
+.clear-options-btn svg {
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
 
 .option-entry-list {
   list-style: none;
@@ -2983,11 +3050,24 @@ html, body {
   .whatsapp-share-btn,
   .pdf-download-btn,
   .clear-options-btn {
-    flex: 1 1 100%;
-    width: 100%;
+    flex: 1 1 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    white-space: nowrap;
     text-align: center;
     font-size: 0.82rem;
-    padding: 10px 12px;
+    padding: 10px 14px;
+    box-sizing: border-box;
+  }
+  .whatsapp-share-btn svg,
+  .whatsapp-share-btn .lucide-icon,
+  .pdf-download-btn svg,
+  .pdf-download-btn .lucide-icon,
+  .clear-options-btn svg,
+  .clear-options-btn .lucide-icon {
+    flex-shrink: 0;
   }
 }
 

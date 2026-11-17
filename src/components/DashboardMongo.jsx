@@ -3522,13 +3522,13 @@ export default function Dashboard() {
                   className={`option-mode-tab${optionMode === 'manual' ? ' active' : ''}`}
                   onClick={() => setOptionMode('manual')}
                 >
-                  <PenTool size={15} /> My Custom List
+                  <PenTool className="lucide-icon" size={16} /> <span>My Custom List</span>
                 </button>
                 <button
                   className={`option-mode-tab${optionMode === 'ai' ? ' active' : ''}`}
                   onClick={() => setOptionMode('ai')}
                 >
-                  <Sparkles size={15} /> AI Strategy Analyser
+                  <Sparkles className="lucide-icon" size={16} /> <span>AI Strategy Analyser</span>
                 </button>
               </div>
 
@@ -3567,19 +3567,19 @@ export default function Dashboard() {
                         <span>{optionEntries.length} college{optionEntries.length !== 1 ? 's' : ''} in your list</span>
                         <div className="option-toolbar-actions">
                           <button className="whatsapp-share-btn" onClick={shareOptionListOnWhatsApp}>
-                            <MessageCircle className="lucide-icon" size={18} /> Share on WhatsApp
+                            <MessageCircle className="lucide-icon" size={16} /> <span>Share on WhatsApp</span>
                           </button>
                           <button className="pdf-download-btn" onClick={downloadOptionListPDF}>
-                            <FileText className="lucide-icon" size={18} /> Download PDF
+                            <FileText className="lucide-icon" size={16} /> <span>Download PDF</span>
                           </button>
                           <button className="clear-options-btn" onClick={clearOptionList}>
-                            <Trash2 size={15} /> Clear All
+                            <Trash2 className="lucide-icon" size={15} /> <span>Clear All</span>
                           </button>
                         </div>
                       </div>
 
                       <p style={{ fontSize: '0.8rem', color: 'var(--muted)', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                        <GripVertical size={14} /> Hold and drag any row to reorder your priority list.
+                        <GripVertical className="lucide-icon" size={14} style={{ flexShrink: 0 }} /> <span>Hold and drag any row to reorder your priority list.</span>
                       </p>
 
                       <OptionEntryList

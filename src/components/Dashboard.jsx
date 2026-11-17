@@ -2044,14 +2044,16 @@ export default function Dashboard() {
                 <>
                   <div className="option-toolbar">
                     <span>{optionEntries.length} college{optionEntries.length !== 1 ? 's' : ''} in your list</span>
-                    <div style={{ display: 'flex', gap: '8px' }}>
+                    <div className="option-toolbar-actions">
                       <button className="whatsapp-share-btn" onClick={shareOptionListOnWhatsApp}>
-                        <MessageCircle className="lucide-icon" size={18} /> Share on WhatsApp
+                        <MessageCircle className="lucide-icon" size={16} /> <span>Share on WhatsApp</span>
                       </button>
                       <button className="pdf-download-btn" onClick={downloadOptionListPDF}>
-                        <FileText className="lucide-icon" size={18} /> Download PDF
+                        <FileText className="lucide-icon" size={16} /> <span>Download PDF</span>
                       </button>
-                      <button className="clear-options-btn" onClick={clearOptionList}>🗑 Clear All</button>
+                      <button className="clear-options-btn" onClick={clearOptionList}>
+                        <Trash2 className="lucide-icon" size={15} /> <span>Clear All</span>
+                      </button>
                     </div>
                   </div>
 

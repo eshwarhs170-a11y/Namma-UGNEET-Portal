@@ -398,11 +398,19 @@ export default function AiOptionAnalyser({
         let tierLabel = 'Premier Ambition';
         let tierDesc = 'High ambition choice — in KEA, always place top colleges first with zero penalty as choices roll down.';
 
-        if (cutoff >= parsedRank - 18000 && cutoff <= parsedRank + 30000) {
+        // Tier classification: based on cutoff vs candidate rank
+        // DREAM: cutoff strictly less than user rank (harder to get — top demand)
+        // TARGET: cutoff is at or above user rank but within 30k (match zone)
+        // SAFE: cutoff is well above user rank (almost guaranteed)
+        if (cutoff < parsedRank) {
+          tier = 'DREAM';
+          tierLabel = 'Premier Ambition';
+          tierDesc = 'High ambition choice — in KEA, always place top colleges first with zero penalty as choices roll down.';
+        } else if (cutoff <= parsedRank + 30000) {
           tier = 'TARGET';
           tierLabel = 'Target Match';
           tierDesc = 'High probability match — historical allotments fall right within your rank window.';
-        } else if (cutoff > parsedRank + 30000) {
+        } else {
           tier = 'SAFE';
           tierLabel = 'Safe Backup';
           tierDesc = 'Solid safety net — ensures you secure a seat without risk of exiting counselling empty-handed.';
@@ -431,14 +439,7 @@ export default function AiOptionAnalyser({
           if (b.collegeCode === 'D101DG') return 1;
         }
 
-        // Rule 2: Seat type fee tiers (Govt -> Govt in Pvt -> Pvt -> High/NRI)
-        const feeTierA = getFeeTier(a.fees, stream);
-        const feeTierB = getFeeTier(b.fees, stream);
-        if (feeTierA !== feeTierB) {
-          return feeTierA - feeTierB;
-        }
-
-        // Rule 3: Regional preference only if student explicitly chose a region (within close ranks)
+        // Rule 2: Regional preference only if student explicitly chose a region (within close ranks)
         if (regionPriority !== 'ALL' && a.inPreferredRegion !== b.inPreferredRegion) {
           const rankGap = Math.abs(a.rank - b.rank);
           if (rankGap < 1500) {
@@ -809,7 +810,8 @@ export default function AiOptionAnalyser({
             </div>
 
             <p className="ai-strategy-note">
-              <Info size={15} className="lucide-icon" /> In KEA counselling, there is <strong>zero disadvantage</strong> to placing top institutes (like Bangalore Medical College) at the very top. Options are evaluated in sequential order — if an early choice is unavailable, you automatically roll over to the next option without losing eligibility.
+              <Info size={15} className="lucide-icon" style={{ flexShrink: 0, marginTop: '2px' }} />
+              <span>In KEA counselling, there is <strong>zero disadvantage</strong> to placing top institutes (like Bangalore Medical College) at the very top. Options are evaluated in sequential order — if an early choice is unavailable, you automatically roll over to the next option without losing eligibility.</span>
             </p>
 
             {/* Action Buttons Toolbar */}

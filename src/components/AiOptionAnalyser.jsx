@@ -23,6 +23,91 @@ import {
   SlidersHorizontal
 } from 'lucide-react';
 
+// Expanded category eligibility according to KEA & AIQ Counselling seat allotment rules
+export function getEligibleCategories(userCategory, dataset = 'KEA') {
+  const cat = (userCategory || (dataset === 'AIQ' ? 'GN' : 'GM')).trim();
+  const catUpper = cat.toUpperCase();
+  const eligible = new Set();
+
+  if (dataset === 'AIQ') {
+    // Open / General merit is available to all candidates in AIQ
+    eligible.add('GN');
+    eligible.add('Open');
+    eligible.add('OPN');
+    eligible.add(cat);
+    eligible.add(catUpper);
+
+    if (catUpper.includes('OBC') || catUpper.includes('BC')) {
+      eligible.add('OBC');
+      eligible.add('BC');
+      eligible.add('OBC-NCL');
+    }
+    if (catUpper.includes('EWS') || catUpper.includes('EW')) {
+      eligible.add('EWS');
+      eligible.add('EW');
+    }
+    if (catUpper.includes('SC')) {
+      eligible.add('SC');
+    }
+    if (catUpper.includes('ST')) {
+      eligible.add('ST');
+    }
+    return eligible;
+  }
+
+  // KEA Category Expansion
+  eligible.add('GM');
+  eligible.add('GMP');
+  eligible.add('OPN');
+  eligible.add(cat);
+  eligible.add(catUpper);
+
+  if (catUpper === 'GM') return eligible;
+
+  // Rural quota: eligible for GMR, parent category General, and parent base
+  if (catUpper.endsWith('R')) {
+    eligible.add('GMR');
+    const base = catUpper.slice(0, -1);
+    eligible.add(base + 'G');
+    eligible.add(base);
+  }
+
+  // Kannada Medium quota
+  if (catUpper.endsWith('K')) {
+    eligible.add('GMK');
+    const base = catUpper.slice(0, -1);
+    eligible.add(base + 'G');
+    eligible.add(base);
+  }
+
+  // Hyderabad-Karnataka / 371(J) quota
+  if (catUpper.endsWith('H')) {
+    eligible.add('GMH');
+    eligible.add('GMPH');
+    const base = catUpper.slice(0, -1);
+    eligible.add(base);
+    if (base.endsWith('R')) eligible.add('GMRH');
+    if (base.endsWith('K')) eligible.add('GMKH');
+  }
+
+  // General quota of category
+  if (catUpper.endsWith('G')) {
+    const base = catUpper.slice(0, -1);
+    eligible.add(base);
+  }
+
+  // Category families
+  if (catUpper.startsWith('3B')) { eligible.add('3B'); eligible.add('3BG'); }
+  if (catUpper.startsWith('3A')) { eligible.add('3A'); eligible.add('3AG'); }
+  if (catUpper.startsWith('2B')) { eligible.add('2B'); eligible.add('2BG'); }
+  if (catUpper.startsWith('2A')) { eligible.add('2A'); eligible.add('2AG'); }
+  if (catUpper.startsWith('1'))  { eligible.add('1');  eligible.add('1G'); }
+  if (catUpper.startsWith('SC')) { eligible.add('SC'); eligible.add('SCG'); }
+  if (catUpper.startsWith('ST')) { eligible.add('ST'); eligible.add('STG'); }
+
+  return eligible;
+}
+
 export default function AiOptionAnalyser({
   dataSource,
   dynamicCategories,
@@ -44,17 +129,19 @@ export default function AiOptionAnalyser({
     if (Array.isArray(dynamicCategories) && dynamicCategories.length > 0) {
       return dynamicCategories;
     }
-    return ['GM', '1G', '2A', '2B', '3A', '3B', 'SCG', 'STG'];
-  }, [dynamicCategories]);
+    return dataSource === 'AIQ'
+      ? ['GN', 'Open', 'OBC', 'BC', 'EWS', 'EW', 'SC', 'ST']
+      : ['GM', '1G', '2A', '2B', '3A', '3B', 'SCG', 'STG'];
+  }, [dynamicCategories, dataSource]);
 
   // Questionnaire states
   const [rankInput, setRankInput] = useState(initialRank || '');
-  const [category, setCategory] = useState(initialCategory || 'GM');
+  const [category, setCategory] = useState(initialCategory || (dataSource === 'AIQ' ? 'GN' : 'GM'));
   const [stream, setStream] = useState(initialStream || 'MEDICAL');
-  const [collegeType, setCollegeType] = useState('GOVT_PVT_GOVT_FEE'); // GOVT_ONLY | GOVT_PVT_GOVT_FEE | ALL_QUOTAS
-  const [maxBudget, setMaxBudget] = useState(160000);
-  const [regionPriority, setRegionPriority] = useState('ALL'); // ALL | BLR | MLR | NORTH | MYS
-  const [optionsCount, setOptionsCount] = useState(25); // 15 | 25 | 40 | 60
+  const [collegeType, setCollegeType] = useState('ALL_QUOTAS'); // GOVT_ONLY | GOVT_PVT_GOVT_FEE | ALL_QUOTAS
+  const [maxBudget, setMaxBudget] = useState(50000000); // Default to no fee limit (all budgets)
+  const [regionPriority, setRegionPriority] = useState('ALL'); // ALL | BLR | MLR | NORTH | MYS | AIQ_KA | AIQ_SOUTH
+  const [optionsCount, setOptionsCount] = useState(25); // 15 | 25 | 40 | 60 | 80
 
   // Analysis result states
   const [loading, setLoading] = useState(false);
@@ -75,13 +162,13 @@ export default function AiOptionAnalyser({
     if (type === 'GOVT_ONLY') {
       setMaxBudget(75000);
     } else if (type === 'GOVT_PVT_GOVT_FEE') {
-      setMaxBudget(160000);
+      setMaxBudget(165000);
     } else if (type === 'ALL_QUOTAS') {
-      setMaxBudget(1500000);
+      setMaxBudget(50000000);
     }
   };
 
-  // Generate strategy list
+  // Generate strategy list following official KEA & AIQ Counselling seat allotment guidelines
   const generateAiOptionEntry = async () => {
     const parsedRank = parseInt(rankInput, 10);
     if (!parsedRank || isNaN(parsedRank) || parsedRank <= 0) {
@@ -94,19 +181,22 @@ export default function AiOptionAnalyser({
     setAppliedNotification(false);
 
     try {
+      const eligibleCategories = getEligibleCategories(category, dataSource);
+
       const params = new URLSearchParams({
         dataset: dataSource,
         stream: stream,
-        limit: 3000,
+        limit: 8000,
         sort: 'rank',
         order: 'asc'
       });
 
+      // Pass expanded eligible categories to the API
       if (category !== 'ALL') {
-        params.set('category', category);
+        params.set('category', Array.from(eligibleCategories).join(','));
       }
 
-      if (maxBudget < 1500000) {
+      if (maxBudget < 50000000) {
         params.set('maxBudget', maxBudget);
       }
 
@@ -114,33 +204,55 @@ export default function AiOptionAnalyser({
       const data = await res.json();
       const rawRecords = data.data || [];
 
-      // Group by unique college code and select best/most representative cutoff
-      const collegeMap = new Map();
-      rawRecords.forEach((item) => {
-        const code = item.collegeCode;
-        if (!code) return;
+      // Group by distinct KEA/AIQ Option (collegeCode + courseDetails)
+      const optionsMap = new Map();
 
-        // Strict college type filter
+      rawRecords.forEach((item) => {
+        if (!item.collegeCode || !item.rank) return;
+        if (!eligibleCategories.has(item.category)) return;
+
+        // Fee budget filter: strict user-chosen upper limit
+        if (maxBudget < 50000000 && item.fees && item.fees > maxBudget) return;
+
+        // Seat type filtering based on candidate's quota preference
         if (collegeType === 'GOVT_ONLY') {
           const isGovtFee = item.fees && item.fees <= 75000;
-          const isGovtCourse = item.courseDetails && item.courseDetails.includes('GOVT');
+          const isGovtCourse = item.courseDetails && (item.courseDetails.includes('GOVT') || item.courseDetails.includes('Govt'));
           if (!isGovtFee && !isGovtCourse) return;
         } else if (collegeType === 'GOVT_PVT_GOVT_FEE') {
           if (item.fees && item.fees > 165000) return;
         }
 
-        if (!collegeMap.has(code)) {
-          collegeMap.set(code, item);
+        const optionKey = `${item.collegeCode}_${item.courseDetails || 'DEFAULT'}`;
+
+        if (!optionsMap.has(optionKey)) {
+          optionsMap.set(optionKey, {
+            collegeCode: item.collegeCode,
+            collegeName: item.collegeName,
+            courseDetails: item.courseDetails,
+            category: item.category,
+            fees: item.fees,
+            stream: item.stream,
+            round: item.round,
+            year: item.year,
+            closingCutoff: item.rank,
+            allRanks: [item.rank]
+          });
         } else {
-          // If college already seen, pick the entry with best/lowest rank
-          const existing = collegeMap.get(code);
-          if (item.rank < existing.rank) {
-            collegeMap.set(code, item);
+          const existing = optionsMap.get(optionKey);
+          existing.allRanks.push(item.rank);
+          // In counselling, cutoff = closing rank (the final/highest rank admitted across rounds for candidate's eligible quotas)
+          if (item.rank > existing.closingCutoff) {
+            existing.closingCutoff = item.rank;
+            existing.category = item.category;
+            existing.round = item.round;
+            existing.year = item.year;
+            if (item.fees) existing.fees = item.fees;
           }
         }
       });
 
-      const uniqueColleges = Array.from(collegeMap.values());
+      const uniqueOptions = Array.from(optionsMap.values());
 
       // Region weight helper
       const matchesRegion = (collegeName, reg) => {
@@ -154,20 +266,21 @@ export default function AiOptionAnalyser({
       };
 
       // Assign Tier based on golden KEA Counselling Strategy:
-      // Tier 1: Dream / High Ambition (Cutoff rank tighter than student rank)
-      // Tier 2: Target Matches (Cutoff within reachable range: rank - 3000 to rank + 6000)
-      // Tier 3: Safe / Guaranteed Backup (Cutoff rank comfortably above +6000 ranks)
-      const classified = uniqueColleges.map((c) => {
-        const margin = c.rank - parsedRank;
+      // Tier 1: Premier Ambition / Dream (Closing cutoff tighter than student rank — always put high choices first with zero penalty)
+      // Tier 2: Target Match (Closing cutoff within reachable range: rank - 8000 to rank + 18000)
+      // Tier 3: Safe Backup (Closing cutoff comfortably above rank + 18000, ensuring guaranteed allotment)
+      const classified = uniqueOptions.map((c) => {
+        const cutoff = c.closingCutoff;
+        const margin = cutoff - parsedRank;
         let tier = 'DREAM';
-        let tierLabel = 'Dream / Reach';
-        let tierDesc = 'High ambition choice — always place top premier colleges at the top with zero penalty.';
+        let tierLabel = 'Premier Ambition';
+        let tierDesc = 'High ambition choice — in KEA, always place top colleges first with zero penalty as choices roll down.';
 
-        if (margin >= -2500 && margin <= 6000) {
+        if (cutoff >= parsedRank - 8000 && cutoff <= parsedRank + 18000) {
           tier = 'TARGET';
           tierLabel = 'Target Match';
-          tierDesc = 'High probability zone — your rank falls right into historical allotment windows.';
-        } else if (margin > 6000) {
+          tierDesc = 'High probability match — historical allotments fall right within your rank window.';
+        } else if (cutoff > parsedRank + 18000) {
           tier = 'SAFE';
           tierLabel = 'Safe Backup';
           tierDesc = 'Solid safety net — ensures you secure a seat without risk of exiting counselling empty-handed.';
@@ -175,6 +288,7 @@ export default function AiOptionAnalyser({
 
         return {
           ...c,
+          rank: cutoff,
           margin,
           tier,
           tierLabel,
@@ -188,7 +302,6 @@ export default function AiOptionAnalyser({
       // If student has a region preference, prioritize matching region within comparable cutoff bands
       classified.sort((a, b) => {
         if (regionPriority !== 'ALL') {
-          // If one is in preferred region and ranks are within 4000 of each other, prioritize preferred region
           if (a.inPreferredRegion !== b.inPreferredRegion) {
             const rankGap = Math.abs(a.rank - b.rank);
             if (rankGap < 4000) {
@@ -425,34 +538,69 @@ export default function AiOptionAnalyser({
               onChange={(e) => handleCollegeTypeChange(e.target.value)}
               className="ai-select"
             >
+              <option value="ALL_QUOTAS">All Seats (Govt + Private + Institutional Quota)</option>
               <option value="GOVT_ONLY">Government Colleges Only (Fee ≤ ₹75,000/yr)</option>
-              <option value="GOVT_PVT_GOVT_FEE">Govt + Private Colleges with Govt Quota (Fee ≤ ₹1.6 Lakh/yr)</option>
-              <option value="ALL_QUOTAS">All Colleges (Govt + Private Quota up to ₹15 Lakh/yr)</option>
+              <option value="GOVT_PVT_GOVT_FEE">Govt + Private Colleges with Govt Quota (Fee ≤ ₹1.65 Lakh/yr)</option>
             </select>
           </div>
 
-          {/* Question 5: Regional Priority */}
+          {/* Question 5: Maximum Annual Fee / Budget Limit */}
           <div className="ai-field">
             <label>
-              <MapPin size={14} className="lucide-icon" /> 5. Preferred Location Focus
+              <Wallet size={14} className="lucide-icon" /> 5. Max Annual Fee Budget Limit
+            </label>
+            <select
+              value={maxBudget}
+              onChange={(e) => setMaxBudget(parseInt(e.target.value, 10))}
+              className="ai-select"
+            >
+              <option value={50000000}>No Fee Limit (Any Budget / Up to ₹50L+)</option>
+              <option value={4500000}>Up to ₹45 Lakh / yr (Institutional / NRI / MNG)</option>
+              <option value={3800000}>Up to ₹38 Lakh / yr (Deemed / High Quotas)</option>
+              <option value={2600000}>Up to ₹26 Lakh / yr (Ramaiah / Sapthagiri / PES Private)</option>
+              <option value={2000000}>Up to ₹20 Lakh / yr</option>
+              <option value={1650000}>Up to ₹16.5 Lakh / yr</option>
+              <option value={1250000}>Up to ₹12.5 Lakh / yr (Standard ₹12L Private MBBS)</option>
+              <option value={800000}>Up to ₹8 Lakh / yr (Private Dental / Budget Quota)</option>
+              <option value={500000}>Up to ₹5 Lakh / yr (Dental & AYUSH Private)</option>
+              <option value={250000}>Up to ₹2.5 Lakh / yr</option>
+              <option value={165000}>Up to ₹1.65 Lakh / yr (Govt Quota in Private Colleges)</option>
+              <option value={75000}>Up to ₹75,000 / yr (Government Colleges Only)</option>
+            </select>
+          </div>
+
+          {/* Question 6: Regional Priority */}
+          <div className="ai-field">
+            <label>
+              <MapPin size={14} className="lucide-icon" /> 6. Preferred Location Focus
             </label>
             <select
               value={regionPriority}
               onChange={(e) => setRegionPriority(e.target.value)}
               className="ai-select"
             >
-              <option value="ALL">All Karnataka (Strict Statewide Cutoff Order)</option>
-              <option value="BLR">Bengaluru First (Bangalore colleges prioritized)</option>
-              <option value="MLR">Coastal / Mangaluru Region First</option>
-              <option value="MYS">Mysuru & Southern Karnataka First</option>
-              <option value="NORTH">North Karnataka / Belagavi / Hubballi First</option>
+              {dataSource === 'AIQ' ? (
+                <>
+                  <option value="ALL">All India (Strict Nationwide Cutoff Order)</option>
+                  <option value="AIQ_KA">Karnataka Colleges First</option>
+                  <option value="AIQ_SOUTH">South India (Karnataka, TN, Kerala, AP, TS) First</option>
+                </>
+              ) : (
+                <>
+                  <option value="ALL">All Karnataka (Strict Statewide Cutoff Order)</option>
+                  <option value="BLR">Bengaluru First (Bangalore colleges prioritized)</option>
+                  <option value="MLR">Coastal / Mangaluru Region First</option>
+                  <option value="MYS">Mysuru & Southern Karnataka First</option>
+                  <option value="NORTH">North Karnataka / Belagavi / Hubballi First</option>
+                </>
+              )}
             </select>
           </div>
 
-          {/* Question 6: Output list length */}
+          {/* Question 7: Output list length */}
           <div className="ai-field">
             <label>
-              <SlidersHorizontal size={14} className="lucide-icon" /> Options Count to Generate
+              <SlidersHorizontal size={14} className="lucide-icon" /> 7. Options Count to Generate
             </label>
             <select
               value={optionsCount}
@@ -463,6 +611,7 @@ export default function AiOptionAnalyser({
               <option value={25}>Top 25 Options (Recommended)</option>
               <option value={40}>Top 40 Options (Extra Safety)</option>
               <option value={60}>Top 60 Options (Comprehensive)</option>
+              <option value={80}>Top 80 Options (Extended)</option>
             </select>
           </div>
         </div>

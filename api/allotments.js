@@ -127,7 +127,12 @@ export default async function handler(req, res) {
 
     const safeCategory = sanitizeString(category);
     if (safeCategory) {
-      filter.category = safeCategory;
+      if (safeCategory.includes(',')) {
+        const catList = safeCategory.split(',').map(c => c.trim()).filter(Boolean);
+        filter.category = { $in: catList };
+      } else {
+        filter.category = safeCategory;
+      }
     }
 
     // College code exact match (for college detail modal)

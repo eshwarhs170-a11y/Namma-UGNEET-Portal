@@ -2050,7 +2050,7 @@ export default function Dashboard() {
         <div className="tour-backdrop" onClick={() => setCompareOpen(false)}>
           <div className="compare-card" onClick={(e) => e.stopPropagation()}>
             <div className="glossary-header">
-              <h3>⚖️ Compare Saved Colleges</h3>
+              <h3><BarChart3 className="lucide-icon" size={18} /> Compare Saved Colleges</h3>
               <button className="modal-close-btn" onClick={() => setCompareOpen(false)} aria-label="Close"><X className="lucide-icon" size={16} /></button>
             </div>
             <div className="compare-table-wrap">
@@ -2672,6 +2672,7 @@ export default function Dashboard() {
             </ul>
           )}
         </div>
+        <div className="sidebar-bottom-spacer" style={{ height: '48px', flexShrink: 0 }} />
       </aside>
 
       {/* MAIN CONTENT */}

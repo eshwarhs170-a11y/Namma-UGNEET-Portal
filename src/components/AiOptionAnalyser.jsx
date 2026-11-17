@@ -108,6 +108,61 @@ export function getEligibleCategories(userCategory, dataset = 'KEA') {
   return eligible;
 }
 
+// Special reservation quotas to exclude from general calculation unless candidate specifically belongs to them
+export const SPECIAL_QUOTAS = new Set(['PH', 'PHM', 'XD', 'SPO', 'NCC', 'DEF', 'JK', 'SP', 'DF']);
+
+// Fee tier bracket helper: lower amount = lower tier number (1 is cheapest)
+// "less amount give first": Govt (1) -> Govt in Pvt (2) -> Private (3) -> High/Management (4)
+export function getFeeTier(fees, stream) {
+  const f = Number(fees) || 0;
+  if (stream === 'DENTAL') {
+    if (f <= 65000) return 1; // Govt Dental (~₹50k)
+    if (f <= 150000) return 2; // Govt Quota in Pvt Dental (~₹96k)
+    if (f <= 600000) return 3; // Standard Private Dental (~₹4-5L)
+    return 4; // High / Deemed / Management Dental
+  }
+  if (stream === 'AYUSH') {
+    if (f <= 75000) return 1; // Govt AYUSH (~₹25k-₹65k)
+    if (f <= 175000) return 2; // Govt Quota in Pvt AYUSH (~₹1.5L)
+    if (f <= 400000) return 3; // Standard Private AYUSH (~₹3L)
+    return 4; // High / Management AYUSH
+  }
+  // MEDICAL (MBBS)
+  if (f <= 75000) return 1; // Govt Medical Colleges (BMC, MMC, etc. ~₹65k)
+  if (f <= 175000) return 2; // Govt Quota in Private Colleges (~₹1.5L)
+  if (f <= 1300000) return 3; // Standard Private Quota (~₹12L)
+  return 4; // High Quotas / Deemed / NRI / Management (₹22L - ₹45L+)
+}
+
+// Stream-tailored fee brackets according to real KEA & AIQ fee structures
+export const BUDGET_OPTIONS_BY_STREAM = {
+  MEDICAL: [
+    { value: 50000000, label: 'No Fee Limit (Any Budget / Up to ₹50L+)' },
+    { value: 4550000, label: 'Up to ₹45 Lakh / yr (Institutional / NRI / MNG Quota)' },
+    { value: 3800000, label: 'Up to ₹38 Lakh / yr (Deemed / High Quotas)' },
+    { value: 2600000, label: 'Up to ₹26 Lakh / yr (Ramaiah / Sapthagiri / PES Private Quota)' },
+    { value: 1650000, label: 'Up to ₹16.5 Lakh / yr (Higher Private Quota)' },
+    { value: 1250000, label: 'Up to ₹12.5 Lakh / yr (Standard ₹12L Private MBBS)' },
+    { value: 165000, label: 'Up to ₹1.65 Lakh / yr (Govt Quota in Private Colleges)' },
+    { value: 75000, label: 'Up to ₹75,000 / yr (Government Colleges Only)' },
+  ],
+  DENTAL: [
+    { value: 50000000, label: 'No Fee Limit (Any Budget / All Dental Quotas)' },
+    { value: 1100000, label: 'Up to ₹11 Lakh / yr (Deemed / Management Dental)' },
+    { value: 870000, label: 'Up to ₹8.7 Lakh / yr (Higher Private Dental Quota)' },
+    { value: 500000, label: 'Up to ₹5 Lakh / yr (Standard Private Dental Quota)' },
+    { value: 125000, label: 'Up to ₹1.25 Lakh / yr (Govt Quota in Private Dental)' },
+    { value: 75000, label: 'Up to ₹75,000 / yr (Government Dental Colleges Only)' },
+  ],
+  AYUSH: [
+    { value: 50000000, label: 'No Fee Limit (Any Budget / All AYUSH Quotas)' },
+    { value: 650000, label: 'Up to ₹6.5 Lakh / yr (Higher Private / Deemed AYUSH)' },
+    { value: 350000, label: 'Up to ₹3.5 Lakh / yr (Standard Private AYUSH Quota)' },
+    { value: 150000, label: 'Up to ₹1.5 Lakh / yr (Govt Quota in Private AYUSH)' },
+    { value: 65000, label: 'Up to ₹65,000 / yr (Government AYUSH Colleges Only)' },
+  ],
+};
+
 export default function AiOptionAnalyser({
   dataSource,
   dynamicCategories,
@@ -141,7 +196,7 @@ export default function AiOptionAnalyser({
   const [collegeType, setCollegeType] = useState('ALL_QUOTAS'); // GOVT_ONLY | GOVT_PVT_GOVT_FEE | ALL_QUOTAS
   const [maxBudget, setMaxBudget] = useState(50000000); // Default to no fee limit (all budgets)
   const [regionPriority, setRegionPriority] = useState('ALL'); // ALL | BLR | MLR | NORTH | MYS | AIQ_KA | AIQ_SOUTH
-  const [optionsCount, setOptionsCount] = useState(25); // 15 | 25 | 40 | 60 | 80
+  const [optionsCount, setOptionsCount] = useState(80); // 25 | 40 | 60 | 80 | 100 | 999 (All)
 
   // Analysis result states
   const [loading, setLoading] = useState(false);
@@ -155,6 +210,12 @@ export default function AiOptionAnalyser({
       setRankInput(initialRank);
     }
   }, [initialRank]);
+
+  // Switch stream and reset budget to appropriate default
+  const handleStreamChange = (newStream) => {
+    setStream(newStream);
+    setMaxBudget(50000000);
+  };
 
   // Adjust budget automatically when collegeType changes
   const handleCollegeTypeChange = (type) => {
@@ -182,27 +243,90 @@ export default function AiOptionAnalyser({
 
     try {
       const eligibleCategories = getEligibleCategories(category, dataSource);
+      const catList = Array.from(eligibleCategories).join(',');
+      const isUserSpecialQuota = SPECIAL_QUOTAS.has((category || '').toUpperCase());
 
-      const params = new URLSearchParams({
+      const baseParams = {
         dataset: dataSource,
         stream: stream,
-        limit: 8000,
-        sort: 'rank',
-        order: 'asc'
-      });
+      };
 
-      // Pass expanded eligible categories to the API
       if (category !== 'ALL') {
-        params.set('category', Array.from(eligibleCategories).join(','));
+        baseParams.category = catList;
       }
 
       if (maxBudget < 50000000) {
-        params.set('maxBudget', maxBudget);
+        baseParams.maxBudget = maxBudget;
       }
 
-      const res = await fetch(`/api/allotments?${params.toString()}`);
-      const data = await res.json();
-      const rawRecords = data.data || [];
+      let rawRecords = [];
+
+      try {
+        if (parsedRank <= 50000) {
+          const params = new URLSearchParams({
+            ...baseParams,
+            minRank: 1,
+            maxRank: Math.max(100000, parsedRank + 40000),
+            limit: 8000,
+            sort: 'rank',
+            order: 'asc'
+          });
+          const res = await fetch(`/api/allotments?${params.toString()}`);
+          if (res.ok) {
+            const data = await res.json();
+            rawRecords = data.data || [];
+          }
+        } else {
+          // Parallel dual slice fetch for ranks > 50,000 (e.g. 173,789):
+          // Slice 1: Premier Dream Colleges (BMC, MMC, ABVIMS, KIMS, etc. up to 50k)
+          // Slice 2: Target & Safe Colleges around candidate rank (candidate - 60k onwards)
+          const paramsDream = new URLSearchParams({
+            ...baseParams,
+            minRank: 1,
+            maxRank: 50000,
+            limit: 5000,
+            sort: 'rank',
+            order: 'asc'
+          });
+
+          const paramsTarget = new URLSearchParams({
+            ...baseParams,
+            minRank: Math.max(1, parsedRank - 60000),
+            limit: 5000,
+            sort: 'rank',
+            order: 'asc'
+          });
+
+          const [resDream, resTarget] = await Promise.all([
+            fetch(`/api/allotments?${paramsDream.toString()}`).then(r => r.ok ? r.json() : { data: [] }).catch(() => ({ data: [] })),
+            fetch(`/api/allotments?${paramsTarget.toString()}`).then(r => r.ok ? r.json() : { data: [] }).catch(() => ({ data: [] }))
+          ]);
+
+          rawRecords = [...(resDream.data || []), ...(resTarget.data || [])];
+        }
+      } catch (fetchErr) {
+        console.warn('API fetch error, trying static fallback:', fetchErr);
+      }
+
+      // Offline / Local fallback if API returned no data
+      if (!rawRecords || rawRecords.length === 0) {
+        try {
+          const fallbackUrl = dataSource === 'AIQ'
+            ? '/data/aiq_compiled_allotments.json'
+            : '/data/compiled_allotments.json';
+          const localRes = await fetch(fallbackUrl);
+          if (localRes.ok) {
+            const localData = await localRes.json();
+            rawRecords = localData.filter(d =>
+              d.stream === stream &&
+              eligibleCategories.has(d.category) &&
+              (!maxBudget || maxBudget >= 50000000 || !d.fees || d.fees <= maxBudget)
+            );
+          }
+        } catch (fallbackErr) {
+          console.warn('Static data fallback error:', fallbackErr);
+        }
+      }
 
       // Group by distinct KEA/AIQ Option (collegeCode + courseDetails)
       const optionsMap = new Map();
@@ -210,6 +334,9 @@ export default function AiOptionAnalyser({
       rawRecords.forEach((item) => {
         if (!item.collegeCode || !item.rank) return;
         if (!eligibleCategories.has(item.category)) return;
+
+        // Skip handicap/disability special quotas unless candidate explicitly selected that category
+        if (!isUserSpecialQuota && SPECIAL_QUOTAS.has(item.category)) return;
 
         // Fee budget filter: strict user-chosen upper limit
         if (maxBudget < 50000000 && item.fees && item.fees > maxBudget) return;
@@ -231,23 +358,17 @@ export default function AiOptionAnalyser({
             collegeName: item.collegeName,
             courseDetails: item.courseDetails,
             category: item.category,
-            fees: item.fees,
+            fees: item.fees || 0,
             stream: item.stream,
             round: item.round,
             year: item.year,
-            closingCutoff: item.rank,
             allRanks: [item.rank]
           });
         } else {
           const existing = optionsMap.get(optionKey);
           existing.allRanks.push(item.rank);
-          // In counselling, cutoff = closing rank (the final/highest rank admitted across rounds for candidate's eligible quotas)
-          if (item.rank > existing.closingCutoff) {
-            existing.closingCutoff = item.rank;
-            existing.category = item.category;
-            existing.round = item.round;
-            existing.year = item.year;
-            if (item.fees) existing.fees = item.fees;
+          if (item.fees && (!existing.fees || existing.fees === 0)) {
+            existing.fees = item.fees;
           }
         }
       });
@@ -265,22 +386,23 @@ export default function AiOptionAnalyser({
         return true;
       };
 
-      // Assign Tier based on golden KEA Counselling Strategy:
-      // Tier 1: Premier Ambition / Dream (Closing cutoff tighter than student rank — always put high choices first with zero penalty)
-      // Tier 2: Target Match (Closing cutoff within reachable range: rank - 8000 to rank + 18000)
-      // Tier 3: Safe Backup (Closing cutoff comfortably above rank + 18000, ensuring guaranteed allotment)
+      // Representative cutoff & Tier classification
       const classified = uniqueOptions.map((c) => {
-        const cutoff = c.closingCutoff;
+        c.allRanks.sort((a, b) => a - b);
+        // Cutoff is the 90th percentile of normal allotments (closing rank)
+        const p90Index = Math.min(c.allRanks.length - 1, Math.floor(c.allRanks.length * 0.9));
+        const cutoff = c.allRanks[p90Index];
+
         const margin = cutoff - parsedRank;
         let tier = 'DREAM';
         let tierLabel = 'Premier Ambition';
         let tierDesc = 'High ambition choice — in KEA, always place top colleges first with zero penalty as choices roll down.';
 
-        if (cutoff >= parsedRank - 8000 && cutoff <= parsedRank + 18000) {
+        if (cutoff >= parsedRank - 18000 && cutoff <= parsedRank + 30000) {
           tier = 'TARGET';
           tierLabel = 'Target Match';
           tierDesc = 'High probability match — historical allotments fall right within your rank window.';
-        } else if (cutoff > parsedRank + 18000) {
+        } else if (cutoff > parsedRank + 30000) {
           tier = 'SAFE';
           tierLabel = 'Safe Backup';
           tierDesc = 'Solid safety net — ensures you secure a seat without risk of exiting counselling empty-handed.';
@@ -297,23 +419,52 @@ export default function AiOptionAnalyser({
         };
       });
 
-      // Sort with smart KEA Counselling hierarchy:
-      // Always rank by true cutoff prestige (lower cutoff rank = higher demand = higher priority)
-      // If student has a region preference, prioritize matching region within comparable cutoff bands
+      // Sort with strict counselling hierarchy:
+      // "make sure u give the order as per rank, then amount, less amount give first"
       classified.sort((a, b) => {
-        if (regionPriority !== 'ALL') {
-          if (a.inPreferredRegion !== b.inPreferredRegion) {
-            const rankGap = Math.abs(a.rank - b.rank);
-            if (rankGap < 4000) {
-              return a.inPreferredRegion ? -1 : 1;
-            }
+        // Rule 1: Premier institutes benchmark (Bangalore Medical College M001MG is ALWAYS #1 for Medical)
+        if (stream === 'MEDICAL') {
+          if (a.collegeCode === 'M001MG') return -1;
+          if (b.collegeCode === 'M001MG') return 1;
+        } else if (stream === 'DENTAL') {
+          if (a.collegeCode === 'D101DG') return -1;
+          if (b.collegeCode === 'D101DG') return 1;
+        }
+
+        // Rule 2: Seat type fee tiers ("less amount give first")
+        // Govt seats (Tier 1: ~₹65k) -> Govt in Pvt (Tier 2: ~₹1.5L) -> Private (Tier 3: ~₹12L) -> High/NRI (Tier 4: ~₹25L+)
+        const feeTierA = getFeeTier(a.fees, stream);
+        const feeTierB = getFeeTier(b.fees, stream);
+        if (feeTierA !== feeTierB) {
+          return feeTierA - feeTierB;
+        }
+
+        // Rule 3: Regional preference within close cutoff ranks (within 4,000 ranks)
+        if (regionPriority !== 'ALL' && a.inPreferredRegion !== b.inPreferredRegion) {
+          const rankGap = Math.abs(a.rank - b.rank);
+          if (rankGap < 4000) {
+            return a.inPreferredRegion ? -1 : 1;
           }
         }
-        return a.rank - b.rank;
+
+        // Rule 4: Cutoff rank prestige (lower rank = higher demand = higher priority)
+        const rankDiff = a.rank - b.rank;
+        if (Math.abs(rankDiff) > 2500) {
+          return rankDiff;
+        }
+
+        // Rule 5: "less amount give first" (cheaper fee comes first when cutoffs are close)
+        const feeDiff = (a.fees || 0) - (b.fees || 0);
+        if (feeDiff !== 0) {
+          return feeDiff;
+        }
+
+        return rankDiff;
       });
 
-      // Slice to user's desired options count
-      const finalList = classified.slice(0, optionsCount).map((item, index) => ({
+      // Slice to user's desired options count (or all options if 999)
+      const sliced = optionsCount >= 900 ? classified : classified.slice(0, optionsCount);
+      const finalList = sliced.map((item, index) => ({
         ...item,
         priority: index + 1
       }));
@@ -519,7 +670,7 @@ export default function AiOptionAnalyser({
             </label>
             <select
               value={stream}
-              onChange={(e) => setStream(e.target.value)}
+              onChange={(e) => handleStreamChange(e.target.value)}
               className="ai-select"
             >
               <option value="MEDICAL">MBBS (Medical)</option>
@@ -544,28 +695,21 @@ export default function AiOptionAnalyser({
             </select>
           </div>
 
-          {/* Question 5: Maximum Annual Fee / Budget Limit */}
+          {/* Question 5: Maximum Annual Fee / Budget Limit (Stream-Specific) */}
           <div className="ai-field">
             <label>
-              <Wallet size={14} className="lucide-icon" /> 5. Max Annual Fee Budget Limit
+              <Wallet size={14} className="lucide-icon" /> 5. Max Annual Fee Budget Limit ({stream === 'MEDICAL' ? 'MBBS' : stream === 'DENTAL' ? 'BDS' : 'AYUSH'})
             </label>
             <select
               value={maxBudget}
               onChange={(e) => setMaxBudget(parseInt(e.target.value, 10))}
               className="ai-select"
             >
-              <option value={50000000}>No Fee Limit (Any Budget / Up to ₹50L+)</option>
-              <option value={4500000}>Up to ₹45 Lakh / yr (Institutional / NRI / MNG)</option>
-              <option value={3800000}>Up to ₹38 Lakh / yr (Deemed / High Quotas)</option>
-              <option value={2600000}>Up to ₹26 Lakh / yr (Ramaiah / Sapthagiri / PES Private)</option>
-              <option value={2000000}>Up to ₹20 Lakh / yr</option>
-              <option value={1650000}>Up to ₹16.5 Lakh / yr</option>
-              <option value={1250000}>Up to ₹12.5 Lakh / yr (Standard ₹12L Private MBBS)</option>
-              <option value={800000}>Up to ₹8 Lakh / yr (Private Dental / Budget Quota)</option>
-              <option value={500000}>Up to ₹5 Lakh / yr (Dental & AYUSH Private)</option>
-              <option value={250000}>Up to ₹2.5 Lakh / yr</option>
-              <option value={165000}>Up to ₹1.65 Lakh / yr (Govt Quota in Private Colleges)</option>
-              <option value={75000}>Up to ₹75,000 / yr (Government Colleges Only)</option>
+              {(BUDGET_OPTIONS_BY_STREAM[stream] || BUDGET_OPTIONS_BY_STREAM.MEDICAL).map((opt) => (
+                <option key={opt.value} value={opt.value}>
+                  {opt.label}
+                </option>
+              ))}
             </select>
           </div>
 
@@ -607,11 +751,12 @@ export default function AiOptionAnalyser({
               onChange={(e) => setOptionsCount(parseInt(e.target.value, 10))}
               className="ai-select"
             >
-              <option value={15}>Top 15 Options</option>
-              <option value={25}>Top 25 Options (Recommended)</option>
-              <option value={40}>Top 40 Options (Extra Safety)</option>
-              <option value={60}>Top 60 Options (Comprehensive)</option>
-              <option value={80}>Top 80 Options (Extended)</option>
+              <option value={999}>All Eligible Options (Full Sequence — Recommended)</option>
+              <option value={100}>Top 100 Options (Extended Comprehensive)</option>
+              <option value={80}>Top 80 Options (Comprehensive)</option>
+              <option value={60}>Top 60 Options (Standard)</option>
+              <option value={40}>Top 40 Options (Target & Safety Focus)</option>
+              <option value={25}>Top 25 Options (Core Premier Ambition)</option>
             </select>
           </div>
         </div>

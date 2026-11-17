@@ -2674,6 +2674,44 @@ export default function Dashboard() {
       {/* MAIN CONTENT */}
       <main className="main-content">
 
+        {/* MOBILE TOP APP BAR (native-feel header for <= 880px) */}
+        <div className="mobile-top-bar">
+          <button
+            type="button"
+            className="mobile-menu-btn"
+            onClick={() => { userToggledRef.current = true; setSidebarOpen(true); }}
+            aria-label="Open menu"
+            title="Menu"
+          >
+            <Menu size={19} />
+          </button>
+          <div className="mobile-brand" onClick={() => navigateTo('home')}>
+            <img src={logo} alt="NammaUGNEET" className="mobile-brand-logo" />
+            <span className="mobile-brand-title">NammaUGNEET</span>
+          </div>
+          <div className="mobile-top-actions">
+            <button
+              type="button"
+              className="mobile-action-pill"
+              onClick={() => { setTourStep(0); setTourOpen(true); }}
+              aria-label="Guide"
+              title="Quick Guide"
+            >
+              <Lightbulb size={14} />
+              <span>Guide</span>
+            </button>
+            <button
+              type="button"
+              className="mobile-action-icon"
+              onClick={() => setDarkMode((prev) => !prev)}
+              aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+              title={darkMode ? 'Light mode' : 'Dark mode'}
+            >
+              {darkMode ? <Sun size={16} /> : <Moon size={16} />}
+            </button>
+          </div>
+        </div>
+
         <header className="dash-header">
           <span className="dash-eyebrow">KEA Counselling · Live Dataset</span>
           <div className="dash-header-row">

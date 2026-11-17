@@ -3457,10 +3457,10 @@ export default function Dashboard() {
                   {predictedColleges.length > 0 && (
                     <div style={{ display: 'flex', gap: '8px' }}>
                       <button className="whatsapp-share-btn" onClick={sharePredictedResultsOnWhatsApp}>
-                        <MessageCircle className="lucide-icon" size={18} /> Share on WhatsApp
+                        <MessageCircle className="lucide-icon" size={18} /> <span>Share on WhatsApp</span>
                       </button>
                       <button className="pdf-download-btn" onClick={downloadPredictedResultsPDF}>
-                        <FileText className="lucide-icon" size={18} /> Download PDF
+                        <FileText className="lucide-icon" size={18} /> <span>Download PDF</span>
                       </button>
                     </div>
                   )}
@@ -3522,13 +3522,13 @@ export default function Dashboard() {
                   className={`option-mode-tab${optionMode === 'manual' ? ' active' : ''}`}
                   onClick={() => setOptionMode('manual')}
                 >
-                  <PenTool className="lucide-icon" size={16} /> <span>My Custom List</span>
+                  <PenTool className="lucide-icon" size={16} /> <span className="tab-label-full">My Custom List</span><span className="tab-label-short">My List</span>
                 </button>
                 <button
                   className={`option-mode-tab${optionMode === 'ai' ? ' active' : ''}`}
                   onClick={() => setOptionMode('ai')}
                 >
-                  <Sparkles className="lucide-icon" size={16} /> <span>AI Strategy Analyser</span>
+                  <Sparkles className="lucide-icon" size={16} /> <span className="tab-label-full">AI Strategy Analyser</span><span className="tab-label-short">AI Analyser</span>
                 </button>
               </div>
 

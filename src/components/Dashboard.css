@@ -3046,19 +3046,22 @@ html, body {
   }
   .option-toolbar-actions {
     justify-content: stretch;
+    width: 100%;
+    flex-wrap: nowrap;
   }
   .whatsapp-share-btn,
   .pdf-download-btn,
   .clear-options-btn {
-    flex: 1 1 auto;
+    flex: 1 1 0;
+    min-width: 0;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
+    gap: 5px;
     white-space: nowrap;
     text-align: center;
-    font-size: 0.82rem;
-    padding: 10px 14px;
+    font-size: 0.78rem;
+    padding: 10px 8px;
     box-sizing: border-box;
   }
   .whatsapp-share-btn svg,
@@ -3068,6 +3071,8 @@ html, body {
   .clear-options-btn svg,
   .clear-options-btn .lucide-icon {
     flex-shrink: 0;
+    width: 15px;
+    height: 15px;
   }
 }
 
@@ -3432,7 +3437,12 @@ html, body {
   transition: all 0.15s ease;
   position: relative;
   bottom: -2px;
+  white-space: nowrap;
 }
+
+/* Show full labels on desktop, hide short labels */
+.tab-label-short { display: none; }
+.tab-label-full  { display: inline; }
 
 .option-mode-tab.active {
   background: var(--paper);
@@ -3449,6 +3459,24 @@ html, body {
 .option-mode-tab:hover:not(.active) {
   color: var(--ink);
   background: rgba(0, 0, 0, 0.04);
+}
+
+/* Mobile: tabs fill full width, equal split, compact labels */
+@media (max-width: 600px) {
+  .option-mode-tabs {
+    gap: 4px;
+    margin-bottom: 16px;
+  }
+  .option-mode-tab {
+    flex: 1 1 0;
+    justify-content: center;
+    padding: 10px 8px;
+    font-size: 0.82rem;
+    gap: 5px;
+  }
+  /* On mobile, hide full label and show short label */
+  .tab-label-full  { display: none; }
+  .tab-label-short { display: inline; }
 }
 
 /* AI Analyser Container */

@@ -5,7 +5,7 @@ import {
   Star, Trash2, FileText, MessageCircle, School, User, PenTool, Lightbulb, 
   Coffee, RefreshCw, Frown, Circle, BarChart3, Check, X,
   Sun, Moon, Home, Download, Landmark, Globe, Wallet, ExternalLink,
-  SlidersHorizontal, Menu, MapPin, ChevronDown
+  SlidersHorizontal, Menu, MapPin, ChevronDown, Sparkles, GripVertical
 } from 'lucide-react';
 
 // jsPDF loaded on-demand (lazy) to keep initial bundle small
@@ -13,6 +13,7 @@ import logo from '../assets/namma-ugneet-logo.png';
 import { fetchVisitCounts, pingInstall, fetchInstallCounts } from '../visitorCounter.js';
 import './Dashboard.css';
 import { OptionEntryList } from './OptionEntryList';
+import AiOptionAnalyser from './AiOptionAnalyser';
 
 // ── Custom autocomplete dropdown (replaces native <datalist> which bounces on mobile) ──
 function CollegeAutocomplete({ value, onChange, onCommit, suggestions, placeholder, id }) {
@@ -1272,6 +1273,8 @@ export default function Dashboard() {
 
   const deleteProfile = (id) => setProfiles((prev) => prev.filter((p) => p.id !== id));
 
+  const [optionMode, setOptionMode] = useState('manual');
+
   const [optionEntries, setOptionEntries] = useState(() => {
     try {
       const raw = localStorage.getItem(OPTIONS_KEY);
@@ -2012,7 +2015,7 @@ export default function Dashboard() {
         <div className="tour-backdrop" onClick={() => setGlossaryOpen(false)}>
           <div className="glossary-card" onClick={(e) => e.stopPropagation()}>
             <div className="glossary-header">
-              <h3>📖 {dataSource === 'AIQ' ? 'AIQ Guide' : 'Category Guide'}</h3>
+              <h3><ScrollText className="lucide-icon" size={20} /> {dataSource === 'AIQ' ? 'AIQ Guide' : 'Category Guide'}</h3>
               <button className="modal-close-btn" onClick={() => setGlossaryOpen(false)} aria-label="Close"><X className="lucide-icon" size={16} /></button>
             </div>
             {dataSource === 'AIQ' && dynamicQuotas.length > 0 && (
@@ -2830,7 +2833,7 @@ export default function Dashboard() {
               </div>
 
               <p className="home-closing-quote">
-                "Every rank has a path forward. We built this so you can see yours clearly — and choose it with confidence." 🌟
+                "Every rank has a path forward. We built this so you can see yours clearly — and choose it with confidence."
               </p>
 
               <footer className="home-footer">
@@ -3512,66 +3515,107 @@ export default function Dashboard() {
           {/* --- FEATURE 3: OPTION ENTRY GENERATOR --- */}
           {activeTab === 'options' && (
             <div>
-              <div className="option-intro">
-                <h3><PenTool className="lucide-icon" size={24} /> Build Your Option Entry List</h3>
-                <p>
-                  During real KEA counselling, you rank your preferred colleges in order — this is your practice space.
-                  Add colleges from the <button className="inline-link-btn" onClick={() => navigateTo('explore')}>Explore</button> or{' '}
-                  <button className="inline-link-btn" onClick={() => navigateTo('predictor')}>Predictor</button> tabs using the
-                  "+ Add" button, then reorder them here by priority.
-                </p>
+              {/* Mode tabs: Manual | AI */}
+              <div className="option-mode-tabs">
+                <button
+                  className={`option-mode-tab${optionMode === 'manual' ? ' active' : ''}`}
+                  onClick={() => setOptionMode('manual')}
+                >
+                  <PenTool size={15} /> My Custom List
+                </button>
+                <button
+                  className={`option-mode-tab${optionMode === 'ai' ? ' active' : ''}`}
+                  onClick={() => setOptionMode('ai')}
+                >
+                  <Sparkles size={15} /> AI Strategy Analyser
+                </button>
               </div>
 
-              {optionEntries.length === 0 ? (
-                <div className="option-empty-state">
-                  <h4><PenTool className="lucide-icon" size={24} /> Your preference list starts here</h4>
-                  <p>
-                    Think of this as a practice run for KEA's real "Option Entry" step — where you'll rank
-                    every college you'd accept, in order of preference, before the actual counselling round.
-                  </p>
-                  <p className="option-empty-steps">
-                    Browse colleges on <strong>Explore</strong> or check your matches on <strong>Predictor</strong>,
-                    then tap the <span className="pill">+ Add</span> button on any college — it'll show up right here, ready to reorder.
-                  </p>
-                  <div className="option-empty-actions">
-                    <button className="home-cta primary" onClick={() => navigateTo('explore')}><Search className="lucide-icon" size={18} /> Go to Explore</button>
-                    <button className="home-cta" onClick={() => navigateTo('predictor')}><Target className="lucide-icon" size={24} /> Go to Predictor</button>
+              {/* Manual list mode */}
+              {optionMode === 'manual' && (
+                <div>
+                  <div className="option-intro">
+                    <h3><PenTool className="lucide-icon" size={24} /> Build Your Option Entry List</h3>
+                    <p>
+                      During real KEA counselling, you rank your preferred colleges in order — this is your practice space.
+                      Add colleges from the <button className="inline-link-btn" onClick={() => navigateTo('explore')}>Explore</button> or{' '}
+                      <button className="inline-link-btn" onClick={() => navigateTo('predictor')}>Predictor</button> tabs using the
+                      "+ Add" button, then reorder them here by priority.
+                    </p>
                   </div>
-                </div>
-              ) : (
-                <>
-                  <div className="option-toolbar">
-                    <span>{optionEntries.length} college{optionEntries.length !== 1 ? 's' : ''} in your list</span>
-                    <div className="option-toolbar-actions">
-                      <button className="whatsapp-share-btn" onClick={shareOptionListOnWhatsApp}>
-                        <MessageCircle className="lucide-icon" size={18} /> Share on WhatsApp
-                      </button>
-                      <button className="pdf-download-btn" onClick={downloadOptionListPDF}>
-                        <FileText className="lucide-icon" size={18} /> Download PDF
-                      </button>
-                      <button className="clear-options-btn" onClick={clearOptionList}>🗑 Clear All</button>
+
+                  {optionEntries.length === 0 ? (
+                    <div className="option-empty-state">
+                      <h4><PenTool className="lucide-icon" size={24} /> Your preference list starts here</h4>
+                      <p>
+                        Think of this as a practice run for KEA's real "Option Entry" step — where you'll rank
+                        every college you'd accept, in order of preference, before the actual counselling round.
+                      </p>
+                      <p className="option-empty-steps">
+                        Browse colleges on <strong>Explore</strong> or check your matches on <strong>Predictor</strong>,
+                        then tap the <span className="pill">+ Add</span> button on any college — it'll show up right here, ready to reorder.
+                      </p>
+                      <div className="option-empty-actions">
+                        <button className="home-cta primary" onClick={() => navigateTo('explore')}><Search className="lucide-icon" size={18} /> Go to Explore</button>
+                        <button className="home-cta" onClick={() => navigateTo('predictor')}><Target className="lucide-icon" size={24} /> Go to Predictor</button>
+                      </div>
                     </div>
-                  </div>
+                  ) : (
+                    <>
+                      <div className="option-toolbar">
+                        <span>{optionEntries.length} college{optionEntries.length !== 1 ? 's' : ''} in your list</span>
+                        <div className="option-toolbar-actions">
+                          <button className="whatsapp-share-btn" onClick={shareOptionListOnWhatsApp}>
+                            <MessageCircle className="lucide-icon" size={18} /> Share on WhatsApp
+                          </button>
+                          <button className="pdf-download-btn" onClick={downloadOptionListPDF}>
+                            <FileText className="lucide-icon" size={18} /> Download PDF
+                          </button>
+                          <button className="clear-options-btn" onClick={clearOptionList}>
+                            <Trash2 size={15} /> Clear All
+                          </button>
+                        </div>
+                      </div>
 
-                  <p style={{ fontSize: '0.8rem', color: 'var(--muted)', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    ☰ Hold and drag any row to reorder your priority list.
-                  </p>
+                      <p style={{ fontSize: '0.8rem', color: 'var(--muted)', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                        <GripVertical size={14} /> Hold and drag any row to reorder your priority list.
+                      </p>
 
-                  <OptionEntryList
-                    optionEntries={optionEntries}
-                    setOptionEntries={setOptionEntries}
-                    formatCategory={formatCategory}
-                    formatFees={formatFees}
-                    showFees={showFees}
-                    setSelectedCollege={setSelectedCollege}
-                    removeFromOptionList={removeFromOptionList}
-                  />
+                      <OptionEntryList
+                        optionEntries={optionEntries}
+                        setOptionEntries={setOptionEntries}
+                        formatCategory={formatCategory}
+                        formatFees={formatFees}
+                        showFees={showFees}
+                        setSelectedCollege={setSelectedCollege}
+                        removeFromOptionList={removeFromOptionList}
+                      />
 
-                  <p className="option-disclaimer">
-                    <AlertTriangle className="lucide-icon" size={18} /> This list is for your own planning only. It is not submitted anywhere — you must still enter your
-                    official options on the KEA counselling portal.
-                  </p>
-                </>
+                      <p className="option-disclaimer">
+                        <AlertTriangle className="lucide-icon" size={18} /> This list is for your own planning only. It is not submitted anywhere — you must still enter your
+                        official options on the KEA counselling portal.
+                      </p>
+                    </>
+                  )}
+                </div>
+              )}
+
+              {/* AI Strategy Analyser mode */}
+              {optionMode === 'ai' && (
+                <AiOptionAnalyser
+                  dataSource={dataSource}
+                  dynamicCategories={dynamicCategories}
+                  initialRank={userRank}
+                  initialCategory={predictorCategory}
+                  initialStream={predictorStream}
+                  formatCategory={formatCategory}
+                  formatFees={formatFees}
+                  showFees={showFees}
+                  onApplyToOptionList={(entries) => { setOptionEntries(entries); setOptionMode('manual'); }}
+                  existingOptionEntries={optionEntries}
+                  setSelectedCollege={setSelectedCollege}
+                  navigateTo={navigateTo}
+                />
               )}
             </div>
           )}
@@ -3607,7 +3651,7 @@ export default function Dashboard() {
                     href="upi://pay?pa=eshwarhs170@oksbi&pn=Eshwar%20HS&tn=NammaUGNEET%20Support&cu=INR"
                     style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'linear-gradient(135deg, #10b981, #059669)', color: '#fff', fontWeight: '700', fontSize: '0.95rem', padding: '12px 28px', borderRadius: '10px', textDecoration: 'none', boxShadow: '0 4px 14px rgba(16,185,129,0.35)' }}
                   >
-                    💳 Pay via GPay / PhonePe / UPI
+                    <Wallet size={18} /> Pay via GPay / PhonePe / UPI
                   </a>
                 </div>
                 <p style={{ fontSize: '0.9rem', color: 'var(--text-tertiary)', marginTop: '1rem' }}>

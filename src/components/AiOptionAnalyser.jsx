@@ -420,7 +420,7 @@ export default function AiOptionAnalyser({
       });
 
       // Sort with strict counselling hierarchy:
-      // "make sure u give the order as per rank, then amount, less amount give first"
+      // "give rank 1st priority then fee"
       classified.sort((a, b) => {
         // Rule 1: Premier institutes benchmark (Bangalore Medical College M001MG is ALWAYS #1 for Medical)
         if (stream === 'MEDICAL') {
@@ -431,35 +431,34 @@ export default function AiOptionAnalyser({
           if (b.collegeCode === 'D101DG') return 1;
         }
 
-        // Rule 2: Seat type fee tiers ("less amount give first")
-        // Govt seats (Tier 1: ~₹65k) -> Govt in Pvt (Tier 2: ~₹1.5L) -> Private (Tier 3: ~₹12L) -> High/NRI (Tier 4: ~₹25L+)
+        // Rule 2: Seat type fee tiers (Govt -> Govt in Pvt -> Pvt -> High/NRI)
         const feeTierA = getFeeTier(a.fees, stream);
         const feeTierB = getFeeTier(b.fees, stream);
         if (feeTierA !== feeTierB) {
           return feeTierA - feeTierB;
         }
 
-        // Rule 3: Regional preference within close cutoff ranks (within 4,000 ranks)
+        // Rule 3: Regional preference only if student explicitly chose a region (within close ranks)
         if (regionPriority !== 'ALL' && a.inPreferredRegion !== b.inPreferredRegion) {
           const rankGap = Math.abs(a.rank - b.rank);
-          if (rankGap < 4000) {
+          if (rankGap < 1500) {
             return a.inPreferredRegion ? -1 : 1;
           }
         }
 
-        // Rule 4: Cutoff rank prestige (lower rank = higher demand = higher priority)
+        // Rule 4: Rank 1st Priority (lower cutoff rank = higher merit/demand = higher priority)
         const rankDiff = a.rank - b.rank;
-        if (Math.abs(rankDiff) > 2500) {
+        if (rankDiff !== 0) {
           return rankDiff;
         }
 
-        // Rule 5: "less amount give first" (cheaper fee comes first when cutoffs are close)
+        // Rule 5: Fee 2nd Priority (if cutoff ranks are equal, cheaper fee comes first)
         const feeDiff = (a.fees || 0) - (b.fees || 0);
         if (feeDiff !== 0) {
           return feeDiff;
         }
 
-        return rankDiff;
+        return 0;
       });
 
       // Slice to user's desired options count (or all options if 999)

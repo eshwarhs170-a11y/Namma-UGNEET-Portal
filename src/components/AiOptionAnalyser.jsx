@@ -19,7 +19,8 @@ import {
   Layers,
   Info,
   ExternalLink,
-  ChevronRight
+  ChevronRight,
+  SlidersHorizontal
 } from 'lucide-react';
 
 export default function AiOptionAnalyser({
@@ -36,6 +37,16 @@ export default function AiOptionAnalyser({
   setSelectedCollege,
   navigateTo
 }) {
+  const safeFormatCategory = typeof formatCategory === 'function' ? formatCategory : (c) => c;
+  const safeFormatFees = typeof formatFees === 'function' ? formatFees : (f) => f ? `₹${Number(f).toLocaleString('en-IN')}` : 'N/A';
+
+  const categoriesList = useMemo(() => {
+    if (Array.isArray(dynamicCategories) && dynamicCategories.length > 0) {
+      return dynamicCategories;
+    }
+    return ['GM', '1G', '2A', '2B', '3A', '3B', 'SCG', 'STG'];
+  }, [dynamicCategories]);
+
   // Questionnaire states
   const [rankInput, setRankInput] = useState(initialRank || '');
   const [category, setCategory] = useState(initialCategory || 'GM');
@@ -380,7 +391,7 @@ export default function AiOptionAnalyser({
               onChange={(e) => setCategory(e.target.value)}
               className="ai-select"
             >
-              {dynamicCategories.map((c) => (
+              {categoriesList.map((c) => (
                 <option key={c} value={c}>
                   {c} {c === 'GM' ? '(General Merit)' : ''}
                 </option>
@@ -594,11 +605,11 @@ export default function AiOptionAnalyser({
                   <div className="ai-card-meta-row">
                     <span>{item.courseDetails || 'MBBS-GOVT'}</span>
                     <span>·</span>
-                    <span>Quota: {formatCategory(item.category)}</span>
+                    <span>Quota: {safeFormatCategory(item.category)}</span>
                     {showFees && (
                       <>
                         <span>·</span>
-                        <span className="ai-fee-highlight">Fee: {formatFees(item.fees)}</span>
+                        <span className="ai-fee-highlight">Fee: {safeFormatFees(item.fees)}</span>
                       </>
                     )}
                     <span>·</span>

@@ -623,10 +623,6 @@ export default function AiOptionAnalyser({
           </div>
           <div>
             <h3 className="ai-card-title">AI Option Entry Strategy Generator</h3>
-            <p className="ai-card-subtitle">
-              Answer 5 quick questions. The algorithm will structure your list following official KEA counselling rules: 
-              <strong> Premier Ambition choices first</strong> (like BMCRI/MMCRI), followed by <strong>Target Matches</strong>, and <strong>Safe Backups</strong>.
-            </p>
           </div>
         </div>
 

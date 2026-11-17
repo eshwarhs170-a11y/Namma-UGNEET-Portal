@@ -300,14 +300,14 @@ html, body {
 .tour-fab {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
   background: var(--solid-accent-bg);
   color: var(--accent-text);
   border: none;
   border-radius: 24px;
-  padding: 10px 18px;
+  padding: 11px 20px;
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   cursor: pointer;
   box-shadow: 0 6px 18px rgba(27, 42, 74, 0.25);
   transition: transform 0.15s ease;
@@ -531,8 +531,8 @@ html, body {
 }
 
 .brand-mark {
-  width: 38px; /* reduced from 46px */
-  height: 38px; /* reduced from 46px */
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   flex-shrink: 0;
   display: block;
@@ -543,7 +543,7 @@ html, body {
   font-family: var(--font-display);
   font-weight: 700;
   color: var(--ink);
-  font-size: 0.95rem; /* reduced from 1.05rem */
+  font-size: 1.1rem;
   line-height: 1.2;
   white-space: nowrap;
   overflow: hidden;
@@ -805,10 +805,10 @@ html, body {
   .ticket-hero { padding: 18px; }
 
   .stat-row { font-size: 0.78rem; }
-  .brand-name { font-size: 0.95rem; }
+  .brand-name { font-size: 1.05rem; }
 
   .top-fab-row { top: 12px; right: 12px; gap: 6px; }
-  .tour-fab, .install-fab { padding: 8px 12px; font-size: 0.76rem; }
+  .tour-fab, .install-fab { padding: 9px 14px; font-size: 0.82rem; }
   .tour-card { padding: 20px; }
   .back-home-btn { font-size: 0.8rem; padding: 7px 12px; }
 }

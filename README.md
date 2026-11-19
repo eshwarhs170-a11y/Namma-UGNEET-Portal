@@ -19,22 +19,6 @@ Key capabilities:
 
 ---
 
-## ✦ AI Option Entry Strategy Generator
-
-The AI Option Entry Analyser is built specifically according to official KEA counselling guidelines and sequential seat allocation logic:
-
-1. **Zero Disadvantage Strategy**: In KEA counselling, choices are processed strictly from top to bottom. If a candidate doesn't qualify for option #1, they automatically roll over to option #2 without losing eligibility. Therefore, top premier institutes (e.g., Bangalore Medical College `M001MG`) are always placed at the very top of the list.
-2. **Three-Tier Classification**:
-   - **Premier Ambition (Dream)**: Cutoff rank is strictly higher than candidate rank — high-demand, prestigious aspirational institutions.
-   - **Target Match (Target)**: Cutoff rank falls comfortably within the candidate's competitive range.
-   - **Safe Backup (Safe)**: Cutoff rank provides a guaranteed cushion, preventing counselling exit without a seat.
-3. **Comprehensive Quota & Reservation Cascading**: Handles category eligibility pathways (e.g., 3BR, 3BK, 3BG, GM) so candidates are matched against both their specific reservation quotas and general merit open seats.
-4. **Stream-Specific Fee Budget Filter**: Dynamically configures fee brackets for MBBS (Govt ₹65k, Pvt-Govt ₹1.5L, Pvt ₹12L-₹26L, High/NRI), BDS, and AYUSH streams.
-5. **Strict Priority Sorting**: Rank merit order first, with fee amount as an immediate tiebreaker (lower fee ranked higher if cutoffs match).
-6. **Seamless List Management**: One-click append or replacement into your personal practice list, instant WhatsApp summary generation, and downloadable PDF report.
-
----
-
 ## Data Coverage
 
 | Quota | Years | Rounds | Courses |
@@ -49,7 +33,7 @@ All cutoff data is compiled directly from official KEA and MCC allotment publica
 ## Features
 
 - **Dual Dataset Toggle**: Instantly switch between KEA (Karnataka State Quota) and AIQ (MCC All India Quota) databases.
-- **AI Option Entry Generator**: Multi-tier sequential choice ordering with exportable strategies.
+- **AI Option Entry Strategy Generator**: Automatically builds an optimal sequential preference list based on NEET rank, category cascading, and fee budget. Groups colleges into Premier Ambition (Dream), Target Match, and Safe Backup tiers adhering to KEA sequential counselling rules.
 - **College Predictor Matrix**: Dynamic rank margin sliders (±4,000, etc.) with real-time target matching.
 - **Smart College Search**: Typeahead search prioritized by college name prefix and code matching.
 - **Cutoff Trends**: Sparkline visualizations comparing cutoffs across rounds and years.

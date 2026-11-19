@@ -25,7 +25,15 @@ function CollegeAutocomplete({ value, onChange, onCommit, suggestions, placehold
   const filtered = useMemo(() => {
     if (!value || value.length < 1) return [];
     const q = value.toLowerCase();
-    return suggestions.filter(s => s.toLowerCase().includes(q)).slice(0, 10);
+    const matched = suggestions.filter(s => s.toLowerCase().includes(q));
+    // Sort: colleges whose name STARTS with the query come first, then contains
+    matched.sort((a, b) => {
+      const aStarts = a.toLowerCase().startsWith(q) ? 0 : 1;
+      const bStarts = b.toLowerCase().startsWith(q) ? 0 : 1;
+      if (aStarts !== bStarts) return aStarts - bStarts;
+      return a.localeCompare(b);
+    });
+    return matched.slice(0, 12);
   }, [value, suggestions]);
 
   const updateRect = () => {

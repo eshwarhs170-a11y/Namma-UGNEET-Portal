@@ -1,9 +1,5 @@
 import React from 'react';
-import { 
-  Search, Target, Info, AlertTriangle, Lock, Unlock, ScrollText, Mail, 
-  Star, Trash2, FileText, MessageCircle, School, User, PenTool, Lightbulb, 
-  Coffee, RefreshCw, Frown, Circle, BarChart3, Check, X
-} from 'lucide-react';
+import { Frown } from 'lucide-react';
 
 
 // Catches any rendering error in the component tree below it and shows a

@@ -3,7 +3,7 @@ import DashboardMongo from './components/DashboardMongo';
 
 function App() {
   return (
-    <div className="app-container" style={{ backgroundColor: '#fcfcfc', minHeight: '100vh' }}>
+    <div className="app-container">
       <DashboardMongo />
     </div>
   );
